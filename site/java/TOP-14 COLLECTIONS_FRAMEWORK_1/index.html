@@ -16,7 +16,7 @@
         <link rel="prev" href="../TOP-13%20STRING_STRING_BUILDER_AND_BUFFER/">
       
       
-        <link rel="next" href="../../dsa/">
+        <link rel="next" href="../TOP-15%20COLLECTIONS_FRAMEWORK_2/">
       
       
         
@@ -770,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+      <a href="../TOP-15%20COLLECTIONS_FRAMEWORK_2/" class="md-nav__link">
         
   
   
@@ -1120,27 +1120,27 @@ Today we start Phase 1.</p>
 </ul>
 <hr />
 <h1 id="2-core-interface-hierarchy-very-important">🔹 2️⃣ Core Interface Hierarchy (VERY IMPORTANT)</h1>
-<pre><code>                 Iterable
-                    |
-                Collection
-               /    |     \
-            List   Set    Queue
-                             |
-                           Deque
-
-Map (separate hierarchy)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                 Iterable
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                    |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                Collection
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>               /    |     \
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            List   Set    Queue
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                             |
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                           Deque
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Map (separate hierarchy)
+</span></code></pre></div>
 <p>Important:
 👉 Map does NOT extend Collection.</p>
 <hr />
 <h1 id="3-iterable-vs-collection">🔹 3️⃣ Iterable vs Collection</h1>
 <h2 id="iterable">Iterable</h2>
 <p>Contains only:</p>
-<pre><code class="language-java">Iterator&lt;T&gt; iterator();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">iterator</span><span class="p">();</span>
+</span></code></pre></div>
 <p>Allows:</p>
-<pre><code class="language-java">for (T item : collection)
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span>
+</span></code></pre></div>
 <hr />
 <h2 id="collection">Collection</h2>
 <p>Adds:</p>
@@ -1200,10 +1200,10 @@ Map (separate hierarchy)
 <li>Allows duplicate elements</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-list.add(10);
-list.add(10);   // allowed
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">   </span><span class="c1">// allowed</span>
+</span></code></pre></div>
 <hr />
 <h3 id="2-set">2️⃣ Set</h3>
 <ul>
@@ -1227,29 +1227,29 @@ list.add(10);   // allowed
 <li>No restriction</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();
-map.put(1, &quot;A&quot;);
-map.put(2, &quot;A&quot;);   // allowed
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">);</span><span class="w">   </span><span class="c1">// allowed</span>
+</span></code></pre></div>
 <hr />
 <h1 id="interview-trap">🔥 Interview Trap</h1>
 <p>What happens here?</p>
-<pre><code class="language-java">Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
-map.put(&quot;A&quot;, 1);
-map.put(&quot;A&quot;, 2);
-
-System.out.println(map.size());
-System.out.println(map.get(&quot;A&quot;));
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">));</span>
+</span></code></pre></div>
 <p>👍 Output:</p>
-<pre><code>size: 1
-get: 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>size: 1
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>get: 2
+</span></code></pre></div>
 <hr />
 <h1 id="why_1">Why?</h1>
-<pre><code class="language-java">map.put(&quot;A&quot;, 1);
-map.put(&quot;A&quot;, 2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</span></code></pre></div>
 <p>HashMap rule:</p>
 <ul>
 <li>Keys must be unique.</li>
@@ -1263,13 +1263,13 @@ map.put(&quot;A&quot;, 2);
 <li>Replaces value 1 with 2</li>
 </ul>
 <p>Final map:</p>
-<pre><code>&quot;A&quot; → 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;A&quot; → 2
+</span></code></pre></div>
 <hr />
 <h3 id="therefore">Therefore:</h3>
-<pre><code class="language-java">map.size() → 1
-map.get(&quot;A&quot;) → 2
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">map</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="mi">2</span>
+</span></code></pre></div>
 <hr />
 <h1 id="very-important-concept-deep">🔥 Very Important Concept (Deep)</h1>
 <p>When inserting into HashMap:</p>
@@ -1304,9 +1304,9 @@ map.get(&quot;A&quot;) → 2
 <hr />
 <h1 id="internal-structure">🔥 Internal Structure</h1>
 <p>Internally:</p>
-<pre><code class="language-java">transient Object[] elementData;
-int size;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">transient</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">elementData</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+</span></code></pre></div>
 <p>It uses:</p>
 <ul>
 <li>A dynamic array</li>
@@ -1314,8 +1314,8 @@ int size;
 <hr />
 <h1 id="default-capacity">🔥 Default Capacity</h1>
 <p>In Java 8+:</p>
-<pre><code class="language-java">new ArrayList&lt;&gt;();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
 <p>Initially:</p>
 <ul>
 <li>elementData is empty array (size 0)</li>
@@ -1328,8 +1328,8 @@ int size;
 <hr />
 <h1 id="resizing-formula">🔥 Resizing Formula</h1>
 <p>When capacity exceeded:</p>
-<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</span></code></pre></div>
 <p>That means:</p>
 <ul>
 <li>10 → 15</li>
@@ -1372,15 +1372,15 @@ int size;
 <hr />
 <h1 id="now-deep-interview-question">🔥 Now Deep Interview Question</h1>
 <p>Why is add() amortized O(1) and not O(1) always?</p>
-<pre><code class="language-text">&gt; When the array becomes full, a new array is created with larger capacity and elements are copied. That is the reason.
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>&gt; When the array becomes full, a new array is created with larger capacity and elements are copied. That is the reason.
+</span></code></pre></div>
 <p>Now let’s refine this into a <strong>perfect interview answer</strong>.</p>
 <hr />
 <h1 id="why-is-add-amortized-o1">✅ Why is <code>add()</code> amortized O(1)?</h1>
 <p>ArrayList uses a dynamic array.</p>
 <p>Most of the time:</p>
-<pre><code class="language-java">list.add(element);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>Just places element at <code>elementData[size]</code></li>
 <li>Increments size</li>
@@ -1395,8 +1395,8 @@ int size;
 <h1 id="why-still-called-amortized-o1">🧠 Why still called amortized O(1)?</h1>
 <p>Because resizing does not happen on every insert.</p>
 <p>Example growth:</p>
-<pre><code>10 → 15 → 22 → 33 → ...
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>10 → 15 → 22 → 33 → ...
+</span></code></pre></div>
 <p>Resizing happens rarely.</p>
 <p>If you insert 1000 elements:</p>
 <ul>
@@ -1411,36 +1411,36 @@ int size;
 <hr />
 <h1 id="deep-insight-senior-level">🔥 Deep Insight (Senior-Level)</h1>
 <p>Total cost of inserting n elements:</p>
-<pre><code>O(1 + 2 + 4 + 8 + ... + n) ≈ O(n)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>O(1 + 2 + 4 + 8 + ... + n) ≈ O(n)
+</span></code></pre></div>
 <p>Divide by n operations → average = O(1)</p>
 <hr />
 <h1 id="now-important-trap">🔥 Now Important Trap</h1>
 <p>Predict behavior:</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(2);
-list.add(1);
-list.add(2);
-list.add(3);
-
-System.out.println(list.size());
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+</span></code></pre></div>
 <p>What prints?</p>
 <p>Also:
 What was the capacity after adding 3rd element?</p>
 <hr />
 <h1 id="1-size">1️⃣ Size</h1>
-<pre><code class="language-java">System.out.println(list.size());
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+</span></code></pre></div>
 <p>You added 3 elements.</p>
 <p>So:</p>
-<pre><code>3
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>3
+</span></code></pre></div>
 <p>Correct.</p>
 <hr />
 <h1 id="2-capacity-after-adding-3rd-element">2️⃣ Capacity After Adding 3rd Element</h1>
 <p>Initial:</p>
-<pre><code class="language-java">new ArrayList&lt;&gt;(2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></code></pre></div>
 <p>So:</p>
 <ul>
 <li>capacity = 2</li>
@@ -1452,32 +1452,32 @@ What was the capacity after adding 3rd element?</p>
 </ul>
 <p>When you add 3rd element:</p>
 <p>Capacity growth formula in Java 8+:</p>
-<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</span></code></pre></div>
 <p>For capacity = 2:</p>
-<pre><code>oldCapacity = 2
-oldCapacity &gt;&gt; 1 = 1
-newCapacity = 2 + 1 = 3
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>oldCapacity = 2
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>oldCapacity &gt;&gt; 1 = 1
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>newCapacity = 2 + 1 = 3
+</span></code></pre></div>
 <p>So new capacity becomes:</p>
-<pre><code>3
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>3
+</span></code></pre></div>
 <p>But here is the important part:</p>
 <p>⚠ In some older explanations people assume doubling (like 2 → 4).
 But Java uses 1.5x growth, not 2x.</p>
 <hr />
 <h1 id="important-interview-insight">🔥 Important Interview Insight</h1>
 <p>ArrayList growth:</p>
-<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</span></code></pre></div>
 <p>Which is:</p>
-<pre><code>≈ 1.5 times growth
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>≈ 1.5 times growth
+</span></code></pre></div>
 <hr />
 <h1 id="now-slightly-harder-question">🚀 Now Slightly Harder Question</h1>
 <p>Suppose:</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
 <p>You add first element.</p>
 <p>What is capacity after first add?</p>
 <p>Is it:</p>
@@ -1491,8 +1491,8 @@ But Java uses 1.5x growth, not 2x.</p>
 <p>✅ Answer — the answer is <strong>10</strong> (for Java 8+).</p>
 <hr />
 <h1 id="why_2">Why?</h1>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
 <p>In Java 8+:</p>
 <ul>
 <li>Initially, <code>elementData</code> is an empty array (<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>)</li>
@@ -1500,11 +1500,11 @@ But Java uses 1.5x growth, not 2x.</p>
 <li>No memory allocated for 10 elements yet</li>
 </ul>
 <p>When you add the first element:</p>
-<pre><code class="language-java">list.add(1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Then Java expands capacity to:</p>
-<pre><code>DEFAULT_CAPACITY = 10
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>DEFAULT_CAPACITY = 10
+</span></code></pre></div>
 <p>So after first add:</p>
 <ul>
 <li>size = 1</li>
@@ -1524,9 +1524,9 @@ But Java uses 1.5x growth, not 2x.</p>
 <hr />
 <h1 id="now-harder-question">🔥 Now Harder Question</h1>
 <p>What happens here?</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(0);
-list.add(1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>After adding first element:</p>
 <ul>
 <li>What is capacity?</li>
@@ -1536,28 +1536,28 @@ list.add(1);
 <hr />
 <h1 id="why_3">Why?</h1>
 <p>When you do:</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(0);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></code></pre></div>
 <p>This is different from:</p>
-<pre><code class="language-java">new ArrayList&lt;&gt;();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
 <p>In this case:</p>
 <ul>
 <li>You explicitly set initial capacity to <strong>0</strong></li>
 <li>So <code>elementData</code> is created as an array of size 0</li>
 </ul>
 <p>Now when you add first element:</p>
-<pre><code class="language-java">list.add(1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Growth logic runs:</p>
 <p>Growth formula:</p>
-<pre><code class="language-java">newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">newCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oldCapacity</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">oldCapacity</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span></code></pre></div>
 <p>But oldCapacity = 0</p>
 <p>So Java ensures minimum growth to <strong>1</strong></p>
 <p>So capacity becomes:</p>
-<pre><code>1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>1
+</span></code></pre></div>
 <hr />
 <h1 id="important-difference">🔥 Important Difference</h1>
 <table>
@@ -1593,17 +1593,17 @@ list.add(1);
 <hr />
 <h1 id="now-next-deep-question">🚀 Now Next Deep Question</h1>
 <p>Predict:</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(1);
-list.add(1);
-list.add(2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></code></pre></div>
 <p>What is capacity after adding second element?</p>
 <p>Correct answer: <strong>2</strong></p>
 <p>But wait — let’s analyze properly and very precisely.</p>
 <hr />
 <h1 id="step-by-step">Step-by-step</h1>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Initial:</p>
 <ul>
 <li>capacity = 1</li>
@@ -1619,24 +1619,24 @@ list.add(2);
 <h2 id="now-listadd2">Now <code>list.add(2);</code></h2>
 <p>Capacity is full → resize needed.</p>
 <p>Growth formula (Java 8+):</p>
-<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</span></code></pre></div>
 <p>For oldCapacity = 1:</p>
-<pre><code>1 &gt;&gt; 1 = 0
-newCapacity = 1 + 0 = 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>1 &gt;&gt; 1 = 0
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>newCapacity = 1 + 0 = 1
+</span></code></pre></div>
 <p>But capacity cannot remain 1 because we need space for 2 elements.</p>
 <p>So Java ensures minimum required capacity.</p>
 <p>It calculates:</p>
-<pre><code>minCapacity = size + 1 = 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>minCapacity = size + 1 = 2
+</span></code></pre></div>
 <p>Since computed newCapacity (1) &lt; minCapacity (2),</p>
 <p>It sets:</p>
-<pre><code>newCapacity = minCapacity
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>newCapacity = minCapacity
+</span></code></pre></div>
 <p>So final capacity becomes:</p>
-<pre><code>2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>2
+</span></code></pre></div>
 <hr />
 <h1 id="final-answer">Final Answer</h1>
 <p>Capacity = <strong>2</strong></p>
@@ -1645,27 +1645,27 @@ newCapacity = 1 + 0 = 1
 <p>For small capacities like 0 or 1:</p>
 <p>Java ensures minimum required capacity.</p>
 <p>So growth sometimes behaves like:</p>
-<pre><code>0 → 1
-1 → 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>0 → 1
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>1 → 2
+</span></code></pre></div>
 <p>After that, normal 1.5x growth applies.</p>
 <hr />
 <h1 id="now-harder">🚀 Now Harder</h1>
 <p>Predict capacity after this:</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(2);
-list.add(1);
-list.add(2);
-list.add(3);
-list.add(4);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></code></pre></div>
 <p>What is capacity after adding 4th element?</p>
 <p>Here’s the exact dry run:</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(2); // capacity = 2
-list.add(1); // size=1 cap=2
-list.add(2); // size=2 cap=2 (full)
-list.add(3); // resize: old=2 → new=2+(2&gt;&gt;1)=2+1=3  =&gt; cap=3, size=3
-list.add(4); // full again, resize: old=3 → new=3+(3&gt;&gt;1)=3+1=4 =&gt; cap=4, size=4
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// capacity = 2</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// size=1 cap=2</span>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// size=2 cap=2 (full)</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// resize: old=2 → new=2+(2&gt;&gt;1)=2+1=3  =&gt; cap=3, size=3</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// full again, resize: old=3 → new=3+(3&gt;&gt;1)=3+1=4 =&gt; cap=4, size=4</span>
+</span></code></pre></div>
 <p>✅ <strong>Capacity after adding 4th element = 4</strong></p>
 <hr />
 <p>Next (quick): if capacity is 4 and you add 5th element, what will capacity become?</p>
@@ -1724,8 +1724,8 @@ list.add(4); // full again, resize: old=3 → new=3+(3&gt;&gt;1)=3+1=4 =&gt; cap
 <li>Internally backed by <code>Object[]</code></li>
 <li>Direct index access:</li>
 </ul>
-<pre><code class="language-java">return elementData[index];
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="k">return</span><span class="w"> </span><span class="n">elementData</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+</span></code></pre></div>
 <ul>
 <li>Time complexity: <strong>O(1)</strong> (constant time)</li>
 <li>Because memory is contiguous and index-based</li>
@@ -1733,12 +1733,12 @@ list.add(4); // full again, resize: old=3 → new=3+(3&gt;&gt;1)=3+1=4 =&gt; cap
 <hr />
 <h3 id="linkedlist">🔹 LinkedList</h3>
 <p>Internally:</p>
-<pre><code class="language-text">Node {
-    prev
-    item
-    next
-}
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Node {
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>    prev
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>    item
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>    next
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>}
+</span></code></pre></div>
 <p>To get element at index <code>i</code>:</p>
 <ul>
 <li>It must traverse nodes</li>
@@ -1759,9 +1759,9 @@ list.add(4); // full again, resize: old=3 → new=3+(3&gt;&gt;1)=3+1=4 =&gt; cap
 <li><code>LinkedList.addFirst(element)</code></li>
 </ol>
 <p>Answer carefully with reasoning.</p>
-<pre><code class="language-text">LinkedList.addFirst(element) is faster because adding first element in linked list mean just changing root node of list.
-ArrayList.add(0, element) required O(n) time complexity to add element because its shift all element to right
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>LinkedList.addFirst(element) is faster because adding first element in linked list mean just changing root node of list.
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>ArrayList.add(0, element) required O(n) time complexity to add element because its shift all element to right
+</span></code></pre></div>
 <p>✅ Perfect. That’s exactly the right reasoning.</p>
 <p>Small correction:</p>
 <ul>
@@ -1816,9 +1816,9 @@ ArrayList.add(0, element) required O(n) time complexity to add element because i
 <h1 id="why_4">Why?</h1>
 <h2 id="1-addlastx-o1">1️⃣ addLast(x) → O(1)</h2>
 <p>LinkedList maintains:</p>
-<pre><code class="language-text">first
-last
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>first
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>last
+</span></code></pre></div>
 <p>To add at end:</p>
 <ul>
 <li>Create new node</li>
@@ -1934,10 +1934,10 @@ last
 </ul>
 <p>LinkedList:
 Each node stores:</p>
-<pre><code>item
-prev pointer
-next pointer
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>item
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>prev pointer
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>next pointer
+</span></code></pre></div>
 <p>So for every element:</p>
 <ul>
 <li>Extra 2 references</li>
@@ -2009,31 +2009,31 @@ next pointer
 <p>Small correction:</p>
 <h1 id="correct-deep-explanation-how-hashset-prevents-duplicates">✅ Correct Deep Explanation — How HashSet Prevents Duplicates</h1>
 <p>Internally:</p>
-<pre><code class="language-java">public class HashSet&lt;E&gt; {
-    private transient HashMap&lt;E,Object&gt; map;
-    private static final Object PRESENT = new Object();
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HashSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">transient</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">E</span><span class="p">,</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">;</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">PRESENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>So when you do:</p>
-<pre><code class="language-java">set.add(&quot;A&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Internally it does:</p>
-<pre><code class="language-java">map.put(&quot;A&quot;, PRESENT);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PRESENT</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="step-by-step-how-duplicate-is-prevented">🔎 Step-by-Step How Duplicate Is Prevented</h1>
 <h3 id="step-1-calculate-hashcode">Step 1️⃣ Calculate hashCode()</h3>
 <p>When you insert element:</p>
-<pre><code class="language-java">set.add(element);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+</span></code></pre></div>
 <p>HashSet calls:</p>
-<pre><code class="language-java">element.hashCode()
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="n">element</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
+</span></code></pre></div>
 <hr />
 <h3 id="step-2-find-bucket">Step 2️⃣ Find Bucket</h3>
 <p>Using hashCode, it calculates bucket index:</p>
-<pre><code class="language-text">index = hash &amp; (n - 1)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>index = hash &amp; (n - 1)
+</span></code></pre></div>
 <p>(where n is table length)</p>
 <hr />
 <h3 id="step-3-check-existing-elements-in-bucket">Step 3️⃣ Check Existing Elements in Bucket</h3>
@@ -2042,8 +2042,8 @@ next pointer
 <p>→ Insert new node.</p>
 <h4 id="case-b-bucket-not-empty">Case B: Bucket not empty</h4>
 <p>→ It compares keys using:</p>
-<pre><code class="language-java">equals()
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="n">equals</span><span class="p">()</span>
+</span></code></pre></div>
 <p>If <code>equals()</code> returns true:
 → Duplicate found
 → Do NOT insert
@@ -2081,18 +2081,18 @@ next pointer
 <li>But <code>equals()</code> returns <code>false</code></li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">class Person {
-    int id;
-
-    public int hashCode() {
-        return 1;   // same hash for all
-    }
-
-    public boolean equals(Object o) {
-        return false;   // always different
-    }
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">hashCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">   </span><span class="c1">// same hash for all</span>
+</span><span id="__span-58-6"><a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-58-7"><a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>
+</span><span id="__span-58-8"><a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">equals</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-58-9"><a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">   </span><span class="c1">// always different</span>
+</span><span id="__span-58-10"><a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-58-11"><a id="__codelineno-58-11" name="__codelineno-58-11" href="#__codelineno-58-11"></a><span class="p">}</span>
+</span></code></pre></div>
 <hr />
 <h1 id="what-happens-in-hashset">What Happens in HashSet?</h1>
 <h3 id="step-1-same-hashcode">Step 1️⃣ Same hashCode</h3>
@@ -2203,11 +2203,11 @@ If we override only <code>equals()</code> and not <code>hashCode()</code>, equal
 <hr />
 <h1 id="official-contract-must-memorize">🔥 Official Contract (Must Memorize)</h1>
 <p>If:</p>
-<pre><code class="language-java">a.equals(b) == true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <p>Then:</p>
-<pre><code class="language-java">a.hashCode() == b.hashCode()
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="n">a</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span>
+</span></code></pre></div>
 <p>Must be true.</p>
 <p>But reverse is not required:</p>
 <ul>
@@ -2219,30 +2219,30 @@ If we override only <code>equals()</code> and not <code>hashCode()</code>, equal
 <hr />
 <h1 id="hashmap-internal-structure-java-8">🔹 HashMap Internal Structure (Java 8+)</h1>
 <p>Internally:</p>
-<pre><code class="language-java">Node&lt;K,V&gt;[] table;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;[]</span><span class="w"> </span><span class="n">table</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Each bucket contains:</p>
-<pre><code class="language-java">static class Node&lt;K,V&gt; {
-    final int hash;
-    final K key;
-    V value;
-    Node&lt;K,V&gt; next;
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
+</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="w">    </span><span class="n">V</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-62-5"><a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a><span class="w">    </span><span class="n">Node</span><span class="o">&lt;</span><span class="n">K</span><span class="p">,</span><span class="n">V</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+</span><span id="__span-62-6"><a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>So structure is:</p>
-<pre><code>Array of buckets
-Each bucket → LinkedList OR Tree
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>Array of buckets
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>Each bucket → LinkedList OR Tree
+</span></code></pre></div>
 <hr />
 <h1 id="step-by-step-what-happens-when-you-do">🔥 Step-by-Step: What Happens When You Do</h1>
-<pre><code class="language-java">map.put(key, value);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="step-1-compute-hash">Step 1️⃣ Compute hash</h3>
-<pre><code class="language-java">int hash = hash(key);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="step-2-find-index">Step 2️⃣ Find index</h3>
-<pre><code class="language-java">index = (n - 1) &amp; hash;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
+</span></code></pre></div>
 <p>(n = table length)</p>
 <hr />
 <h3 id="step-3-check-bucket">Step 3️⃣ Check bucket</h3>
@@ -2257,8 +2257,8 @@ Each bucket → LinkedList OR Tree
 <hr />
 <h3 id="step-4-resize-check">Step 4️⃣ Resize Check</h3>
 <p>If:</p>
-<pre><code>size &gt; capacity * loadFactor
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>size &gt; capacity * loadFactor
+</span></code></pre></div>
 <p>Default:</p>
 <ul>
 <li>capacity = 16</li>
@@ -2279,17 +2279,17 @@ loadFactor = 0.75</p>
 <li>Load factor = <strong>0.75</strong></li>
 </ul>
 <p>Resize threshold formula:</p>
-<pre><code>threshold = capacity × loadFactor
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>threshold = capacity × loadFactor
+</span></code></pre></div>
 <p>So:</p>
-<pre><code>16 × 0.75 = 12
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>16 × 0.75 = 12
+</span></code></pre></div>
 <p>Threshold = <strong>12</strong></p>
 <hr />
 <h1 id="when-does-resize-actually-trigger">When Does Resize Actually Trigger?</h1>
 <p>Resize happens when:</p>
-<pre><code>size &gt; threshold
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>size &gt; threshold
+</span></code></pre></div>
 <p>So:</p>
 <ul>
 <li>After inserting 12 elements → size = 12 → OK</li>
@@ -2325,16 +2325,16 @@ Resize happens when size becomes <strong>13</strong></p>
 </ul>
 <p>When inserting 13th element → resize triggered.</p>
 <p>New capacity:</p>
-<pre><code>newCapacity = oldCapacity * 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>newCapacity = oldCapacity * 2
+</span></code></pre></div>
 <p>So:</p>
-<pre><code>16 → 32
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>16 → 32
+</span></code></pre></div>
 <hr />
 <h1 id="what-about-new-threshold">🔥 What about new threshold?</h1>
 <p>Threshold = capacity × loadFactor</p>
-<pre><code>32 × 0.75 = 24
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>32 × 0.75 = 24
+</span></code></pre></div>
 <p>So after resize:</p>
 <ul>
 <li>Capacity = 32</li>
@@ -2376,8 +2376,8 @@ But small refinement: it usually doesn’t “recalculate hashCode()” of the k
 <li>HashMap creates a new <code>Node[] table</code> of size 32</li>
 <li>For each existing entry, it decides the new bucket using:</li>
 </ul>
-<pre><code class="language-text">newIndex = hash &amp; (newCapacity - 1)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>newIndex = hash &amp; (newCapacity - 1)
+</span></code></pre></div>
 <p>Since <code>newCapacity</code> changed, <strong>bucket index changes</strong>, so entries move.</p>
 <hr />
 <h2 id="java-8-optimization-interview-bonus">Java 8 optimization (interview bonus)</h2>
@@ -2389,9 +2389,9 @@ It uses a smart trick:</p>
 <li>moves to <code>index + oldCapacity</code></li>
 </ul>
 <p>Based on one bit:</p>
-<pre><code class="language-text">(hash &amp; oldCapacity) == 0  → stay
-(hash &amp; oldCapacity) != 0  → move to index + oldCapacity
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>(hash &amp; oldCapacity) == 0  → stay
+</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>(hash &amp; oldCapacity) != 0  → move to index + oldCapacity
+</span></code></pre></div>
 <p>This makes resizing faster.</p>
 <hr />
 <h1 id="interview-one-liner_1">🧠 Interview one-liner</h1>
@@ -2421,10 +2421,10 @@ LinkedList → converted to <strong>Red-Black Tree</strong></p>
 <hr />
 <h1 id="important-condition-many-miss-this">🔥 Important Condition (Many Miss This)</h1>
 <p>Treeification happens only if:</p>
-<pre><code>bucket size ≥ 8
-AND
-table capacity ≥ 64
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>bucket size ≥ 8
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>AND
+</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>table capacity ≥ 64
+</span></code></pre></div>
 <p>If capacity &lt; 64:</p>
 <ul>
 <li>HashMap will resize instead of treeify.</li>
@@ -2479,9 +2479,9 @@ table capacity ≥ 64
 <li>Only one null key allowed</li>
 </ul>
 <p>If you insert:</p>
-<pre><code class="language-java">map.put(null, 10);
-map.put(null, 20);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Second one replaces the first.</p>
 <hr />
 <h1 id="3-how-many-null-keys-allowed">3️⃣ How many null keys allowed?</h1>
@@ -2491,9 +2491,9 @@ map.put(null, 20);
 <p>✔ <strong>Yes</strong></p>
 <p>Multiple null values allowed.</p>
 <p>Example:</p>
-<pre><code class="language-java">map.put(&quot;A&quot;, null);
-map.put(&quot;B&quot;, null);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span><span id="__span-78-2"><a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Perfectly valid.</p>
 <hr />
 <h1 id="now-the-important-internal-question">🔥 Now the Important Internal Question</h1>
@@ -2505,12 +2505,12 @@ map.put(&quot;B&quot;, null);
 <hr />
 <h1 id="how-hashmap-handles-null-key-internally">🔥 How HashMap Handles <code>null</code> Key Internally</h1>
 <p>When you do:</p>
-<pre><code class="language-java">map.put(null, &quot;value&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>HashMap logic:</p>
-<pre><code class="language-java">if (key == null)
-    return putForNullKey(value);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">putForNullKey</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</span></code></pre></div>
 <p>It does NOT call <code>hashCode()</code>.</p>
 <p>Instead:</p>
 <ul>
@@ -2518,9 +2518,9 @@ map.put(&quot;B&quot;, null);
 </ul>
 <p>Why?</p>
 <p>Because:</p>
-<pre><code class="language-text">hash(null) = 0
-index = (n - 1) &amp; 0 = 0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>hash(null) = 0
+</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>index = (n - 1) &amp; 0 = 0
+</span></code></pre></div>
 <p>So null key always goes to bucket 0.</p>
 <hr />
 <h1 id="important-interview-insight_2">🧠 Important Interview Insight</h1>
@@ -2548,10 +2548,10 @@ index = (n - 1) &amp; 0 = 0
 <hr />
 <h1 id="the-real-reason-important">🔥 The Real Reason (Important)</h1>
 <p>Hashtable methods are synchronized and older design assumed:</p>
-<pre><code class="language-java">value = table[index];
-if (value == null)
-    // means key not present
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+</span><span id="__span-82-3"><a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="w">    </span><span class="c1">// means key not present</span>
+</span></code></pre></div>
 <p>If null values were allowed:</p>
 <ul>
 <li>
@@ -2575,11 +2575,11 @@ if (value == null)
 <li>Uses <code>containsKey()</code> to differentiate</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">map.put(&quot;A&quot;, null);
-
-map.get(&quot;A&quot;) → null
-map.containsKey(&quot;A&quot;) → true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span><span id="__span-83-2"><a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a>
+</span><span id="__span-83-3"><a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-83-4"><a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a><span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <p>So HashMap can differentiate.</p>
 <hr />
 <h1 id="interview-one-liner_3">🧠 Interview One-Liner</h1>
@@ -2605,8 +2605,8 @@ map.containsKey(&quot;A&quot;) → true
 <li>Can even cause infinite loop during resize (older Java versions)</li>
 </ul>
 <p>So:</p>
-<pre><code class="language-text">HashMap → NOT thread-safe
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>HashMap → NOT thread-safe
+</span></code></pre></div>
 <hr />
 <h1 id="2-hashtable">🔥 2️⃣ Hashtable</h1>
 <ul>
@@ -2615,11 +2615,11 @@ map.containsKey(&quot;A&quot;) → true
 <li>Safe but slow</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">public synchronized V put(K key, V value)
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">K</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+</span></code></pre></div>
 <p>So:</p>
-<pre><code class="language-text">Hashtable → Thread-safe but inefficient
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>Hashtable → Thread-safe but inefficient
+</span></code></pre></div>
 <hr />
 <h1 id="3-concurrenthashmap-most-important">🔥 3️⃣ ConcurrentHashMap (Most Important)</h1>
 <ul>
@@ -2630,8 +2630,8 @@ map.containsKey(&quot;A&quot;) → true
 <li>Much faster than Hashtable</li>
 </ul>
 <p>So:</p>
-<pre><code class="language-text">ConcurrentHashMap → Thread-safe and efficient
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>ConcurrentHashMap → Thread-safe and efficient
+</span></code></pre></div>
 <hr />
 <h1 id="interview-one-liner_4">🧠 Interview One-Liner</h1>
 <blockquote>
@@ -2647,11 +2647,11 @@ map.containsKey(&quot;A&quot;) → true
 <h1 id="why-concurrenthashmap-does-not-allow-null">🔥 Why ConcurrentHashMap does NOT allow null?</h1>
 <p>In concurrent environment:</p>
 <p>If this was allowed:</p>
-<pre><code class="language-java">map.put(&quot;A&quot;, null);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Now if another thread does:</p>
-<pre><code class="language-java">map.get(&quot;A&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>It returns <code>null</code>.</p>
 <p>Now ambiguity:</p>
 <ul>
@@ -2659,8 +2659,8 @@ map.containsKey(&quot;A&quot;) → true
 <li>Or key present but value is null?</li>
 </ul>
 <p>In single-threaded HashMap, you can call:</p>
-<pre><code class="language-java">map.containsKey(&quot;A&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a><span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>But in concurrent environment:</p>
 <p>Between <code>get()</code> and <code>containsKey()</code>:</p>
 <ul>
@@ -2712,31 +2712,31 @@ map.containsKey(&quot;A&quot;) → true
 <h1 id="now-important-concept-fail-fast">🚀 Now Important Concept: Fail-Fast</h1>
 <p>What happens if you modify an ArrayList while iterating using for-each loop?</p>
 <p>Example:</p>
-<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-list.add(1);
-list.add(2);
-list.add(3);
-
-for (Integer i : list) {
-    list.remove(i);
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-91-2"><a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-91-3"><a id="__codelineno-91-3" name="__codelineno-91-3" href="#__codelineno-91-3"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-91-4"><a id="__codelineno-91-4" name="__codelineno-91-4" href="#__codelineno-91-4"></a><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-91-5"><a id="__codelineno-91-5" name="__codelineno-91-5" href="#__codelineno-91-5"></a>
+</span><span id="__span-91-6"><a id="__codelineno-91-6" name="__codelineno-91-6" href="#__codelineno-91-6"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-91-7"><a id="__codelineno-91-7" name="__codelineno-91-7" href="#__codelineno-91-7"></a><span class="w">    </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-91-8"><a id="__codelineno-91-8" name="__codelineno-91-8" href="#__codelineno-91-8"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>What happens?</p>
 <p>✅ Answer: — it throws:</p>
-<pre><code>ConcurrentModificationException
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>ConcurrentModificationException
+</span></code></pre></div>
 <p>Now let’s go deep and make it interview-ready.</p>
 <hr />
 <h1 id="why-concurrentmodificationexception-happens">Why ConcurrentModificationException Happens?</h1>
 <p>When you iterate using:</p>
-<pre><code class="language-java">for (Integer i : list)
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-93-1"><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span>
+</span></code></pre></div>
 <p>Internally it uses an <strong>Iterator</strong>:</p>
-<pre><code class="language-java">Iterator&lt;Integer&gt; it = list.iterator();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-94-1"><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+</span></code></pre></div>
 <p>ArrayList maintains:</p>
-<pre><code class="language-java">modCount
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-95-1"><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a><span class="n">modCount</span>
+</span></code></pre></div>
 <p>Every structural modification:</p>
 <ul>
 <li>add()</li>
@@ -2747,15 +2747,15 @@ for (Integer i : list) {
 <hr />
 <h3 id="what-iterator-stores">What Iterator Stores</h3>
 <p>Iterator stores:</p>
-<pre><code>expectedModCount
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-96-1"><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>expectedModCount
+</span></code></pre></div>
 <p>During iteration:</p>
-<pre><code class="language-java">if (modCount != expectedModCount)
-    throw ConcurrentModificationException;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-97-1"><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">modCount</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">expectedModCount</span><span class="p">)</span>
+</span><span id="__span-97-2"><a id="__codelineno-97-2" name="__codelineno-97-2" href="#__codelineno-97-2"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">ConcurrentModificationException</span><span class="p">;</span>
+</span></code></pre></div>
 <p>So when you modify list directly:</p>
-<pre><code class="language-java">list.remove(i);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-98-1"><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></code></pre></div>
 <p><code>modCount</code> changes
 But iterator’s <code>expectedModCount</code> does not
 → mismatch
@@ -2782,14 +2782,14 @@ But iterator’s <code>expectedModCount</code> does not
 <p>How can you safely remove elements while iterating?</p>
 <h1 id="correct-recommended-approach-interview-answer">✅ Correct &amp; Recommended Approach (Interview Answer)</h1>
 <p>Use <strong>Iterator.remove()</strong></p>
-<pre><code class="language-java">Iterator&lt;Integer&gt; it = list.iterator();
-while (it.hasNext()) {
-    Integer val = it.next();
-    if (val % 2 == 0) {
-        it.remove();  // SAFE
-    }
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-99-1"><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+</span><span id="__span-99-2"><a id="__codelineno-99-2" name="__codelineno-99-2" href="#__codelineno-99-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-99-3"><a id="__codelineno-99-3" name="__codelineno-99-3" href="#__codelineno-99-3"></a><span class="w">    </span><span class="n">Integer</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+</span><span id="__span-99-4"><a id="__codelineno-99-4" name="__codelineno-99-4" href="#__codelineno-99-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-99-5"><a id="__codelineno-99-5" name="__codelineno-99-5" href="#__codelineno-99-5"></a><span class="w">        </span><span class="n">it</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span><span class="w">  </span><span class="c1">// SAFE</span>
+</span><span id="__span-99-6"><a id="__codelineno-99-6" name="__codelineno-99-6" href="#__codelineno-99-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-99-7"><a id="__codelineno-99-7" name="__codelineno-99-7" href="#__codelineno-99-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Why safe?</p>
 <p>Because:</p>
 <ul>
@@ -2805,8 +2805,8 @@ while (it.hasNext()) {
 <hr />
 <h1 id="java-8-best-way">🔥 Java 8+ Best Way</h1>
 <p>Use:</p>
-<pre><code class="language-java">list.removeIf(val -&gt; val % 2 == 0);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-100-1"><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a><span class="n">list</span><span class="p">.</span><span class="na">removeIf</span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Internally safe.</p>
 <hr />
 <h1 id="interview-one-liner_7">🧠 Interview One-Liner</h1>
@@ -2817,37 +2817,37 @@ while (it.hasNext()) {
 <h1 id="now-important-question">🚀 Now Important Question</h1>
 <p>Are HashMap iterators fail-fast?</p>
 <p>Example:</p>
-<pre><code class="language-java">for (String key : map.keySet()) {
-    map.remove(key);
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-101-1"><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-101-2"><a id="__codelineno-101-2" name="__codelineno-101-2" href="#__codelineno-101-2"></a><span class="w">    </span><span class="n">map</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-101-3"><a id="__codelineno-101-3" name="__codelineno-101-3" href="#__codelineno-101-3"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Will this throw exception?</p>
 <p>✅ <strong>Yes, it will throw <code>ConcurrentModificationException</code></strong> (in normal HashMap).</p>
 <hr />
 <h1 id="why_5">Why?</h1>
 <p><code>HashMap</code> iterators are also <strong>fail-fast</strong>, just like ArrayList.</p>
 <p>When you iterate:</p>
-<pre><code class="language-java">for (String key : map.keySet())
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span>
+</span></code></pre></div>
 <p>Internally it uses an iterator over the keySet view, and HashMap also maintains a modification count (<code>modCount</code>).</p>
 <p>If you do:</p>
-<pre><code class="language-java">map.remove(key);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-103-1"><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a><span class="n">map</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span></code></pre></div>
 <p>That’s a <strong>structural modification</strong> while iterating → <code>modCount</code> changes → iterator detects mismatch → throws <code>ConcurrentModificationException</code>.</p>
 <hr />
 <h1 id="correct-ways-to-remove-while-iterating-a-hashmap">✅ Correct ways to remove while iterating a HashMap</h1>
 <h3 id="1-use-iteratorremove">1️⃣ Use iterator.remove()</h3>
-<pre><code class="language-java">Iterator&lt;String&gt; it = map.keySet().iterator();
-while (it.hasNext()) {
-    String key = it.next();
-    if (/* condition */) {
-        it.remove(); // safe
-    }
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-104-1"><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">keySet</span><span class="p">().</span><span class="na">iterator</span><span class="p">();</span>
+</span><span id="__span-104-2"><a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-104-3"><a id="__codelineno-104-3" name="__codelineno-104-3" href="#__codelineno-104-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+</span><span id="__span-104-4"><a id="__codelineno-104-4" name="__codelineno-104-4" href="#__codelineno-104-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="cm">/* condition */</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-104-5"><a id="__codelineno-104-5" name="__codelineno-104-5" href="#__codelineno-104-5"></a><span class="w">        </span><span class="n">it</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span><span class="w"> </span><span class="c1">// safe</span>
+</span><span id="__span-104-6"><a id="__codelineno-104-6" name="__codelineno-104-6" href="#__codelineno-104-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-104-7"><a id="__codelineno-104-7" name="__codelineno-104-7" href="#__codelineno-104-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="2-use-removeif-on-entryset-java-8">2️⃣ Use <code>removeIf</code> on entrySet (Java 8+)</h3>
-<pre><code class="language-java">map.entrySet().removeIf(e -&gt; /* condition */);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a><span class="n">map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">().</span><span class="na">removeIf</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="cm">/* condition */</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="interview-one-liner_8">🧠 Interview One-Liner</h1>
 <blockquote>
@@ -2857,8 +2857,8 @@ while (it.hasNext()) {
 <h1 id="next-treeset-treemap-core-concept">🔥 Next: TreeSet / TreeMap Core Concept</h1>
 <p>Before we move there, answer this:</p>
 <p>What is the difference between <strong>HashMap</strong> and <strong>TreeMap</strong> in terms of ordering and internal data structure? (2–3 lines)</p>
-<pre><code class="language-text">HashMap not maintain sorting order but TreeMap does. Tree map maintains sorted order (based on natural ordering or Comparator). May be HashMap internally use arrays to store bucket and TreeMap use tree data structure.
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-106-1"><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a>HashMap not maintain sorting order but TreeMap does. Tree map maintains sorted order (based on natural ordering or Comparator). May be HashMap internally use arrays to store bucket and TreeMap use tree data structure.
+</span></code></pre></div>
 <p>Now let’s make it interview-perfect.</p>
 <hr />
 <h1 id="correct-difference-hashmap-vs-treemap">✅ Correct Difference: HashMap vs TreeMap</h1>
@@ -2954,11 +2954,11 @@ OR
 <p>TreeMap uses a <strong>Red-Black Tree</strong>.</p>
 <p>To insert a key, it must compare keys:</p>
 <p>Either using:</p>
-<pre><code class="language-java">Comparable.compareTo()
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-107-1"><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a><span class="n">Comparable</span><span class="p">.</span><span class="na">compareTo</span><span class="p">()</span>
+</span></code></pre></div>
 <p>OR</p>
-<pre><code class="language-java">Comparator.compare()
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-108-1"><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a><span class="n">Comparator</span><span class="p">.</span><span class="na">compare</span><span class="p">()</span>
+</span></code></pre></div>
 <p>If keys are not comparable, TreeMap cannot determine:</p>
 <ul>
 <li>left child</li>
@@ -2967,16 +2967,16 @@ OR
 <p>So it fails during insertion.</p>
 <hr />
 <h1 id="example">Example</h1>
-<pre><code class="language-java">class Person {
-    int id;
-}
-
-TreeMap&lt;Person, String&gt; map = new TreeMap&lt;&gt;();
-map.put(new Person(), &quot;A&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-109-1"><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-109-2"><a id="__codelineno-109-2" name="__codelineno-109-2" href="#__codelineno-109-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-109-3"><a id="__codelineno-109-3" name="__codelineno-109-3" href="#__codelineno-109-3"></a><span class="p">}</span>
+</span><span id="__span-109-4"><a id="__codelineno-109-4" name="__codelineno-109-4" href="#__codelineno-109-4"></a>
+</span><span id="__span-109-5"><a id="__codelineno-109-5" name="__codelineno-109-5" href="#__codelineno-109-5"></a><span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">Person</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-109-6"><a id="__codelineno-109-6" name="__codelineno-109-6" href="#__codelineno-109-6"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>This will throw:</p>
-<pre><code>java.lang.ClassCastException
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-110-1"><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a>java.lang.ClassCastException
+</span></code></pre></div>
 <p>Because Person does not implement Comparable and no Comparator provided.</p>
 <hr />
 <h1 id="interview-one-liner_10">🧠 Interview One-Liner</h1>
@@ -2990,9 +2990,9 @@ map.put(new Person(), &quot;A&quot;);
 2️⃣ Comparator</p>
 <p>Explain in 3–4 lines.
 This is very common interview question.</p>
-<pre><code class="language-text">Comparable: It is a interface provide a compare method to decide natural sort order.
-Comparator you can use explicity to sort the collection.
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-111-1"><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a>Comparable: It is a interface provide a compare method to decide natural sort order.
+</span><span id="__span-111-2"><a id="__codelineno-111-2" name="__codelineno-111-2" href="#__codelineno-111-2"></a>Comparator you can use explicity to sort the collection.
+</span></code></pre></div>
 <p>Now let’s make it <strong>interview-perfect + deeper</strong>.</p>
 <hr />
 <h1 id="comparable-vs-comparator-deep-interview-ready">✅ Comparable vs Comparator (Deep + Interview Ready)</h1>
@@ -3001,25 +3001,25 @@ Comparator you can use explicity to sort the collection.
 <li>Package: <code>java.lang</code></li>
 <li>Method:</li>
 </ul>
-<pre><code class="language-java">int compareTo(T o);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-112-1"><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">o</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>Defines <strong>natural ordering</strong></li>
 <li>Class itself implements it</li>
 <li>Only <strong>one natural order</strong> possible</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">class Person implements Comparable&lt;Person&gt; {
-    int age;
-
-    public int compareTo(Person p) {
-        return this.age - p.age;
-    }
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-113-1"><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-113-2"><a id="__codelineno-113-2" name="__codelineno-113-2" href="#__codelineno-113-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-113-3"><a id="__codelineno-113-3" name="__codelineno-113-3" href="#__codelineno-113-3"></a>
+</span><span id="__span-113-4"><a id="__codelineno-113-4" name="__codelineno-113-4" href="#__codelineno-113-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-113-5"><a id="__codelineno-113-5" name="__codelineno-113-5" href="#__codelineno-113-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">age</span><span class="p">;</span>
+</span><span id="__span-113-6"><a id="__codelineno-113-6" name="__codelineno-113-6" href="#__codelineno-113-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-113-7"><a id="__codelineno-113-7" name="__codelineno-113-7" href="#__codelineno-113-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Now:</p>
-<pre><code class="language-java">Collections.sort(list);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-114-1"><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Uses compareTo()</p>
 <hr />
 <h2 id="2-comparator">2️⃣ Comparator</h2>
@@ -3027,17 +3027,17 @@ Comparator you can use explicity to sort the collection.
 <li>Package: <code>java.util</code></li>
 <li>Method:</li>
 </ul>
-<pre><code class="language-java">int compare(T o1, T o2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-115-1"><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">o1</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">o2</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>Used for <strong>custom ordering</strong></li>
 <li>Separate class or lambda</li>
 <li>Multiple sorting strategies possible</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">Comparator&lt;Person&gt; byName = (p1, p2) -&gt; p1.name.compareTo(p2.name);
-Collections.sort(list, byName);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-116-1"><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">byName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="n">p2</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+</span><span id="__span-116-2"><a id="__codelineno-116-2" name="__codelineno-116-2" href="#__codelineno-116-2"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="n">byName</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="key-differences-table">🔥 Key Differences Table</h1>
 <table>
@@ -3102,26 +3102,26 @@ Collections.sort(list, byName);
 <li>NOT <code>equals()</code> to determine uniqueness</li>
 </ul>
 <p>So if:</p>
-<pre><code class="language-java">obj1.compareTo(obj2) == 0
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-117-1"><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a><span class="n">obj1</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">obj2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
+</span></code></pre></div>
 <p>TreeSet treats them as duplicates — even if <code>equals()</code> returns false.</p>
 <hr />
 <h1 id="example_1">Example</h1>
-<pre><code class="language-java">class Person implements Comparable&lt;Person&gt; {
-    int age;
-    String name;
-
-    public int compareTo(Person p) {
-        return this.age - p.age;  // only age considered
-    }
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-118-1"><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-118-2"><a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-118-3"><a id="__codelineno-118-3" name="__codelineno-118-3" href="#__codelineno-118-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-118-4"><a id="__codelineno-118-4" name="__codelineno-118-4" href="#__codelineno-118-4"></a>
+</span><span id="__span-118-5"><a id="__codelineno-118-5" name="__codelineno-118-5" href="#__codelineno-118-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compareTo</span><span class="p">(</span><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-118-6"><a id="__codelineno-118-6" name="__codelineno-118-6" href="#__codelineno-118-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">age</span><span class="p">;</span><span class="w">  </span><span class="c1">// only age considered</span>
+</span><span id="__span-118-7"><a id="__codelineno-118-7" name="__codelineno-118-7" href="#__codelineno-118-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-118-8"><a id="__codelineno-118-8" name="__codelineno-118-8" href="#__codelineno-118-8"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Now:</p>
-<pre><code class="language-java">TreeSet&lt;Person&gt; set = new TreeSet&lt;&gt;();
-
-set.add(new Person(25, &quot;A&quot;));
-set.add(new Person(25, &quot;B&quot;));
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-119-1"><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a><span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-119-2"><a id="__codelineno-119-2" name="__codelineno-119-2" href="#__codelineno-119-2"></a>
+</span><span id="__span-119-3"><a id="__codelineno-119-3" name="__codelineno-119-3" href="#__codelineno-119-3"></a><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">));</span>
+</span><span id="__span-119-4"><a id="__codelineno-119-4" name="__codelineno-119-4" href="#__codelineno-119-4"></a><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">));</span>
+</span></code></pre></div>
 <p>Since compareTo returns 0 (same age):</p>
 <p>Second object is NOT added.</p>
 <p>Even though names differ.</p>
@@ -3146,8 +3146,8 @@ but compareTo() does NOT return 0,</p>
 <h1 id="why_8">🔥 Why?</h1>
 <p>Because:</p>
 <p>TreeSet uses:</p>
-<pre><code class="language-text">compareTo() OR Comparator
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-120-1"><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a>compareTo() OR Comparator
+</span></code></pre></div>
 <p>to determine:</p>
 <ul>
 <li>Order</li>
@@ -3155,11 +3155,11 @@ but compareTo() does NOT return 0,</p>
 </ul>
 <p>It does NOT use <code>equals()</code> to prevent duplicates.</p>
 <p>So if:</p>
-<pre><code class="language-java">obj1.equals(obj2) == true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-121-1"><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a><span class="n">obj1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">obj2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <p>But:</p>
-<pre><code class="language-java">obj1.compareTo(obj2) != 0
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-122-1"><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a><span class="n">obj1</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">obj2</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span>
+</span></code></pre></div>
 <p>TreeSet thinks they are different.</p>
 <hr />
 <h1 id="important-rule-very-important-for-interviews">🚨 Important Rule (Very Important for Interviews)</h1>
@@ -3171,9 +3171,9 @@ but compareTo() does NOT return 0,</p>
 <h1 id="why-this-is-dangerous">🔥 Why This Is Dangerous?</h1>
 <p>Because this violates the general contract:</p>
 <p>Java recommends:</p>
-<pre><code class="language-text">if a.equals(b) == true
-then a.compareTo(b) should return 0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-123-1"><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a>if a.equals(b) == true
+</span><span id="__span-123-2"><a id="__codelineno-123-2" name="__codelineno-123-2" href="#__codelineno-123-2"></a>then a.compareTo(b) should return 0
+</span></code></pre></div>
 <p>If not:</p>
 <ul>
 <li>You may get inconsistent behavior</li>
@@ -3250,7 +3250,7 @@ then a.compareTo(b) should return 0
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

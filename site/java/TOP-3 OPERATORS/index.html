@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+      <a href="../TOP-15%20COLLECTIONS_FRAMEWORK_2/" class="md-nav__link">
         
   
   
@@ -924,38 +924,38 @@
 <hr />
 <h2 id="difference">🔥 Difference</h2>
 <h3 id="post-increment">Post-increment</h3>
-<pre><code class="language-java">int x = 5;
-int y = x++;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Step-by-step:</p>
 <ul>
 <li>y = 5</li>
 <li>then x becomes 6</li>
 </ul>
 <p>Final:</p>
-<pre><code>x = 6
-y = 5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>x = 6
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>y = 5
+</span></code></pre></div>
 <hr />
 <h3 id="pre-increment">Pre-increment</h3>
-<pre><code class="language-java">int x = 5;
-int y = ++x;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Step-by-step:</p>
 <ul>
 <li>x becomes 6</li>
 <li>y = 6</li>
 </ul>
 <p>Final:</p>
-<pre><code>x = 6
-y = 6
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>x = 6
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>y = 6
+</span></code></pre></div>
 <hr />
 <h2 id="dangerous-interview-trap">🔥 Dangerous Interview Trap</h2>
 <p>Predict:</p>
-<pre><code class="language-java">int x = 5;
-System.out.println(x++ + ++x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Solve carefully.</p>
 <p>Step-by-step:</p>
 <ol>
@@ -965,28 +965,28 @@ System.out.println(x++ + ++x);
 </ol>
 <p>Final x = 7</p>
 <p>Output:</p>
-<pre><code>12
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>12
+</span></code></pre></div>
 <hr />
 <p>⚠ Interview tip:
 Avoid writing such confusing code in real projects.</p>
 <hr />
 <h1 id="2-short-circuit-operators">2️⃣ Short-Circuit Operators (<code>&amp;&amp;</code>, <code>||</code>)</h1>
 <h2 id="logical-and">Logical AND</h2>
-<pre><code class="language-java">if (a &gt; 5 &amp;&amp; b &gt; 10)
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</span></code></pre></div>
 <p>If first condition is false → second NOT evaluated.</p>
 <hr />
 <h2 id="example">Example</h2>
-<pre><code class="language-java">int x = 5;
-if (x &gt; 10 &amp;&amp; ++x &gt; 6) {
-}
-System.out.println(x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">}</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Since <code>x &gt; 10</code> is false → <code>++x</code> never executes.</p>
 <p>Output:</p>
-<pre><code>5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>5
+</span></code></pre></div>
 <hr />
 <h2 id="difference-between-and">Difference Between <code>&amp;&amp;</code> and <code>&amp;</code></h2>
 <p><code>&amp;&amp;</code> → short-circuit
@@ -995,31 +995,31 @@ System.out.println(x);
 <p><code>||</code> vs <code>|</code></p>
 <hr />
 <h2 id="interview-trap">🔥 Interview Trap</h2>
-<pre><code class="language-java">int x = 0;
-if (true || ++x &gt; 0) {
-}
-System.out.println(x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Output?</p>
 <p><code>true || anything</code> → second not evaluated</p>
 <p>Output:</p>
-<pre><code>0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>0
+</span></code></pre></div>
 <hr />
 <h1 id="3-ternary-operator">3️⃣ Ternary Operator (<code>?:</code>)</h1>
 <p>Syntax:</p>
-<pre><code class="language-java">condition ? value1 : value2;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">condition</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">value1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">value2</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Example:</p>
-<pre><code class="language-java">int x = 10;
-String result = (x &gt; 5) ? &quot;Big&quot; : &quot;Small&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;Big&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Small&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="trap">🔥 Trap</h2>
-<pre><code class="language-java">int x = 10;
-System.out.println(x &gt; 5 ? x++ : x--);
-System.out.println(x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">x</span><span class="o">--</span><span class="p">);</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Step-by-step:</p>
 <ul>
 <li>condition true</li>
@@ -1027,9 +1027,9 @@ System.out.println(x);
 <li>x becomes 11</li>
 </ul>
 <p>Final output:</p>
-<pre><code>10
-11
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>10
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>11
+</span></code></pre></div>
 <hr />
 <h1 id="4-bitwise-operators">4️⃣ Bitwise Operators</h1>
 <p>Used at binary level.</p>
@@ -1043,54 +1043,54 @@ System.out.println(x);
 <h2 id="unsigned-right-shift"><code>&gt;&gt;&gt;</code> Unsigned right shift</h2>
 <hr />
 <h2 id="example_1">Example</h2>
-<pre><code class="language-java">System.out.println(5 &amp; 3);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Binary:</p>
-<pre><code>5 = 0101
-3 = 0011
---------------
-    0001 = 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>5 = 0101
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>3 = 0011
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>--------------
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    0001 = 1
+</span></code></pre></div>
 <p>Output:</p>
-<pre><code>1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>1
+</span></code></pre></div>
 <hr />
 <h2 id="left-shift_1">Left Shift</h2>
-<pre><code class="language-java">System.out.println(5 &lt;&lt; 1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Binary:</p>
-<pre><code>0101 &lt;&lt; 1 = 1010
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>0101 &lt;&lt; 1 = 1010
+</span></code></pre></div>
 <p>Result:</p>
-<pre><code>10
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>10
+</span></code></pre></div>
 <p>Means:
 <code>5 * 2</code></p>
 <hr />
 <h2 id="right-shift_1">Right Shift</h2>
-<pre><code class="language-java">System.out.println(8 &gt;&gt; 1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Binary:</p>
-<pre><code>1000 &gt;&gt; 1 = 0100
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>1000 &gt;&gt; 1 = 0100
+</span></code></pre></div>
 <p>Result:</p>
-<pre><code>4
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>4
+</span></code></pre></div>
 <p>Means:
 <code>8 / 2</code></p>
 <hr />
 <h1 id="code">Code</h1>
-<pre><code class="language-java">int x = 10;
-int y = x++ + ++x + x++;
-System.out.println(y);
-System.out.println(x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="step-by-step-execution-left-right-evaluation">Step-by-Step Execution (Left → Right Evaluation)</h1>
 <p>Java evaluates operands <strong>left to right</strong>.</p>
 <p>Initial:</p>
-<pre><code>x = 10
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>x = 10
+</span></code></pre></div>
 <hr />
 <h3 id="1-first-term-x">1️⃣ First term → <code>x++</code></h3>
 <p>Post-increment:</p>
@@ -1099,9 +1099,9 @@ System.out.println(x);
 <li>Then increment</li>
 </ul>
 <p>After this:</p>
-<pre><code>Value used = 10
-x = 11
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Value used = 10
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>x = 11
+</span></code></pre></div>
 <hr />
 <h3 id="2-second-term-x">2️⃣ Second term → <code>++x</code></h3>
 <p>Pre-increment:</p>
@@ -1110,9 +1110,9 @@ x = 11
 <li>Then use value → 12</li>
 </ul>
 <p>After this:</p>
-<pre><code>Value used = 12
-x = 12
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Value used = 12
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>x = 12
+</span></code></pre></div>
 <hr />
 <h3 id="3-third-term-x">3️⃣ Third term → <code>x++</code></h3>
 <p>Post-increment:</p>
@@ -1121,22 +1121,22 @@ x = 12
 <li>Then increment</li>
 </ul>
 <p>After this:</p>
-<pre><code>Value used = 12
-x = 13
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Value used = 12
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>x = 13
+</span></code></pre></div>
 <hr />
 <h3 id="final-calculation">Final Calculation</h3>
-<pre><code>y = 10 + 12 + 12
-y = 34
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>y = 10 + 12 + 12
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>y = 34
+</span></code></pre></div>
 <p>Final:</p>
-<pre><code>x = 13
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>x = 13
+</span></code></pre></div>
 <hr />
 <h1 id="output">✅ Output</h1>
-<pre><code>34
-13
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>34
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>13
+</span></code></pre></div>
 <hr />
 <h1 id="interview-insight">⚠ Interview Insight</h1>
 <p>Interviewers use this to test:</p>
@@ -1150,16 +1150,16 @@ y = 34
 It reduces readability and increases bugs.</p>
 <hr />
 <h1 id="code_1">Code</h1>
-<pre><code class="language-java">int x = 5;
-int y = x++ + x++ + ++x;
-System.out.println(y);
-System.out.println(x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="step-by-step-left-right">Step-by-step (Left → Right)</h1>
 <p>Initial:</p>
-<pre><code>x = 5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>x = 5
+</span></code></pre></div>
 <hr />
 <h3 id="1-first-term-x_1">1️⃣ First term → <code>x++</code></h3>
 <ul>
@@ -1186,17 +1186,17 @@ x = 7</p>
 x = 8</p>
 <hr />
 <h1 id="final-calculation_1">Final Calculation</h1>
-<pre><code>y = 5 + 6 + 8
-y = 19
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>y = 5 + 6 + 8
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>y = 19
+</span></code></pre></div>
 <p>Final:</p>
-<pre><code>x = 8
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>x = 8
+</span></code></pre></div>
 <hr />
 <h1 id="output_1">✅ Output</h1>
-<pre><code>19
-8
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>19
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>8
+</span></code></pre></div>
 <hr />
 <h1 id="interview-insight_1">🔥 Interview Insight</h1>
 <p>If interviewer asks:</p>
@@ -1209,15 +1209,15 @@ y = 19
 </blockquote>
 <hr />
 <h1 id="code_2">Code</h1>
-<pre><code class="language-java">int x = 5;
-System.out.println(x++ + x++ + x++);
-System.out.println(x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">);</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="step-by-step-left-right_1">Step-by-step (Left → Right)</h1>
 <p>Initial:</p>
-<pre><code>x = 5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>x = 5
+</span></code></pre></div>
 <hr />
 <h3 id="1-first-x">1️⃣ First <code>x++</code></h3>
 <ul>
@@ -1244,16 +1244,16 @@ x = 7</p>
 x = 8</p>
 <hr />
 <h1 id="final-calculation_2">Final Calculation</h1>
-<pre><code>5 + 6 + 7 = 18
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>5 + 6 + 7 = 18
+</span></code></pre></div>
 <p>Final:</p>
-<pre><code>x = 8
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>x = 8
+</span></code></pre></div>
 <hr />
 <h1 id="output_2">✅ Output</h1>
-<pre><code>18
-8
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>18
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>8
+</span></code></pre></div>
 <hr />
 <h1 id="important-interview-note">🧠 Important Interview Note</h1>
 <p>Java guarantees:</p>
@@ -1264,22 +1264,22 @@ x = 8</p>
 <p>This is defined behavior (unlike C/C++ where this can be undefined).</p>
 <hr />
 <h1 id="code_3">Code</h1>
-<pre><code class="language-java">int x = 1;
-int y = 1;
-
-if (x++ == 1 &amp;&amp; ++y == 2) {
-    x++;
-}
-
-System.out.println(x);
-System.out.println(y);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">++</span><span class="n">y</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">    </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="p">}</span>
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="step-by-step-execution">Step-by-Step Execution</h1>
 <p>Initial:</p>
-<pre><code>x = 1
-y = 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>x = 1
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>y = 1
+</span></code></pre></div>
 <hr />
 <h2 id="1-evaluate-x-1">1️⃣ Evaluate: <code>x++ == 1</code></h2>
 <ul>
@@ -1288,9 +1288,9 @@ y = 1
 <li>1 == 1 → true</li>
 </ul>
 <p>Now:</p>
-<pre><code>x = 2
-y = 1
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>x = 2
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>y = 1
+</span></code></pre></div>
 <p>Since first condition is <strong>true</strong>, second condition will be evaluated (<code>&amp;&amp;</code> needs both true).</p>
 <hr />
 <h2 id="2-evaluate-y-2">2️⃣ Evaluate: <code>++y == 2</code></h2>
@@ -1299,27 +1299,27 @@ y = 1
 <li>2 == 2 → true</li>
 </ul>
 <p>Now:</p>
-<pre><code>x = 2
-y = 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>x = 2
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>y = 2
+</span></code></pre></div>
 <p>Both conditions true → enter <code>if</code> block.</p>
 <hr />
 <h2 id="3-inside-if">3️⃣ Inside if:</h2>
-<pre><code class="language-java">x++;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+</span></code></pre></div>
 <ul>
 <li>Use 2</li>
 <li>x becomes 3</li>
 </ul>
 <p>Now:</p>
-<pre><code>x = 3
-y = 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>x = 3
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>y = 2
+</span></code></pre></div>
 <hr />
 <h1 id="final-output">✅ Final Output</h1>
-<pre><code>3
-2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>3
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>2
+</span></code></pre></div>
 <hr />
 <h1 id="what-interviewer-tests-here">🧠 What Interviewer Tests Here</h1>
 <ul>
@@ -1337,63 +1337,62 @@ int y = 1;</p>
     x++;
 }</p>
 <p>System.out.println(x);
-System.out.println(y);</p>
-<pre><code>
----
-
-## Step-by-step
-
-Initial:
-
-* x = 1
-* y = 1
-
-### 1️⃣ Evaluate `x++ == 2`
-
-* `x++` uses 1, then x becomes 2
-* `1 == 2` → **false**
-
-Now:
-
-* x = 2
-* y = 1
-
-### 2️⃣ Short-circuit happens
-
-Because first part of `&amp;&amp;` is false, Java **will not evaluate** `++y == 2`.
-
-So:
-
-* y stays 1
-* `if` block not executed
-
-✅ Final output:
-
-* 2
-* 1
-
----
-
-# Code
-
-```java
-int x = 10;
-int y = 20;
-
-int z = (x &gt; y) ? x++ : y++;
-System.out.println(z);
-System.out.println(x);
 System.out.println(y);
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>---
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>## Step-by-step
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>
+</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>Initial:
+</span><span id="__span-49-6"><a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>
+</span><span id="__span-49-7"><a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>* x = 1
+</span><span id="__span-49-8"><a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a>* y = 1
+</span><span id="__span-49-9"><a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a>
+</span><span id="__span-49-10"><a id="__codelineno-49-10" name="__codelineno-49-10" href="#__codelineno-49-10"></a>### 1️⃣ Evaluate `x++ == 2`
+</span><span id="__span-49-11"><a id="__codelineno-49-11" name="__codelineno-49-11" href="#__codelineno-49-11"></a>
+</span><span id="__span-49-12"><a id="__codelineno-49-12" name="__codelineno-49-12" href="#__codelineno-49-12"></a>* `x++` uses 1, then x becomes 2
+</span><span id="__span-49-13"><a id="__codelineno-49-13" name="__codelineno-49-13" href="#__codelineno-49-13"></a>* `1 == 2` → **false**
+</span><span id="__span-49-14"><a id="__codelineno-49-14" name="__codelineno-49-14" href="#__codelineno-49-14"></a>
+</span><span id="__span-49-15"><a id="__codelineno-49-15" name="__codelineno-49-15" href="#__codelineno-49-15"></a>Now:
+</span><span id="__span-49-16"><a id="__codelineno-49-16" name="__codelineno-49-16" href="#__codelineno-49-16"></a>
+</span><span id="__span-49-17"><a id="__codelineno-49-17" name="__codelineno-49-17" href="#__codelineno-49-17"></a>* x = 2
+</span><span id="__span-49-18"><a id="__codelineno-49-18" name="__codelineno-49-18" href="#__codelineno-49-18"></a>* y = 1
+</span><span id="__span-49-19"><a id="__codelineno-49-19" name="__codelineno-49-19" href="#__codelineno-49-19"></a>
+</span><span id="__span-49-20"><a id="__codelineno-49-20" name="__codelineno-49-20" href="#__codelineno-49-20"></a>### 2️⃣ Short-circuit happens
+</span><span id="__span-49-21"><a id="__codelineno-49-21" name="__codelineno-49-21" href="#__codelineno-49-21"></a>
+</span><span id="__span-49-22"><a id="__codelineno-49-22" name="__codelineno-49-22" href="#__codelineno-49-22"></a>Because first part of `&amp;&amp;` is false, Java **will not evaluate** `++y == 2`.
+</span><span id="__span-49-23"><a id="__codelineno-49-23" name="__codelineno-49-23" href="#__codelineno-49-23"></a>
+</span><span id="__span-49-24"><a id="__codelineno-49-24" name="__codelineno-49-24" href="#__codelineno-49-24"></a>So:
+</span><span id="__span-49-25"><a id="__codelineno-49-25" name="__codelineno-49-25" href="#__codelineno-49-25"></a>
+</span><span id="__span-49-26"><a id="__codelineno-49-26" name="__codelineno-49-26" href="#__codelineno-49-26"></a>* y stays 1
+</span><span id="__span-49-27"><a id="__codelineno-49-27" name="__codelineno-49-27" href="#__codelineno-49-27"></a>* `if` block not executed
+</span><span id="__span-49-28"><a id="__codelineno-49-28" name="__codelineno-49-28" href="#__codelineno-49-28"></a>
+</span><span id="__span-49-29"><a id="__codelineno-49-29" name="__codelineno-49-29" href="#__codelineno-49-29"></a>✅ Final output:
+</span><span id="__span-49-30"><a id="__codelineno-49-30" name="__codelineno-49-30" href="#__codelineno-49-30"></a>
+</span><span id="__span-49-31"><a id="__codelineno-49-31" name="__codelineno-49-31" href="#__codelineno-49-31"></a>* 2
+</span><span id="__span-49-32"><a id="__codelineno-49-32" name="__codelineno-49-32" href="#__codelineno-49-32"></a>* 1
+</span><span id="__span-49-33"><a id="__codelineno-49-33" name="__codelineno-49-33" href="#__codelineno-49-33"></a>
+</span><span id="__span-49-34"><a id="__codelineno-49-34" name="__codelineno-49-34" href="#__codelineno-49-34"></a>---
+</span><span id="__span-49-35"><a id="__codelineno-49-35" name="__codelineno-49-35" href="#__codelineno-49-35"></a>
+</span><span id="__span-49-36"><a id="__codelineno-49-36" name="__codelineno-49-36" href="#__codelineno-49-36"></a># Code
+</span><span id="__span-49-37"><a id="__codelineno-49-37" name="__codelineno-49-37" href="#__codelineno-49-37"></a>
+</span><span id="__span-49-38"><a id="__codelineno-49-38" name="__codelineno-49-38" href="#__codelineno-49-38"></a>```java
+</span><span id="__span-49-39"><a id="__codelineno-49-39" name="__codelineno-49-39" href="#__codelineno-49-39"></a>int x = 10;
+</span><span id="__span-49-40"><a id="__codelineno-49-40" name="__codelineno-49-40" href="#__codelineno-49-40"></a>int y = 20;
+</span><span id="__span-49-41"><a id="__codelineno-49-41" name="__codelineno-49-41" href="#__codelineno-49-41"></a>
+</span><span id="__span-49-42"><a id="__codelineno-49-42" name="__codelineno-49-42" href="#__codelineno-49-42"></a>int z = (x &gt; y) ? x++ : y++;
+</span><span id="__span-49-43"><a id="__codelineno-49-43" name="__codelineno-49-43" href="#__codelineno-49-43"></a>System.out.println(z);
+</span><span id="__span-49-44"><a id="__codelineno-49-44" name="__codelineno-49-44" href="#__codelineno-49-44"></a>System.out.println(x);
+</span><span id="__span-49-45"><a id="__codelineno-49-45" name="__codelineno-49-45" href="#__codelineno-49-45"></a>System.out.println(y);
+</span></code></pre></div></p>
 <hr />
 <h2 id="step-by-step">Step-by-step</h2>
 <h3 id="condition">Condition:</h3>
-<pre><code class="language-java">x &gt; y
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span>
+</span></code></pre></div>
 <p>10 &gt; 20 → <strong>false</strong></p>
 <p>So ternary chooses the <strong>false branch</strong>:</p>
-<pre><code class="language-java">y++
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="n">y</span><span class="o">++</span>
+</span></code></pre></div>
 <hr />
 <h3 id="evaluate-y">Evaluate <code>y++</code></h3>
 <ul>
@@ -1401,16 +1400,16 @@ System.out.println(y);
 <li>Then increment → y becomes 21</li>
 </ul>
 <p>So:</p>
-<pre><code>z = 20
-y = 21
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>z = 20
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>y = 21
+</span></code></pre></div>
 <p><code>x</code> was never touched.</p>
 <hr />
 <h1 id="final-state">✅ Final State</h1>
-<pre><code>z = 20
-x = 10
-y = 21
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>z = 20
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>x = 10
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>y = 21
+</span></code></pre></div>
 <hr />
 <h1 id="important-interview-insight">🧠 Important Interview Insight</h1>
 <p>In ternary operator:</p>
@@ -1419,21 +1418,21 @@ y = 21
 <p>Unlike <code>if</code> statements where confusion sometimes happens with side effects, ternary is strictly one branch execution.</p>
 <hr />
 <h1 id="code_5">Code</h1>
-<pre><code class="language-java">int x = 5;
-int y = 10;
-
-System.out.println(x &gt; y ? x++ : ++y);
-System.out.println(x);
-System.out.println(y);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">++</span><span class="n">y</span><span class="p">);</span>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h2 id="step-1-evaluate-condition">Step 1: Evaluate condition</h2>
-<pre><code>x &gt; y
-5 &gt; 10 → false
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>x &gt; y
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>5 &gt; 10 → false
+</span></code></pre></div>
 <p>So ternary chooses <strong>false branch</strong>:</p>
-<pre><code>++y
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>++y
+</span></code></pre></div>
 <hr />
 <h2 id="step-2-evaluate-y">Step 2: Evaluate <code>++y</code></h2>
 <p>Pre-increment:</p>
@@ -1442,23 +1441,23 @@ System.out.println(y);
 <li>value used = 11</li>
 </ul>
 <p>So first print:</p>
-<pre><code>11
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>11
+</span></code></pre></div>
 <p>Now:</p>
-<pre><code>x = 5
-y = 11
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>x = 5
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>y = 11
+</span></code></pre></div>
 <hr />
 <h2 id="step-3-print-x-and-y">Step 3: Print x and y</h2>
-<pre><code>5
-11
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>5
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>11
+</span></code></pre></div>
 <hr />
 <h1 id="final-output_1">✅ Final Output</h1>
-<pre><code>11
-5
-11
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>11
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>5
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>11
+</span></code></pre></div>
 <hr />
 <h1 id="what-interviewer-is-testing">🧠 What Interviewer Is Testing</h1>
 <ul>
@@ -1468,16 +1467,16 @@ y = 11
 </ul>
 <hr />
 <h1 id="code_6">Code</h1>
-<pre><code class="language-java">int x = 3;
-int y = 4;
-
-if ((x &amp; 1) == 1 &amp;&amp; (y++ &gt; 3)) {
-    x++;
-}
-
-System.out.println(x);
-System.out.println(y);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>
+</span><span id="__span-61-4"><a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">++</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-61-5"><a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a><span class="w">    </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-61-6"><a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="p">}</span>
+</span><span id="__span-61-7"><a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a>
+</span><span id="__span-61-8"><a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-61-9"><a id="__codelineno-61-9" name="__codelineno-61-9" href="#__codelineno-61-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h2 id="1-evaluate-x-1-1">1️⃣ Evaluate <code>(x &amp; 1) == 1</code></h2>
 <ul>
@@ -1486,8 +1485,8 @@ System.out.println(y);
 <li><code>3 &amp; 1</code> → <code>0001</code> → <strong>1</strong></li>
 </ul>
 <p>So:</p>
-<pre><code class="language-text">(x &amp; 1) == 1  →  true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>(x &amp; 1) == 1  →  true
+</span></code></pre></div>
 <p>Meaning: x is <strong>odd</strong> (common trick to check odd/even).</p>
 <hr />
 <h2 id="2-because-first-part-is-true-evaluate-second-part">2️⃣ Because first part is true, evaluate second part</h2>
@@ -1498,8 +1497,8 @@ System.out.println(y);
 <li>then y becomes 5</li>
 </ul>
 <p>So the full <code>&amp;&amp;</code> becomes:</p>
-<pre><code class="language-text">true &amp;&amp; true → true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>true &amp;&amp; true → true
+</span></code></pre></div>
 <p>So <code>if</code> block runs.</p>
 <hr />
 <h2 id="3-inside-if-x">3️⃣ Inside if: <code>x++;</code></h2>
@@ -1510,9 +1509,9 @@ System.out.println(y);
 <li>y = 5</li>
 </ul>
 <p>✅ Output:</p>
-<pre><code class="language-text">4
-5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>4
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>5
+</span></code></pre></div>
 <hr />
 <h1 id="notes-important-interview-lines">📘 Notes (Important Interview Lines)</h1>
 <ul>
@@ -1527,13 +1526,13 @@ System.out.println(y);
 <li><code>y++</code> changes <code>y</code> even if condition is true/false depending on whether that side executes.</li>
 </ul>
 <hr />
-<pre><code class="language-java">int x = 0;
-int y = 0;
-
-if (x++ == 0 &amp; y++ == 0) { }
-System.out.println(x);
-System.out.println(y);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>
+</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-65-6"><a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div>
 <h2 id="key-point-is-not-short-circuit">Key point: <code>&amp;</code> is <strong>NOT short-circuit</strong></h2>
 <p>Even in boolean expressions, single <code>&amp;</code> evaluates <strong>both sides</strong>.</p>
 <h3 id="left-side-x-0">Left side: <code>x++ == 0</code></h3>
@@ -1583,14 +1582,14 @@ System.out.println(y);
 <p><code>5</code> in binary (8-bit view): <code>00000101</code>
 Shift left 1 → <code>00001010</code> = <code>10</code></p>
 <p>So:</p>
-<pre><code class="language-java">5 &lt;&lt; 1  =&gt; 10
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="mi">5</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">10</span>
+</span></code></pre></div>
 <h3 id="8-1"><code>8 &gt;&gt; 1</code></h3>
 <p><code>8</code>: <code>00001000</code>
 Right shift 1 → <code>00000100</code> = <code>4</code></p>
 <p>So:</p>
-<pre><code class="language-java">8 &gt;&gt; 1  =&gt; 4
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="mi">8</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">4</span>
+</span></code></pre></div>
 <hr />
 <h2 id="4-the-big-interview-trap-negative-numbers">4️⃣ The BIG Interview Trap: negative numbers</h2>
 <h3 id="example-4-1">Example: <code>-4 &gt;&gt; 1</code></h3>
@@ -1603,8 +1602,8 @@ Right shift 1 → <code>00000100</code> = <code>4</code></p>
 <li>result becomes <code>...11111110</code> which is <code>-2</code></li>
 </ul>
 <p>✅ So:</p>
-<pre><code class="language-java">-4 &gt;&gt; 1   =&gt; -2
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span>
+</span></code></pre></div>
 <h3 id="example-4-1_1">Example: <code>-4 &gt;&gt;&gt; 1</code></h3>
 <p>Unsigned right shift fills with <strong>0</strong>:</p>
 <ul>
@@ -1612,8 +1611,8 @@ Right shift 1 → <code>00000100</code> = <code>4</code></p>
 <li>result becomes a <strong>large positive int</strong></li>
 </ul>
 <p>✅ So:</p>
-<pre><code class="language-java">-4 &gt;&gt;&gt; 1  =&gt; 2147483646
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2147483646</span>
+</span></code></pre></div>
 <p>Why that number?</p>
 <ul>
 <li>For <code>int</code> (32-bit), <code>-4</code> is <code>0xFFFFFFFC</code></li>
@@ -1627,8 +1626,8 @@ Right shift 1 → <code>00000100</code> = <code>4</code></p>
 <li>For <code>long</code>: only lower <strong>6 bits</strong> used → <code>n &amp; 63</code> (0–63)</li>
 </ul>
 <p>So:</p>
-<pre><code class="language-java">1 &lt;&lt; 32   // same as 1 &lt;&lt; (32 &amp; 31) = 1 &lt;&lt; 0 = 1
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">32</span><span class="w">   </span><span class="c1">// same as 1 &lt;&lt; (32 &amp; 31) = 1 &lt;&lt; 0 = 1</span>
+</span></code></pre></div>
 <p>This surprises many people.</p>
 <hr />
 <h2 id="6-when-shifts-act-like-multiplydivide">6️⃣ When shifts act like multiply/divide</h2>
@@ -1669,24 +1668,24 @@ Right shift 1 → <code>00000100</code> = <code>4</code></p>
 <hr />
 <h1 id="quick-traps-tiny-but-powerful">🔥 Quick traps (tiny but powerful)</h1>
 <h2 id="trap-1-vs">Trap 1: <code>+</code> vs <code>&lt;&lt;</code></h2>
-<pre><code class="language-java">System.out.println(1 &lt;&lt; 2 + 1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p><code>+</code> happens before <code>&lt;&lt;</code>
 So it becomes <code>1 &lt;&lt; 3</code> = <strong>8</strong></p>
 <h2 id="trap-2-vs">Trap 2: <code>&amp;</code> vs <code>==</code></h2>
-<pre><code class="language-java">System.out.println(1 &amp; 2 == 0);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span></code></pre></div>
 <p><code>==</code> happens before <code>&amp;</code>? Actually: <strong><code>&amp;</code> has lower precedence than <code>==</code></strong>, so <code>2 == 0</code> evaluated first? Wait carefully:</p>
 <ul>
 <li>Precedence: <strong>Equality (==)</strong> is higher than <strong>bitwise AND (&amp;)</strong> ✅
   So expression becomes:</li>
 </ul>
-<pre><code class="language-java">1 &amp; (2 == 0)  // invalid: int &amp; boolean
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="mi">1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="c1">// invalid: int &amp; boolean</span>
+</span></code></pre></div>
 <p>➡️ This does <strong>NOT compile</strong>.</p>
 <p>Correct way:</p>
-<pre><code class="language-java">System.out.println((1 &amp; 2) == 0); // true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// true</span>
+</span></code></pre></div>
 <hr />
 <h1 id="your-notes-snapshot-copy-paste">✅ Your Notes Snapshot (copy-paste)</h1>
 <ul>
@@ -1697,8 +1696,8 @@ So it becomes <code>1 &lt;&lt; 3</code> = <strong>8</strong></p>
 </ul>
 <hr />
 <h3 id="question-1">✅ Question 1</h3>
-<pre><code class="language-java">System.out.println(1 &lt;&lt; 2 + 1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>You answered <strong>8</strong> ✔ Correct.</p>
 <p>Because:</p>
 <ul>
@@ -1707,22 +1706,23 @@ So it becomes <code>1 &lt;&lt; 3</code> = <strong>8</strong></p>
 </ul>
 <hr />
 <h3 id="question-2">✅ Question 2</h3>
-<pre><code class="language-java">System.out.println(-1 &gt;&gt;&gt; 1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Let me explain quickly and finish this topic cleanly.</p>
 <ul>
 <li><code>-1</code> in 32-bit binary = all 1s</li>
 </ul>
-<p><code>11111111 11111111 11111111 11111111</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>11111111 11111111 11111111 11111111
+</span></code></pre></div>
 <ul>
 <li><code>&gt;&gt;&gt; 1</code> shifts right and fills left with <strong>0</strong></li>
 </ul>
 <p>So result becomes:</p>
-<pre><code>01111111 11111111 11111111 11111111
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>01111111 11111111 11111111 11111111
+</span></code></pre></div>
 <p>That equals:</p>
-<pre><code>2147483647
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>2147483647
+</span></code></pre></div>
 <p>So answer is:</p>
 <blockquote>
 <p>2147483647</p>
@@ -1788,7 +1788,7 @@ So it becomes <code>1 &lt;&lt; 3</code> = <strong>8</strong></p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

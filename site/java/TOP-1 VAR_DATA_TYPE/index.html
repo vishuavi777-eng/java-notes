@@ -998,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+      <a href="../TOP-15%20COLLECTIONS_FRAMEWORK_2/" class="md-nav__link">
         
   
   
@@ -1525,8 +1525,8 @@ A <strong>data type</strong> defines what kind of data a variable can store and 
 <hr />
 <h2 id="2-what-happens-internally-deep-understanding">2️⃣ What Happens Internally (Deep Understanding)</h2>
 <p>When you write:</p>
-<pre><code class="language-java">int age = 25;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+</span></code></pre></div>
 <h3 id="what-jvm-does">What JVM Does:</h3>
 <ol>
 <li><code>int</code> → tells JVM to allocate <strong>4 bytes</strong></li>
@@ -1615,8 +1615,8 @@ A <strong>data type</strong> defines what kind of data a variable can store and 
 <li>Interfaces</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">String name = &quot;Vishu&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Vishu&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Here:</p>
 <ul>
 <li><code>name</code> → stored in stack</li>
@@ -1627,10 +1627,10 @@ A <strong>data type</strong> defines what kind of data a variable can store and 
 <h2 id="4-variable-types-based-on-scope">4️⃣ Variable Types (Based on Scope)</h2>
 <h3 id="1-local-variable">1️⃣ Local Variable</h3>
 <p>Declared inside method.</p>
-<pre><code class="language-java">void test() {
-    int x = 10;
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</span></code></pre></div>
 <ul>
 <li>Stored in stack</li>
 <li>No default value</li>
@@ -1639,10 +1639,10 @@ A <strong>data type</strong> defines what kind of data a variable can store and 
 <hr />
 <h3 id="2-instance-variable">2️⃣ Instance Variable</h3>
 <p>Declared inside class but outside method.</p>
-<pre><code class="language-java">class Person {
-    int age;
-}
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+</span></code></pre></div>
 <ul>
 <li>Stored in heap (inside object)</li>
 <li>Gets default value</li>
@@ -1650,8 +1650,8 @@ A <strong>data type</strong> defines what kind of data a variable can store and 
 <hr />
 <h3 id="3-static-variable">3️⃣ Static Variable</h3>
 <p>Belongs to class.</p>
-<pre><code class="language-java">static int count;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+</span></code></pre></div>
 <ul>
 <li>Stored in method area (before Java 8) / metaspace</li>
 <li>One copy for entire class</li>
@@ -1690,31 +1690,31 @@ A <strong>data type</strong> defines what kind of data a variable can store and 
 <hr />
 <h3 id="q5-what-happens-if-you-dont-initialize-local-variable">🔹 Q5: What happens if you don’t initialize local variable?</h3>
 <p>Compilation error:</p>
-<pre><code>variable might not have been initialized
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>variable might not have been initialized
+</span></code></pre></div>
 <hr />
 <h2 id="6-common-traps">6️⃣ Common Traps ⚠️</h2>
 <h3 id="trap-1">❌ Trap 1</h3>
-<pre><code class="language-java">int x;
-System.out.println(x);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></code></pre></div>
 <p>❌ Compile-time error</p>
 <hr />
 <h3 id="trap-2">❌ Trap 2</h3>
-<pre><code class="language-java">long l = 10000000000;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000000000</span><span class="p">;</span>
+</span></code></pre></div>
 <p>❌ Error
 Correct:</p>
-<pre><code class="language-java">long l = 10000000000L;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000000000L</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h3 id="trap-3">❌ Trap 3</h3>
-<pre><code class="language-java">float f = 5.5;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.5</span><span class="p">;</span>
+</span></code></pre></div>
 <p>❌ Error
 Correct:</p>
-<pre><code class="language-java">float f = 5.5f;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.5f</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h3 id="trap-4">❌ Trap 4</h3>
 <p>char size confusion</p>
@@ -1894,9 +1894,9 @@ Heap = Objects + Static variables</p>
 <hr />
 <hr />
 <h2 id="given">Given:</h2>
-<pre><code class="language-java">static final int A = 10;
-static final Integer B = 10;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="1-is-a-compile-time-constant">✅ 1️⃣ Is <code>A</code> compile-time constant?</h2>
 <p>✔ YES.</p>
@@ -1921,11 +1921,11 @@ static final Integer B = 10;
 <p>But:</p>
 <p><code>Integer</code> is an <strong>object</strong>, not primitive.</p>
 <p>So:</p>
-<pre><code class="language-java">Integer B = 10;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Actually becomes:</p>
-<pre><code class="language-java">Integer B = Integer.valueOf(10);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Integer</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></code></pre></div>
 <p>That means:</p>
 <ul>
 <li>Object creation / method call</li>
@@ -1937,30 +1937,30 @@ static final Integer B = 10;
 <p>👉 Only <code>A</code> gets inlined.</p>
 <p>Example:</p>
 <p>Class1:</p>
-<pre><code class="language-java">static final int A = 10;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Class2:</p>
-<pre><code class="language-java">System.out.println(Class1.A);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Class1</span><span class="p">.</span><span class="na">A</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Compiler replaces it with:</p>
-<pre><code class="language-java">System.out.println(10);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></code></pre></div>
 <p>So Class2 does not even access Class1 at runtime.</p>
 <hr />
 <p>But for:</p>
-<pre><code class="language-java">static final Integer B = 10;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Class2 must access Class1 at runtime to get B.</p>
 <p>No inlining.</p>
 <hr />
 <h1 id="very-important-interview-trap">🔥 VERY IMPORTANT INTERVIEW TRAP</h1>
 <p>Suppose:</p>
 <p>Class1:</p>
-<pre><code class="language-java">static final int A = 10;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Class2:</p>
-<pre><code class="language-java">System.out.println(Class1.A);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Class1</span><span class="p">.</span><span class="na">A</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Now you change A to 20 in Class1 and recompile only Class1.</p>
 <p>What happens?</p>
 <p>👉 Class2 will still print 10
@@ -1979,8 +1979,8 @@ Because 10 was already inlined in its bytecode.</p>
 <hr />
 <hr />
 <h1 id="given_1">Given:</h1>
-<pre><code class="language-java">static final String S = &quot;Hello&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="1-is-this-compile-time-constant">✅ 1️⃣ Is this compile-time constant?</h2>
 <p>✔ YES.</p>
@@ -1996,11 +1996,11 @@ Because 10 was already inlined in its bytecode.</p>
 <h2 id="2-will-it-be-inlined">✅ 2️⃣ Will it be inlined?</h2>
 <p>✔ YES.</p>
 <p>If another class uses:</p>
-<pre><code class="language-java">System.out.println(Class1.S);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Class1</span><span class="p">.</span><span class="na">S</span><span class="p">);</span>
+</span></code></pre></div>
 <p>The compiler replaces it with:</p>
-<pre><code class="language-java">System.out.println(&quot;Hello&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>No runtime lookup required.</p>
 <hr />
 <h2 id="3-why-is-string-allowed-but-integer-not">✅ 3️⃣ Why is String allowed but Integer not?</h2>
@@ -2021,8 +2021,8 @@ Because 10 was already inlined in its bytecode.</p>
 <li>String literal expressions are resolved at compile time</li>
 </ul>
 <p>But:</p>
-<pre><code class="language-java">static final Integer B = 10;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
 <p>This is NOT constant because:</p>
 <ul>
 <li>It requires a method call: <code>Integer.valueOf(10)</code></li>
@@ -2033,13 +2033,13 @@ Because 10 was already inlined in its bytecode.</p>
 <hr />
 <h2 id="important-interview-insight">🔥 Important Interview Insight</h2>
 <p>This works:</p>
-<pre><code class="language-java">static final String S1 = &quot;Hello&quot;;
-static final String S2 = &quot;Hel&quot; + &quot;lo&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">S1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">S2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Because <code>"Hel" + "lo"</code> is resolved at compile time.</p>
 <p>But this:</p>
-<pre><code class="language-java">static final String S3 = new String(&quot;Hello&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">S3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>❌ Not compile-time constant
 Because <code>new</code> forces runtime object creation.</p>
 <hr />
@@ -2055,9 +2055,9 @@ Because <code>new</code> forces runtime object creation.</p>
 </ul>
 <hr />
 <h1 id="given_2">Given:</h1>
-<pre><code class="language-java">static final String A = &quot;Hello&quot;;
-static final String B = A + &quot;World&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h2 id="is-b-compile-time-constant">✅ Is B compile-time constant?</h2>
 <p>✔ YES.</p>
@@ -2071,8 +2071,8 @@ static final String B = A + &quot;World&quot;;
 <li>No runtime variable</li>
 </ul>
 <p>So compiler resolves this as:</p>
-<pre><code class="language-java">static final String B = &quot;HelloWorld&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Before bytecode generation.</p>
 <hr />
 <h2 id="why-this-works">🔥 Why this works?</h2>
@@ -2080,9 +2080,9 @@ static final String B = A + &quot;World&quot;;
 <p>It evaluates constant expressions at compile time.</p>
 <hr />
 <h1 id="case-1">Case 1</h1>
-<pre><code class="language-java">static final String A = getValue();
-static final String B = A + &quot;World&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getValue</span><span class="p">();</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <h3 id="why-not-compile-time">Why NOT compile-time?</h3>
 <p>Because <code>getValue()</code> is a <strong>method call</strong> → value known only at <strong>runtime</strong>.</p>
 <p>So <code>A</code> is not a compile-time constant, and therefore <code>B</code> cannot be either.</p>
@@ -2092,9 +2092,9 @@ static final String B = A + &quot;World&quot;;
 </ul>
 <hr />
 <h1 id="case-2">Case 2</h1>
-<pre><code class="language-java">static final String A = &quot;Hello&quot;;
-static final String B = A + new String(&quot;World&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="why-not-compile-time_1">Why NOT compile-time?</h3>
 <p>Because <code>new String("World")</code> creates an object at <strong>runtime</strong>.</p>
 <p>Even though <code>"World"</code> literal is constant, the expression includes <code>new</code>, so the whole expression is not a constant expression.</p>
@@ -2110,17 +2110,17 @@ static final String B = A + new String(&quot;World&quot;);
 ❌ Any <strong>method call</strong>, <strong>new</strong>, <strong>non-final variable</strong>, or <strong>runtime value</strong> breaks it.</p>
 <hr />
 <h2 id="code">Code</h2>
-<pre><code class="language-java">String a = &quot;Hello&quot;;
-String b = &quot;Hel&quot; + &quot;lo&quot;;
-String c = a + &quot;World&quot;;
-String d = &quot;Hello&quot; + &quot;World&quot;;
-String e = a + &quot;lo&quot;;
-
-System.out.println(a == b);   // ?
-System.out.println(c == &quot;HelloWorld&quot;); // ?
-System.out.println(d == &quot;HelloWorld&quot;); // ?
-System.out.println(e == &quot;Hello&quot;); // ?
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">String</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="n">String</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="n">String</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">   </span><span class="c1">// ?</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// ?</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// ?</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// ?</span>
+</span></code></pre></div>
 <hr />
 <h1 id="correct-outputs">✅ Correct outputs</h1>
 <ol>
@@ -2184,10 +2184,10 @@ System.out.println(e == &quot;Hello&quot;); // ?
 Compile-time concatenation → pooled; runtime concatenation → new object (unless you call <code>.intern()</code>).</p>
 <hr />
 <h1 id="given_3">🔎 Given:</h1>
-<pre><code class="language-java">String a = &quot;Hello&quot;;
-String x = a + &quot;World&quot;;
-System.out.println(x.intern() == &quot;HelloWorld&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="n">String</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">intern</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h2 id="step-by-step-what-happens">Step-by-step what happens</h2>
 <h3 id="1-hello">1️⃣ <code>"Hello"</code></h3>
@@ -2225,8 +2225,8 @@ JVM creates a <strong>new String object in heap</strong> (not in pool)</p>
 <li>So <code>intern()</code> returns pooled reference</li>
 </ul>
 <p>Now comparison becomes:</p>
-<pre><code class="language-java">pooled &quot;HelloWorld&quot; == pooled &quot;HelloWorld&quot;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">pooled</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">pooled</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span>
+</span></code></pre></div>
 <p>✔ true</p>
 <hr />
 <h1 id="interview-level-definition-of-intern">🧠 Interview-Level Definition of intern()</h1>
@@ -2235,11 +2235,11 @@ JVM creates a <strong>new String object in heap</strong> (not in pool)</p>
 </blockquote>
 <hr />
 <h1 id="code_1">Code</h1>
-<pre><code class="language-java">String s1 = new String(&quot;ABC&quot;);
-String s2 = s1.intern();
-
-System.out.println(s1 == s2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;ABC&quot;</span><span class="p">);</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ Correct — it prints <strong>false</strong> (in the normal/common case).</p>
 <h2 id="step-by-step">Step-by-step</h2>
 <h3 id="1-abc-literal">1️⃣ <code>"ABC"</code> literal</h3>
@@ -2327,7 +2327,7 @@ System.out.println(s1 == s2);
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
