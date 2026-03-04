@@ -2,8 +2,21 @@ site_name: Vishwambhar Patil Notes
 site_description: Personal Knowledge Base for Java, DSA, Spring Boot, and System Design
 site_author: Vishwambhar Patil
 
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+# Optional: adds a "copy" button on code blocks (Material feature)
 theme:
   name: material
+  features:
+    - content.code.copy
 
 nav:
   - Home: index.md

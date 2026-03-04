@@ -1,0 +1,3260 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Knowledge Base for Java, DSA, Spring Boot, and System Design">
+      
+      
+        <meta name="author" content="Vishwambhar Patil">
+      
+      
+      
+        <link rel="prev" href="../TOP-13%20STRING_STRING_BUILDER_AND_BUFFER/">
+      
+      
+        <link rel="next" href="../../dsa/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Collections Framework Part 1 - Vishwambhar Patil Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#collections-framework-master-plan" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vishwambhar Patil Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Collections Framework Part 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vishwambhar Patil Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-1%20VAR_DATA_TYPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-2%20TYPE_CONVERSION_AND_CASTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-3%20OPERATORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-4%20CONTROL_FLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-5%20MODERN_SWITCH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-6%20METHODS_STACK_FRAMES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Stack Frames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-7%20METHOD_OVERLOADING_OVERRIDING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method Overloading & Overriding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-8%20CONSTRUCTOR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-9%20STATIC_VS_INSTANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static vs Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-10%20FINAL_KEYWORD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-11%20ACCESS_MODIFIERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-12%20ABSTRACT_CLASS_VS_INTERFACE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Class vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-13%20STRING_STRING_BUILDER_AND_BUFFER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 – Foundation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-list-internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 – List Internals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-set-internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 – Set Internals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-map-internals-most-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 – Map Internals (Most Important)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5 – Advanced
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring Boot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1 – Foundation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-list-internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2 – List Internals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-set-internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3 – Set Internals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-map-internals-most-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 4 – Map Internals (Most Important)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 5 – Advanced
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="collections-framework-master-plan">📚 COLLECTIONS FRAMEWORK – MASTER PLAN</h1>
+<p>We will cover in this order:</p>
+<h2 id="phase-1-foundation">Phase 1 – Foundation</h2>
+<ol>
+<li>What is Collections Framework?</li>
+<li>Core Interfaces hierarchy</li>
+<li>Iterable vs Collection vs Map</li>
+<li>Why Map is not a Collection</li>
+</ol>
+<h2 id="phase-2-list-internals">Phase 2 – List Internals</h2>
+<ol>
+<li>ArrayList (internal working, resizing, complexity)</li>
+<li>LinkedList (doubly linked list internals)</li>
+<li>Vector (legacy + synchronization)</li>
+<li>Stack (legacy vs modern)</li>
+</ol>
+<h2 id="phase-3-set-internals">Phase 3 – Set Internals</h2>
+<ol>
+<li>HashSet (uses HashMap internally)</li>
+<li>LinkedHashSet (ordering logic)</li>
+<li>TreeSet (Red-Black Tree internals)</li>
+<li>Comparable vs Comparator</li>
+</ol>
+<h2 id="phase-4-map-internals-most-important">Phase 4 – Map Internals (Most Important)</h2>
+<ol>
+<li>HashMap internal working (bucket, hashing, collisions)</li>
+<li>equals() &amp; hashCode() contract</li>
+<li>Load factor &amp; resizing</li>
+<li>Java 8 treeification (LinkedList → Tree)</li>
+<li>LinkedHashMap</li>
+<li>TreeMap (Red-Black Tree)</li>
+<li>Hashtable vs HashMap</li>
+<li>ConcurrentHashMap (basic intro)</li>
+</ol>
+<h2 id="phase-5-advanced">Phase 5 – Advanced</h2>
+<ol>
+<li>Fail-fast vs Fail-safe</li>
+<li>ConcurrentModificationException</li>
+<li>Collections utility class</li>
+<li>Immutable collections</li>
+<li>Time complexity table</li>
+</ol>
+<hr />
+<p>We go step-by-step.
+Today we start Phase 1.</p>
+<hr />
+<h1 id="1-what-is-collections-framework">🔹 1️⃣ What is Collections Framework?</h1>
+<p>It is a unified architecture for storing and manipulating groups of objects.</p>
+<p>Before Java 1.2:</p>
+<ul>
+<li>Arrays</li>
+<li>Vector</li>
+<li>Hashtable</li>
+</ul>
+<p>After Java 1.2:</p>
+<ul>
+<li>Unified framework introduced</li>
+</ul>
+<hr />
+<h1 id="2-core-interface-hierarchy-very-important">🔹 2️⃣ Core Interface Hierarchy (VERY IMPORTANT)</h1>
+<pre><code>                 Iterable
+                    |
+                Collection
+               /    |     \
+            List   Set    Queue
+                             |
+                           Deque
+
+Map (separate hierarchy)
+</code></pre>
+<p>Important:
+👉 Map does NOT extend Collection.</p>
+<hr />
+<h1 id="3-iterable-vs-collection">🔹 3️⃣ Iterable vs Collection</h1>
+<h2 id="iterable">Iterable</h2>
+<p>Contains only:</p>
+<pre><code class="language-java">Iterator&lt;T&gt; iterator();
+</code></pre>
+<p>Allows:</p>
+<pre><code class="language-java">for (T item : collection)
+</code></pre>
+<hr />
+<h2 id="collection">Collection</h2>
+<p>Adds:</p>
+<ul>
+<li>add()</li>
+<li>remove()</li>
+<li>size()</li>
+<li>contains()</li>
+<li>clear()</li>
+</ul>
+<p>Collection is parent of:</p>
+<ul>
+<li>List</li>
+<li>Set</li>
+<li>Queue</li>
+</ul>
+<hr />
+<h1 id="why-map-is-not-part-of-collection">🔥 Why Map is NOT part of Collection?</h1>
+<p>Collection stores:</p>
+<ul>
+<li>Single elements</li>
+</ul>
+<p>Map stores:</p>
+<ul>
+<li>Key-value pairs</li>
+</ul>
+<p>Map does NOT extend Collection.</p>
+<p>Interview question:</p>
+<blockquote>
+<p>Why Map is not a subtype of Collection?</p>
+</blockquote>
+<p>Answer:</p>
+<blockquote>
+<p>Because Collection represents a group of individual elements, whereas Map represents key-value mappings.</p>
+</blockquote>
+<hr />
+<h1 id="now-deep-question">🔥 Now Deep Question</h1>
+<p>Which of these allow duplicates?</p>
+<ol>
+<li>List</li>
+<li>Set</li>
+<li>Map keys</li>
+<li>Map values</li>
+</ol>
+<p>Answer carefully.</p>
+<p>Answer carefully:</p>
+<p>Which allow duplicates?</p>
+<p>1️⃣ List → ✅ Yes
+2️⃣ Set → ❌ No
+3️⃣ Map keys → ❌ No
+4️⃣ Map values → ✅ Yes</p>
+<hr />
+<h1 id="why">Why?</h1>
+<h3 id="1-list">1️⃣ List</h3>
+<ul>
+<li>Maintains insertion order</li>
+<li>Allows duplicate elements</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+list.add(10);
+list.add(10);   // allowed
+</code></pre>
+<hr />
+<h3 id="2-set">2️⃣ Set</h3>
+<ul>
+<li>No duplicate elements allowed</li>
+<li>Uses equals() to determine duplicates</li>
+</ul>
+<hr />
+<h3 id="3-map-keys">3️⃣ Map Keys</h3>
+<ul>
+<li>Keys must be unique</li>
+<li>Internally uses hashCode() + equals()</li>
+</ul>
+<p>If duplicate key inserted:</p>
+<ul>
+<li>Old value gets replaced</li>
+</ul>
+<hr />
+<h3 id="4-map-values">4️⃣ Map Values</h3>
+<ul>
+<li>Values can be duplicate</li>
+<li>No restriction</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">Map&lt;Integer, String&gt; map = new HashMap&lt;&gt;();
+map.put(1, &quot;A&quot;);
+map.put(2, &quot;A&quot;);   // allowed
+</code></pre>
+<hr />
+<h1 id="interview-trap">🔥 Interview Trap</h1>
+<p>What happens here?</p>
+<pre><code class="language-java">Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+map.put(&quot;A&quot;, 1);
+map.put(&quot;A&quot;, 2);
+
+System.out.println(map.size());
+System.out.println(map.get(&quot;A&quot;));
+</code></pre>
+<p>👍 Output:</p>
+<pre><code>size: 1
+get: 2
+</code></pre>
+<hr />
+<h1 id="why_1">Why?</h1>
+<pre><code class="language-java">map.put(&quot;A&quot;, 1);
+map.put(&quot;A&quot;, 2);
+</code></pre>
+<p>HashMap rule:</p>
+<ul>
+<li>Keys must be unique.</li>
+<li>If same key inserted again → value is <strong>replaced</strong>.</li>
+<li>No new entry created.</li>
+</ul>
+<p>So internally:</p>
+<ul>
+<li>First put → adds entry ("A",1)</li>
+<li>Second put → finds existing key using hashCode + equals</li>
+<li>Replaces value 1 with 2</li>
+</ul>
+<p>Final map:</p>
+<pre><code>&quot;A&quot; → 2
+</code></pre>
+<hr />
+<h3 id="therefore">Therefore:</h3>
+<pre><code class="language-java">map.size() → 1
+map.get(&quot;A&quot;) → 2
+</code></pre>
+<hr />
+<h1 id="very-important-concept-deep">🔥 Very Important Concept (Deep)</h1>
+<p>When inserting into HashMap:</p>
+<p>Steps:</p>
+<ol>
+<li>Calculate <code>hashCode()</code> of key</li>
+<li>Find bucket index</li>
+<li>If bucket empty → insert</li>
+<li>
+<p>If bucket not empty:</p>
+</li>
+<li>
+<p>Compare keys using <code>equals()</code></p>
+</li>
+<li>If equal → replace value</li>
+<li>Else → collision handling</li>
+</ol>
+<p>We will go deep into this next.</p>
+<hr />
+<h1 id="now-moving-to-phase-2-arraylist-deep-internal-working">🚀 Now Moving to Phase 2: ArrayList Deep Internal Working</h1>
+<p>This is very important.</p>
+<hr />
+<h1 id="what-is-arraylist">🔹 What is ArrayList?</h1>
+<p>ArrayList is:</p>
+<ul>
+<li>Resizable array implementation</li>
+<li>Maintains insertion order</li>
+<li>Allows duplicates</li>
+<li>Allows null</li>
+<li>Not synchronized</li>
+</ul>
+<hr />
+<h1 id="internal-structure">🔥 Internal Structure</h1>
+<p>Internally:</p>
+<pre><code class="language-java">transient Object[] elementData;
+int size;
+</code></pre>
+<p>It uses:</p>
+<ul>
+<li>A dynamic array</li>
+</ul>
+<hr />
+<h1 id="default-capacity">🔥 Default Capacity</h1>
+<p>In Java 8+:</p>
+<pre><code class="language-java">new ArrayList&lt;&gt;();
+</code></pre>
+<p>Initially:</p>
+<ul>
+<li>elementData is empty array (size 0)</li>
+<li>First add → capacity becomes 10</li>
+</ul>
+<p>Old Java versions:</p>
+<ul>
+<li>Initial capacity 10 immediately</li>
+</ul>
+<hr />
+<h1 id="resizing-formula">🔥 Resizing Formula</h1>
+<p>When capacity exceeded:</p>
+<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</code></pre>
+<p>That means:</p>
+<ul>
+<li>10 → 15</li>
+<li>15 → 22</li>
+<li>22 → 33
+  (1.5x growth)</li>
+</ul>
+<hr />
+<h1 id="time-complexity">🔥 Time Complexity</h1>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get(index)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>add() at end</td>
+<td>O(1) amortized</td>
+</tr>
+<tr>
+<td>add(index)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>remove(index)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>contains()</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="now-deep-interview-question">🔥 Now Deep Interview Question</h1>
+<p>Why is add() amortized O(1) and not O(1) always?</p>
+<pre><code class="language-text">&gt; When the array becomes full, a new array is created with larger capacity and elements are copied. That is the reason.
+</code></pre>
+<p>Now let’s refine this into a <strong>perfect interview answer</strong>.</p>
+<hr />
+<h1 id="why-is-add-amortized-o1">✅ Why is <code>add()</code> amortized O(1)?</h1>
+<p>ArrayList uses a dynamic array.</p>
+<p>Most of the time:</p>
+<pre><code class="language-java">list.add(element);
+</code></pre>
+<ul>
+<li>Just places element at <code>elementData[size]</code></li>
+<li>Increments size</li>
+<li>Takes <strong>O(1)</strong></li>
+</ul>
+<p>But when the internal array is full:</p>
+<p>1️⃣ A new larger array is created
+2️⃣ All existing elements are copied
+3️⃣ Then the new element is added</p>
+<p>Copying takes <strong>O(n)</strong> time.</p>
+<hr />
+<h1 id="why-still-called-amortized-o1">🧠 Why still called amortized O(1)?</h1>
+<p>Because resizing does not happen on every insert.</p>
+<p>Example growth:</p>
+<pre><code>10 → 15 → 22 → 33 → ...
+</code></pre>
+<p>Resizing happens rarely.</p>
+<p>If you insert 1000 elements:</p>
+<ul>
+<li>Only ~log(n) resizes</li>
+<li>Most inserts are O(1)</li>
+</ul>
+<p>So average per insertion cost becomes constant.</p>
+<p>That is called:</p>
+<blockquote>
+<p>Amortized O(1)</p>
+</blockquote>
+<hr />
+<h1 id="deep-insight-senior-level">🔥 Deep Insight (Senior-Level)</h1>
+<p>Total cost of inserting n elements:</p>
+<pre><code>O(1 + 2 + 4 + 8 + ... + n) ≈ O(n)
+</code></pre>
+<p>Divide by n operations → average = O(1)</p>
+<hr />
+<h1 id="now-important-trap">🔥 Now Important Trap</h1>
+<p>Predict behavior:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(2);
+list.add(1);
+list.add(2);
+list.add(3);
+
+System.out.println(list.size());
+</code></pre>
+<p>What prints?</p>
+<p>Also:
+What was the capacity after adding 3rd element?</p>
+<hr />
+<h1 id="1-size">1️⃣ Size</h1>
+<pre><code class="language-java">System.out.println(list.size());
+</code></pre>
+<p>You added 3 elements.</p>
+<p>So:</p>
+<pre><code>3
+</code></pre>
+<p>Correct.</p>
+<hr />
+<h1 id="2-capacity-after-adding-3rd-element">2️⃣ Capacity After Adding 3rd Element</h1>
+<p>Initial:</p>
+<pre><code class="language-java">new ArrayList&lt;&gt;(2);
+</code></pre>
+<p>So:</p>
+<ul>
+<li>capacity = 2</li>
+</ul>
+<p>After:</p>
+<ul>
+<li>add(1) → size = 1</li>
+<li>add(2) → size = 2 (full now)</li>
+</ul>
+<p>When you add 3rd element:</p>
+<p>Capacity growth formula in Java 8+:</p>
+<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</code></pre>
+<p>For capacity = 2:</p>
+<pre><code>oldCapacity = 2
+oldCapacity &gt;&gt; 1 = 1
+newCapacity = 2 + 1 = 3
+</code></pre>
+<p>So new capacity becomes:</p>
+<pre><code>3
+</code></pre>
+<p>But here is the important part:</p>
+<p>⚠ In some older explanations people assume doubling (like 2 → 4).
+But Java uses 1.5x growth, not 2x.</p>
+<hr />
+<h1 id="important-interview-insight">🔥 Important Interview Insight</h1>
+<p>ArrayList growth:</p>
+<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</code></pre>
+<p>Which is:</p>
+<pre><code>≈ 1.5 times growth
+</code></pre>
+<hr />
+<h1 id="now-slightly-harder-question">🚀 Now Slightly Harder Question</h1>
+<p>Suppose:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+</code></pre>
+<p>You add first element.</p>
+<p>What is capacity after first add?</p>
+<p>Is it:</p>
+<ol>
+<li>0</li>
+<li>1</li>
+<li>10</li>
+<li>16</li>
+</ol>
+<p>Think carefully — this is version-dependent but important for interviews.</p>
+<p>✅ Answer — the answer is <strong>10</strong> (for Java 8+).</p>
+<hr />
+<h1 id="why_2">Why?</h1>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+</code></pre>
+<p>In Java 8+:</p>
+<ul>
+<li>Initially, <code>elementData</code> is an empty array (<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>)</li>
+<li>Capacity is <strong>0</strong></li>
+<li>No memory allocated for 10 elements yet</li>
+</ul>
+<p>When you add the first element:</p>
+<pre><code class="language-java">list.add(1);
+</code></pre>
+<p>Then Java expands capacity to:</p>
+<pre><code>DEFAULT_CAPACITY = 10
+</code></pre>
+<p>So after first add:</p>
+<ul>
+<li>size = 1</li>
+<li>capacity = 10</li>
+</ul>
+<hr />
+<h1 id="important-deep-detail-interview-bonus">Important Deep Detail (Interview Bonus)</h1>
+<p>In older Java versions (before Java 8):</p>
+<ul>
+<li><code>new ArrayList&lt;&gt;()</code> immediately created array of size 10.</li>
+</ul>
+<p>In Java 8+:</p>
+<ul>
+<li>It lazily allocates capacity 10 only when first element is added.</li>
+</ul>
+<p>This was done to save memory.</p>
+<hr />
+<h1 id="now-harder-question">🔥 Now Harder Question</h1>
+<p>What happens here?</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(0);
+list.add(1);
+</code></pre>
+<p>After adding first element:</p>
+<ul>
+<li>What is capacity?</li>
+</ul>
+<p>Correct answer:</p>
+<p>👉 Capacity becomes <strong>1</strong>, not 10.</p>
+<hr />
+<h1 id="why_3">Why?</h1>
+<p>When you do:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(0);
+</code></pre>
+<p>This is different from:</p>
+<pre><code class="language-java">new ArrayList&lt;&gt;();
+</code></pre>
+<p>In this case:</p>
+<ul>
+<li>You explicitly set initial capacity to <strong>0</strong></li>
+<li>So <code>elementData</code> is created as an array of size 0</li>
+</ul>
+<p>Now when you add first element:</p>
+<pre><code class="language-java">list.add(1);
+</code></pre>
+<p>Growth logic runs:</p>
+<p>Growth formula:</p>
+<pre><code class="language-java">newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</code></pre>
+<p>But oldCapacity = 0</p>
+<p>So Java ensures minimum growth to <strong>1</strong></p>
+<p>So capacity becomes:</p>
+<pre><code>1
+</code></pre>
+<hr />
+<h1 id="important-difference">🔥 Important Difference</h1>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>After first add</th>
+<th>Capacity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new ArrayList&lt;&gt;()</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>new ArrayList&lt;&gt;(0)</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>This is a favorite interview trap.</p>
+<hr />
+<h1 id="why-java-behaves-like-this">🧠 Why Java behaves like this?</h1>
+<p>Because:</p>
+<ul>
+<li>Default constructor uses special empty array marker</li>
+<li>Capacity 10 is applied lazily only for default constructor</li>
+<li>But when user explicitly sets capacity (even 0), Java respects that</li>
+</ul>
+<hr />
+<h1 id="now-next-deep-question">🚀 Now Next Deep Question</h1>
+<p>Predict:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(1);
+list.add(1);
+list.add(2);
+</code></pre>
+<p>What is capacity after adding second element?</p>
+<p>Correct answer: <strong>2</strong></p>
+<p>But wait — let’s analyze properly and very precisely.</p>
+<hr />
+<h1 id="step-by-step">Step-by-step</h1>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(1);
+</code></pre>
+<p>Initial:</p>
+<ul>
+<li>capacity = 1</li>
+<li>size = 0</li>
+</ul>
+<hr />
+<h2 id="after-listadd1">After <code>list.add(1);</code></h2>
+<ul>
+<li>size = 1</li>
+<li>capacity = 1 (full now)</li>
+</ul>
+<hr />
+<h2 id="now-listadd2">Now <code>list.add(2);</code></h2>
+<p>Capacity is full → resize needed.</p>
+<p>Growth formula (Java 8+):</p>
+<pre><code>newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)
+</code></pre>
+<p>For oldCapacity = 1:</p>
+<pre><code>1 &gt;&gt; 1 = 0
+newCapacity = 1 + 0 = 1
+</code></pre>
+<p>But capacity cannot remain 1 because we need space for 2 elements.</p>
+<p>So Java ensures minimum required capacity.</p>
+<p>It calculates:</p>
+<pre><code>minCapacity = size + 1 = 2
+</code></pre>
+<p>Since computed newCapacity (1) &lt; minCapacity (2),</p>
+<p>It sets:</p>
+<pre><code>newCapacity = minCapacity
+</code></pre>
+<p>So final capacity becomes:</p>
+<pre><code>2
+</code></pre>
+<hr />
+<h1 id="final-answer">Final Answer</h1>
+<p>Capacity = <strong>2</strong></p>
+<hr />
+<h1 id="important-insight">🔥 Important Insight</h1>
+<p>For small capacities like 0 or 1:</p>
+<p>Java ensures minimum required capacity.</p>
+<p>So growth sometimes behaves like:</p>
+<pre><code>0 → 1
+1 → 2
+</code></pre>
+<p>After that, normal 1.5x growth applies.</p>
+<hr />
+<h1 id="now-harder">🚀 Now Harder</h1>
+<p>Predict capacity after this:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(2);
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+</code></pre>
+<p>What is capacity after adding 4th element?</p>
+<p>Here’s the exact dry run:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(2); // capacity = 2
+list.add(1); // size=1 cap=2
+list.add(2); // size=2 cap=2 (full)
+list.add(3); // resize: old=2 → new=2+(2&gt;&gt;1)=2+1=3  =&gt; cap=3, size=3
+list.add(4); // full again, resize: old=3 → new=3+(3&gt;&gt;1)=3+1=4 =&gt; cap=4, size=4
+</code></pre>
+<p>✅ <strong>Capacity after adding 4th element = 4</strong></p>
+<hr />
+<p>Next (quick): if capacity is 4 and you add 5th element, what will capacity become?</p>
+<p>✅ Correct — capacity becomes <strong>6</strong>.</p>
+<p>Because when oldCapacity = 4:</p>
+<ul>
+<li>growth: <code>4 + (4 &gt;&gt; 1)</code> = <code>4 + 2</code> = <strong>6</strong></li>
+</ul>
+<p>So adding 5th element triggers resize from <strong>4 → 6</strong>.</p>
+<hr />
+<h1 id="arraylist-internals-summary-deep-interview-ready">✅ ArrayList Internals Summary (deep, interview-ready)</h1>
+<ul>
+<li>Backed by <code>Object[] elementData</code></li>
+<li><code>size</code> tracks actual elements</li>
+<li>Default constructor: capacity becomes <strong>10</strong> on first add (Java 8+ lazy)</li>
+<li>Growth: <strong>1.5x</strong> → <code>old + old/2</code></li>
+<li><code>add()</code> is <strong>amortized O(1)</strong>, worst O(n) during resize</li>
+<li>Insert/remove in middle is O(n) due to shifting</li>
+</ul>
+<hr />
+<h1 id="next-data-structure-linkedlist-deep-internal-working">🚀 Next Data Structure: LinkedList (Deep Internal Working)</h1>
+<h2 id="what-is-linkedlist">What is LinkedList?</h2>
+<ul>
+<li>Doubly linked list implementation</li>
+<li>Implements: <code>List</code> + <code>Deque</code></li>
+<li>Good for frequent add/remove at ends</li>
+<li>Poor for random access</li>
+</ul>
+<h2 id="internal-structure-concept">Internal Structure (concept)</h2>
+<p>Each node stores:</p>
+<ul>
+<li>item</li>
+<li>prev reference</li>
+<li>next reference</li>
+</ul>
+<p>Operations:</p>
+<ul>
+<li><code>addFirst</code>, <code>addLast</code> → O(1)</li>
+<li><code>removeFirst</code>, <code>removeLast</code> → O(1)</li>
+<li><code>get(index)</code> → O(n)</li>
+</ul>
+<hr />
+<h1 id="first-linkedlist-trap">🔥 First LinkedList Trap</h1>
+<p>Which is faster and why?</p>
+<ol>
+<li><code>ArrayList.get(i)</code></li>
+<li><code>LinkedList.get(i)</code></li>
+</ol>
+<p>Answer in 2 lines.</p>
+<p>✅ Correct — <strong>ArrayList.get(i)</strong> is faster.</p>
+<p>Now let’s make this answer interview-strong.</p>
+<hr />
+<h1 id="why-arraylistgeti-is-faster">Why ArrayList.get(i) is Faster</h1>
+<h3 id="arraylist">🔹 ArrayList</h3>
+<ul>
+<li>Internally backed by <code>Object[]</code></li>
+<li>Direct index access:</li>
+</ul>
+<pre><code class="language-java">return elementData[index];
+</code></pre>
+<ul>
+<li>Time complexity: <strong>O(1)</strong> (constant time)</li>
+<li>Because memory is contiguous and index-based</li>
+</ul>
+<hr />
+<h3 id="linkedlist">🔹 LinkedList</h3>
+<p>Internally:</p>
+<pre><code class="language-text">Node {
+    prev
+    item
+    next
+}
+</code></pre>
+<p>To get element at index <code>i</code>:</p>
+<ul>
+<li>It must traverse nodes</li>
+<li>Either from head or tail (whichever closer)</li>
+</ul>
+<p>Time complexity: <strong>O(n)</strong></p>
+<p>Because it must walk through the list.</p>
+<hr />
+<h1 id="interview-one-liner">🔥 Interview One-Liner</h1>
+<blockquote>
+<p>ArrayList provides O(1) random access because it uses an array, while LinkedList requires traversal, so get(i) is O(n).</p>
+</blockquote>
+<hr />
+<h1 id="now-important-linkedlist-trap">🚀 Now Important LinkedList Trap</h1>
+<p>Which is faster and why?</p>
+<ol>
+<li><code>ArrayList.add(0, element)</code></li>
+<li><code>LinkedList.addFirst(element)</code></li>
+</ol>
+<p>Answer carefully with reasoning.</p>
+<pre><code class="language-text">LinkedList.addFirst(element) is faster because adding first element in linked list mean just changing root node of list.
+ArrayList.add(0, element) required O(n) time complexity to add element because its shift all element to right
+</code></pre>
+<p>✅ Perfect. That’s exactly the right reasoning.</p>
+<p>Small correction:</p>
+<ul>
+<li>“root node” → “head pointer / first node reference”</li>
+<li>“shift all element” → “shift all elements”</li>
+</ul>
+<hr />
+<h1 id="why-interview-perfect">Why (Interview-Perfect)</h1>
+<h2 id="1-linkedlistaddfirstelement-o1">1️⃣ <code>LinkedList.addFirst(element)</code> → <strong>O(1)</strong></h2>
+<p>A doubly-linked list just updates pointers:</p>
+<ul>
+<li>newNode.next = oldFirst</li>
+<li>oldFirst.prev = newNode</li>
+<li>head = newNode</li>
+</ul>
+<p>No shifting.</p>
+<hr />
+<h2 id="2-arraylistadd0-element-on">2️⃣ <code>ArrayList.add(0, element)</code> → <strong>O(n)</strong></h2>
+<p>ArrayList is backed by an array. Inserting at index 0 requires:</p>
+<ul>
+<li>shift existing elements right by 1</li>
+<li>possible resize too</li>
+</ul>
+<p>So it’s linear.</p>
+<hr />
+<h1 id="next-linkedlist-internal-working-details-deep">✅ Next: LinkedList internal working details (Deep)</h1>
+<p>LinkedList implements both:</p>
+<ul>
+<li><code>List</code> (index-based operations)</li>
+<li><code>Deque</code> (queue/stack operations)</li>
+</ul>
+<p>So it supports:</p>
+<ul>
+<li>addFirst/removeFirst (stack/queue)</li>
+<li>addLast/removeLast</li>
+</ul>
+<hr />
+<h1 id="now-common-interview-trap">🔥 Now Common Interview Trap</h1>
+<p>What is time complexity of:</p>
+<ol>
+<li><code>LinkedList.addLast(x)</code></li>
+<li><code>LinkedList.removeLast()</code></li>
+<li><code>LinkedList.add(index, x)</code></li>
+</ol>
+<p>Assume Java’s <code>LinkedList</code> keeps references to both <code>first</code> and <code>last</code>.</p>
+<p>Answer with Big-O for each.</p>
+<p>👍 Correct answers:</p>
+<p>1️⃣ <code>LinkedList.addLast(x)</code> → <strong>O(1)</strong>
+2️⃣ <code>LinkedList.removeLast()</code> → <strong>O(1)</strong>
+3️⃣ <code>LinkedList.add(index, x)</code> → <strong>O(n)</strong></p>
+<hr />
+<h1 id="why_4">Why?</h1>
+<h2 id="1-addlastx-o1">1️⃣ addLast(x) → O(1)</h2>
+<p>LinkedList maintains:</p>
+<pre><code class="language-text">first
+last
+</code></pre>
+<p>To add at end:</p>
+<ul>
+<li>Create new node</li>
+<li>last.next = newNode</li>
+<li>newNode.prev = last</li>
+<li>last = newNode</li>
+</ul>
+<p>No traversal needed.</p>
+<hr />
+<h2 id="2-removelast-o1">2️⃣ removeLast() → O(1)</h2>
+<p>Because:</p>
+<ul>
+<li>It already has reference to last</li>
+<li>Just update last = last.prev</li>
+<li>Adjust pointers</li>
+</ul>
+<p>No traversal.</p>
+<hr />
+<h2 id="3-addindex-x-on">3️⃣ add(index, x) → O(n) ❌</h2>
+<p>This is the important correction.</p>
+<p>To add at index:</p>
+<ul>
+<li>Must first <strong>find the node at that index</strong></li>
+<li>LinkedList does NOT have random access</li>
+<li>
+<p>It traverses from:</p>
+</li>
+<li>
+<p>head (if index &lt; size/2)</p>
+</li>
+<li>tail (if index &gt; size/2)</li>
+</ul>
+<p>Traversal takes O(n)</p>
+<p>After finding position:</p>
+<ul>
+<li>Insert node in O(1)</li>
+</ul>
+<p>But total complexity = O(n)</p>
+<hr />
+<h1 id="interview-trick">🔥 Interview Trick</h1>
+<p>People often think:</p>
+<blockquote>
+<p>LinkedList insertion is always O(1)</p>
+</blockquote>
+<p>That is only true if:</p>
+<ul>
+<li>You already have reference to the node</li>
+<li>Or adding/removing at head/tail</li>
+</ul>
+<p>Index-based operations are O(n).</p>
+<hr />
+<h1 id="now-very-important-question">🚀 Now Very Important Question</h1>
+<p>Which is better for:</p>
+<p>1️⃣ Frequent random access
+2️⃣ Frequent insertions at beginning
+3️⃣ Iterating through all elements
+4️⃣ Memory efficiency</p>
+<p>Answer each with:</p>
+<ul>
+<li>ArrayList or LinkedList</li>
+<li>1 line reason.</li>
+</ul>
+<hr />
+<h1 id="1-frequent-random-access">✅ 1️⃣ Frequent random access</h1>
+<p>✔ <strong>ArrayList</strong></p>
+<p>Reason:</p>
+<ul>
+<li>Backed by array</li>
+<li><code>get(index)</code> is O(1)</li>
+<li>Direct memory access</li>
+</ul>
+<p>Your answer correct.</p>
+<hr />
+<h1 id="2-frequent-insertions-at-beginning">✅ 2️⃣ Frequent insertions at beginning</h1>
+<p>✔ <strong>LinkedList</strong></p>
+<p>Reason:</p>
+<ul>
+<li>Just update head pointer</li>
+<li>O(1)</li>
+<li>No shifting required</li>
+</ul>
+<p>Correct again.</p>
+<hr />
+<h1 id="3-iterating-through-all-elements">⚠ 3️⃣ Iterating through all elements</h1>
+<p>You said: “I think both”</p>
+<p>Correct answer:
+✔ <strong>ArrayList is generally faster</strong></p>
+<p>Reason:</p>
+<ul>
+<li>ArrayList stores elements in contiguous memory</li>
+<li>Better CPU cache locality</li>
+<li>Less pointer chasing</li>
+</ul>
+<p>LinkedList:</p>
+<ul>
+<li>Each node separate object</li>
+<li>Pointer traversal</li>
+<li>Poor cache locality</li>
+<li>More GC pressure</li>
+</ul>
+<p>So although both are O(n),
+👉 ArrayList performs better in real-world iteration.</p>
+<p>This is important.</p>
+<hr />
+<h1 id="4-memory-efficiency">⚠ 4️⃣ Memory efficiency</h1>
+<p>You said both are not good — good intuition.</p>
+<p>Correct detailed answer:</p>
+<p>✔ <strong>ArrayList is more memory efficient</strong></p>
+<p>Why?</p>
+<p>ArrayList:</p>
+<ul>
+<li>Just stores Object[] references</li>
+</ul>
+<p>LinkedList:
+Each node stores:</p>
+<pre><code>item
+prev pointer
+next pointer
+</code></pre>
+<p>So for every element:</p>
+<ul>
+<li>Extra 2 references</li>
+<li>Plus node object overhead</li>
+</ul>
+<p>LinkedList uses much more memory per element.</p>
+<hr />
+<h1 id="final-comparison-table-interview-ready">🔥 Final Comparison Table (Interview Ready)</h1>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Best Choice</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random access</td>
+<td>ArrayList</td>
+<td>O(1) index access</td>
+</tr>
+<tr>
+<td>Insert/remove at head</td>
+<td>LinkedList</td>
+<td>O(1) pointer update</td>
+</tr>
+<tr>
+<td>Iteration</td>
+<td>ArrayList</td>
+<td>Better cache locality</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>ArrayList</td>
+<td>No extra node overhead</td>
+</tr>
+<tr>
+<td>Heavy mid insertions</td>
+<td>LinkedList</td>
+<td>No shifting</td>
+</tr>
+<tr>
+<td>Frequent resizing</td>
+<td>Pre-size ArrayList</td>
+<td>Avoid growth cost</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="now-we-move-to-set-hashset-internals">🚀 Now We Move to Set (HashSet Internals)</h1>
+<p>Very important concept:</p>
+<blockquote>
+<p>HashSet internally uses HashMap.</p>
+</blockquote>
+<hr />
+<h1 id="question-very-important">🔥 Question (Very Important)</h1>
+<p>How does HashSet prevent duplicates?</p>
+<p>Explain in 3–4 steps.</p>
+<p>Think about:</p>
+<ul>
+<li>hashCode()</li>
+<li>equals()</li>
+<li>bucket</li>
+<li>internal structure</li>
+</ul>
+<p>Answer in your own words.</p>
+<p>Hash set use hash map internally to store the value. for each value calculate hash code, use equals to find the bucket if bucket is empty then add the value as key.</p>
+<p>Small correction:</p>
+<h1 id="correct-deep-explanation-how-hashset-prevents-duplicates">✅ Correct Deep Explanation — How HashSet Prevents Duplicates</h1>
+<p>Internally:</p>
+<pre><code class="language-java">public class HashSet&lt;E&gt; {
+    private transient HashMap&lt;E,Object&gt; map;
+    private static final Object PRESENT = new Object();
+}
+</code></pre>
+<p>So when you do:</p>
+<pre><code class="language-java">set.add(&quot;A&quot;);
+</code></pre>
+<p>Internally it does:</p>
+<pre><code class="language-java">map.put(&quot;A&quot;, PRESENT);
+</code></pre>
+<hr />
+<h1 id="step-by-step-how-duplicate-is-prevented">🔎 Step-by-Step How Duplicate Is Prevented</h1>
+<h3 id="step-1-calculate-hashcode">Step 1️⃣ Calculate hashCode()</h3>
+<p>When you insert element:</p>
+<pre><code class="language-java">set.add(element);
+</code></pre>
+<p>HashSet calls:</p>
+<pre><code class="language-java">element.hashCode()
+</code></pre>
+<hr />
+<h3 id="step-2-find-bucket">Step 2️⃣ Find Bucket</h3>
+<p>Using hashCode, it calculates bucket index:</p>
+<pre><code class="language-text">index = hash &amp; (n - 1)
+</code></pre>
+<p>(where n is table length)</p>
+<hr />
+<h3 id="step-3-check-existing-elements-in-bucket">Step 3️⃣ Check Existing Elements in Bucket</h3>
+<p>Now two possibilities:</p>
+<h4 id="case-a-bucket-empty">Case A: Bucket empty</h4>
+<p>→ Insert new node.</p>
+<h4 id="case-b-bucket-not-empty">Case B: Bucket not empty</h4>
+<p>→ It compares keys using:</p>
+<pre><code class="language-java">equals()
+</code></pre>
+<p>If <code>equals()</code> returns true:
+→ Duplicate found
+→ Do NOT insert
+→ Return false</p>
+<p>If <code>equals()</code> returns false:
+→ Collision
+→ Insert in bucket chain</p>
+<hr />
+<h1 id="very-important-concept">🔥 Very Important Concept</h1>
+<p>HashSet depends on:</p>
+<ul>
+<li><code>hashCode()</code></li>
+<li><code>equals()</code></li>
+</ul>
+<p>If you override one but not the other → HashSet breaks.</p>
+<hr />
+<h1 id="interview-perfect-answer">🧠 Interview Perfect Answer</h1>
+<blockquote>
+<p>HashSet internally uses a HashMap. When adding an element, it computes hashCode to determine the bucket. If another element exists in the same bucket, it uses equals() to check equality. If equals returns true, it prevents duplicate insertion.</p>
+</blockquote>
+<hr />
+<h1 id="now-deep-question-critical-interview-level">🚀 Now Deep Question (Critical Interview Level)</h1>
+<p>What happens if:</p>
+<ul>
+<li>Two objects have same hashCode</li>
+<li>But equals() returns false</li>
+</ul>
+<p>Will HashSet store both?</p>
+<p>✅ Answer — it <strong>will store both</strong>.</p>
+<hr />
+<h1 id="scenario">Scenario</h1>
+<p>Two objects:</p>
+<ul>
+<li>Same <code>hashCode()</code></li>
+<li>But <code>equals()</code> returns <code>false</code></li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">class Person {
+    int id;
+
+    public int hashCode() {
+        return 1;   // same hash for all
+    }
+
+    public boolean equals(Object o) {
+        return false;   // always different
+    }
+}
+</code></pre>
+<hr />
+<h1 id="what-happens-in-hashset">What Happens in HashSet?</h1>
+<h3 id="step-1-same-hashcode">Step 1️⃣ Same hashCode</h3>
+<p>Both objects go to <strong>same bucket</strong>.</p>
+<h3 id="step-2-equals-check">Step 2️⃣ equals() check</h3>
+<p>Since equals returns false:</p>
+<ul>
+<li>They are considered different</li>
+<li>So both are stored</li>
+</ul>
+<hr />
+<h1 id="internal-structure_1">Internal Structure</h1>
+<p>Before Java 8:</p>
+<ul>
+<li>Bucket stored as <strong>LinkedList</strong></li>
+</ul>
+<p>After Java 8:</p>
+<ul>
+<li>If bucket size &gt; 8</li>
+<li>And table size ≥ 64
+  → Bucket converted to <strong>Red-Black Tree</strong></li>
+</ul>
+<p>This is called:</p>
+<blockquote>
+<p>Treeification</p>
+</blockquote>
+<hr />
+<h1 id="important-interview-insight_1">🔥 Important Interview Insight</h1>
+<p>HashMap handles collisions by:</p>
+<ul>
+<li>LinkedList (small bucket)</li>
+<li>Red-Black Tree (large bucket, Java 8+)</li>
+</ul>
+<hr />
+<h1 id="final-answer-style-interview-ready">🧠 Final Answer Style (Interview Ready)</h1>
+<blockquote>
+<p>If two objects have the same hashCode but are not equal according to equals(), they will be stored in the same bucket but as separate entries. HashMap handles this collision using a linked list or tree structure internally.</p>
+</blockquote>
+<hr />
+<h1 id="now-very-important-question_1">🚀 Now Very Important Question</h1>
+<p>What happens if:</p>
+<ul>
+<li>Two objects have different hashCode</li>
+<li>But equals() returns true</li>
+</ul>
+<p>Will HashSet store both?</p>
+<p>✅ Answer: <strong>it will not store both</strong> — but only if the objects end up in the <em>same bucket</em>, which normally requires the same hash.</p>
+<p>Now let’s explain the full rule clearly (this is a very important interview point).</p>
+<hr />
+<h1 id="the-contract-must-memorize">The Contract (must memorize)</h1>
+<h3 id="if-equals-is-true-then-hashcode-must-be-same">If <code>equals()</code> is true, then <code>hashCode()</code> <strong>must</strong> be same.</h3>
+<p>So this situation:</p>
+<ul>
+<li>different hashCode</li>
+<li>equals true</li>
+</ul>
+<p>👉 <strong>violates the contract</strong>.</p>
+<hr />
+<h1 id="what-actually-happens-in-hashset">What actually happens in HashSet?</h1>
+<p>HashSet/HashMap works like this:</p>
+<ol>
+<li>It first uses <code>hashCode()</code> to choose the bucket</li>
+<li>It only calls <code>equals()</code> on elements <strong>inside that bucket</strong></li>
+</ol>
+<p>So if two objects have:</p>
+<ul>
+<li>different hashCode → they go to <strong>different buckets</strong></li>
+<li>HashSet won’t even compare them with <code>equals()</code></li>
+</ul>
+<p>✅ Result: <strong>Both will be stored</strong> (duplicates happen!)
+Even though <code>equals()</code> says they are equal.</p>
+<p>So the correct practical behavior is:</p>
+<blockquote>
+<p>HashSet may store both, because different hashCodes lead to different buckets, and equals is not checked across buckets.</p>
+</blockquote>
+<hr />
+<h1 id="final-correct-answer-interview-ready">✅ Final Correct Answer (Interview-ready)</h1>
+<blockquote>
+<p>If two objects have different hashCode but equals() returns true, it breaks the equals-hashCode contract. HashSet may store both objects in different buckets, causing duplicates.</p>
+</blockquote>
+<hr />
+<h1 id="super-important-interview-one-liner">🔥 Super Important Interview One-Liner</h1>
+<blockquote>
+<p>HashSet uniqueness is guaranteed only when <code>equals()</code> and <code>hashCode()</code> follow the contract.</p>
+</blockquote>
+<hr />
+<h2 id="quick-check-yesno">Quick check (yes/no)</h2>
+<p>If you override <code>equals()</code> in a custom class, must you override <code>hashCode()</code> also? Why?</p>
+<h1 id="correct-interview-answer">✅ Correct Interview Answer</h1>
+<blockquote>
+<p>Yes. Whenever we override <code>equals()</code>, we must also override <code>hashCode()</code>.
+Because HashSet and HashMap use <code>hashCode()</code> to determine the bucket and <code>equals()</code> to check equality within that bucket.
+If we override only <code>equals()</code> and not <code>hashCode()</code>, equal objects may go into different buckets, breaking uniqueness and causing inconsistent behavior.</p>
+</blockquote>
+<hr />
+<h1 id="why-this-is-critical-deep-understanding">🔥 Why This Is Critical (Deep Understanding)</h1>
+<p>HashMap insertion steps:</p>
+<p>1️⃣ Calculate <code>hashCode()</code>
+2️⃣ Find bucket index
+3️⃣ Compare with existing elements using <code>equals()</code></p>
+<p>If two objects are logically equal but have different hash codes:</p>
+<ul>
+<li>They go into different buckets</li>
+<li>equals() never gets called</li>
+<li>Both objects get stored</li>
+<li>HashSet allows duplicates</li>
+</ul>
+<hr />
+<h1 id="official-contract-must-memorize">🔥 Official Contract (Must Memorize)</h1>
+<p>If:</p>
+<pre><code class="language-java">a.equals(b) == true
+</code></pre>
+<p>Then:</p>
+<pre><code class="language-java">a.hashCode() == b.hashCode()
+</code></pre>
+<p>Must be true.</p>
+<p>But reverse is not required:</p>
+<ul>
+<li>Same hashCode does NOT mean equals() must be true.</li>
+</ul>
+<hr />
+<h1 id="now-we-move-to-hashmap-deep-internal-working-core-interview-topic">🚀 Now We Move to HashMap Deep Internal Working (Core Interview Topic)</h1>
+<p>We are now entering the most important data structure in Java interviews.</p>
+<hr />
+<h1 id="hashmap-internal-structure-java-8">🔹 HashMap Internal Structure (Java 8+)</h1>
+<p>Internally:</p>
+<pre><code class="language-java">Node&lt;K,V&gt;[] table;
+</code></pre>
+<p>Each bucket contains:</p>
+<pre><code class="language-java">static class Node&lt;K,V&gt; {
+    final int hash;
+    final K key;
+    V value;
+    Node&lt;K,V&gt; next;
+}
+</code></pre>
+<p>So structure is:</p>
+<pre><code>Array of buckets
+Each bucket → LinkedList OR Tree
+</code></pre>
+<hr />
+<h1 id="step-by-step-what-happens-when-you-do">🔥 Step-by-Step: What Happens When You Do</h1>
+<pre><code class="language-java">map.put(key, value);
+</code></pre>
+<h3 id="step-1-compute-hash">Step 1️⃣ Compute hash</h3>
+<pre><code class="language-java">int hash = hash(key);
+</code></pre>
+<h3 id="step-2-find-index">Step 2️⃣ Find index</h3>
+<pre><code class="language-java">index = (n - 1) &amp; hash;
+</code></pre>
+<p>(n = table length)</p>
+<hr />
+<h3 id="step-3-check-bucket">Step 3️⃣ Check bucket</h3>
+<p>Case A: bucket empty
+→ Insert new node.</p>
+<p>Case B: bucket not empty
+→ Traverse:</p>
+<ul>
+<li>If key equal → replace value</li>
+<li>Else → collision → add node</li>
+</ul>
+<hr />
+<h3 id="step-4-resize-check">Step 4️⃣ Resize Check</h3>
+<p>If:</p>
+<pre><code>size &gt; capacity * loadFactor
+</code></pre>
+<p>Default:</p>
+<ul>
+<li>capacity = 16</li>
+<li>loadFactor = 0.75</li>
+</ul>
+<p>Resize occurs.</p>
+<hr />
+<h1 id="important-question">🔥 Important Question</h1>
+<p>If initial capacity = 16
+loadFactor = 0.75</p>
+<p>At what size does resize occur?</p>
+<p>Correct answer: <strong>Resize happens when size becomes 13</strong> (i.e., after inserting the 13th element).</p>
+<p>Let’s calculate properly 👇</p>
+<hr />
+<h1 id="given">Given</h1>
+<ul>
+<li>Initial capacity = <strong>16</strong></li>
+<li>Load factor = <strong>0.75</strong></li>
+</ul>
+<p>Resize threshold formula:</p>
+<pre><code>threshold = capacity × loadFactor
+</code></pre>
+<p>So:</p>
+<pre><code>16 × 0.75 = 12
+</code></pre>
+<p>Threshold = <strong>12</strong></p>
+<hr />
+<h1 id="when-does-resize-actually-trigger">When Does Resize Actually Trigger?</h1>
+<p>Resize happens when:</p>
+<pre><code>size &gt; threshold
+</code></pre>
+<p>So:</p>
+<ul>
+<li>After inserting 12 elements → size = 12 → OK</li>
+<li>When inserting 13th element → size becomes 13 → 13 &gt; 12 → resize</li>
+</ul>
+<hr />
+<h1 id="final-answer_1">✅ Final Answer</h1>
+<p>Threshold = 12
+Resize happens when size becomes <strong>13</strong></p>
+<hr />
+<h1 id="important-interview-detail">🔥 Important Interview Detail</h1>
+<p>Many people say:</p>
+<blockquote>
+<p>Resize happens at 12.</p>
+</blockquote>
+<p>That is incorrect.</p>
+<p>Correct statement:</p>
+<blockquote>
+<p>Resize happens when inserting the 13th element.</p>
+</blockquote>
+<hr />
+<h1 id="now-slightly-harder">🚀 Now Slightly Harder</h1>
+<p>After resize, what will be new capacity?</p>
+<p>Initial capacity was 16.</p>
+<p>Answer?</p>
+<p>✅ Answer — correct instinct. It becomes <strong>double</strong>.</p>
+<hr />
+<h1 id="after-resize">🔥 After Resize</h1>
+<p>Initial:</p>
+<ul>
+<li>Capacity = 16</li>
+<li>Threshold = 12</li>
+</ul>
+<p>When inserting 13th element → resize triggered.</p>
+<p>New capacity:</p>
+<pre><code>newCapacity = oldCapacity * 2
+</code></pre>
+<p>So:</p>
+<pre><code>16 → 32
+</code></pre>
+<hr />
+<h1 id="what-about-new-threshold">🔥 What about new threshold?</h1>
+<p>Threshold = capacity × loadFactor</p>
+<pre><code>32 × 0.75 = 24
+</code></pre>
+<p>So after resize:</p>
+<ul>
+<li>Capacity = 32</li>
+<li>Threshold = 24</li>
+</ul>
+<p>Resize will happen again when size becomes 25.</p>
+<hr />
+<h1 id="important-difference-from-arraylist">🧠 Important Difference from ArrayList</h1>
+<table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Resize Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ArrayList</td>
+<td>1.5x</td>
+</tr>
+<tr>
+<td>HashMap</td>
+<td>2x</td>
+</tr>
+</tbody>
+</table>
+<p>HashMap doubles capacity to reduce collisions.</p>
+<hr />
+<h1 id="now-very-important-concept-senior-level">🚀 Now Very Important Concept (Senior-Level)</h1>
+<p>When HashMap resizes, does it:</p>
+<p>A) Just copy buckets to new array
+B) Recalculate hash and redistribute entries</p>
+<p>✅ Answer — <strong>it redistributes entries</strong> (rehashes to new buckets).
+But small refinement: it usually doesn’t “recalculate hashCode()” of the key again; it <strong>recomputes bucket index</strong> using the stored hash and the new table size.</p>
+<hr />
+<h1 id="what-really-happens-on-hashmap-resize-deep">What really happens on HashMap resize (deep)</h1>
+<p>When capacity doubles (e.g., 16 → 32):</p>
+<ul>
+<li>HashMap creates a new <code>Node[] table</code> of size 32</li>
+<li>For each existing entry, it decides the new bucket using:</li>
+</ul>
+<pre><code class="language-text">newIndex = hash &amp; (newCapacity - 1)
+</code></pre>
+<p>Since <code>newCapacity</code> changed, <strong>bucket index changes</strong>, so entries move.</p>
+<hr />
+<h2 id="java-8-optimization-interview-bonus">Java 8 optimization (interview bonus)</h2>
+<p>During resize, Java 8 doesn’t fully recompute everything expensively.
+It uses a smart trick:</p>
+<p>When capacity doubles, each entry either:</p>
+<ul>
+<li>stays in the same index, or</li>
+<li>moves to <code>index + oldCapacity</code></li>
+</ul>
+<p>Based on one bit:</p>
+<pre><code class="language-text">(hash &amp; oldCapacity) == 0  → stay
+(hash &amp; oldCapacity) != 0  → move to index + oldCapacity
+</code></pre>
+<p>This makes resizing faster.</p>
+<hr />
+<h1 id="interview-one-liner_1">🧠 Interview one-liner</h1>
+<blockquote>
+<p>On resize, HashMap redistributes nodes into a larger table because bucket index depends on capacity. In Java 8, entries either stay or move by oldCapacity based on one hash bit.</p>
+</blockquote>
+<hr />
+<h1 id="next-critical-question-collision-handling">🔥 Next Critical Question (Collision handling)</h1>
+<p>In Java 8+, when many keys collide into the same bucket, HashMap may convert the bucket from a LinkedList into a Tree.</p>
+<ol>
+<li>What is this conversion called?</li>
+<li>After how many nodes (default) does it happen?</li>
+</ol>
+<h1 id="1-conversion-name">1️⃣ Conversion Name</h1>
+<p>✔ <strong>Treeification</strong></p>
+<p>When a bucket (collision chain) becomes too long,
+LinkedList → converted to <strong>Red-Black Tree</strong></p>
+<hr />
+<h1 id="2-when-does-it-happen">2️⃣ When does it happen?</h1>
+<p>✔ When bucket size becomes <strong>≥ 8</strong></p>
+<p>More precisely:</p>
+<ul>
+<li>If bucket size &gt; <strong>TREEIFY_THRESHOLD (8)</strong></li>
+<li>AND table size ≥ <strong>64</strong></li>
+</ul>
+<p>Only then treeification happens.</p>
+<hr />
+<h1 id="important-condition-many-miss-this">🔥 Important Condition (Many Miss This)</h1>
+<p>Treeification happens only if:</p>
+<pre><code>bucket size ≥ 8
+AND
+table capacity ≥ 64
+</code></pre>
+<p>If capacity &lt; 64:</p>
+<ul>
+<li>HashMap will resize instead of treeify.</li>
+</ul>
+<p>This avoids unnecessary tree creation.</p>
+<hr />
+<h1 id="interview-one-liner_2">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>In Java 8+, if a bucket contains more than 8 nodes and table size is at least 64, it is converted into a Red-Black Tree to improve lookup from O(n) to O(log n).</p>
+</blockquote>
+<hr />
+<h1 id="now-very-important-question_2">🚀 Now Very Important Question</h1>
+<p>What is the time complexity of:</p>
+<p>1️⃣ HashMap get() normally
+2️⃣ HashMap get() in worst case (before Java 8)
+3️⃣ HashMap get() in worst case (after treeification)</p>
+<p>✅ Answers:</p>
+<hr />
+<h1 id="hashmap-get-complexity-interview-ready">HashMap <code>get()</code> Complexity (Interview-Ready)</h1>
+<p>1️⃣ <strong>Normal average case</strong>: <strong>O(1)</strong></p>
+<ul>
+<li>Good hash distribution, small bucket size.</li>
+</ul>
+<p>2️⃣ <strong>Worst case before Java 8</strong>: <strong>O(n)</strong></p>
+<ul>
+<li>All keys collide → one long linked list bucket → linear search.</li>
+</ul>
+<p>3️⃣ <strong>Worst case after treeification (Java 8+)</strong>: <strong>O(log n)</strong></p>
+<ul>
+<li>Long bucket becomes Red-Black Tree → log-time lookup.</li>
+</ul>
+<hr />
+<h1 id="ultra-important-interview-trap-null-in-hashmap">🔥 Ultra Important Interview Trap: <code>null</code> in HashMap</h1>
+<p>Answer these:</p>
+<ol>
+<li>Does HashMap allow <code>null</code> key?</li>
+<li>Does HashMap allow multiple <code>null</code> keys?</li>
+<li>How many <code>null</code> keys allowed?</li>
+<li>Does HashMap allow <code>null</code> values?</li>
+</ol>
+<p>Now let’s go deep because this is a <strong>very common interview trap</strong>.</p>
+<hr />
+<h1 id="1-does-hashmap-allow-null-key">1️⃣ Does HashMap allow null key?</h1>
+<p>✔ <strong>Yes</strong></p>
+<p>HashMap allows <strong>one null key</strong>.</p>
+<hr />
+<h1 id="2-does-hashmap-allow-multiple-null-keys">2️⃣ Does HashMap allow multiple null keys?</h1>
+<p>❌ <strong>No</strong></p>
+<p>Because:</p>
+<ul>
+<li>Keys must be unique</li>
+<li>Only one null key allowed</li>
+</ul>
+<p>If you insert:</p>
+<pre><code class="language-java">map.put(null, 10);
+map.put(null, 20);
+</code></pre>
+<p>Second one replaces the first.</p>
+<hr />
+<h1 id="3-how-many-null-keys-allowed">3️⃣ How many null keys allowed?</h1>
+<p>✔ <strong>Only 1</strong></p>
+<hr />
+<h1 id="4-does-hashmap-allow-null-values">4️⃣ Does HashMap allow null values?</h1>
+<p>✔ <strong>Yes</strong></p>
+<p>Multiple null values allowed.</p>
+<p>Example:</p>
+<pre><code class="language-java">map.put(&quot;A&quot;, null);
+map.put(&quot;B&quot;, null);
+</code></pre>
+<p>Perfectly valid.</p>
+<hr />
+<h1 id="now-the-important-internal-question">🔥 Now the Important Internal Question</h1>
+<p>Where does HashMap store null key internally?</p>
+<p>Think carefully.</p>
+<p>Since null has no hashCode, what bucket is used?</p>
+<p>✅ Answer — it is stored in the <strong>first bucket (index 0)</strong>.</p>
+<p>Now let’s explain properly and deeply.</p>
+<hr />
+<h1 id="how-hashmap-handles-null-key-internally">🔥 How HashMap Handles <code>null</code> Key Internally</h1>
+<p>When you do:</p>
+<pre><code class="language-java">map.put(null, &quot;value&quot;);
+</code></pre>
+<p>HashMap logic:</p>
+<pre><code class="language-java">if (key == null)
+    return putForNullKey(value);
+</code></pre>
+<p>It does NOT call <code>hashCode()</code>.</p>
+<p>Instead:</p>
+<ul>
+<li>It directly inserts into <strong>bucket index 0</strong></li>
+</ul>
+<p>Why?</p>
+<p>Because:</p>
+<pre><code class="language-text">hash(null) = 0
+index = (n - 1) &amp; 0 = 0
+</code></pre>
+<p>So null key always goes to bucket 0.</p>
+<hr />
+<h1 id="important-interview-insight_2">🧠 Important Interview Insight</h1>
+<blockquote>
+<p>HashMap allows one null key and stores it in bucket 0.</p>
+</blockquote>
+<hr />
+<h1 id="now-hard-question-very-important">🔥 Now Hard Question (Very Important)</h1>
+<p>Why does HashMap allow null key but Hashtable does NOT?</p>
+<h1 id="why-hashmap-allows-null-but-hashtable-does-not">🔥 Why HashMap allows null but Hashtable does NOT</h1>
+<h3 id="1-design-difference">1️⃣ Design Difference</h3>
+<p><strong>HashMap</strong></p>
+<ul>
+<li>Introduced in Java 1.2</li>
+<li>Not synchronized</li>
+<li>More flexible</li>
+<li>Allows 1 null key and multiple null values</li>
+</ul>
+<p><strong>Hashtable</strong></p>
+<ul>
+<li>Legacy class (Java 1.0)</li>
+<li>Fully synchronized</li>
+<li>Does NOT allow null key or null value</li>
+</ul>
+<hr />
+<h1 id="the-real-reason-important">🔥 The Real Reason (Important)</h1>
+<p>Hashtable methods are synchronized and older design assumed:</p>
+<pre><code class="language-java">value = table[index];
+if (value == null)
+    // means key not present
+</code></pre>
+<p>If null values were allowed:</p>
+<ul>
+<li>
+<p>Cannot distinguish between:</p>
+</li>
+<li>
+<p>Key not present</p>
+</li>
+<li>Key present but value = null</li>
+</ul>
+<p>So to avoid ambiguity:</p>
+<blockquote>
+<p>Hashtable does not allow null key or null value.</p>
+</blockquote>
+<hr />
+<h1 id="why-hashmap-allows-null-then">🔥 Why HashMap allows null then?</h1>
+<p>HashMap is more modern and internally handles null carefully:</p>
+<ul>
+<li>Special handling for null key (bucket 0)</li>
+<li>Null values allowed</li>
+<li>Uses <code>containsKey()</code> to differentiate</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">map.put(&quot;A&quot;, null);
+
+map.get(&quot;A&quot;) → null
+map.containsKey(&quot;A&quot;) → true
+</code></pre>
+<p>So HashMap can differentiate.</p>
+<hr />
+<h1 id="interview-one-liner_3">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>Hashtable does not allow null keys or values to avoid ambiguity and because of its legacy synchronized design, while HashMap allows one null key and multiple null values.</p>
+</blockquote>
+<hr />
+<h1 id="now-very-important-question_3">🚀 Now Very Important Question</h1>
+<p>Which is thread-safe?</p>
+<p>1️⃣ HashMap
+2️⃣ Hashtable
+3️⃣ ConcurrentHashMap</p>
+<p>Correct answer:</p>
+<h3 id="1-hashmap-not-thread-safe">1️⃣ HashMap → ❌ Not thread-safe</h3>
+<h3 id="2-hashtable-thread-safe-synchronized">2️⃣ Hashtable → ✅ Thread-safe (synchronized)</h3>
+<h3 id="3-concurrenthashmap-thread-safe-better-design">3️⃣ ConcurrentHashMap → ✅ Thread-safe (better design)</h3>
+<p>Now let’s explain properly.</p>
+<hr />
+<h1 id="1-hashmap">🔥 1️⃣ HashMap</h1>
+<ul>
+<li>Not synchronized</li>
+<li>If multiple threads modify it → data corruption possible</li>
+<li>Can even cause infinite loop during resize (older Java versions)</li>
+</ul>
+<p>So:</p>
+<pre><code class="language-text">HashMap → NOT thread-safe
+</code></pre>
+<hr />
+<h1 id="2-hashtable">🔥 2️⃣ Hashtable</h1>
+<ul>
+<li>All methods are synchronized</li>
+<li>Only one thread can access at a time</li>
+<li>Safe but slow</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">public synchronized V put(K key, V value)
+</code></pre>
+<p>So:</p>
+<pre><code class="language-text">Hashtable → Thread-safe but inefficient
+</code></pre>
+<hr />
+<h1 id="3-concurrenthashmap-most-important">🔥 3️⃣ ConcurrentHashMap (Most Important)</h1>
+<ul>
+<li>Designed for concurrency</li>
+<li>Not fully synchronized</li>
+<li>Uses fine-grained locking</li>
+<li>Allows multiple threads to read/write safely</li>
+<li>Much faster than Hashtable</li>
+</ul>
+<p>So:</p>
+<pre><code class="language-text">ConcurrentHashMap → Thread-safe and efficient
+</code></pre>
+<hr />
+<h1 id="interview-one-liner_4">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>HashMap is not thread-safe. Hashtable is thread-safe but fully synchronized and slow. ConcurrentHashMap is thread-safe with better performance using segmented locking (Java 7) or CAS + synchronized bins (Java 8+).</p>
+</blockquote>
+<hr />
+<h1 id="now-very-important-question_4">🚀 Now Very Important Question</h1>
+<p>Does ConcurrentHashMap allow null key or null value?</p>
+<p>Think carefully. This is tricky.</p>
+<p>✅ Answer — <strong>ConcurrentHashMap does NOT allow null key or null value.</strong></p>
+<p>Now let’s understand <em>why</em> (very important for interviews).</p>
+<hr />
+<h1 id="why-concurrenthashmap-does-not-allow-null">🔥 Why ConcurrentHashMap does NOT allow null?</h1>
+<p>In concurrent environment:</p>
+<p>If this was allowed:</p>
+<pre><code class="language-java">map.put(&quot;A&quot;, null);
+</code></pre>
+<p>Now if another thread does:</p>
+<pre><code class="language-java">map.get(&quot;A&quot;);
+</code></pre>
+<p>It returns <code>null</code>.</p>
+<p>Now ambiguity:</p>
+<ul>
+<li>Is key not present?</li>
+<li>Or key present but value is null?</li>
+</ul>
+<p>In single-threaded HashMap, you can call:</p>
+<pre><code class="language-java">map.containsKey(&quot;A&quot;);
+</code></pre>
+<p>But in concurrent environment:</p>
+<p>Between <code>get()</code> and <code>containsKey()</code>:</p>
+<ul>
+<li>Another thread may remove or modify entry.</li>
+<li>So result becomes inconsistent.</li>
+</ul>
+<p>To avoid this ambiguity:</p>
+<blockquote>
+<p>ConcurrentHashMap does not allow null keys or values.</p>
+</blockquote>
+<hr />
+<h1 id="interview-one-liner_5">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>ConcurrentHashMap does not allow null keys or values because in concurrent environments null creates ambiguity between “key absent” and “value null”.</p>
+</blockquote>
+<hr />
+<h1 id="quick-comparison-table">🔥 Quick Comparison Table</h1>
+<table>
+<thead>
+<tr>
+<th>Map Type</th>
+<th>Thread-Safe</th>
+<th>Null Key</th>
+<th>Null Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashMap</td>
+<td>❌ No</td>
+<td>✅ 1</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Hashtable</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="now-important-concept-fail-fast">🚀 Now Important Concept: Fail-Fast</h1>
+<p>What happens if you modify an ArrayList while iterating using for-each loop?</p>
+<p>Example:</p>
+<pre><code class="language-java">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+list.add(1);
+list.add(2);
+list.add(3);
+
+for (Integer i : list) {
+    list.remove(i);
+}
+</code></pre>
+<p>What happens?</p>
+<p>✅ Answer: — it throws:</p>
+<pre><code>ConcurrentModificationException
+</code></pre>
+<p>Now let’s go deep and make it interview-ready.</p>
+<hr />
+<h1 id="why-concurrentmodificationexception-happens">Why ConcurrentModificationException Happens?</h1>
+<p>When you iterate using:</p>
+<pre><code class="language-java">for (Integer i : list)
+</code></pre>
+<p>Internally it uses an <strong>Iterator</strong>:</p>
+<pre><code class="language-java">Iterator&lt;Integer&gt; it = list.iterator();
+</code></pre>
+<p>ArrayList maintains:</p>
+<pre><code class="language-java">modCount
+</code></pre>
+<p>Every structural modification:</p>
+<ul>
+<li>add()</li>
+<li>remove()</li>
+<li>clear()</li>
+</ul>
+<p>Increments <code>modCount</code>.</p>
+<hr />
+<h3 id="what-iterator-stores">What Iterator Stores</h3>
+<p>Iterator stores:</p>
+<pre><code>expectedModCount
+</code></pre>
+<p>During iteration:</p>
+<pre><code class="language-java">if (modCount != expectedModCount)
+    throw ConcurrentModificationException;
+</code></pre>
+<p>So when you modify list directly:</p>
+<pre><code class="language-java">list.remove(i);
+</code></pre>
+<p><code>modCount</code> changes
+But iterator’s <code>expectedModCount</code> does not
+→ mismatch
+→ exception thrown</p>
+<hr />
+<h1 id="important-interview-concept">🔥 Important Interview Concept</h1>
+<p>This is called:</p>
+<blockquote>
+<p>Fail-Fast behavior</p>
+</blockquote>
+<p>Fail-fast means:</p>
+<ul>
+<li>Detects structural modification</li>
+<li>Fails immediately</li>
+<li>Does not allow unpredictable behavior</li>
+</ul>
+<hr />
+<h1 id="interview-one-liner_6">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>ArrayList iterators are fail-fast. If the collection is structurally modified after the iterator is created (except through iterator.remove()), it throws ConcurrentModificationException.</p>
+</blockquote>
+<hr />
+<h1 id="now-very-important-question_5">🚀 Now Very Important Question</h1>
+<p>How can you safely remove elements while iterating?</p>
+<h1 id="correct-recommended-approach-interview-answer">✅ Correct &amp; Recommended Approach (Interview Answer)</h1>
+<p>Use <strong>Iterator.remove()</strong></p>
+<pre><code class="language-java">Iterator&lt;Integer&gt; it = list.iterator();
+while (it.hasNext()) {
+    Integer val = it.next();
+    if (val % 2 == 0) {
+        it.remove();  // SAFE
+    }
+}
+</code></pre>
+<p>Why safe?</p>
+<p>Because:</p>
+<ul>
+<li>
+<p><code>it.remove()</code> updates both</p>
+</li>
+<li>
+<p>modCount</p>
+</li>
+<li>expectedModCount</li>
+<li>So no mismatch</li>
+</ul>
+<hr />
+<h1 id="java-8-best-way">🔥 Java 8+ Best Way</h1>
+<p>Use:</p>
+<pre><code class="language-java">list.removeIf(val -&gt; val % 2 == 0);
+</code></pre>
+<p>Internally safe.</p>
+<hr />
+<h1 id="interview-one-liner_7">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>To safely remove elements while iterating, use <code>Iterator.remove()</code> or <code>removeIf()</code>. Modifying the collection directly during iteration causes ConcurrentModificationException.</p>
+</blockquote>
+<hr />
+<h1 id="now-important-question">🚀 Now Important Question</h1>
+<p>Are HashMap iterators fail-fast?</p>
+<p>Example:</p>
+<pre><code class="language-java">for (String key : map.keySet()) {
+    map.remove(key);
+}
+</code></pre>
+<p>Will this throw exception?</p>
+<p>✅ <strong>Yes, it will throw <code>ConcurrentModificationException</code></strong> (in normal HashMap).</p>
+<hr />
+<h1 id="why_5">Why?</h1>
+<p><code>HashMap</code> iterators are also <strong>fail-fast</strong>, just like ArrayList.</p>
+<p>When you iterate:</p>
+<pre><code class="language-java">for (String key : map.keySet())
+</code></pre>
+<p>Internally it uses an iterator over the keySet view, and HashMap also maintains a modification count (<code>modCount</code>).</p>
+<p>If you do:</p>
+<pre><code class="language-java">map.remove(key);
+</code></pre>
+<p>That’s a <strong>structural modification</strong> while iterating → <code>modCount</code> changes → iterator detects mismatch → throws <code>ConcurrentModificationException</code>.</p>
+<hr />
+<h1 id="correct-ways-to-remove-while-iterating-a-hashmap">✅ Correct ways to remove while iterating a HashMap</h1>
+<h3 id="1-use-iteratorremove">1️⃣ Use iterator.remove()</h3>
+<pre><code class="language-java">Iterator&lt;String&gt; it = map.keySet().iterator();
+while (it.hasNext()) {
+    String key = it.next();
+    if (/* condition */) {
+        it.remove(); // safe
+    }
+}
+</code></pre>
+<h3 id="2-use-removeif-on-entryset-java-8">2️⃣ Use <code>removeIf</code> on entrySet (Java 8+)</h3>
+<pre><code class="language-java">map.entrySet().removeIf(e -&gt; /* condition */);
+</code></pre>
+<hr />
+<h1 id="interview-one-liner_8">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>HashMap iterators are fail-fast. Modifying the map structurally during iteration (except via iterator.remove()) causes ConcurrentModificationException.</p>
+</blockquote>
+<hr />
+<h1 id="next-treeset-treemap-core-concept">🔥 Next: TreeSet / TreeMap Core Concept</h1>
+<p>Before we move there, answer this:</p>
+<p>What is the difference between <strong>HashMap</strong> and <strong>TreeMap</strong> in terms of ordering and internal data structure? (2–3 lines)</p>
+<pre><code class="language-text">HashMap not maintain sorting order but TreeMap does. Tree map maintains sorted order (based on natural ordering or Comparator). May be HashMap internally use arrays to store bucket and TreeMap use tree data structure.
+</code></pre>
+<p>Now let’s make it interview-perfect.</p>
+<hr />
+<h1 id="correct-difference-hashmap-vs-treemap">✅ Correct Difference: HashMap vs TreeMap</h1>
+<h2 id="1-ordering">1️⃣ Ordering</h2>
+<h3 id="hashmap">HashMap</h3>
+<ul>
+<li>Does NOT maintain insertion order</li>
+<li>Does NOT maintain sorted order</li>
+<li>Order is unpredictable</li>
+</ul>
+<h3 id="treemap">TreeMap</h3>
+<ul>
+<li>Maintains <strong>sorted order</strong></li>
+<li>
+<p>Sorting based on:</p>
+</li>
+<li>
+<p>Natural ordering (Comparable)</p>
+</li>
+<li>OR custom Comparator</li>
+</ul>
+<hr />
+<h2 id="2-internal-data-structure">2️⃣ Internal Data Structure</h2>
+<h3 id="hashmap_1">HashMap</h3>
+<ul>
+<li>
+<p>Uses:</p>
+</li>
+<li>
+<p>Array of buckets</p>
+</li>
+<li>LinkedList (before Java 8)</li>
+<li>Red-Black Tree (if bucket size ≥ 8)</li>
+</ul>
+<p>So it's primarily <strong>hash-based</strong>.</p>
+<hr />
+<h3 id="treemap_1">TreeMap</h3>
+<ul>
+<li>Uses <strong>Red-Black Tree</strong></li>
+<li>Self-balancing binary search tree</li>
+<li>All operations O(log n)</li>
+</ul>
+<hr />
+<h1 id="time-complexity-comparison">🔥 Time Complexity Comparison</h1>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>HashMap</th>
+<th>TreeMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get()</td>
+<td>O(1) average</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>put()</td>
+<td>O(1) average</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>remove()</td>
+<td>O(1) average</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>No</td>
+<td>Sorted</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="interview-one-liner_9">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>HashMap is hash-based and provides O(1) average time complexity without ordering guarantees. TreeMap is a Red-Black Tree that maintains sorted order with O(log n) operations.</p>
+</blockquote>
+<hr />
+<h1 id="now-important-concept">🚀 Now Important Concept</h1>
+<p>TreeMap requires keys to be:</p>
+<p>1️⃣ Comparable
+OR
+2️⃣ Provided with Comparator</p>
+<p>Why?</p>
+<p>What happens if keys are not comparable?</p>
+<p>Correct answer:</p>
+<p>👉 It will throw <strong>ClassCastException at runtime</strong>.</p>
+<hr />
+<h1 id="why_6">Why?</h1>
+<p>TreeMap uses a <strong>Red-Black Tree</strong>.</p>
+<p>To insert a key, it must compare keys:</p>
+<p>Either using:</p>
+<pre><code class="language-java">Comparable.compareTo()
+</code></pre>
+<p>OR</p>
+<pre><code class="language-java">Comparator.compare()
+</code></pre>
+<p>If keys are not comparable, TreeMap cannot determine:</p>
+<ul>
+<li>left child</li>
+<li>right child</li>
+</ul>
+<p>So it fails during insertion.</p>
+<hr />
+<h1 id="example">Example</h1>
+<pre><code class="language-java">class Person {
+    int id;
+}
+
+TreeMap&lt;Person, String&gt; map = new TreeMap&lt;&gt;();
+map.put(new Person(), &quot;A&quot;);
+</code></pre>
+<p>This will throw:</p>
+<pre><code>java.lang.ClassCastException
+</code></pre>
+<p>Because Person does not implement Comparable and no Comparator provided.</p>
+<hr />
+<h1 id="interview-one-liner_10">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>TreeMap requires keys to be comparable. If keys are not comparable and no Comparator is provided, it throws ClassCastException at runtime.</p>
+</blockquote>
+<hr />
+<h1 id="now-deep-question_1">🔥 Now Deep Question</h1>
+<p>What is difference between:</p>
+<p>1️⃣ Comparable
+2️⃣ Comparator</p>
+<p>Explain in 3–4 lines.
+This is very common interview question.</p>
+<pre><code class="language-text">Comparable: It is a interface provide a compare method to decide natural sort order.
+Comparator you can use explicity to sort the collection.
+</code></pre>
+<p>Now let’s make it <strong>interview-perfect + deeper</strong>.</p>
+<hr />
+<h1 id="comparable-vs-comparator-deep-interview-ready">✅ Comparable vs Comparator (Deep + Interview Ready)</h1>
+<h2 id="1-comparable">1️⃣ Comparable</h2>
+<ul>
+<li>Package: <code>java.lang</code></li>
+<li>Method:</li>
+</ul>
+<pre><code class="language-java">int compareTo(T o);
+</code></pre>
+<ul>
+<li>Defines <strong>natural ordering</strong></li>
+<li>Class itself implements it</li>
+<li>Only <strong>one natural order</strong> possible</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">class Person implements Comparable&lt;Person&gt; {
+    int age;
+
+    public int compareTo(Person p) {
+        return this.age - p.age;
+    }
+}
+</code></pre>
+<p>Now:</p>
+<pre><code class="language-java">Collections.sort(list);
+</code></pre>
+<p>Uses compareTo()</p>
+<hr />
+<h2 id="2-comparator">2️⃣ Comparator</h2>
+<ul>
+<li>Package: <code>java.util</code></li>
+<li>Method:</li>
+</ul>
+<pre><code class="language-java">int compare(T o1, T o2);
+</code></pre>
+<ul>
+<li>Used for <strong>custom ordering</strong></li>
+<li>Separate class or lambda</li>
+<li>Multiple sorting strategies possible</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">Comparator&lt;Person&gt; byName = (p1, p2) -&gt; p1.name.compareTo(p2.name);
+Collections.sort(list, byName);
+</code></pre>
+<hr />
+<h1 id="key-differences-table">🔥 Key Differences Table</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Comparable</th>
+<th>Comparator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Package</td>
+<td>java.lang</td>
+<td>java.util</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>compareTo()</td>
+<td>compare()</td>
+</tr>
+<tr>
+<td>Defined in</td>
+<td>Same class</td>
+<td>Separate class</td>
+</tr>
+<tr>
+<td>Natural order</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Multiple sorting</td>
+<td>❌ Only one</td>
+<td>✅ Multiple</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="interview-one-liner_11">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>Comparable defines the natural ordering of objects within the class, while Comparator defines custom ordering externally and allows multiple sorting strategies.</p>
+</blockquote>
+<hr />
+<h1 id="now-important-edge-case">🚀 Now Important Edge Case</h1>
+<p>If compareTo() returns 0, what does that mean in:</p>
+<p>1️⃣ TreeSet
+2️⃣ TreeMap</p>
+<p>Think carefully — this is important.</p>
+<p>Correct answer:</p>
+<p>If <code>compareTo()</code> returns <strong>0</strong>, it means:</p>
+<blockquote>
+<p>The two objects are considered equal in terms of ordering.</p>
+</blockquote>
+<p>And in <strong>TreeSet / TreeMap</strong>, that means:</p>
+<p>👉 The second element will NOT be inserted.</p>
+<hr />
+<h1 id="why_7">🔥 Why?</h1>
+<p>TreeSet and TreeMap use:</p>
+<ul>
+<li><code>compareTo()</code> (or Comparator)</li>
+<li>NOT <code>equals()</code> to determine uniqueness</li>
+</ul>
+<p>So if:</p>
+<pre><code class="language-java">obj1.compareTo(obj2) == 0
+</code></pre>
+<p>TreeSet treats them as duplicates — even if <code>equals()</code> returns false.</p>
+<hr />
+<h1 id="example_1">Example</h1>
+<pre><code class="language-java">class Person implements Comparable&lt;Person&gt; {
+    int age;
+    String name;
+
+    public int compareTo(Person p) {
+        return this.age - p.age;  // only age considered
+    }
+}
+</code></pre>
+<p>Now:</p>
+<pre><code class="language-java">TreeSet&lt;Person&gt; set = new TreeSet&lt;&gt;();
+
+set.add(new Person(25, &quot;A&quot;));
+set.add(new Person(25, &quot;B&quot;));
+</code></pre>
+<p>Since compareTo returns 0 (same age):</p>
+<p>Second object is NOT added.</p>
+<p>Even though names differ.</p>
+<hr />
+<h1 id="critical-interview-rule">🧠 Critical Interview Rule</h1>
+<blockquote>
+<p>In TreeSet and TreeMap, uniqueness is determined by compareTo() (or Comparator), not equals().</p>
+</blockquote>
+<hr />
+<h1 id="now-deep-question_2">🚀 Now Deep Question</h1>
+<p>If equals() says two objects are equal,
+but compareTo() does NOT return 0,</p>
+<p>what happens in TreeSet?</p>
+<p>✅ Answer:</p>
+<p>If:</p>
+<ul>
+<li><code>equals()</code> returns <strong>true</strong></li>
+<li>but <code>compareTo()</code> does <strong>NOT return 0</strong></li>
+</ul>
+<p>👉 <strong>Both objects will be inserted into TreeSet.</strong></p>
+<hr />
+<h1 id="why_8">🔥 Why?</h1>
+<p>Because:</p>
+<p>TreeSet uses:</p>
+<pre><code class="language-text">compareTo() OR Comparator
+</code></pre>
+<p>to determine:</p>
+<ul>
+<li>Order</li>
+<li>Uniqueness</li>
+</ul>
+<p>It does NOT use <code>equals()</code> to prevent duplicates.</p>
+<p>So if:</p>
+<pre><code class="language-java">obj1.equals(obj2) == true
+</code></pre>
+<p>But:</p>
+<pre><code class="language-java">obj1.compareTo(obj2) != 0
+</code></pre>
+<p>TreeSet thinks they are different.</p>
+<hr />
+<h1 id="important-rule-very-important-for-interviews">🚨 Important Rule (Very Important for Interviews)</h1>
+<p>For sorted collections:</p>
+<blockquote>
+<p>compareTo() returning 0 defines equality, not equals().</p>
+</blockquote>
+<hr />
+<h1 id="why-this-is-dangerous">🔥 Why This Is Dangerous?</h1>
+<p>Because this violates the general contract:</p>
+<p>Java recommends:</p>
+<pre><code class="language-text">if a.equals(b) == true
+then a.compareTo(b) should return 0
+</code></pre>
+<p>If not:</p>
+<ul>
+<li>You may get inconsistent behavior</li>
+<li>Collections behave unexpectedly</li>
+</ul>
+<hr />
+<h1 id="interview-one-liner_12">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>In TreeSet and TreeMap, equality is determined by compareTo() or Comparator. If compareTo() is inconsistent with equals(), it may allow logical duplicates.</p>
+</blockquote>
+<hr />
+<h1 id="we-have-covered">🚀 We Have Covered:</h1>
+<ul>
+<li>ArrayList internals</li>
+<li>LinkedList internals</li>
+<li>HashSet internals</li>
+<li>HashMap internals</li>
+<li>Resize logic</li>
+<li>Treeification</li>
+<li>Fail-fast</li>
+<li>Null behavior</li>
+<li>TreeMap internals</li>
+<li>Comparable vs Comparator</li>
+<li>Uniqueness rules</li>
+</ul>
+<p>You are now at strong intermediate-to-senior level on Collections.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
