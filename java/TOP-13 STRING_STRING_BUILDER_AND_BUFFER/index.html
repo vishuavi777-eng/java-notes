@@ -865,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+      <a href="../TOP-15%20COLLECTIONS_FRAMEWORK_2/" class="md-nav__link">
         
   
   
@@ -1292,26 +1292,26 @@
 <li><code>.equals()</code> compares <strong>content</strong> (same characters?)</li>
 </ul>
 <p>Examples:</p>
-<pre><code class="language-java">String a = &quot;Hello&quot;;
-String b = &quot;Hello&quot;;
-System.out.println(a == b);      // true (same pooled literal)
-System.out.println(a.equals(b)); // true
-
-String c = new String(&quot;Hello&quot;);
-System.out.println(a == c);      // false (different object)
-System.out.println(a.equals(c)); // true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">      </span><span class="c1">// true (same pooled literal)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span><span class="w"> </span><span class="c1">// true</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">String</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w">      </span><span class="c1">// false (different object)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">c</span><span class="p">));</span><span class="w"> </span><span class="c1">// true</span>
+</span></code></pre></div>
 <hr />
 <h2 id="5-what-happens-in-concatenation">5) What happens in concatenation (<code>+</code>)</h2>
 <p>This is a huge interview area.</p>
 <h3 id="case-a-compile-time-concat">Case A: compile-time concat</h3>
-<pre><code class="language-java">String s = &quot;Hel&quot; + &quot;lo&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>✅ compiler folds it into <code>"Hello"</code> → pooled.</p>
 <h3 id="case-b-runtime-concat">Case B: runtime concat</h3>
-<pre><code class="language-java">String a = &quot;Hel&quot;;
-String s = a + &quot;lo&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>✅ happens at runtime → typically uses <strong>StringBuilder</strong> under the hood → result is a new String (not pooled unless interned).</p>
 <p>In modern Java, concatenation may use <code>invokedynamic</code>, but conceptually:</p>
 <blockquote>
@@ -1324,10 +1324,10 @@ String s = a + &quot;lo&quot;;
 <li>if exists, returns existing pooled one</li>
 <li>else adds to pool and returns it</li>
 </ul>
-<pre><code class="language-java">String x = new String(&quot;ABC&quot;);  // heap
-String y = x.intern();         // pool ref
-System.out.println(x == y);    // false
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;ABC&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// heap</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">String</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span><span class="w">         </span><span class="c1">// pool ref</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">    </span><span class="c1">// false</span>
+</span></code></pre></div>
 <hr />
 <h1 id="stringbuilder-deep">StringBuilder (Deep)</h1>
 <h2 id="1-what-is-stringbuilder">1) What is StringBuilder?</h2>
@@ -1339,21 +1339,21 @@ System.out.println(x == y);    // false
 <li>faster than StringBuffer in single-thread</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">StringBuilder sb = new StringBuilder(&quot;Hi&quot;);
-sb.append(&quot; Vishu&quot;);
-System.out.println(sb.toString());
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; Vishu&quot;</span><span class="p">);</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+</span></code></pre></div>
 <h2 id="2-why-its-faster-than-string-in-loops">2) Why it’s faster than String in loops</h2>
 <p>String is immutable → every <code>+</code> can create new objects.</p>
 <p>Bad:</p>
-<pre><code class="language-java">String s = &quot;&quot;;
-for (...) s = s + i; // creates many objects
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// creates many objects</span>
+</span></code></pre></div>
 <p>Good:</p>
-<pre><code class="language-java">StringBuilder sb = new StringBuilder();
-for (...) sb.append(i);
-String s = sb.toString();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
 <h2 id="3-capacity-growth-interview">3) Capacity growth (interview)</h2>
 <p>StringBuilder has:</p>
 <ul>
@@ -1365,8 +1365,8 @@ String s = sb.toString();
 <p>newCapacity = oldCapacity * 2 + 2</p>
 </blockquote>
 <p>You can set initial capacity to avoid resizing:</p>
-<pre><code class="language-java">new StringBuilder(1000)
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</span></code></pre></div>
 <hr />
 <h1 id="stringbuffer-deep">StringBuffer (Deep)</h1>
 <h2 id="1-what-is-stringbuffer">1) What is StringBuffer?</h2>
@@ -1437,52 +1437,52 @@ String s = sb.toString();
 <h1 id="quick-depth-test-to-confirm-nothing-missed">Quick depth test (to confirm nothing missed)</h1>
 <p>Answer these (just outputs):</p>
 <p>1.</p>
-<pre><code class="language-java">String a = &quot;Hello&quot;;
-String b = &quot;Hel&quot; + &quot;lo&quot;;
-System.out.println(a == b);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</span></code></pre></div>
 <p>2.</p>
-<pre><code class="language-java">String a = &quot;Hel&quot;;
-String b = a + &quot;lo&quot;;
-System.out.println(b == &quot;Hello&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>3.</p>
-<pre><code class="language-java">String x = new String(&quot;Hi&quot;);
-System.out.println(x == &quot;Hi&quot;);
-System.out.println(x.intern() == &quot;Hi&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">String</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">intern</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ Output(ordered):</p>
-<pre><code>1. true
-2. false
-3.
-false
-true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1. true
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>2. false
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>3.
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>false
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>true
+</span></code></pre></div>
 <h1 id="why-each-answer-is-correct-jvm-level-thinking">🔎 Why Each Answer Is Correct (JVM-Level Thinking)</h1>
 <hr />
 <h2 id="1">1️⃣</h2>
-<pre><code class="language-java">String a = &quot;Hello&quot;;
-String b = &quot;Hel&quot; + &quot;lo&quot;;
-System.out.println(a == b);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</span></code></pre></div>
 <h3 id="what-happens">What happens?</h3>
 <p><code>"Hel" + "lo"</code> is <strong>compile-time constant expression</strong>.</p>
 <p>Compiler converts it to:</p>
-<pre><code class="language-java">String b = &quot;Hello&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>So both <code>a</code> and <code>b</code> point to same pooled object.</p>
 <p>✔ Output: <code>true</code></p>
 <hr />
 <h2 id="2">2️⃣</h2>
-<pre><code class="language-java">String a = &quot;Hel&quot;;
-String b = a + &quot;lo&quot;;
-System.out.println(b == &quot;Hello&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Now this is <strong>runtime concatenation</strong>.</p>
 <p>Because <code>a</code> is a variable.</p>
 <p>Internally something like:</p>
-<pre><code class="language-java">new StringBuilder().append(a).append(&quot;lo&quot;).toString();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">().</span><span class="na">append</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;lo&quot;</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
 <p>So:</p>
 <ul>
 <li><code>"Hello"</code> literal → pool</li>
@@ -1492,28 +1492,28 @@ System.out.println(b == &quot;Hello&quot;);
 <p>✔ Output: <code>false</code></p>
 <hr />
 <h2 id="3">3️⃣</h2>
-<pre><code class="language-java">String x = new String(&quot;Hi&quot;);
-System.out.println(x == &quot;Hi&quot;);
-System.out.println(x.intern() == &quot;Hi&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">String</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">intern</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Step-by-step:</p>
 <ul>
 <li><code>"Hi"</code> literal → pool</li>
 <li><code>new String("Hi")</code> → new heap object</li>
 </ul>
 <p>So:</p>
-<pre><code>x == &quot;Hi&quot; → false
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>x == &quot;Hi&quot; → false
+</span></code></pre></div>
 <p>Then:</p>
-<pre><code>x.intern() → returns pooled reference
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>x.intern() → returns pooled reference
+</span></code></pre></div>
 <p>So:</p>
-<pre><code>x.intern() == &quot;Hi&quot; → true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>x.intern() == &quot;Hi&quot; → true
+</span></code></pre></div>
 <p>✔ Output:</p>
-<pre><code>false
-true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>false
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>true
+</span></code></pre></div>
 <hr />
 <h1 id="now-we-go-even-deeper">🧠 Now We Go EVEN Deeper</h1>
 <h2 id="question-where-exactly-does-string-store-characters">🔥 Question: Where exactly does String store characters?</h2>
@@ -1534,20 +1534,20 @@ true
 <hr />
 <h1 id="string-immutability-deep-trap">🔥 String Immutability Deep Trap</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">String s = &quot;Java&quot;;
-s.concat(&quot;8&quot;);
-System.out.println(s);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <p>✅ Ouput:</p>
-<pre><code class="language-text">Java
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Java
+</span></code></pre></div>
 <hr />
 <h1 id="why-deep-understanding">Why? (Deep Understanding)</h1>
-<pre><code class="language-java">String s = &quot;Java&quot;;
-s.concat(&quot;8&quot;);
-System.out.println(s);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Important:</p>
 <ul>
 <li><code>String</code> is immutable.</li>
@@ -1555,12 +1555,12 @@ System.out.println(s);
 <li>It returns a <strong>new String</strong>.</li>
 </ul>
 <p>So internally:</p>
-<pre><code class="language-java">String temp = s.concat(&quot;8&quot;);  // creates &quot;Java8&quot;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">String</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// creates &quot;Java8&quot;</span>
+</span></code></pre></div>
 <p>But you ignored the returned value.</p>
 <p>So <code>s</code> still points to:</p>
-<pre><code class="language-text">&quot;Java&quot;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>&quot;Java&quot;
+</span></code></pre></div>
 <hr />
 <h1 id="interview-one-liner">🧠 Interview One-Liner</h1>
 <blockquote>
@@ -1568,27 +1568,27 @@ System.out.println(s);
 </blockquote>
 <hr />
 <h1 id="if-you-change-this">🔥 If You Change This</h1>
-<pre><code class="language-java">String s = &quot;Java&quot;;
-s = s.concat(&quot;8&quot;);
-System.out.println(s);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Now output:</p>
-<pre><code class="language-text">Java8
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Java8
+</span></code></pre></div>
 <p>Because now <code>s</code> points to new object.</p>
 <hr />
 <h1 id="now-going-deeper-stringbuilder-internal-behavior">🚀 Now Going Deeper: StringBuilder Internal Behavior</h1>
 <h2 id="1-capacity-vs-length-very-important">1️⃣ Capacity vs Length (Very Important)</h2>
-<pre><code class="language-java">StringBuilder sb = new StringBuilder();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span></code></pre></div>
 <p>Default:</p>
 <ul>
 <li>capacity = 16</li>
 <li>length = 0</li>
 </ul>
 <p>If you do:</p>
-<pre><code class="language-java">sb.append(&quot;Hello&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>length = 5</li>
 <li>capacity still 16</li>
@@ -1597,68 +1597,68 @@ System.out.println(s);
 <hr />
 <h2 id="resizing-formula-interview-favorite">🔥 Resizing Formula (Interview Favorite)</h2>
 <p>When capacity exceeded:</p>
-<pre><code>newCapacity = (oldCapacity * 2) + 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>newCapacity = (oldCapacity * 2) + 2
+</span></code></pre></div>
 <p>Example:</p>
 <ul>
 <li>16 → 34</li>
 <li>34 → 70</li>
 </ul>
 <p>You can avoid resizing by:</p>
-<pre><code class="language-java">new StringBuilder(1000);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="performance-comparison-very-important">🔥 Performance Comparison (Very Important)</h1>
 <p>In loops:</p>
 <p>❌ Bad:</p>
-<pre><code class="language-java">String s = &quot;&quot;;
-for(int i = 0; i &lt; 10000; i++)
-    s += i;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Creates thousands of objects.</p>
 <p>✔ Good:</p>
-<pre><code class="language-java">StringBuilder sb = new StringBuilder();
-for(int i = 0; i &lt; 10000; i++)
-    sb.append(i);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="now-advanced-trap">🔥 Now Advanced Trap</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hello&quot;);
-StringBuilder sb2 = sb1;
-
-sb1.append(&quot; World&quot;);
-
-System.out.println(sb2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb1</span><span class="p">;</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="n">sb1</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; World&quot;</span><span class="p">);</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb2</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ Ouput:</p>
-<pre><code class="language-text">Hello World
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Hello World
+</span></code></pre></div>
 <hr />
 <h1 id="why-deep-understanding_1">Why? (Deep Understanding)</h1>
-<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hello&quot;);
-StringBuilder sb2 = sb1;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb1</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Important:</p>
 <ul>
 <li><code>sb1</code> and <code>sb2</code> point to the <strong>same object</strong></li>
 <li>No new object created in second line</li>
 </ul>
 <p>Memory:</p>
-<pre><code>Heap:
-[StringBuilder object: &quot;Hello&quot;]
-
-Stack:
-sb1 → (ref)
-sb2 → (same ref)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Heap:
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>[StringBuilder object: &quot;Hello&quot;]
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>Stack:
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>sb1 → (ref)
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>sb2 → (same ref)
+</span></code></pre></div>
 <p>Then:</p>
-<pre><code class="language-java">sb1.append(&quot; World&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">sb1</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; World&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Since <code>StringBuilder</code> is <strong>mutable</strong>, the same object is modified.</p>
 <p>So printing <code>sb2</code> shows:</p>
-<pre><code class="language-text">Hello World
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Hello World
+</span></code></pre></div>
 <hr />
 <h1 id="interview-rule">🧠 Interview Rule</h1>
 <blockquote>
@@ -1667,21 +1667,21 @@ sb2 → (same ref)
 <hr />
 <h1 id="now-slightly-tricky-comparison">🔥 Now Slightly Tricky Comparison</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hi&quot;);
-StringBuilder sb2 = new StringBuilder(&quot;Hi&quot;);
-
-System.out.println(sb1 == sb2);
-System.out.println(sb1.equals(sb2));
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sb2</span><span class="p">);</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">sb2</span><span class="p">));</span>
+</span></code></pre></div>
 <p>✅ Ouput:</p>
-<pre><code>false
-false
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>false
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>false
+</span></code></pre></div>
 <hr />
 <h1 id="why">Why?</h1>
-<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hi&quot;);
-StringBuilder sb2 = new StringBuilder(&quot;Hi&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>These are <strong>two different objects</strong> in heap.</p>
 <hr />
 <h2 id="1-sb1-sb2">1️⃣ <code>sb1 == sb2</code></h2>
@@ -1693,8 +1693,8 @@ StringBuilder sb2 = new StringBuilder(&quot;Hi&quot;);
 <p>Here is the important part:</p>
 <p><code>StringBuilder</code> does <strong>NOT override equals()</strong>.</p>
 <p>So it inherits <code>Object.equals()</code> which is basically:</p>
-<pre><code class="language-java">return this == obj;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
+</span></code></pre></div>
 <p>So it again compares references.</p>
 <p>Therefore:</p>
 <p>✔ <code>false</code></p>
@@ -1704,11 +1704,11 @@ StringBuilder sb2 = new StringBuilder(&quot;Hi&quot;);
 <code>StringBuilder</code> does NOT override <code>equals()</code> → compares reference</p>
 <hr />
 <h1 id="now-if-you-do-this">🔥 Now If You Do This</h1>
-<pre><code class="language-java">System.out.println(sb1.toString().equals(sb2.toString()));
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb1</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">sb2</span><span class="p">.</span><span class="na">toString</span><span class="p">()));</span>
+</span></code></pre></div>
 <p>Now output would be:</p>
-<pre><code>true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>true
+</span></code></pre></div>
 <p>Because now you are comparing two String objects with content comparison.</p>
 <hr />
 <h1 id="interview-one-liner_1">🧠 Interview One-Liner</h1>
@@ -1719,16 +1719,16 @@ StringBuilder sb2 = new StringBuilder(&quot;Hi&quot;);
 <h1 id="now-we-go-even-deeper_1">🚀 Now We Go Even Deeper</h1>
 <h2 id="question">Question:</h2>
 <p>What is the output?</p>
-<pre><code class="language-java">String s1 = &quot;abc&quot;;
-String s2 = s1.replace('a', 'z');
-
-System.out.println(s1);
-System.out.println(s2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">);</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ Output:</p>
-<pre><code class="language-text">abc
-zbc
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>abc
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>zbc
+</span></code></pre></div>
 <h3 id="why-deep-but-crisp">Why (deep but crisp)</h3>
 <ul>
 <li><code>String</code> is immutable</li>
@@ -1750,28 +1750,28 @@ zbc
 </blockquote>
 <hr />
 <h1 id="very-important-stringbuilder-method-chaining">Very important: <code>StringBuilder</code> method chaining</h1>
-<pre><code class="language-java">StringBuilder sb = new StringBuilder();
-sb.append(&quot;A&quot;).append(&quot;B&quot;).append(10);
-System.out.println(sb); // AB10
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span><span class="w"> </span><span class="c1">// AB10</span>
+</span></code></pre></div>
 <p>Because append returns <code>this</code>.</p>
 <hr />
 <h1 id="next-interview-trap-stringbuilder-reverse">🔥 Next Interview Trap: <code>StringBuilder</code> reverse</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">StringBuilder sb = new StringBuilder(&quot;abc&quot;);
-String s = sb.reverse().toString();
-System.out.println(sb);
-System.out.println(s);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">reverse</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ output:</p>
-<pre><code class="language-text">cba
-cba
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>cba
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>cba
+</span></code></pre></div>
 <hr />
 <h1 id="why-deep-understanding_2">Why? (Deep Understanding)</h1>
-<pre><code class="language-java">StringBuilder sb = new StringBuilder(&quot;abc&quot;);
-String s = sb.reverse().toString();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">reverse</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
 <p>Important:</p>
 <ul>
 <li><code>reverse()</code> modifies the <strong>same StringBuilder object</strong></li>
@@ -1779,14 +1779,14 @@ String s = sb.reverse().toString();
 <li>It returns <code>this</code></li>
 </ul>
 <p>So after:</p>
-<pre><code class="language-java">sb.reverse();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="n">sb</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span>
+</span></code></pre></div>
 <p>The internal buffer becomes:</p>
-<pre><code class="language-text">&quot;cba&quot;
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>&quot;cba&quot;
+</span></code></pre></div>
 <p>Then:</p>
-<pre><code class="language-java">s = sb.toString();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
 <p>Now <code>s</code> is a new <strong>String object</strong> containing <code>"cba"</code>.</p>
 <hr />
 <h2 id="final-state">Final State</h2>
@@ -1795,15 +1795,15 @@ String s = sb.reverse().toString();
 <li><code>s</code> → immutable String → <code>"cba"</code></li>
 </ul>
 <p>So both print:</p>
-<pre><code class="language-text">cba
-cba
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>cba
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>cba
+</span></code></pre></div>
 <hr />
 <h1 id="very-important-difference">🔥 Very Important Difference</h1>
 <p>If this was String:</p>
-<pre><code class="language-java">String s = &quot;abc&quot;;
-s.reverse();  // ❌ no such method
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="n">s</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span><span class="w">  </span><span class="c1">// ❌ no such method</span>
+</span></code></pre></div>
 <p>Because String is immutable and does not provide reverse.</p>
 <hr />
 <h1 id="interview-rule_1">🧠 Interview Rule</h1>
@@ -1813,25 +1813,25 @@ s.reverse();  // ❌ no such method
 <hr />
 <h1 id="now-next-deep-trap">🚀 Now Next Deep Trap</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">String s1 = &quot;Java&quot;;
-String s2 = &quot;Java&quot;;
-String s3 = new String(&quot;Java&quot;);
-
-System.out.println(s1 == s2);
-System.out.println(s1 == s3);
-System.out.println(s1.equals(s3));
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">s3</span><span class="p">));</span>
+</span></code></pre></div>
 <p>✅ Output:</p>
-<pre><code>true
-false
-true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>true
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>false
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>true
+</span></code></pre></div>
 <p>Now let’s lock this deeply in your brain (interview depth).</p>
 <hr />
 <h1 id="why-each-line-prints-that">🔎 Why Each Line Prints That</h1>
-<pre><code class="language-java">String s1 = &quot;Java&quot;;
-String s2 = &quot;Java&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Both are <strong>string literals</strong>.</p>
 <ul>
 <li>JVM checks String Pool</li>
@@ -1839,23 +1839,23 @@ String s2 = &quot;Java&quot;;
 <li><code>s1</code> and <code>s2</code> point to same pooled object</li>
 </ul>
 <p>So:</p>
-<pre><code class="language-java">s1 == s2  → true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <hr />
-<pre><code class="language-java">String s3 = new String(&quot;Java&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>This creates:</p>
 <ol>
 <li><code>"Java"</code> in pool (if not already there)</li>
 <li>A <strong>new object in heap</strong></li>
 </ol>
 <p>So:</p>
-<pre><code class="language-java">s1 == s3  → false
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="kc">false</span>
+</span></code></pre></div>
 <p>Different objects.</p>
 <hr />
-<pre><code class="language-java">s1.equals(s3) → true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="n">s1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <p>Because <code>.equals()</code> compares content, not reference.</p>
 <hr />
 <h1 id="interview-one-liner_2">🧠 Interview One-Liner</h1>
@@ -1865,22 +1865,22 @@ String s2 = &quot;Java&quot;;
 <hr />
 <h1 id="now-we-go-even-deeper-compile-time-constant-trap">🚀 Now We Go Even Deeper (Compile-Time Constant Trap)</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">final String s1 = &quot;Hello&quot;;
-String s2 = &quot;Hello&quot;;
-String s3 = s1 + &quot;World&quot;;
-String s4 = &quot;HelloWorld&quot;;
-
-System.out.println(s3 == s4);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-64-4"><a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span><span id="__span-64-5"><a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>
+</span><span id="__span-64-6"><a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s4</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ output:</p>
-<pre><code>true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>true
+</span></code></pre></div>
 <p>Now let’s understand <strong>why</strong> (this is important interview depth).</p>
 <hr />
 <h1 id="why-true">Why <code>true</code>?</h1>
-<pre><code class="language-java">final String s1 = &quot;Hello&quot;;
-String s3 = s1 + &quot;World&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Because <code>s1</code> is:</p>
 <ul>
 <li><code>final</code></li>
@@ -1888,41 +1888,41 @@ String s3 = s1 + &quot;World&quot;;
 </ul>
 <p>The compiler treats <code>s1</code> as a constant.</p>
 <p>So this:</p>
-<pre><code class="language-java">s1 + &quot;World&quot;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span>
+</span></code></pre></div>
 <p>Is converted at compile time into:</p>
-<pre><code class="language-java">&quot;HelloWorld&quot;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="s">&quot;HelloWorld&quot;</span>
+</span></code></pre></div>
 <p>So effectively:</p>
-<pre><code class="language-java">String s3 = &quot;HelloWorld&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Now:</p>
-<pre><code class="language-java">String s4 = &quot;HelloWorld&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Both <code>s3</code> and <code>s4</code> refer to the same pooled literal.</p>
 <p>So:</p>
-<pre><code class="language-java">s3 == s4 → true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="n">s3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <hr />
 <h1 id="now-change-slightly">🔥 Now Change Slightly</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">String s1 = &quot;Hello&quot;;   // not final
-String s3 = s1 + &quot;World&quot;;
-String s4 = &quot;HelloWorld&quot;;
-
-System.out.println(s3 == s4);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// not final</span>
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s4</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ Output is <strong>false</strong>.</p>
 <hr />
 <h1 id="why_1">Why?</h1>
-<pre><code class="language-java">String s1 = &quot;Hello&quot;;   // not final
-String s3 = s1 + &quot;World&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// not final</span>
+</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Because <code>s1</code> is <strong>not final</strong>, the compiler cannot treat <code>s1</code> as a compile-time constant.</p>
 <p>So <code>s1 + "World"</code> becomes <strong>runtime concatenation</strong>, producing a <strong>new String object</strong> (on heap).</p>
 <p>Meanwhile:</p>
-<pre><code class="language-java">String s4 = &quot;HelloWorld&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>is a pooled literal.</p>
 <p>So references are different:</p>
 <ul>
@@ -1930,8 +1930,8 @@ String s3 = s1 + &quot;World&quot;;
 <li><code>s4</code> → pooled <code>"HelloWorld"</code></li>
 </ul>
 <p>Therefore:</p>
-<pre><code class="language-text">false
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>false
+</span></code></pre></div>
 <hr />
 <h1 id="deep-notes-summary-for-string-stringbuilder-stringbuffer">✅ Deep Notes Summary for String / StringBuilder / StringBuffer</h1>
 <h3 id="string">String</h3>
@@ -1959,8 +1959,8 @@ String s3 = s1 + &quot;World&quot;;
 <h2 id="final-high-value-interview-question">Final high-value interview question</h2>
 <p>Why is <code>String</code> immutable but <code>StringBuilder</code> mutable?
 Answer in 3–4 lines (interview style).</p>
-<pre><code class="language-text">because in java string is frequently used in map, json, constants. so making it immutable give best performance to handle it inside string pool. String builder is mutable because it separate class than string. it specially designed to handle heavy concat nations during runtime. it avoid rapidly instant creations when heavily concat nation happen.
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>because in java string is frequently used in map, json, constants. so making it immutable give best performance to handle it inside string pool. String builder is mutable because it separate class than string. it specially designed to handle heavy concat nations during runtime. it avoid rapidly instant creations when heavily concat nation happen.
+</span></code></pre></div>
 <hr />
 <h1 id="perfect-interview-answer">✅ Perfect Interview Answer</h1>
 <blockquote>
@@ -1971,9 +1971,9 @@ Answer in 3–4 lines (interview style).</p>
 <h1 id="now-lets-go-even-deeper-senior-level-depth">🔥 Now Let’s Go EVEN Deeper (Senior-Level Depth)</h1>
 <h2 id="1-string-as-hashmap-key-very-important">1️⃣ String as HashMap Key (VERY IMPORTANT)</h2>
 <p>Because String is immutable:</p>
-<pre><code class="language-java">Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
-map.put(&quot;key&quot;, &quot;value&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>When String is used as key:</p>
 <ul>
 <li>hashCode is computed once</li>
@@ -1990,8 +1990,8 @@ map.put(&quot;key&quot;, &quot;value&quot;);
 <hr />
 <h2 id="2-hashcode-caching-deep-jvm-insight">2️⃣ HashCode Caching (Deep JVM Insight)</h2>
 <p>Inside String class:</p>
-<pre><code class="language-java">private int hash;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
+</span></code></pre></div>
 <p>When hashCode() is first called:</p>
 <ul>
 <li>It computes and stores in <code>hash</code></li>
@@ -2001,8 +2001,8 @@ map.put(&quot;key&quot;, &quot;value&quot;);
 <hr />
 <h2 id="3-security-reason-important">3️⃣ Security Reason (Important)</h2>
 <p>Imagine:</p>
-<pre><code class="language-java">String path = &quot;/secure/path&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/secure/path&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <p>If String was mutable:</p>
 <ul>
 <li>Another thread could modify path</li>
@@ -2029,43 +2029,43 @@ map.put(&quot;key&quot;, &quot;value&quot;);
 <hr />
 <h1 id="now-final-advanced-trap">🔥 Now Final Advanced Trap</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">String s1 = &quot;abc&quot;;
-String s2 = new String(&quot;abc&quot;);
-String s3 = s2.intern();
-
-System.out.println(s1 == s3);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-80-3"><a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+</span><span id="__span-80-4"><a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a>
+</span><span id="__span-80-5"><a id="__codelineno-80-5" name="__codelineno-80-5" href="#__codelineno-80-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ Output:</p>
-<pre><code>true
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>true
+</span></code></pre></div>
 <hr />
 <h1 id="why-deep-jvm-level-explanation">Why? (Deep JVM-Level Explanation)</h1>
-<pre><code class="language-java">String s1 = &quot;abc&quot;;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span></code></pre></div>
 <ul>
 <li><code>"abc"</code> literal goes into the <strong>String Pool</strong>.</li>
 <li><code>s1</code> points to pooled object.</li>
 </ul>
-<pre><code class="language-java">String s2 = new String(&quot;abc&quot;);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li><code>"abc"</code> literal already exists in pool.</li>
 <li><code>new String("abc")</code> creates a <strong>new heap object</strong>.</li>
 <li><code>s2</code> points to heap object.</li>
 </ul>
-<pre><code class="language-java">String s3 = s2.intern();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+</span></code></pre></div>
 <p>What <code>intern()</code> does:</p>
 <ul>
 <li>If the string already exists in pool → return pooled reference.</li>
 <li>If not → add to pool and return it.</li>
 </ul>
 <p>Since <code>"abc"</code> already exists in pool:</p>
-<pre><code class="language-java">s3 → pooled &quot;abc&quot;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="n">s3</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">pooled</span><span class="w"> </span><span class="s">&quot;abc&quot;</span>
+</span></code></pre></div>
 <p>So:</p>
-<pre><code class="language-java">s1 == s3 → true
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <hr />
 <h1 id="ultra-deep-insight-senior-level">🔥 Ultra Deep Insight (Senior Level)</h1>
 <h3 id="important-behavior-difference-java-6-vs-java-7">Important behavior difference (Java 6 vs Java 7+)</h3>
@@ -2083,12 +2083,12 @@ System.out.println(s1 == s3);
 <hr />
 <h1 id="now-one-slightly-tricky-variant">🧠 Now One Slightly Tricky Variant</h1>
 <p>Predict output:</p>
-<pre><code class="language-java">String s1 = new String(&quot;abc&quot;);
-String s2 = s1.intern();
-String s3 = &quot;abc&quot;;
-
-System.out.println(s2 == s3);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-87-2"><a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+</span><span id="__span-87-3"><a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-87-4"><a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>
+</span><span id="__span-87-5"><a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
+</span></code></pre></div>
 <p>✅ Output — it prints <strong>true</strong>.</p>
 <h3 id="why-short-but-deep">Why (short but deep)</h3>
 <ul>
@@ -2171,7 +2171,7 @@ System.out.println(s2 == s3);
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

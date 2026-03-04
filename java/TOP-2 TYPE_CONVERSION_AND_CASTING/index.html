@@ -726,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+      <a href="../TOP-15%20COLLECTIONS_FRAMEWORK_2/" class="md-nav__link">
         
   
   
@@ -991,9 +991,9 @@ In Java, it happens in two ways:</p>
 <li>No data loss</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">int x = 10;
-long y = x;   // automatic
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">long</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">   </span><span class="c1">// automatic</span>
+</span></code></pre></div>
 <h3 id="why-allowed">Why allowed?</h3>
 <p>Because:</p>
 <ul>
@@ -1002,16 +1002,16 @@ long y = x;   // automatic
 </ul>
 <hr />
 <h2 id="primitive-widening-order-very-important">Primitive Widening Order (Very Important)</h2>
-<pre><code>byte → short → int → long → float → double
-           char ↗
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>byte → short → int → long → float → double
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>           char ↗
+</span></code></pre></div>
 <p>⚠ <code>boolean</code> cannot be converted to any other type.</p>
 <hr />
 <h2 id="example">Example</h2>
-<pre><code class="language-java">byte b = 10;
-int i = b;      // OK
-double d = i;   // OK
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">      </span><span class="c1">// OK</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">   </span><span class="c1">// OK</span>
+</span></code></pre></div>
 <hr />
 <h1 id="3-explicit-type-conversion-narrowing">3️⃣ Explicit Type Conversion (Narrowing)</h1>
 <p>When:</p>
@@ -1021,22 +1021,22 @@ double d = i;   // OK
 <li>Must use casting operator</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-java">double d = 10.5;
-int x = (int) d;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.5</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Output:</p>
-<pre><code>10
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>10
+</span></code></pre></div>
 <p>Decimal part removed (not rounded).</p>
 <hr />
 <h1 id="data-loss-example">⚠️ Data Loss Example</h1>
-<pre><code class="language-java">int x = 130;
-byte b = (byte) x;
-System.out.println(b);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">130</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Output:</p>
-<pre><code>-126
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>-126
+</span></code></pre></div>
 <p>Why?</p>
 <p>Because:</p>
 <ul>
@@ -1050,10 +1050,10 @@ System.out.println(b);
 <h1 id="4-important-interview-traps">4️⃣ Important Interview Traps</h1>
 <hr />
 <h2 id="trap-1-arithmetic-promotion">🔥 Trap 1: Arithmetic Promotion</h2>
-<pre><code class="language-java">byte a = 10;
-byte b = 20;
-byte c = a + b;  // ERROR
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">byte</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  </span><span class="c1">// ERROR</span>
+</span></code></pre></div>
 <p>Why error?</p>
 <p>Because:</p>
 <ul>
@@ -1062,52 +1062,52 @@ byte c = a + b;  // ERROR
 <li>Cannot assign int to byte without casting</li>
 </ul>
 <p>Correct:</p>
-<pre><code class="language-java">byte c = (byte)(a + b);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">byte</span><span class="p">)(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h2 id="trap-2-char-int">🔥 Trap 2: Char + Int</h2>
-<pre><code class="language-java">char c = 'A';
-int x = c;   // OK
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">   </span><span class="c1">// OK</span>
+</span></code></pre></div>
 <p>Output:</p>
-<pre><code>65
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>65
+</span></code></pre></div>
 <p>Because char stores Unicode value.</p>
 <hr />
 <h2 id="trap-3-final-keyword-trick">🔥 Trap 3: Final Keyword Trick</h2>
-<pre><code class="language-java">final int x = 10;
-byte b = x;   // OK
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">   </span><span class="c1">// OK</span>
+</span></code></pre></div>
 <p>Why?</p>
 <p>Because <code>x</code> is compile-time constant within range of byte.</p>
 <p>But:</p>
-<pre><code class="language-java">int x = 10;
-byte b = x;   // ERROR
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">   </span><span class="c1">// ERROR</span>
+</span></code></pre></div>
 <p>Even though value same.</p>
 <p>Interviewers love this.</p>
 <hr />
 <h1 id="5-reference-type-casting">5️⃣ Reference Type Casting</h1>
 <p>There are two:</p>
 <h2 id="upcasting-automatic">Upcasting (Automatic)</h2>
-<pre><code class="language-java">Animal a = new Dog();
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
+</span></code></pre></div>
 <p>Child → Parent
 Safe
 No cast needed</p>
 <hr />
 <h2 id="downcasting-explicit">Downcasting (Explicit)</h2>
-<pre><code class="language-java">Animal a = new Dog();
-Dog d = (Dog) a;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">();</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">Dog</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Dog</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span></code></pre></div>
 <p>Parent → Child
 Needs cast
 May cause <code>ClassCastException</code></p>
 <hr />
 <h1 id="dangerous-trap">⚠️ Dangerous Trap</h1>
-<pre><code class="language-java">Animal a = new Animal();
-Dog d = (Dog) a;  // Compiles but runtime exception
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Animal</span><span class="p">();</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">Dog</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Dog</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// Compiles but runtime exception</span>
+</span></code></pre></div>
 <hr />
 <h1 id="6-how-to-answer-in-interview">6️⃣ How to Answer in Interview</h1>
 <p>If interviewer asks:</p>
@@ -1127,10 +1127,10 @@ Dog d = (Dog) a;  // Compiles but runtime exception
 </ul>
 <hr />
 <h1 id="question-1">Question 1</h1>
-<pre><code class="language-java">int x = 5;
-double y = x / 2;
-System.out.println(y);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div>
 <h2 id="step-by-step">Step-by-step:</h2>
 <ul>
 <li><code>x</code> is int (5)</li>
@@ -1144,14 +1144,14 @@ System.out.println(y);
 <li>int 2 is widened to double → 2.0</li>
 </ul>
 <h3 id="output">✅ Output:</h3>
-<pre><code>2.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>2.0
+</span></code></pre></div>
 <p>✔ It is integer division (fraction part removed)</p>
 <hr />
 <h1 id="question-2">Question 2</h1>
-<pre><code class="language-java">double y = 5 / 2;
-System.out.println(y);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>5 is int</li>
 <li>2 is int</li>
@@ -1163,18 +1163,18 @@ System.out.println(y);
 <p>5 / 2 = 2
 Then 2 → converted to double → 2.0</p>
 <h3 id="output_1">✅ Output:</h3>
-<pre><code>2.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>2.0
+</span></code></pre></div>
 <p>Many beginners say 2.5.
 That is wrong.</p>
 <hr />
 <h1 id="if-you-want-25">If you want 2.5</h1>
 <p>You must make one operand double:</p>
-<pre><code class="language-java">double y = 5 / 2.0;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+</span></code></pre></div>
 <p>or</p>
-<pre><code class="language-java">double y = (double)5 / 2;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span></code></pre></div>
 <hr />
 <h1 id="question-3">Question 3</h1>
 <p>Why does Java promote byte/short to int in arithmetic?</p>
@@ -1190,31 +1190,31 @@ That is wrong.</p>
 <p>to int before arithmetic operations.</p>
 <p>This is called <strong>Integer Promotion Rule</strong>.</p>
 <p>Example:</p>
-<pre><code class="language-java">byte a = 10;
-byte b = 20;
-int c = a + b;   // promoted to int
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">   </span><span class="c1">// promoted to int</span>
+</span></code></pre></div>
 <p>Even though both are byte,
 addition happens in int.</p>
 <hr />
-<pre><code class="language-java">System.out.println(5 / 2.0);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>2.0 is double</li>
 <li>int 5 is promoted to double</li>
 <li>double division → <strong>2.5</strong></li>
 </ul>
 <hr />
-<pre><code class="language-java">System.out.println(5.0 / 2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>5.0 is double</li>
 <li>int 2 promoted to double</li>
 <li>double division → <strong>2.5</strong></li>
 </ul>
 <hr />
-<pre><code class="language-java">System.out.println(5.0 / 2.0);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>both double</li>
 <li>double division → <strong>2.5</strong></li>
@@ -1225,9 +1225,9 @@ addition happens in int.</p>
 <p>If both operands are int → integer division.</p>
 <hr />
 <h1 id="code">Code</h1>
-<pre><code class="language-java">System.out.println(5 / 2 * 1.0);
-System.out.println(5 * 1.0 / 2);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</span></code></pre></div>
 <hr />
 <h1 id="1-5-2-10">1️⃣ <code>5 / 2 * 1.0</code></h1>
 <p>Operator precedence:</p>
@@ -1237,29 +1237,29 @@ System.out.println(5 * 1.0 / 2);
 </ul>
 <p>So:</p>
 <p>Step 1:</p>
-<pre><code>5 / 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>5 / 2
+</span></code></pre></div>
 <p>Both int → integer division → 2</p>
 <p>Step 2:</p>
-<pre><code>2 * 1.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>2 * 1.0
+</span></code></pre></div>
 <p>Now one operand is double → result becomes double → 2.0</p>
 <p>✅ Output:</p>
-<pre><code>2.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>2.0
+</span></code></pre></div>
 <hr />
 <h1 id="2-5-10-2">2️⃣ <code>5 * 1.0 / 2</code></h1>
 <p>Step 1:</p>
-<pre><code>5 * 1.0
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>5 * 1.0
+</span></code></pre></div>
 <p>int promoted to double → 5.0</p>
 <p>Step 2:</p>
-<pre><code>5.0 / 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>5.0 / 2
+</span></code></pre></div>
 <p>double division → 2.5</p>
 <p>✅ Output:</p>
-<pre><code>2.5
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>2.5
+</span></code></pre></div>
 <hr />
 <h1 id="what-interviewer-tests-here">🔥 What Interviewer Tests Here</h1>
 <p>They test:</p>
@@ -1275,9 +1275,9 @@ System.out.println(5 * 1.0 / 2);
 Type promotion happens at the time of operation, not at assignment.</p>
 <hr />
 <h1 id="why-it-does-not-compile">✅ Why It Does NOT Compile</h1>
-<pre><code class="language-java">byte b = 100;
-b = b + 1;
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span></code></pre></div>
 <h3 id="step-by-step_1">Step-by-step:</h3>
 <ul>
 <li><code>b</code> is byte</li>
@@ -1287,26 +1287,26 @@ b = b + 1;
 <li>Cannot assign int to byte without casting</li>
 </ul>
 <p>So compiler error:</p>
-<pre><code>possible lossy conversion from int to byte
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>possible lossy conversion from int to byte
+</span></code></pre></div>
 <hr />
 <h1 id="correct-version">✅ Correct Version</h1>
-<pre><code class="language-java">b = (byte) (b + 1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">byte</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Now it compiles.</p>
 <hr />
 <h1 id="why-does-this-compile">🔥 Why Does This Compile?</h1>
-<pre><code class="language-java">byte b = 100;
-b += 1;  // ✅ compiles!
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// ✅ compiles!</span>
+</span></code></pre></div>
 <p>Even though <code>b = b + 1;</code> does NOT compile,
 this <code>b += 1;</code> version <strong>DOES</strong> compile.</p>
 <hr />
 <h2 id="reason_1">✅ Reason:</h2>
 <p>Java applies <strong>implicit cast</strong> in compound assignment (<code>+=</code>, <code>-=</code>, <code>*=</code>, etc.)</p>
 <p>The compiler <strong>automatically inserts a cast</strong>, like:</p>
-<pre><code class="language-java">b = (byte)(b + 1);
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">byte</span><span class="p">)(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span></code></pre></div>
 <p>So:</p>
 <blockquote>
 <p>"compiler resolves <code>b += 1</code> as <code>b = (byte)(b + 1);</code>" ✅</p>
@@ -1321,15 +1321,15 @@ this <code>b += 1;</code> version <strong>DOES</strong> compile.</p>
 </ul>
 <hr />
 <h1 id="write-in-your-notes">📘 Write in Your Notes</h1>
-<pre><code class="language-java">byte b = 100;
-b = b + 1;       // ❌ Compilation error (int → byte)
-b += 1;          // ✅ Compiles (implicit cast)
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">       </span><span class="c1">// ❌ Compilation error (int → byte)</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">          </span><span class="c1">// ✅ Compiles (implicit cast)</span>
+</span></code></pre></div>
 <p>Same applies to:</p>
-<pre><code class="language-java">short s = 10;
-s = s * 2;      // ❌
-s *= 2;         // ✅
-</code></pre>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kt">short</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">      </span><span class="c1">// ❌</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="n">s</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">         </span><span class="c1">// ✅</span>
+</span></code></pre></div>
 <hr />
 
 
@@ -1380,7 +1380,7 @@ s *= 2;         // ✅
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
