@@ -1,0 +1,2181 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Knowledge Base for Java, DSA, Spring Boot, and System Design">
+      
+      
+        <meta name="author" content="Vishwambhar Patil">
+      
+      
+      
+        <link rel="prev" href="../TOP-12%20ABSTRACT_CLASS_VS_INTERFACE/">
+      
+      
+        <link rel="next" href="../TOP-14%20COLLECTIONS_FRAMEWORK_1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>String / Builder / Buffer - Vishwambhar Patil Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#string-in-java-deep" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vishwambhar Patil Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              String / Builder / Buffer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vishwambhar Patil Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-1%20VAR_DATA_TYPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-2%20TYPE_CONVERSION_AND_CASTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-3%20OPERATORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-4%20CONTROL_FLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-5%20MODERN_SWITCH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-6%20METHODS_STACK_FRAMES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Stack Frames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-7%20METHOD_OVERLOADING_OVERRIDING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method Overloading & Overriding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-8%20CONSTRUCTOR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-9%20STATIC_VS_INSTANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static vs Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-10%20FINAL_KEYWORD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-11%20ACCESS_MODIFIERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-12%20ABSTRACT_CLASS_VS_INTERFACE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Class vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is String?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) What is String?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#most-important-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most important property
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-string-is-immutable-interview-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Why String is immutable (interview depth)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-string-pool-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) String Pool (very important)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) String Pool (very important)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-goes-into-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What goes into pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-not-automatically-go-to-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does NOT automatically go to pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vs-equals-must-be-perfect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) == vs .equals() (must be perfect)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-what-happens-in-concatenation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) What happens in concatenation (+)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5) What happens in concatenation (+)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-compile-time-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case A: compile-time concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-b-runtime-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case B: runtime concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-intern-pool-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) intern() (pool control)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-14%20COLLECTIONS_FRAMEWORK_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring Boot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is String?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) What is String?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#most-important-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most important property
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-string-is-immutable-interview-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Why String is immutable (interview depth)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-string-pool-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) String Pool (very important)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) String Pool (very important)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-goes-into-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What goes into pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-not-automatically-go-to-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does NOT automatically go to pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vs-equals-must-be-perfect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) == vs .equals() (must be perfect)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-what-happens-in-concatenation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) What happens in concatenation (+)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5) What happens in concatenation (+)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-compile-time-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case A: compile-time concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-b-runtime-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case B: runtime concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-intern-pool-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) intern() (pool control)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<hr />
+<h1 id="string-in-java-deep">String in Java (Deep)</h1>
+<h2 id="1-what-is-string">1) What is String?</h2>
+<p><code>String</code> is a <strong>reference type (class)</strong> that represents immutable text.</p>
+<h3 id="most-important-property">Most important property</h3>
+<p>✅ <strong>Immutability</strong>: once created, the characters inside a String never change.</p>
+<p>When you “modify” a String, Java creates a <strong>new String object</strong>.</p>
+<hr />
+<h2 id="2-why-string-is-immutable-interview-depth">2) Why String is immutable (interview depth)</h2>
+<p>Main reasons:</p>
+<ol>
+<li><strong>Security</strong>: Strings are used in class loading, file paths, DB URLs, tokens, etc. If mutable, a reference shared somewhere could be altered.</li>
+<li><strong>String Pool optimization</strong>: immutability makes pooling safe.</li>
+<li><strong>Hashing</strong>: Strings are keys in HashMap/HashSet. If content changed after hashing, map breaks.</li>
+<li><strong>Thread safety</strong>: immutable objects are inherently thread-safe.</li>
+</ol>
+<p>Interview one-liner:</p>
+<blockquote>
+<p>String is immutable for security, pooling, caching of hashcode, and safe use as map keys.</p>
+</blockquote>
+<hr />
+<h2 id="3-string-pool-very-important">3) String Pool (very important)</h2>
+<h3 id="where-it-is">Where it is</h3>
+<p>✅ String Pool is in the <strong>heap</strong> (Java 7+). (In older Java it was in PermGen.)</p>
+<h3 id="what-goes-into-pool">What goes into pool</h3>
+<ul>
+<li><strong>String literals</strong>: <code>"Vishu"</code></li>
+<li><strong>Compile-time constant concatenations</strong>: <code>"Hel" + "lo"</code></li>
+<li>Strings added by calling <code>.intern()</code></li>
+</ul>
+<h3 id="what-does-not-automatically-go-to-pool">What does NOT automatically go to pool</h3>
+<ul>
+<li><code>new String("X")</code> (creates a new heap object)</li>
+<li>runtime concatenation like <code>a + "World"</code> (usually creates a new heap string)</li>
+</ul>
+<hr />
+<h2 id="4-vs-equals-must-be-perfect">4) <code>==</code> vs <code>.equals()</code> (must be perfect)</h2>
+<ul>
+<li><code>==</code> compares <strong>references</strong> (same object?)</li>
+<li><code>.equals()</code> compares <strong>content</strong> (same characters?)</li>
+</ul>
+<p>Examples:</p>
+<pre><code class="language-java">String a = &quot;Hello&quot;;
+String b = &quot;Hello&quot;;
+System.out.println(a == b);      // true (same pooled literal)
+System.out.println(a.equals(b)); // true
+
+String c = new String(&quot;Hello&quot;);
+System.out.println(a == c);      // false (different object)
+System.out.println(a.equals(c)); // true
+</code></pre>
+<hr />
+<h2 id="5-what-happens-in-concatenation">5) What happens in concatenation (<code>+</code>)</h2>
+<p>This is a huge interview area.</p>
+<h3 id="case-a-compile-time-concat">Case A: compile-time concat</h3>
+<pre><code class="language-java">String s = &quot;Hel&quot; + &quot;lo&quot;;
+</code></pre>
+<p>✅ compiler folds it into <code>"Hello"</code> → pooled.</p>
+<h3 id="case-b-runtime-concat">Case B: runtime concat</h3>
+<pre><code class="language-java">String a = &quot;Hel&quot;;
+String s = a + &quot;lo&quot;;
+</code></pre>
+<p>✅ happens at runtime → typically uses <strong>StringBuilder</strong> under the hood → result is a new String (not pooled unless interned).</p>
+<p>In modern Java, concatenation may use <code>invokedynamic</code>, but conceptually:</p>
+<blockquote>
+<p>runtime concatenation creates new objects.</p>
+</blockquote>
+<hr />
+<h2 id="6-intern-pool-control">6) <code>intern()</code> (pool control)</h2>
+<p><code>intern()</code> returns pooled reference:</p>
+<ul>
+<li>if exists, returns existing pooled one</li>
+<li>else adds to pool and returns it</li>
+</ul>
+<pre><code class="language-java">String x = new String(&quot;ABC&quot;);  // heap
+String y = x.intern();         // pool ref
+System.out.println(x == y);    // false
+</code></pre>
+<hr />
+<h1 id="stringbuilder-deep">StringBuilder (Deep)</h1>
+<h2 id="1-what-is-stringbuilder">1) What is StringBuilder?</h2>
+<p>A <strong>mutable</strong> sequence of characters. Used to build strings efficiently.</p>
+<p>Key properties:</p>
+<ul>
+<li>mutable</li>
+<li><strong>not thread-safe</strong></li>
+<li>faster than StringBuffer in single-thread</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">StringBuilder sb = new StringBuilder(&quot;Hi&quot;);
+sb.append(&quot; Vishu&quot;);
+System.out.println(sb.toString());
+</code></pre>
+<h2 id="2-why-its-faster-than-string-in-loops">2) Why it’s faster than String in loops</h2>
+<p>String is immutable → every <code>+</code> can create new objects.</p>
+<p>Bad:</p>
+<pre><code class="language-java">String s = &quot;&quot;;
+for (...) s = s + i; // creates many objects
+</code></pre>
+<p>Good:</p>
+<pre><code class="language-java">StringBuilder sb = new StringBuilder();
+for (...) sb.append(i);
+String s = sb.toString();
+</code></pre>
+<h2 id="3-capacity-growth-interview">3) Capacity growth (interview)</h2>
+<p>StringBuilder has:</p>
+<ul>
+<li><strong>length</strong> = number of characters currently stored</li>
+<li><strong>capacity</strong> = internal allocated buffer size</li>
+</ul>
+<p>Default capacity is typically <strong>16</strong> (empty builder), and growth often follows:</p>
+<blockquote>
+<p>newCapacity = oldCapacity * 2 + 2</p>
+</blockquote>
+<p>You can set initial capacity to avoid resizing:</p>
+<pre><code class="language-java">new StringBuilder(1000)
+</code></pre>
+<hr />
+<h1 id="stringbuffer-deep">StringBuffer (Deep)</h1>
+<h2 id="1-what-is-stringbuffer">1) What is StringBuffer?</h2>
+<p>Same concept as StringBuilder but:
+✅ <strong>thread-safe</strong> (methods are synchronized)
+❌ slower than StringBuilder in single-thread</p>
+<p>When to say in interview:</p>
+<ul>
+<li>Single-thread code → prefer <strong>StringBuilder</strong></li>
+<li>Multi-thread shared mutable text → <strong>StringBuffer</strong> (or better: avoid sharing mutable state)</li>
+</ul>
+<hr />
+<h1 id="the-core-comparison-table-interview">The Core Comparison Table (Interview)</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>String</th>
+<th>StringBuilder</th>
+<th>StringBuffer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutability</td>
+<td>Immutable</td>
+<td>Mutable</td>
+<td>Mutable</td>
+</tr>
+<tr>
+<td>Thread-safe</td>
+<td>Yes (immutable)</td>
+<td>No</td>
+<td>Yes (synchronized)</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Slow in heavy concat</td>
+<td>Fastest</td>
+<td>Slower than SB</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>constants, keys, text values</td>
+<td>loops, building output</td>
+<td>shared mutable text (rare)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="top-interview-traps-string-sb-sbuf">Top Interview Traps (String / SB / SBuf)</h1>
+<h2 id="trap-1-string-loop">Trap 1: <code>String</code> + loop</h2>
+<p><code>O(n²)</code> style behavior due to repeated allocations.</p>
+<h2 id="trap-2-works-sometimes">Trap 2: <code>==</code> works sometimes</h2>
+<p>Because of pooling, <code>==</code> may return true for literals, but it’s not content comparison.</p>
+<h2 id="trap-3-new-stringx">Trap 3: <code>new String("X")</code></h2>
+<p>Creates a new object even though <code>"X"</code> already exists in pool.</p>
+<h2 id="trap-4-final-stringbuilder">Trap 4: <code>final StringBuilder</code></h2>
+<p><code>final</code> stops reassignment, but you can still append (object is mutable).</p>
+<hr />
+<h1 id="how-to-answer-in-interview-ready-answer">How to Answer in Interview (ready answer)</h1>
+<p>If interviewer asks: <strong>“String vs StringBuilder vs StringBuffer?”</strong></p>
+<p>You answer:</p>
+<blockquote>
+<p>String is immutable and safe for constants and keys. For frequent modifications or concatenation, use StringBuilder because it’s mutable and fast but not thread-safe. StringBuffer is also mutable but synchronized, so it’s thread-safe but slower.</p>
+</blockquote>
+<hr />
+<h1 id="quick-depth-test-to-confirm-nothing-missed">Quick depth test (to confirm nothing missed)</h1>
+<p>Answer these (just outputs):</p>
+<p>1.</p>
+<pre><code class="language-java">String a = &quot;Hello&quot;;
+String b = &quot;Hel&quot; + &quot;lo&quot;;
+System.out.println(a == b);
+</code></pre>
+<p>2.</p>
+<pre><code class="language-java">String a = &quot;Hel&quot;;
+String b = a + &quot;lo&quot;;
+System.out.println(b == &quot;Hello&quot;);
+</code></pre>
+<p>3.</p>
+<pre><code class="language-java">String x = new String(&quot;Hi&quot;);
+System.out.println(x == &quot;Hi&quot;);
+System.out.println(x.intern() == &quot;Hi&quot;);
+</code></pre>
+<p>✅ Output(ordered):</p>
+<pre><code>1. true
+2. false
+3.
+false
+true
+</code></pre>
+<h1 id="why-each-answer-is-correct-jvm-level-thinking">🔎 Why Each Answer Is Correct (JVM-Level Thinking)</h1>
+<hr />
+<h2 id="1">1️⃣</h2>
+<pre><code class="language-java">String a = &quot;Hello&quot;;
+String b = &quot;Hel&quot; + &quot;lo&quot;;
+System.out.println(a == b);
+</code></pre>
+<h3 id="what-happens">What happens?</h3>
+<p><code>"Hel" + "lo"</code> is <strong>compile-time constant expression</strong>.</p>
+<p>Compiler converts it to:</p>
+<pre><code class="language-java">String b = &quot;Hello&quot;;
+</code></pre>
+<p>So both <code>a</code> and <code>b</code> point to same pooled object.</p>
+<p>✔ Output: <code>true</code></p>
+<hr />
+<h2 id="2">2️⃣</h2>
+<pre><code class="language-java">String a = &quot;Hel&quot;;
+String b = a + &quot;lo&quot;;
+System.out.println(b == &quot;Hello&quot;);
+</code></pre>
+<p>Now this is <strong>runtime concatenation</strong>.</p>
+<p>Because <code>a</code> is a variable.</p>
+<p>Internally something like:</p>
+<pre><code class="language-java">new StringBuilder().append(a).append(&quot;lo&quot;).toString();
+</code></pre>
+<p>So:</p>
+<ul>
+<li><code>"Hello"</code> literal → pool</li>
+<li><code>b</code> → new heap object</li>
+</ul>
+<p>References different → <code>false</code></p>
+<p>✔ Output: <code>false</code></p>
+<hr />
+<h2 id="3">3️⃣</h2>
+<pre><code class="language-java">String x = new String(&quot;Hi&quot;);
+System.out.println(x == &quot;Hi&quot;);
+System.out.println(x.intern() == &quot;Hi&quot;);
+</code></pre>
+<p>Step-by-step:</p>
+<ul>
+<li><code>"Hi"</code> literal → pool</li>
+<li><code>new String("Hi")</code> → new heap object</li>
+</ul>
+<p>So:</p>
+<pre><code>x == &quot;Hi&quot; → false
+</code></pre>
+<p>Then:</p>
+<pre><code>x.intern() → returns pooled reference
+</code></pre>
+<p>So:</p>
+<pre><code>x.intern() == &quot;Hi&quot; → true
+</code></pre>
+<p>✔ Output:</p>
+<pre><code>false
+true
+</code></pre>
+<hr />
+<h1 id="now-we-go-even-deeper">🧠 Now We Go EVEN Deeper</h1>
+<h2 id="question-where-exactly-does-string-store-characters">🔥 Question: Where exactly does String store characters?</h2>
+<p>Before Java 9:</p>
+<ul>
+<li>internally stored in <code>char[]</code></li>
+</ul>
+<p>After Java 9:</p>
+<ul>
+<li>uses <code>byte[]</code></li>
+<li>plus a <code>coder</code> flag (LATIN1 or UTF16)</li>
+</ul>
+<p>This reduces memory usage for ASCII strings.</p>
+<p>Interview bonus answer:</p>
+<blockquote>
+<p>Since Java 9, String uses a byte array with a coder flag to optimize memory.</p>
+</blockquote>
+<hr />
+<h1 id="string-immutability-deep-trap">🔥 String Immutability Deep Trap</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">String s = &quot;Java&quot;;
+s.concat(&quot;8&quot;);
+System.out.println(s);
+</code></pre>
+<hr />
+<p>✅ Ouput:</p>
+<pre><code class="language-text">Java
+</code></pre>
+<hr />
+<h1 id="why-deep-understanding">Why? (Deep Understanding)</h1>
+<pre><code class="language-java">String s = &quot;Java&quot;;
+s.concat(&quot;8&quot;);
+System.out.println(s);
+</code></pre>
+<p>Important:</p>
+<ul>
+<li><code>String</code> is immutable.</li>
+<li><code>concat()</code> does <strong>not modify</strong> the existing object.</li>
+<li>It returns a <strong>new String</strong>.</li>
+</ul>
+<p>So internally:</p>
+<pre><code class="language-java">String temp = s.concat(&quot;8&quot;);  // creates &quot;Java8&quot;
+</code></pre>
+<p>But you ignored the returned value.</p>
+<p>So <code>s</code> still points to:</p>
+<pre><code class="language-text">&quot;Java&quot;
+</code></pre>
+<hr />
+<h1 id="interview-one-liner">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>String methods like <code>concat()</code>, <code>replace()</code>, <code>substring()</code> return a new object. They do not modify the original string.</p>
+</blockquote>
+<hr />
+<h1 id="if-you-change-this">🔥 If You Change This</h1>
+<pre><code class="language-java">String s = &quot;Java&quot;;
+s = s.concat(&quot;8&quot;);
+System.out.println(s);
+</code></pre>
+<p>Now output:</p>
+<pre><code class="language-text">Java8
+</code></pre>
+<p>Because now <code>s</code> points to new object.</p>
+<hr />
+<h1 id="now-going-deeper-stringbuilder-internal-behavior">🚀 Now Going Deeper: StringBuilder Internal Behavior</h1>
+<h2 id="1-capacity-vs-length-very-important">1️⃣ Capacity vs Length (Very Important)</h2>
+<pre><code class="language-java">StringBuilder sb = new StringBuilder();
+</code></pre>
+<p>Default:</p>
+<ul>
+<li>capacity = 16</li>
+<li>length = 0</li>
+</ul>
+<p>If you do:</p>
+<pre><code class="language-java">sb.append(&quot;Hello&quot;);
+</code></pre>
+<ul>
+<li>length = 5</li>
+<li>capacity still 16</li>
+</ul>
+<p>If you exceed capacity, it resizes.</p>
+<hr />
+<h2 id="resizing-formula-interview-favorite">🔥 Resizing Formula (Interview Favorite)</h2>
+<p>When capacity exceeded:</p>
+<pre><code>newCapacity = (oldCapacity * 2) + 2
+</code></pre>
+<p>Example:</p>
+<ul>
+<li>16 → 34</li>
+<li>34 → 70</li>
+</ul>
+<p>You can avoid resizing by:</p>
+<pre><code class="language-java">new StringBuilder(1000);
+</code></pre>
+<hr />
+<h1 id="performance-comparison-very-important">🔥 Performance Comparison (Very Important)</h1>
+<p>In loops:</p>
+<p>❌ Bad:</p>
+<pre><code class="language-java">String s = &quot;&quot;;
+for(int i = 0; i &lt; 10000; i++)
+    s += i;
+</code></pre>
+<p>Creates thousands of objects.</p>
+<p>✔ Good:</p>
+<pre><code class="language-java">StringBuilder sb = new StringBuilder();
+for(int i = 0; i &lt; 10000; i++)
+    sb.append(i);
+</code></pre>
+<hr />
+<h1 id="now-advanced-trap">🔥 Now Advanced Trap</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hello&quot;);
+StringBuilder sb2 = sb1;
+
+sb1.append(&quot; World&quot;);
+
+System.out.println(sb2);
+</code></pre>
+<p>✅ Ouput:</p>
+<pre><code class="language-text">Hello World
+</code></pre>
+<hr />
+<h1 id="why-deep-understanding_1">Why? (Deep Understanding)</h1>
+<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hello&quot;);
+StringBuilder sb2 = sb1;
+</code></pre>
+<p>Important:</p>
+<ul>
+<li><code>sb1</code> and <code>sb2</code> point to the <strong>same object</strong></li>
+<li>No new object created in second line</li>
+</ul>
+<p>Memory:</p>
+<pre><code>Heap:
+[StringBuilder object: &quot;Hello&quot;]
+
+Stack:
+sb1 → (ref)
+sb2 → (same ref)
+</code></pre>
+<p>Then:</p>
+<pre><code class="language-java">sb1.append(&quot; World&quot;);
+</code></pre>
+<p>Since <code>StringBuilder</code> is <strong>mutable</strong>, the same object is modified.</p>
+<p>So printing <code>sb2</code> shows:</p>
+<pre><code class="language-text">Hello World
+</code></pre>
+<hr />
+<h1 id="interview-rule">🧠 Interview Rule</h1>
+<blockquote>
+<p>StringBuilder is mutable. If two references point to the same object, changes through one reference are visible through the other.</p>
+</blockquote>
+<hr />
+<h1 id="now-slightly-tricky-comparison">🔥 Now Slightly Tricky Comparison</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hi&quot;);
+StringBuilder sb2 = new StringBuilder(&quot;Hi&quot;);
+
+System.out.println(sb1 == sb2);
+System.out.println(sb1.equals(sb2));
+</code></pre>
+<p>✅ Ouput:</p>
+<pre><code>false
+false
+</code></pre>
+<hr />
+<h1 id="why">Why?</h1>
+<pre><code class="language-java">StringBuilder sb1 = new StringBuilder(&quot;Hi&quot;);
+StringBuilder sb2 = new StringBuilder(&quot;Hi&quot;);
+</code></pre>
+<p>These are <strong>two different objects</strong> in heap.</p>
+<hr />
+<h2 id="1-sb1-sb2">1️⃣ <code>sb1 == sb2</code></h2>
+<p><code>==</code> compares references.</p>
+<p>Different objects → different references →
+✔ <code>false</code></p>
+<hr />
+<h2 id="2-sb1equalssb2">2️⃣ <code>sb1.equals(sb2)</code></h2>
+<p>Here is the important part:</p>
+<p><code>StringBuilder</code> does <strong>NOT override equals()</strong>.</p>
+<p>So it inherits <code>Object.equals()</code> which is basically:</p>
+<pre><code class="language-java">return this == obj;
+</code></pre>
+<p>So it again compares references.</p>
+<p>Therefore:</p>
+<p>✔ <code>false</code></p>
+<hr />
+<h1 id="very-important-interview-insight">🔥 Very Important Interview Insight</h1>
+<p><code>String</code> overrides <code>equals()</code> → compares content
+<code>StringBuilder</code> does NOT override <code>equals()</code> → compares reference</p>
+<hr />
+<h1 id="now-if-you-do-this">🔥 Now If You Do This</h1>
+<pre><code class="language-java">System.out.println(sb1.toString().equals(sb2.toString()));
+</code></pre>
+<p>Now output would be:</p>
+<pre><code>true
+</code></pre>
+<p>Because now you are comparing two String objects with content comparison.</p>
+<hr />
+<h1 id="interview-one-liner_1">🧠 Interview One-Liner</h1>
+<blockquote>
+<p>StringBuilder does not override equals(), so equals() behaves like == (reference comparison).</p>
+</blockquote>
+<hr />
+<h1 id="now-we-go-even-deeper_1">🚀 Now We Go Even Deeper</h1>
+<h2 id="question">Question:</h2>
+<p>What is the output?</p>
+<pre><code class="language-java">String s1 = &quot;abc&quot;;
+String s2 = s1.replace('a', 'z');
+
+System.out.println(s1);
+System.out.println(s2);
+</code></pre>
+<p>✅ Output:</p>
+<pre><code class="language-text">abc
+zbc
+</code></pre>
+<h3 id="why-deep-but-crisp">Why (deep but crisp)</h3>
+<ul>
+<li><code>String</code> is immutable</li>
+<li><code>replace()</code> returns a <strong>new String</strong></li>
+<li><code>s1</code> still points to <code>"abc"</code></li>
+<li><code>s2</code> points to <code>"zbc"</code></li>
+</ul>
+<hr />
+<h1 id="now-we-go-deeper-stringbuilder-vs-stringbuffer-thread-safety-performance">Now we go deeper: StringBuilder vs StringBuffer (Thread safety + performance)</h1>
+<h2 id="1-stringbuilder-vs-stringbuffer">1) StringBuilder vs StringBuffer</h2>
+<p>Both are mutable, but:</p>
+<ul>
+<li><strong>StringBuilder</strong>: not synchronized → faster → use in single-thread</li>
+<li><strong>StringBuffer</strong>: synchronized → thread-safe → slower</li>
+</ul>
+<p>Interview one-liner:</p>
+<blockquote>
+<p>Use StringBuilder in single-threaded code; use StringBuffer only when multiple threads mutate the same instance.</p>
+</blockquote>
+<hr />
+<h1 id="very-important-stringbuilder-method-chaining">Very important: <code>StringBuilder</code> method chaining</h1>
+<pre><code class="language-java">StringBuilder sb = new StringBuilder();
+sb.append(&quot;A&quot;).append(&quot;B&quot;).append(10);
+System.out.println(sb); // AB10
+</code></pre>
+<p>Because append returns <code>this</code>.</p>
+<hr />
+<h1 id="next-interview-trap-stringbuilder-reverse">🔥 Next Interview Trap: <code>StringBuilder</code> reverse</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">StringBuilder sb = new StringBuilder(&quot;abc&quot;);
+String s = sb.reverse().toString();
+System.out.println(sb);
+System.out.println(s);
+</code></pre>
+<p>✅ output:</p>
+<pre><code class="language-text">cba
+cba
+</code></pre>
+<hr />
+<h1 id="why-deep-understanding_2">Why? (Deep Understanding)</h1>
+<pre><code class="language-java">StringBuilder sb = new StringBuilder(&quot;abc&quot;);
+String s = sb.reverse().toString();
+</code></pre>
+<p>Important:</p>
+<ul>
+<li><code>reverse()</code> modifies the <strong>same StringBuilder object</strong></li>
+<li>It does NOT create a new one</li>
+<li>It returns <code>this</code></li>
+</ul>
+<p>So after:</p>
+<pre><code class="language-java">sb.reverse();
+</code></pre>
+<p>The internal buffer becomes:</p>
+<pre><code class="language-text">&quot;cba&quot;
+</code></pre>
+<p>Then:</p>
+<pre><code class="language-java">s = sb.toString();
+</code></pre>
+<p>Now <code>s</code> is a new <strong>String object</strong> containing <code>"cba"</code>.</p>
+<hr />
+<h2 id="final-state">Final State</h2>
+<ul>
+<li><code>sb</code> → mutable object → <code>"cba"</code></li>
+<li><code>s</code> → immutable String → <code>"cba"</code></li>
+</ul>
+<p>So both print:</p>
+<pre><code class="language-text">cba
+cba
+</code></pre>
+<hr />
+<h1 id="very-important-difference">🔥 Very Important Difference</h1>
+<p>If this was String:</p>
+<pre><code class="language-java">String s = &quot;abc&quot;;
+s.reverse();  // ❌ no such method
+</code></pre>
+<p>Because String is immutable and does not provide reverse.</p>
+<hr />
+<h1 id="interview-rule_1">🧠 Interview Rule</h1>
+<blockquote>
+<p>StringBuilder methods like <code>append()</code>, <code>insert()</code>, <code>reverse()</code> modify the same object and return <code>this</code>.</p>
+</blockquote>
+<hr />
+<h1 id="now-next-deep-trap">🚀 Now Next Deep Trap</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">String s1 = &quot;Java&quot;;
+String s2 = &quot;Java&quot;;
+String s3 = new String(&quot;Java&quot;);
+
+System.out.println(s1 == s2);
+System.out.println(s1 == s3);
+System.out.println(s1.equals(s3));
+</code></pre>
+<p>✅ Output:</p>
+<pre><code>true
+false
+true
+</code></pre>
+<p>Now let’s lock this deeply in your brain (interview depth).</p>
+<hr />
+<h1 id="why-each-line-prints-that">🔎 Why Each Line Prints That</h1>
+<pre><code class="language-java">String s1 = &quot;Java&quot;;
+String s2 = &quot;Java&quot;;
+</code></pre>
+<p>Both are <strong>string literals</strong>.</p>
+<ul>
+<li>JVM checks String Pool</li>
+<li><code>"Java"</code> already exists</li>
+<li><code>s1</code> and <code>s2</code> point to same pooled object</li>
+</ul>
+<p>So:</p>
+<pre><code class="language-java">s1 == s2  → true
+</code></pre>
+<hr />
+<pre><code class="language-java">String s3 = new String(&quot;Java&quot;);
+</code></pre>
+<p>This creates:</p>
+<ol>
+<li><code>"Java"</code> in pool (if not already there)</li>
+<li>A <strong>new object in heap</strong></li>
+</ol>
+<p>So:</p>
+<pre><code class="language-java">s1 == s3  → false
+</code></pre>
+<p>Different objects.</p>
+<hr />
+<pre><code class="language-java">s1.equals(s3) → true
+</code></pre>
+<p>Because <code>.equals()</code> compares content, not reference.</p>
+<hr />
+<h1 id="interview-one-liner_2">🧠 Interview One-Liner</h1>
+<blockquote>
+<p><code>==</code> checks reference. <code>.equals()</code> checks content. String literals are pooled, but <code>new String()</code> always creates a new object.</p>
+</blockquote>
+<hr />
+<h1 id="now-we-go-even-deeper-compile-time-constant-trap">🚀 Now We Go Even Deeper (Compile-Time Constant Trap)</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">final String s1 = &quot;Hello&quot;;
+String s2 = &quot;Hello&quot;;
+String s3 = s1 + &quot;World&quot;;
+String s4 = &quot;HelloWorld&quot;;
+
+System.out.println(s3 == s4);
+</code></pre>
+<p>✅ output:</p>
+<pre><code>true
+</code></pre>
+<p>Now let’s understand <strong>why</strong> (this is important interview depth).</p>
+<hr />
+<h1 id="why-true">Why <code>true</code>?</h1>
+<pre><code class="language-java">final String s1 = &quot;Hello&quot;;
+String s3 = s1 + &quot;World&quot;;
+</code></pre>
+<p>Because <code>s1</code> is:</p>
+<ul>
+<li><code>final</code></li>
+<li>initialized with a <strong>compile-time constant</strong></li>
+</ul>
+<p>The compiler treats <code>s1</code> as a constant.</p>
+<p>So this:</p>
+<pre><code class="language-java">s1 + &quot;World&quot;
+</code></pre>
+<p>Is converted at compile time into:</p>
+<pre><code class="language-java">&quot;HelloWorld&quot;
+</code></pre>
+<p>So effectively:</p>
+<pre><code class="language-java">String s3 = &quot;HelloWorld&quot;;
+</code></pre>
+<p>Now:</p>
+<pre><code class="language-java">String s4 = &quot;HelloWorld&quot;;
+</code></pre>
+<p>Both <code>s3</code> and <code>s4</code> refer to the same pooled literal.</p>
+<p>So:</p>
+<pre><code class="language-java">s3 == s4 → true
+</code></pre>
+<hr />
+<h1 id="now-change-slightly">🔥 Now Change Slightly</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">String s1 = &quot;Hello&quot;;   // not final
+String s3 = s1 + &quot;World&quot;;
+String s4 = &quot;HelloWorld&quot;;
+
+System.out.println(s3 == s4);
+</code></pre>
+<p>✅ Output is <strong>false</strong>.</p>
+<hr />
+<h1 id="why_1">Why?</h1>
+<pre><code class="language-java">String s1 = &quot;Hello&quot;;   // not final
+String s3 = s1 + &quot;World&quot;;
+</code></pre>
+<p>Because <code>s1</code> is <strong>not final</strong>, the compiler cannot treat <code>s1</code> as a compile-time constant.</p>
+<p>So <code>s1 + "World"</code> becomes <strong>runtime concatenation</strong>, producing a <strong>new String object</strong> (on heap).</p>
+<p>Meanwhile:</p>
+<pre><code class="language-java">String s4 = &quot;HelloWorld&quot;;
+</code></pre>
+<p>is a pooled literal.</p>
+<p>So references are different:</p>
+<ul>
+<li><code>s3</code> → heap string <code>"HelloWorld"</code> (created at runtime)</li>
+<li><code>s4</code> → pooled <code>"HelloWorld"</code></li>
+</ul>
+<p>Therefore:</p>
+<pre><code class="language-text">false
+</code></pre>
+<hr />
+<h1 id="deep-notes-summary-for-string-stringbuilder-stringbuffer">✅ Deep Notes Summary for String / StringBuilder / StringBuffer</h1>
+<h3 id="string">String</h3>
+<ul>
+<li>Immutable</li>
+<li>Pooling of literals</li>
+<li><code>==</code> vs <code>.equals()</code></li>
+<li><code>intern()</code> returns pooled reference</li>
+<li>Runtime concat creates new objects</li>
+</ul>
+<h3 id="stringbuilder">StringBuilder</h3>
+<ul>
+<li>Mutable</li>
+<li>Not thread-safe</li>
+<li>Best for loops / heavy concatenation</li>
+<li><code>equals()</code> is reference-based (not content)</li>
+</ul>
+<h3 id="stringbuffer">StringBuffer</h3>
+<ul>
+<li>Mutable + synchronized (thread-safe)</li>
+<li>Slower than StringBuilder</li>
+<li>Rarely needed unless shared across threads</li>
+</ul>
+<hr />
+<h2 id="final-high-value-interview-question">Final high-value interview question</h2>
+<p>Why is <code>String</code> immutable but <code>StringBuilder</code> mutable?
+Answer in 3–4 lines (interview style).</p>
+<pre><code class="language-text">because in java string is frequently used in map, json, constants. so making it immutable give best performance to handle it inside string pool. String builder is mutable because it separate class than string. it specially designed to handle heavy concat nations during runtime. it avoid rapidly instant creations when heavily concat nation happen.
+</code></pre>
+<hr />
+<h1 id="perfect-interview-answer">✅ Perfect Interview Answer</h1>
+<blockquote>
+<p>String is immutable to ensure security, enable safe string pooling, allow caching of hash codes, and make it thread-safe. Since Strings are widely used as keys in HashMap, file paths, class names, and constants, immutability prevents unexpected modification.</p>
+<p>StringBuilder, on the other hand, is mutable and designed for efficient string manipulation during runtime, especially for heavy concatenation, to avoid frequent object creation and improve performance.</p>
+</blockquote>
+<hr />
+<h1 id="now-lets-go-even-deeper-senior-level-depth">🔥 Now Let’s Go EVEN Deeper (Senior-Level Depth)</h1>
+<h2 id="1-string-as-hashmap-key-very-important">1️⃣ String as HashMap Key (VERY IMPORTANT)</h2>
+<p>Because String is immutable:</p>
+<pre><code class="language-java">Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+map.put(&quot;key&quot;, &quot;value&quot;);
+</code></pre>
+<p>When String is used as key:</p>
+<ul>
+<li>hashCode is computed once</li>
+<li>It can be cached</li>
+<li>Since content never changes → hashCode stays stable</li>
+</ul>
+<p>If String were mutable:</p>
+<ul>
+<li>Changing content after putting into map</li>
+<li>hashCode changes</li>
+<li>Map breaks</li>
+</ul>
+<p>This is a huge reason for immutability.</p>
+<hr />
+<h2 id="2-hashcode-caching-deep-jvm-insight">2️⃣ HashCode Caching (Deep JVM Insight)</h2>
+<p>Inside String class:</p>
+<pre><code class="language-java">private int hash;
+</code></pre>
+<p>When hashCode() is first called:</p>
+<ul>
+<li>It computes and stores in <code>hash</code></li>
+<li>Next time it returns cached value</li>
+</ul>
+<p>This is possible only because String is immutable.</p>
+<hr />
+<h2 id="3-security-reason-important">3️⃣ Security Reason (Important)</h2>
+<p>Imagine:</p>
+<pre><code class="language-java">String path = &quot;/secure/path&quot;;
+</code></pre>
+<p>If String was mutable:</p>
+<ul>
+<li>Another thread could modify path</li>
+<li>Security hole</li>
+</ul>
+<p>Immutability prevents that.</p>
+<hr />
+<h2 id="4-performance-misconception-important">4️⃣ Performance Misconception (Important)</h2>
+<p>Many think:</p>
+<blockquote>
+<p>String is immutable for performance.</p>
+</blockquote>
+<p>Actually:</p>
+<ul>
+<li>String immutability enables pooling</li>
+<li>Pooling improves memory usage</li>
+<li>But heavy concatenation with String is slow</li>
+</ul>
+<p>So for performance:</p>
+<ul>
+<li>Use StringBuilder for runtime modification</li>
+<li>Use String for constant values</li>
+</ul>
+<hr />
+<h1 id="now-final-advanced-trap">🔥 Now Final Advanced Trap</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">String s1 = &quot;abc&quot;;
+String s2 = new String(&quot;abc&quot;);
+String s3 = s2.intern();
+
+System.out.println(s1 == s3);
+</code></pre>
+<p>✅ Output:</p>
+<pre><code>true
+</code></pre>
+<hr />
+<h1 id="why-deep-jvm-level-explanation">Why? (Deep JVM-Level Explanation)</h1>
+<pre><code class="language-java">String s1 = &quot;abc&quot;;
+</code></pre>
+<ul>
+<li><code>"abc"</code> literal goes into the <strong>String Pool</strong>.</li>
+<li><code>s1</code> points to pooled object.</li>
+</ul>
+<pre><code class="language-java">String s2 = new String(&quot;abc&quot;);
+</code></pre>
+<ul>
+<li><code>"abc"</code> literal already exists in pool.</li>
+<li><code>new String("abc")</code> creates a <strong>new heap object</strong>.</li>
+<li><code>s2</code> points to heap object.</li>
+</ul>
+<pre><code class="language-java">String s3 = s2.intern();
+</code></pre>
+<p>What <code>intern()</code> does:</p>
+<ul>
+<li>If the string already exists in pool → return pooled reference.</li>
+<li>If not → add to pool and return it.</li>
+</ul>
+<p>Since <code>"abc"</code> already exists in pool:</p>
+<pre><code class="language-java">s3 → pooled &quot;abc&quot;
+</code></pre>
+<p>So:</p>
+<pre><code class="language-java">s1 == s3 → true
+</code></pre>
+<hr />
+<h1 id="ultra-deep-insight-senior-level">🔥 Ultra Deep Insight (Senior Level)</h1>
+<h3 id="important-behavior-difference-java-6-vs-java-7">Important behavior difference (Java 6 vs Java 7+)</h3>
+<p>Before Java 7:</p>
+<ul>
+<li>Pool was in PermGen.</li>
+<li><code>intern()</code> sometimes copied strings into pool.</li>
+</ul>
+<p>After Java 7:</p>
+<ul>
+<li>Pool is in heap.</li>
+<li><code>intern()</code> may reuse existing object instead of copying.</li>
+</ul>
+<p>You don’t need extreme JVM internals for interviews, but knowing this gives extra confidence.</p>
+<hr />
+<h1 id="now-one-slightly-tricky-variant">🧠 Now One Slightly Tricky Variant</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">String s1 = new String(&quot;abc&quot;);
+String s2 = s1.intern();
+String s3 = &quot;abc&quot;;
+
+System.out.println(s2 == s3);
+</code></pre>
+<p>✅ Output — it prints <strong>true</strong>.</p>
+<h3 id="why-short-but-deep">Why (short but deep)</h3>
+<ul>
+<li><code>s1</code> is a new heap String.</li>
+<li><code>s2 = s1.intern()</code> returns the <strong>pooled</strong> <code>"abc"</code> reference.</li>
+<li><code>s3 = "abc"</code> is also the <strong>pooled</strong> <code>"abc"</code> reference.
+  So <code>s2</code> and <code>s3</code> point to the same pooled object → <code>true</code>.</li>
+</ul>
+<hr />
+<h1 id="weve-finished-string-stringbuilder-stringbuffer-in-depth">✅ We’ve Finished String / StringBuilder / StringBuffer in Depth</h1>
+<p>To make sure <strong>no point is missed</strong>, here is the complete checklist we covered (and you can use this as notes):</p>
+<h2 id="string_1">String</h2>
+<ul>
+<li>Immutable and reasons (security, pooling, hash caching, thread safety)</li>
+<li>String pool behavior (literals, compile-time constants, intern)</li>
+<li><code>==</code> vs <code>.equals()</code></li>
+<li>runtime concat vs compile-time concat</li>
+<li><code>new String("x")</code> behavior</li>
+<li>Java 9+ compact strings concept (byte[] + coder)</li>
+</ul>
+<h2 id="stringbuilder_1">StringBuilder</h2>
+<ul>
+<li>Mutable, append/insert/reverse modify same object</li>
+<li>Capacity vs length + resizing idea</li>
+<li>Why faster in loops</li>
+<li><code>equals()</code> not overridden (reference comparison)</li>
+</ul>
+<h2 id="stringbuffer_1">StringBuffer</h2>
+<ul>
+<li>Thread-safe via synchronization</li>
+<li>Slower than StringBuilder</li>
+<li>When to use (rare)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

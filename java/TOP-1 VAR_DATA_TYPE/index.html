@@ -1,0 +1,2337 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Knowledge Base for Java, DSA, Spring Boot, and System Design">
+      
+      
+        <meta name="author" content="Vishwambhar Patil">
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../TOP-2%20TYPE_CONVERSION_AND_CASTING/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Variable & Data Type - Vishwambhar Patil Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#variables-data-types-in-java" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vishwambhar Patil Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Variable & Data Type
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vishwambhar Patil Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-basic-definition-interview-style-2-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Basic Definition (Interview Style – 2 Lines)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-happens-internally-deep-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ What Happens Internally (Deep Understanding)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ What Happens Internally (Deep Understanding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-jvm-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What JVM Does:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-types-of-data-types-in-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ Types of Data Types in Java
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3️⃣ Types of Data Types in Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-primitive-data-types-store-actual-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Primitive Data Types (Store actual value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-non-primitive-reference-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ Non-Primitive (Reference Types)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-variable-types-based-on-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ Variable Types (Based on Scope)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣ Variable Types (Based on Scope)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-local-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Local Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-instance-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ Instance Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-static-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ Static Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-important-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5️⃣ Important Interview Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5️⃣ Important Interview Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-where-are-variables-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q1: Where are variables stored?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-why-local-variables-dont-have-default-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q2: Why local variables don’t have default values?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-difference-between-primitive-and-reference-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q3: Difference between primitive and reference type?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-what-is-default-value-of-int-instance-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q4: What is default value of int instance variable?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5-what-happens-if-you-dont-initialize-local-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q5: What happens if you don’t initialize local variable?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-traps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6️⃣ Common Traps ⚠️
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ Common Traps ⚠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trap-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-to-answer-in-interview-confident-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7️⃣ How To Answer in Interview (Confident Way)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-real-life-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8️⃣ Real-Life Analogy
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-2%20TYPE_CONVERSION_AND_CASTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-3%20OPERATORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-4%20CONTROL_FLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-5%20MODERN_SWITCH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-6%20METHODS_STACK_FRAMES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Stack Frames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-7%20METHOD_OVERLOADING_OVERRIDING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method Overloading & Overriding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-8%20CONSTRUCTOR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-9%20STATIC_VS_INSTANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static vs Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-10%20FINAL_KEYWORD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-11%20ACCESS_MODIFIERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-12%20ABSTRACT_CLASS_VS_INTERFACE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Class vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-13%20STRING_STRING_BUILDER_AND_BUFFER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-14%20COLLECTIONS_FRAMEWORK_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring Boot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-basic-definition-interview-style-2-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Basic Definition (Interview Style – 2 Lines)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-happens-internally-deep-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ What Happens Internally (Deep Understanding)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ What Happens Internally (Deep Understanding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-jvm-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What JVM Does:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-types-of-data-types-in-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ Types of Data Types in Java
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3️⃣ Types of Data Types in Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-primitive-data-types-store-actual-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Primitive Data Types (Store actual value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-non-primitive-reference-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ Non-Primitive (Reference Types)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-variable-types-based-on-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ Variable Types (Based on Scope)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣ Variable Types (Based on Scope)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-local-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Local Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-instance-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ Instance Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-static-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ Static Variable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-important-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5️⃣ Important Interview Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5️⃣ Important Interview Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-where-are-variables-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q1: Where are variables stored?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-why-local-variables-dont-have-default-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q2: Why local variables don’t have default values?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-difference-between-primitive-and-reference-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q3: Difference between primitive and reference type?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-what-is-default-value-of-int-instance-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q4: What is default value of int instance variable?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5-what-happens-if-you-dont-initialize-local-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Q5: What happens if you don’t initialize local variable?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-traps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6️⃣ Common Traps ⚠️
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ Common Traps ⚠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trap-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Trap 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-to-answer-in-interview-confident-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7️⃣ How To Answer in Interview (Confident Way)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-real-life-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8️⃣ Real-Life Analogy
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<hr />
+<h1 id="variables-data-types-in-java">📘 Variables &amp; Data Types in Java</h1>
+<hr />
+<h2 id="1-basic-definition-interview-style-2-lines">1️⃣ Basic Definition (Interview Style – 2 Lines)</h2>
+<p>A <strong>variable</strong> is a named memory location used to store data.
+A <strong>data type</strong> defines what kind of data a variable can store and how much memory it occupies.</p>
+<hr />
+<h2 id="2-what-happens-internally-deep-understanding">2️⃣ What Happens Internally (Deep Understanding)</h2>
+<p>When you write:</p>
+<pre><code class="language-java">int age = 25;
+</code></pre>
+<h3 id="what-jvm-does">What JVM Does:</h3>
+<ol>
+<li><code>int</code> → tells JVM to allocate <strong>4 bytes</strong></li>
+<li><code>age</code> → variable name</li>
+<li><code>25</code> → literal value</li>
+<li>
+<p>Memory allocated in:</p>
+</li>
+<li>
+<p><strong>Stack</strong> (if local variable)</p>
+</li>
+<li><strong>Heap (inside object)</strong> if instance variable</li>
+</ol>
+<hr />
+<h2 id="3-types-of-data-types-in-java">3️⃣ Types of Data Types in Java</h2>
+<p>Java has <strong>2 main categories</strong></p>
+<h3 id="1-primitive-data-types-store-actual-value">1️⃣ Primitive Data Types (Store actual value)</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size</th>
+<th>Default</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>1 byte</td>
+<td>0</td>
+<td>byte b = 10;</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2 bytes</td>
+<td>0</td>
+<td>short s = 100;</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4 bytes</td>
+<td>0</td>
+<td>int x = 5;</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8 bytes</td>
+<td>0L</td>
+<td>long l = 100L;</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4 bytes</td>
+<td>0.0f</td>
+<td>float f = 5.5f;</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8 bytes</td>
+<td>0.0</td>
+<td>double d = 10.5;</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2 bytes</td>
+<td>'\u0000'</td>
+<td>char c = 'A';</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>JVM dependent</td>
+<td>false</td>
+<td>boolean flag = true;</td>
+</tr>
+</tbody>
+</table>
+<p>👉 Primitive variables store <strong>actual value directly in memory</strong>.</p>
+<hr />
+<h3 id="2-non-primitive-reference-types">2️⃣ Non-Primitive (Reference Types)</h3>
+<p>Examples:</p>
+<ul>
+<li>String</li>
+<li>Arrays</li>
+<li>Objects</li>
+<li>Interfaces</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-java">String name = &quot;Vishu&quot;;
+</code></pre>
+<p>Here:</p>
+<ul>
+<li><code>name</code> → stored in stack</li>
+<li><code>"Vishu"</code> object → stored in heap (String Pool area)</li>
+</ul>
+<p>👉 Reference variables store <strong>memory address</strong>, not actual object.</p>
+<hr />
+<h2 id="4-variable-types-based-on-scope">4️⃣ Variable Types (Based on Scope)</h2>
+<h3 id="1-local-variable">1️⃣ Local Variable</h3>
+<p>Declared inside method.</p>
+<pre><code class="language-java">void test() {
+    int x = 10;
+}
+</code></pre>
+<ul>
+<li>Stored in stack</li>
+<li>No default value</li>
+<li>Must initialize before use</li>
+</ul>
+<hr />
+<h3 id="2-instance-variable">2️⃣ Instance Variable</h3>
+<p>Declared inside class but outside method.</p>
+<pre><code class="language-java">class Person {
+    int age;
+}
+</code></pre>
+<ul>
+<li>Stored in heap (inside object)</li>
+<li>Gets default value</li>
+</ul>
+<hr />
+<h3 id="3-static-variable">3️⃣ Static Variable</h3>
+<p>Belongs to class.</p>
+<pre><code class="language-java">static int count;
+</code></pre>
+<ul>
+<li>Stored in method area (before Java 8) / metaspace</li>
+<li>One copy for entire class</li>
+</ul>
+<hr />
+<h2 id="5-important-interview-questions">5️⃣ Important Interview Questions</h2>
+<h3 id="q1-where-are-variables-stored">🔹 Q1: Where are variables stored?</h3>
+<p>Answer:</p>
+<ul>
+<li>Local → Stack</li>
+<li>Instance → Heap</li>
+<li>Static → Method Area / Metaspace</li>
+</ul>
+<hr />
+<h3 id="q2-why-local-variables-dont-have-default-values">🔹 Q2: Why local variables don’t have default values?</h3>
+<p>Because JVM does not initialize stack memory automatically for performance reasons.</p>
+<hr />
+<h3 id="q3-difference-between-primitive-and-reference-type">🔹 Q3: Difference between primitive and reference type?</h3>
+<p>Primitive:</p>
+<ul>
+<li>Stores value</li>
+<li>Fixed size</li>
+<li>Faster</li>
+<li>No methods</li>
+</ul>
+<p>Reference:</p>
+<ul>
+<li>Stores address</li>
+<li>Dynamic size</li>
+<li>Stored in heap</li>
+<li>Has methods</li>
+</ul>
+<hr />
+<h3 id="q4-what-is-default-value-of-int-instance-variable">🔹 Q4: What is default value of int instance variable?</h3>
+<p><code>0</code></p>
+<hr />
+<h3 id="q5-what-happens-if-you-dont-initialize-local-variable">🔹 Q5: What happens if you don’t initialize local variable?</h3>
+<p>Compilation error:</p>
+<pre><code>variable might not have been initialized
+</code></pre>
+<hr />
+<h2 id="6-common-traps">6️⃣ Common Traps ⚠️</h2>
+<h3 id="trap-1">❌ Trap 1</h3>
+<pre><code class="language-java">int x;
+System.out.println(x);
+</code></pre>
+<p>❌ Compile-time error</p>
+<hr />
+<h3 id="trap-2">❌ Trap 2</h3>
+<pre><code class="language-java">long l = 10000000000;
+</code></pre>
+<p>❌ Error
+Correct:</p>
+<pre><code class="language-java">long l = 10000000000L;
+</code></pre>
+<hr />
+<h3 id="trap-3">❌ Trap 3</h3>
+<pre><code class="language-java">float f = 5.5;
+</code></pre>
+<p>❌ Error
+Correct:</p>
+<pre><code class="language-java">float f = 5.5f;
+</code></pre>
+<hr />
+<h3 id="trap-4">❌ Trap 4</h3>
+<p>char size confusion</p>
+<p>char is <strong>2 bytes</strong>, not 1 byte (Unicode support).</p>
+<hr />
+<h2 id="7-how-to-answer-in-interview-confident-way">7️⃣ How To Answer in Interview (Confident Way)</h2>
+<p>If interviewer asks:</p>
+<p>👉 “Explain variables in Java.”</p>
+<p>You answer:</p>
+<blockquote>
+<p>In Java, a variable is a named memory location used to store data. Each variable must be declared with a data type, which defines the size and type of data it can store. Variables in Java are categorized as local, instance, and static based on their scope and memory location.</p>
+</blockquote>
+<p>Then continue with stack vs heap explanation if they ask deeper.</p>
+<hr />
+<h2 id="8-real-life-analogy">8️⃣ Real-Life Analogy</h2>
+<p>Primitive → like storing money in your pocket
+Reference → like storing a house address in your pocket</p>
+<p>You hold address, but actual house is somewhere else.</p>
+<hr />
+<hr />
+<h1 id="1-why-is-boolean-size-jvm-dependent">✅ 1️⃣ Why is boolean size JVM dependent?</h1>
+<h3 id="correct-explanation">✅ Correct Explanation:</h3>
+<p>Java specification does NOT define exact size of boolean.</p>
+<p>Why?</p>
+<p>Because boolean only stores:</p>
+<ul>
+<li><code>true</code></li>
+<li><code>false</code></li>
+</ul>
+<p>It logically needs just <strong>1 bit</strong>.</p>
+<p>But:</p>
+<ul>
+<li>JVM does not allocate memory bit-by-bit.</li>
+<li>Most CPUs work with <strong>1 byte minimum</strong>.</li>
+<li>In arrays, JVM may use <strong>1 byte per boolean</strong>.</li>
+<li>Internally, implementation may vary.</li>
+</ul>
+<p>👉 That’s why Java says: “boolean size is JVM dependent.”</p>
+<h3 id="interview-answer">Interview Answer:</h3>
+<blockquote>
+<p>The Java specification does not define exact size of boolean because it only represents true or false. Internally JVM may use 1 byte or optimize differently depending on implementation.</p>
+</blockquote>
+<hr />
+<h1 id="2-why-string-is-not-primitive">✅ 2️⃣ Why String is not primitive?</h1>
+<h3 id="why-string-is-not-primitive">Why String is NOT primitive?</h3>
+<p>Primitive types:</p>
+<ul>
+<li>Store value directly</li>
+<li>Fixed memory size</li>
+<li>No methods</li>
+<li>Not objects</li>
+</ul>
+<p>String:</p>
+<ul>
+<li>Is an object</li>
+<li>Stored in heap</li>
+<li>Has methods</li>
+<li>Immutable</li>
+<li>Supports pooling</li>
+</ul>
+<p>So real reason:</p>
+<blockquote>
+<p>Because String has object behavior (methods, immutability, pooling, dynamic memory allocation), it cannot be primitive.</p>
+</blockquote>
+<p>Also:</p>
+<p>If String were primitive:</p>
+<ul>
+<li>It would not support methods like <code>.length()</code>, <code>.substring()</code></li>
+<li>No immutability concept</li>
+<li>No String pool optimization</li>
+</ul>
+<hr />
+<h1 id="3-static-variables-in-java-17">✅ 3️⃣ Static Variables in Java 17</h1>
+<h3 id="before-java-8">Before Java 8:</h3>
+<ul>
+<li>Class metadata → Method Area (PermGen)</li>
+<li>Static variables → Method Area</li>
+</ul>
+<h3 id="after-java-8-including-java-17">After Java 8 (including Java 17):</h3>
+<ul>
+<li>Class metadata → Metaspace</li>
+<li>Static variables → <strong>Heap</strong></li>
+</ul>
+<p>⚠ Important:
+Metaspace stores <strong>class metadata</strong>, NOT static variable values.</p>
+<p>Static variables are stored:
+👉 In heap
+👉 Inside the Class object</p>
+<hr />
+<h3 id="deep-explanation">Deep Explanation:</h3>
+<p>When class loads:</p>
+<ul>
+<li>JVM creates a Class object in heap.</li>
+<li>Static variables become part of that Class object.</li>
+<li>Only one copy exists.</li>
+</ul>
+<p>So correct interview answer:</p>
+<blockquote>
+<p>In modern Java (Java 8+), static variables are stored in heap memory as part of the Class object. Metaspace stores only class metadata.</p>
+</blockquote>
+<hr />
+<h1 id="interview-trap-here">🧠 Interview Trap Here</h1>
+<p>Many candidates say:
+“Static variables are stored in Metaspace.”</p>
+<p>❌ Wrong.</p>
+<p>Metaspace = Class metadata
+Heap = Objects + Static variables</p>
+<hr />
+<hr />
+<h2 id="1-where-is-static-final-int-x-10-stored">✅ 1️⃣ Where is <code>static final int x = 10;</code> stored?</h2>
+<p><strong>Correct answer (deep + interview):</strong></p>
+<ul>
+<li><code>x</code> is a <strong>static field</strong>, so it belongs to the <strong>Class</strong> (not object instances).</li>
+<li>In Java 8+ (including Java 17), <strong>static fields live on the Heap</strong> as part of the class’s runtime data (associated with the <code>Class&lt;?&gt;</code> object / class representation).</li>
+<li>The value <code>10</code> is a primitive constant; it doesn’t create any object.</li>
+</ul>
+<p><strong>Extra interview point (trap):</strong></p>
+<ul>
+<li>For <code>static final</code> primitives, the compiler may <strong>inline</strong> the value into bytecode of other classes if it’s a compile-time constant.
+  So sometimes you don’t even “read it” at runtime from the field (depends on usage / compilation).</li>
+</ul>
+<p><strong>One-line interview answer:</strong></p>
+<blockquote>
+<p>Static fields are stored on the heap with the class’s runtime representation; <code>static final int</code> may also be compile-time inlined.</p>
+</blockquote>
+<hr />
+<h2 id="2-where-is-static-final-string-s-vishu-stored">✅ 2️⃣ Where is <code>static final String s = "Vishu";</code> stored?</h2>
+<p><strong>Correct, with precision:</strong></p>
+<ul>
+<li><code>s</code> (the <strong>static reference variable</strong>) → stored in <strong>heap</strong> with class data.</li>
+<li><code>"Vishu"</code> (the <strong>String object</strong>) → stored in the <strong>String Pool</strong>, which is in the <strong>heap</strong>.</li>
+<li><code>s</code> points to that pooled <code>"Vishu"</code>.</li>
+</ul>
+<p><strong>Interview-ready:</strong></p>
+<blockquote>
+<p>The reference <code>s</code> is a static field (heap). The String literal <code>"Vishu"</code> is in the String pool (also heap). <code>s</code> points to the pooled object.</p>
+</blockquote>
+<hr />
+<h2 id="3-why-local-variables-dont-get-default-values-but-instance-variables-do">✅ 3️⃣ Why local variables don’t get default values but instance variables do?</h2>
+<p><strong>Polished answer:</strong></p>
+<ul>
+<li>
+<p><strong>Local variables</strong> are on the <strong>stack</strong> and JVM does not auto-initialize them because:</p>
+</li>
+<li>
+<p>it avoids extra work (performance)</p>
+</li>
+<li>it prevents using garbage/unknown values accidentally (compiler forces initialization)</li>
+<li>
+<p><strong>Instance variables</strong> are part of an <strong>object on the heap</strong>.</p>
+</li>
+<li>
+<p>When JVM allocates memory for an object, it <strong>zero-initializes</strong> it first (<code>0, false, null</code>)</p>
+</li>
+<li>then constructor runs and assigns real values.</li>
+</ul>
+<p><strong>Interview answer:</strong></p>
+<blockquote>
+<p>Local variables must be initialized because stack memory isn’t automatically set. Instance fields get defaults because object memory is zeroed during allocation before the constructor executes.</p>
+</blockquote>
+<hr />
+<h1 id="quick-notes-summary-for-your-notebook">✅ Quick Notes Summary (for your notebook)</h1>
+<h3 id="static-fields-java-8">Static fields (Java 8+)</h3>
+<ul>
+<li><strong>Stored:</strong> Heap (with class runtime data)</li>
+<li><strong>Metaspace:</strong> only class metadata (methods/constant pool/type info), not field values</li>
+</ul>
+<h3 id="string-literal">String literal</h3>
+<ul>
+<li>Stored in <strong>String Pool</strong> (inside heap)</li>
+</ul>
+<h3 id="defaults">Defaults</h3>
+<ul>
+<li>Local: <strong>no default</strong>, must initialize</li>
+<li>Instance/static: <strong>default values</strong> exist</li>
+</ul>
+<hr />
+<hr />
+<h2 id="given">Given:</h2>
+<pre><code class="language-java">static final int A = 10;
+static final Integer B = 10;
+</code></pre>
+<hr />
+<h2 id="1-is-a-compile-time-constant">✅ 1️⃣ Is <code>A</code> compile-time constant?</h2>
+<p>✔ YES.</p>
+<p>Because:</p>
+<ul>
+<li><code>static</code></li>
+<li><code>final</code></li>
+<li>primitive type</li>
+<li>assigned with constant expression (<code>10</code>)</li>
+</ul>
+<p>So compiler treats <code>A</code> as <strong>compile-time constant</strong>.</p>
+<p>It gets stored in the <strong>constant pool</strong> of the class file.</p>
+<hr />
+<h2 id="2-is-b-compile-time-constant">✅ 2️⃣ Is <code>B</code> compile-time constant?</h2>
+<p>✔ NO.</p>
+<p>Even though:</p>
+<ul>
+<li>It is <code>static</code></li>
+<li>It is <code>final</code></li>
+<li>Value looks constant</li>
+</ul>
+<p>But:</p>
+<p><code>Integer</code> is an <strong>object</strong>, not primitive.</p>
+<p>So:</p>
+<pre><code class="language-java">Integer B = 10;
+</code></pre>
+<p>Actually becomes:</p>
+<pre><code class="language-java">Integer B = Integer.valueOf(10);
+</code></pre>
+<p>That means:</p>
+<ul>
+<li>Object creation / method call</li>
+<li>Not a pure constant expression</li>
+</ul>
+<p>So it is <strong>not compile-time constant</strong>.</p>
+<hr />
+<h2 id="3-which-one-gets-inlined-into-other-classes">✅ 3️⃣ Which one gets inlined into other classes?</h2>
+<p>👉 Only <code>A</code> gets inlined.</p>
+<p>Example:</p>
+<p>Class1:</p>
+<pre><code class="language-java">static final int A = 10;
+</code></pre>
+<p>Class2:</p>
+<pre><code class="language-java">System.out.println(Class1.A);
+</code></pre>
+<p>Compiler replaces it with:</p>
+<pre><code class="language-java">System.out.println(10);
+</code></pre>
+<p>So Class2 does not even access Class1 at runtime.</p>
+<hr />
+<p>But for:</p>
+<pre><code class="language-java">static final Integer B = 10;
+</code></pre>
+<p>Class2 must access Class1 at runtime to get B.</p>
+<p>No inlining.</p>
+<hr />
+<h1 id="very-important-interview-trap">🔥 VERY IMPORTANT INTERVIEW TRAP</h1>
+<p>Suppose:</p>
+<p>Class1:</p>
+<pre><code class="language-java">static final int A = 10;
+</code></pre>
+<p>Class2:</p>
+<pre><code class="language-java">System.out.println(Class1.A);
+</code></pre>
+<p>Now you change A to 20 in Class1 and recompile only Class1.</p>
+<p>What happens?</p>
+<p>👉 Class2 will still print 10
+Because 10 was already inlined in its bytecode.</p>
+<p>This is a famous interview trap.</p>
+<hr />
+<h1 id="quick-notes-for-your-notebook">📘 Quick Notes For Your Notebook</h1>
+<h3 id="compile-time-constant-must-be">Compile-time constant must be:</h3>
+<ul>
+<li>static</li>
+<li>final</li>
+<li>primitive or String</li>
+<li>assigned with constant expression</li>
+</ul>
+<h3 id="objects-are-never-compile-time-constants">Objects are never compile-time constants.</h3>
+<hr />
+<hr />
+<h1 id="given_1">Given:</h1>
+<pre><code class="language-java">static final String S = &quot;Hello&quot;;
+</code></pre>
+<hr />
+<h2 id="1-is-this-compile-time-constant">✅ 1️⃣ Is this compile-time constant?</h2>
+<p>✔ YES.</p>
+<p>Because:</p>
+<ul>
+<li>static ✔</li>
+<li>final ✔</li>
+<li>String ✔</li>
+<li>assigned with literal ✔</li>
+</ul>
+<p>Java treats String literals as compile-time constants.</p>
+<hr />
+<h2 id="2-will-it-be-inlined">✅ 2️⃣ Will it be inlined?</h2>
+<p>✔ YES.</p>
+<p>If another class uses:</p>
+<pre><code class="language-java">System.out.println(Class1.S);
+</code></pre>
+<p>The compiler replaces it with:</p>
+<pre><code class="language-java">System.out.println(&quot;Hello&quot;);
+</code></pre>
+<p>No runtime lookup required.</p>
+<hr />
+<h2 id="3-why-is-string-allowed-but-integer-not">✅ 3️⃣ Why is String allowed but Integer not?</h2>
+<p>Your idea was close, but let’s refine it properly.</p>
+<h3 id="the-real-reason">The Real Reason:</h3>
+<p>Java Language Specification defines:</p>
+<p>A compile-time constant must be:</p>
+<ul>
+<li>primitive OR</li>
+<li>String literal</li>
+<li>assigned using constant expression</li>
+</ul>
+<p>Important:</p>
+<p>String is special because:</p>
+<ul>
+<li>String literals are stored in <strong>constant pool</strong></li>
+<li>String is immutable</li>
+<li>String literal expressions are resolved at compile time</li>
+</ul>
+<p>But:</p>
+<pre><code class="language-java">static final Integer B = 10;
+</code></pre>
+<p>This is NOT constant because:</p>
+<ul>
+<li>It requires a method call: <code>Integer.valueOf(10)</code></li>
+<li>It creates/returns an object</li>
+<li>Object creation cannot happen at compile time</li>
+<li>It’s resolved at runtime</li>
+</ul>
+<hr />
+<h2 id="important-interview-insight">🔥 Important Interview Insight</h2>
+<p>This works:</p>
+<pre><code class="language-java">static final String S1 = &quot;Hello&quot;;
+static final String S2 = &quot;Hel&quot; + &quot;lo&quot;;
+</code></pre>
+<p>Because <code>"Hel" + "lo"</code> is resolved at compile time.</p>
+<p>But this:</p>
+<pre><code class="language-java">static final String S3 = new String(&quot;Hello&quot;);
+</code></pre>
+<p>❌ Not compile-time constant
+Because <code>new</code> forces runtime object creation.</p>
+<hr />
+<h1 id="notebook-summary">📘 Notebook Summary</h1>
+<p>Compile-time constant:</p>
+<ul>
+<li>static</li>
+<li>final</li>
+<li>primitive or String</li>
+<li>constant expression only</li>
+<li>no method calls</li>
+<li>no new keyword</li>
+</ul>
+<hr />
+<h1 id="given_2">Given:</h1>
+<pre><code class="language-java">static final String A = &quot;Hello&quot;;
+static final String B = A + &quot;World&quot;;
+</code></pre>
+<hr />
+<h2 id="is-b-compile-time-constant">✅ Is B compile-time constant?</h2>
+<p>✔ YES.</p>
+<p>Because:</p>
+<ul>
+<li><code>A</code> is compile-time constant</li>
+<li><code>"World"</code> is literal</li>
+<li><code>+</code> operation between compile-time constants</li>
+<li>No method call</li>
+<li>No <code>new</code></li>
+<li>No runtime variable</li>
+</ul>
+<p>So compiler resolves this as:</p>
+<pre><code class="language-java">static final String B = &quot;HelloWorld&quot;;
+</code></pre>
+<p>Before bytecode generation.</p>
+<hr />
+<h2 id="why-this-works">🔥 Why this works?</h2>
+<p>Because Java compiler performs <strong>constant folding</strong>.</p>
+<p>It evaluates constant expressions at compile time.</p>
+<hr />
+<h1 id="case-1">Case 1</h1>
+<pre><code class="language-java">static final String A = getValue();
+static final String B = A + &quot;World&quot;;
+</code></pre>
+<h3 id="why-not-compile-time">Why NOT compile-time?</h3>
+<p>Because <code>getValue()</code> is a <strong>method call</strong> → value known only at <strong>runtime</strong>.</p>
+<p>So <code>A</code> is not a compile-time constant, and therefore <code>B</code> cannot be either.</p>
+<p>✅ What happens internally:</p>
+<ul>
+<li>Compiler generates bytecode that will do concatenation at runtime (typically via <code>StringBuilder</code> or <code>invokedynamic</code> depending on Java version).</li>
+</ul>
+<hr />
+<h1 id="case-2">Case 2</h1>
+<pre><code class="language-java">static final String A = &quot;Hello&quot;;
+static final String B = A + new String(&quot;World&quot;);
+</code></pre>
+<h3 id="why-not-compile-time_1">Why NOT compile-time?</h3>
+<p>Because <code>new String("World")</code> creates an object at <strong>runtime</strong>.</p>
+<p>Even though <code>"World"</code> literal is constant, the expression includes <code>new</code>, so the whole expression is not a constant expression.</p>
+<p>✅ Runtime behavior:</p>
+<ul>
+<li><code>"World"</code> literal exists in String pool</li>
+<li><code>new String("World")</code> creates a <strong>new heap object</strong> (different reference)</li>
+<li>concatenation happens at runtime</li>
+</ul>
+<hr />
+<h1 id="notebook-rule-one-line">📘 Notebook: Rule (One line)</h1>
+<p>✅ <strong>Only expressions made purely of compile-time constants</strong> (primitives/String literals/constant folding) are compile-time constants.
+❌ Any <strong>method call</strong>, <strong>new</strong>, <strong>non-final variable</strong>, or <strong>runtime value</strong> breaks it.</p>
+<hr />
+<h2 id="code">Code</h2>
+<pre><code class="language-java">String a = &quot;Hello&quot;;
+String b = &quot;Hel&quot; + &quot;lo&quot;;
+String c = a + &quot;World&quot;;
+String d = &quot;Hello&quot; + &quot;World&quot;;
+String e = a + &quot;lo&quot;;
+
+System.out.println(a == b);   // ?
+System.out.println(c == &quot;HelloWorld&quot;); // ?
+System.out.println(d == &quot;HelloWorld&quot;); // ?
+System.out.println(e == &quot;Hello&quot;); // ?
+</code></pre>
+<hr />
+<h1 id="correct-outputs">✅ Correct outputs</h1>
+<ol>
+<li>
+<p><code>a == b</code> → <strong>true</strong> ✅ (you were right)</p>
+</li>
+<li>
+<p><code>"Hel" + "lo"</code> is <strong>compile-time constant folding</strong></p>
+</li>
+<li>so <code>b</code> becomes <code>"Hello"</code> in the pool</li>
+<li>
+<p>both refer to same pooled literal</p>
+</li>
+<li>
+<p><code>c == "HelloWorld"</code> → <strong>false</strong> ❌ (you said true)</p>
+</li>
+<li>
+<p><code>c = a + "World"</code> → <code>a</code> is a <strong>variable</strong>, so concatenation happens <strong>at runtime</strong></p>
+</li>
+<li>result is a <strong>new String object on heap</strong> (not automatically pooled)</li>
+<li><code>"HelloWorld"</code> on the right is a <strong>pooled literal</strong></li>
+<li>
+<p>different references → <code>false</code></p>
+</li>
+<li>
+<p><code>d == "HelloWorld"</code> → <strong>true</strong> ✅ (you were right)</p>
+</li>
+<li>
+<p><code>"Hello" + "World"</code> is compile-time constant folding</p>
+</li>
+<li>
+<p><code>d</code> points to pooled <code>"HelloWorld"</code></p>
+</li>
+<li>
+<p><code>e == "Hello"</code> → <strong>false</strong> ✅ (you were right)</p>
+</li>
+<li>
+<p><code>e = a + "lo"</code> is runtime concatenation (because <code>a</code> is variable)</p>
+</li>
+<li>
+<p>creates new heap String <code>"Hellolo"</code> actually? Wait carefully:</p>
+</li>
+<li>
+<p><code>a</code> is <code>"Hello"</code></p>
+</li>
+<li><code>"Hello" + "lo"</code> becomes <code>"Hellolo"</code> (not <code>"Hello"</code>)
+    So it’s false for two reasons:</li>
+<li>content differs (<code>"Hellolo"</code> vs <code>"Hello"</code>)</li>
+<li>and reference differs anyway</li>
+</ol>
+<p>✅ Final answers (4 lines):</p>
+<ul>
+<li><strong>true</strong></li>
+<li><strong>false</strong></li>
+<li><strong>true</strong></li>
+<li><strong>false</strong></li>
+</ul>
+<hr />
+<h1 id="interview-tip-1-liner-you-should-remember">🔥 Interview Tip (1-liner you should remember)</h1>
+<p>✅ <code>==</code> compares <strong>references</strong>, not content.
+Compile-time concatenation → pooled; runtime concatenation → new object (unless you call <code>.intern()</code>).</p>
+<hr />
+<h1 id="given_3">🔎 Given:</h1>
+<pre><code class="language-java">String a = &quot;Hello&quot;;
+String x = a + &quot;World&quot;;
+System.out.println(x.intern() == &quot;HelloWorld&quot;);
+</code></pre>
+<hr />
+<h2 id="step-by-step-what-happens">Step-by-step what happens</h2>
+<h3 id="1-hello">1️⃣ <code>"Hello"</code></h3>
+<p>Stored in <strong>String Pool</strong></p>
+<h3 id="2-a-world">2️⃣ <code>a + "World"</code></h3>
+<p>Since <code>a</code> is a variable → runtime concatenation
+JVM creates a <strong>new String object in heap</strong> (not in pool)</p>
+<p>So now:</p>
+<ul>
+<li><code>x</code> → heap object <code>"HelloWorld"</code></li>
+<li><code>"HelloWorld"</code> literal → in String Pool</li>
+</ul>
+<p>They are different references.</p>
+<hr />
+<h3 id="3-xintern">3️⃣ <code>x.intern()</code></h3>
+<p>What does <code>.intern()</code> do?</p>
+<p>👉 It checks:</p>
+<ul>
+<li>
+<p>If an equal string exists in the <strong>String Pool</strong></p>
+</li>
+<li>
+<p>return reference of pooled string</p>
+</li>
+<li>
+<p>Otherwise:</p>
+</li>
+<li>
+<p>add it to pool and return that reference</p>
+</li>
+</ul>
+<p>In our case:</p>
+<ul>
+<li><code>"HelloWorld"</code> already exists in pool</li>
+<li>So <code>intern()</code> returns pooled reference</li>
+</ul>
+<p>Now comparison becomes:</p>
+<pre><code class="language-java">pooled &quot;HelloWorld&quot; == pooled &quot;HelloWorld&quot;
+</code></pre>
+<p>✔ true</p>
+<hr />
+<h1 id="interview-level-definition-of-intern">🧠 Interview-Level Definition of intern()</h1>
+<blockquote>
+<p>The <code>intern()</code> method ensures that a string is stored in the String Pool and returns the pooled reference. If the string already exists in the pool, it returns the existing reference instead of creating a new one.</p>
+</blockquote>
+<hr />
+<h1 id="code_1">Code</h1>
+<pre><code class="language-java">String s1 = new String(&quot;ABC&quot;);
+String s2 = s1.intern();
+
+System.out.println(s1 == s2);
+</code></pre>
+<p>✅ Correct — it prints <strong>false</strong> (in the normal/common case).</p>
+<h2 id="step-by-step">Step-by-step</h2>
+<h3 id="1-abc-literal">1️⃣ <code>"ABC"</code> literal</h3>
+<ul>
+<li>When the class is loaded (or when this line executes), the literal <code>"ABC"</code> is in the <strong>String Pool</strong>.</li>
+</ul>
+<h3 id="2-new-stringabc">2️⃣ <code>new String("ABC")</code></h3>
+<ul>
+<li>Creates a <strong>new String object on the heap</strong> (separate from the pooled one).</li>
+<li><code>s1</code> points to this heap object.</li>
+</ul>
+<p>So now:</p>
+<ul>
+<li>pool has <code>"ABC"</code> (pooled ref)</li>
+<li>heap has another <code>"ABC"</code> (s1 ref)</li>
+</ul>
+<h3 id="3-s1intern">3️⃣ <code>s1.intern()</code></h3>
+<ul>
+<li>JVM checks String Pool for <code>"ABC"</code></li>
+<li>It already exists, so it returns the <strong>pooled</strong> <code>"ABC"</code> reference.</li>
+<li><code>s2</code> points to pooled string.</li>
+</ul>
+<h3 id="4-s1-s2">4️⃣ <code>s1 == s2</code></h3>
+<ul>
+<li>heap object reference vs pool reference → <strong>different</strong> → <code>false</code></li>
+</ul>
+<hr />
+<h1 id="interview-note-extra-sharp">⚠️ Interview Note (extra sharp)</h1>
+<p>In some specific scenarios (especially older Java versions / particular ordering), results around <code>intern()</code> can look surprising. But for this exact code in typical modern JVM behavior, the correct expected answer is <strong>false</strong>, and interviewers want this explanation.</p>
+<hr />
+<h1 id="your-notes-summary-string-pool-intern-traps">✅ Your Notes Summary (String Pool + intern traps)</h1>
+<ul>
+<li><code>==</code> checks reference (address), not content.</li>
+<li>String literal → goes to String Pool.</li>
+<li><code>new String("X")</code> → always makes a new heap object.</li>
+<li><code>intern()</code> → returns pooled reference (existing or newly added).</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

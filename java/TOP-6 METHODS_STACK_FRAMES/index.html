@@ -1,0 +1,1368 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Knowledge Base for Java, DSA, Spring Boot, and System Design">
+      
+      
+        <meta name="author" content="Vishwambhar Patil">
+      
+      
+      
+        <link rel="prev" href="../TOP-5%20MODERN_SWITCH/">
+      
+      
+        <link rel="next" href="../TOP-7%20METHOD_OVERLOADING_OVERRIDING/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Methods & Stack Frames - Vishwambhar Patil Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#methods-stack-frames" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vishwambhar Patil Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Methods & Stack Frames
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vishwambhar Patil Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-1%20VAR_DATA_TYPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-2%20TYPE_CONVERSION_AND_CASTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-3%20OPERATORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-4%20CONTROL_FLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-5%20MODERN_SWITCH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Stack Frames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-7%20METHOD_OVERLOADING_OVERRIDING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method Overloading & Overriding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-8%20CONSTRUCTOR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-9%20STATIC_VS_INSTANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static vs Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-10%20FINAL_KEYWORD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-11%20ACCESS_MODIFIERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-12%20ABSTRACT_CLASS_VS_INTERFACE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Class vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-13%20STRING_STRING_BUILDER_AND_BUFFER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-14%20COLLECTIONS_FRAMEWORK_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-15 COLLECTIONS_FRAMEWORK_2.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring Boot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="methods-stack-frames">📘 METHODS &amp; STACK FRAMES</h1>
+<p>We will cover:</p>
+<p>1️⃣ What happens when a method is called
+2️⃣ Stack memory structure
+3️⃣ Stack Frame creation
+4️⃣ Pass-by-value (big confusion area)
+5️⃣ Recursion stack behavior
+6️⃣ Interview traps</p>
+<hr />
+<h1 id="1-what-happens-when-a-method-is-called">1️⃣ What Happens When a Method is Called?</h1>
+<p>Example:</p>
+<pre><code class="language-java">public class Test {
+    public static void main(String[] args) {
+        int x = 5;
+        int result = add(x);
+        System.out.println(result);
+    }
+
+    static int add(int num) {
+        return num + 10;
+    }
+}
+</code></pre>
+<hr />
+<h2 id="step-by-step-execution">Step-by-Step Execution</h2>
+<h3 id="step-1-program-starts">🧠 Step 1: Program starts</h3>
+<ul>
+<li>JVM creates <strong>main thread</strong></li>
+<li>Stack created for main thread</li>
+<li><code>main()</code> stack frame pushed</li>
+</ul>
+<hr />
+<h2 id="stack-now">Stack Now:</h2>
+<pre><code>|-------------------|
+| main() frame      |
+| x = ?             |
+| result = ?        |
+|-------------------|
+</code></pre>
+<hr />
+<h3 id="step-2-x-5">🧠 Step 2: <code>x = 5</code></h3>
+<pre><code>main()
+  x = 5
+</code></pre>
+<hr />
+<h3 id="step-3-addx-is-called">🧠 Step 3: <code>add(x)</code> is called</h3>
+<ul>
+<li>New stack frame created for <code>add()</code></li>
+<li>Parameter <code>num</code> receives copy of <code>x</code></li>
+</ul>
+<p>Important:
+👉 Java is <strong>pass-by-value</strong>
+👉 <code>num</code> gets copy of 5</p>
+<hr />
+<h2 id="stack-now_1">Stack Now:</h2>
+<pre><code>|-------------------|
+| add() frame       |
+| num = 5           |
+|-------------------|
+| main() frame      |
+| x = 5             |
+| result = ?        |
+|-------------------|
+</code></pre>
+<hr />
+<h3 id="step-4-return-num-10">🧠 Step 4: <code>return num + 10</code></h3>
+<ul>
+<li>15 returned</li>
+<li>add() frame destroyed (popped)</li>
+</ul>
+<hr />
+<h2 id="stack-after-pop">Stack After Pop:</h2>
+<pre><code>|-------------------|
+| main() frame      |
+| x = 5             |
+| result = 15       |
+|-------------------|
+</code></pre>
+<hr />
+<h3 id="step-5-print-result">🧠 Step 5: Print result</h3>
+<p>Output:</p>
+<pre><code>15
+</code></pre>
+<hr />
+<h1 id="2-what-is-a-stack-frame">2️⃣ What is a Stack Frame?</h1>
+<p>Every method call creates:</p>
+<ul>
+<li>Local variables</li>
+<li>Parameters</li>
+<li>Return address</li>
+<li>Operand stack</li>
+</ul>
+<p>Stored inside a <strong>stack frame</strong>.</p>
+<p>When method finishes:
+👉 Frame is popped
+👉 Memory automatically cleaned</p>
+<hr />
+<h1 id="3-important-rule">3️⃣ Important Rule</h1>
+<p>Each thread has:</p>
+<ul>
+<li>Its own stack</li>
+<li>Multiple stack frames</li>
+</ul>
+<p>Stack is LIFO (Last In First Out).</p>
+<hr />
+<h1 id="4-big-interview-question-is-java-pass-by-reference">4️⃣ Big Interview Question: Is Java Pass-by-Reference?</h1>
+<p>Answer:</p>
+<p>❌ NO
+✔ Java is always pass-by-value</p>
+<p>Even for objects.</p>
+<hr />
+<p>Example:</p>
+<pre><code class="language-java">static void change(int x) {
+    x = 100;
+}
+
+public static void main(String[] args) {
+    int a = 10;
+    change(a);
+    System.out.println(a);
+}
+</code></pre>
+<p>Output:</p>
+<pre><code>10
+</code></pre>
+<p>Because:</p>
+<ul>
+<li>Copy of 10 passed</li>
+<li>Original not changed</li>
+</ul>
+<hr />
+<h1 id="5-object-pass-by-value-trap">5️⃣ Object Pass-by-Value Trap</h1>
+<pre><code class="language-java">class Person {
+    int age;
+}
+
+static void change(Person p) {
+    p.age = 50;
+}
+
+public static void main(String[] args) {
+    Person obj = new Person();
+    obj.age = 20;
+    change(obj);
+    System.out.println(obj.age);
+}
+</code></pre>
+<p>Output:</p>
+<pre><code>50
+</code></pre>
+<p>Why?</p>
+<p>Because:</p>
+<ul>
+<li>Copy of reference passed</li>
+<li>Both point to same object</li>
+<li>Object modified</li>
+</ul>
+<p>But if:</p>
+<pre><code class="language-java">static void change(Person p) {
+    p = new Person();
+    p.age = 100;
+}
+</code></pre>
+<p>Then output:</p>
+<pre><code>20
+</code></pre>
+<p>Because:</p>
+<ul>
+<li>Only local copy changed</li>
+<li>Original reference unchanged</li>
+</ul>
+<hr />
+<h1 id="now-i-test-your-understanding">🔥 Now I Test Your Understanding</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">static void modify(int a) {
+    a = a + 5;
+}
+
+static void modifyArray(int[] arr) {
+    arr[0] = 100;
+}
+
+public static void main(String[] args) {
+    int x = 10;
+    modify(x);
+    System.out.println(x);
+
+    int[] nums = {1, 2, 3};
+    modifyArray(nums);
+    System.out.println(nums[0]);
+}
+</code></pre>
+<p>✅ Output:</p>
+<pre><code>10
+100
+</code></pre>
+<p>Now the <em>interview-level</em> explanation (short but deep):</p>
+<hr />
+<h2 id="1-modifyx">1️⃣ <code>modify(x)</code></h2>
+<ul>
+<li><code>x</code> is a primitive (<code>int</code>)</li>
+<li>Java passes a <strong>copy of the value</strong> (<code>10</code>) into <code>a</code></li>
+<li>Inside method, <code>a</code> becomes <code>15</code>, but that’s only the local copy</li>
+<li><code>x</code> in <code>main</code> stays <code>10</code></li>
+</ul>
+<p>So first print: <strong>10</strong></p>
+<hr />
+<h2 id="2-modifyarraynums">2️⃣ <code>modifyArray(nums)</code></h2>
+<ul>
+<li><code>nums</code> is a reference variable</li>
+<li>Java passes a <strong>copy of the reference</strong></li>
+<li>Both <code>arr</code> (inside method) and <code>nums</code> (in main) point to the <strong>same array object in heap</strong></li>
+<li>Changing <code>arr[0]</code> changes the same heap array</li>
+</ul>
+<p>So second print: <strong>100</strong></p>
+<hr />
+<h1 id="notes-line-most-important">📘 Notes Line (Most Important)</h1>
+<p>✅ Java is pass-by-value always.</p>
+<ul>
+<li>For primitives: value copy</li>
+<li>For objects/arrays: reference copy (so object can be mutated)</li>
+</ul>
+<hr />
+<h1 id="examples">Examples</h1>
+<pre><code class="language-java">Person p = new Person(20);
+
+changeRef(p);
+System.out.println(p.age);
+
+changeObj(p);
+System.out.println(p.age);
+</code></pre>
+<hr />
+<h1 id="1-changerefp">1️⃣ <code>changeRef(p)</code></h1>
+<pre><code class="language-java">static void changeRef(Person p) {
+    p = new Person(99);
+}
+</code></pre>
+<h3 id="what-happens">What happens?</h3>
+<ul>
+<li>A <strong>copy of reference</strong> is passed</li>
+<li>Inside method, <code>p</code> now points to a NEW object</li>
+<li>But original reference in <code>main</code> still points to old object</li>
+</ul>
+<p>So after method:</p>
+<pre><code>main → p → Person(age=20)
+</code></pre>
+<p>Output:</p>
+<pre><code>20
+</code></pre>
+<hr />
+<h1 id="2-changeobjp">2️⃣ <code>changeObj(p)</code></h1>
+<pre><code class="language-java">static void changeObj(Person p) {
+    p.age = 99;
+}
+</code></pre>
+<h3 id="what-happens_1">What happens?</h3>
+<ul>
+<li>Copy of reference passed</li>
+<li>Both references point to SAME object</li>
+<li>Modifying <code>p.age</code> modifies heap object</li>
+</ul>
+<p>So:</p>
+<pre><code>main → p → Person(age=99)
+</code></pre>
+<p>Output:</p>
+<pre><code>99
+</code></pre>
+<hr />
+<h1 id="interview-level-explanation-memorize-this">🧠 Interview-Level Explanation (Memorize This)</h1>
+<blockquote>
+<p>Java is strictly pass-by-value. When passing objects, the value passed is a copy of the reference. Therefore, methods can modify the object’s state but cannot change the original reference.</p>
+</blockquote>
+<p>This line alone can impress interviewers.</p>
+<hr />
+<h1 id="now-stack-frame-deep-test">🔥 Now Stack Frame Deep Test</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">static void fun(int x) {
+    x = x + 1;
+    System.out.println(x);
+}
+
+public static void main(String[] args) {
+    int x = 5;
+    fun(x);
+    System.out.println(x);
+}
+</code></pre>
+<p>✅ Correct Output:</p>
+<pre><code>6
+5
+</code></pre>
+<h3 id="why-quick-stack-frame-reasoning">Why (quick stack-frame reasoning)</h3>
+<ul>
+<li><code>fun(x)</code> receives a <strong>copy</strong> of <code>x</code> (5)</li>
+<li>inside <code>fun</code>, local <code>x</code> becomes 6 → prints 6</li>
+<li>main’s <code>x</code> stays 5 → prints 5</li>
+</ul>
+<hr />
+<h1 id="stack-frames-recursion-next">📘 Stack Frames + Recursion (Next)</h1>
+<p>Now we move to <strong>recursion</strong> because it’s the clearest way to <em>see</em> stack frames.</p>
+<h2 id="example">Example</h2>
+<pre><code class="language-java">static void f(int n) {
+    if (n == 0) return;
+    System.out.print(n + &quot; &quot;);
+    f(n - 1);
+    System.out.print(n + &quot; &quot;);
+}
+
+public static void main(String[] args) {
+    f(3);
+}
+</code></pre>
+<p>✅ Correct Output:</p>
+<pre><code class="language-text">3 2 1 1 2 3
+</code></pre>
+<p>Now let’s make it <strong>crystal clear</strong> with stack-frame thinking (this is what interviewers love).</p>
+<hr />
+<h1 id="why-this-output-happens">Why this output happens</h1>
+<pre><code class="language-java">f(3):
+ print 3
+  f(2):
+   print 2
+    f(1):
+     print 1
+      f(0): return
+     print 1   // after returning
+   print 2
+ print 3
+</code></pre>
+<p>So:</p>
+<ul>
+<li>First half prints while <strong>going down</strong> the recursion: <code>3 2 1</code></li>
+<li>Second half prints while <strong>coming back up</strong>: <code>1 2 3</code></li>
+</ul>
+<hr />
+<h1 id="notes-one-line">📘 Notes (One line)</h1>
+<p>Recursion has two phases:</p>
+<ul>
+<li><strong>Forward (call)</strong> phase</li>
+<li><strong>Backtracking (return)</strong> phase</li>
+</ul>
+<hr />
+<h1 id="next-recursion-stack-frame-trap">🔥 Next Recursion + Stack Frame Trap</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">static int g(int n) {
+    if (n == 0) return 0;
+    return n + g(n - 1);
+}
+
+public static void main(String[] args) {
+    System.out.println(g(3));
+}
+</code></pre>
+<p>✅ Correct Output.</p>
+<pre><code class="language-text">6
+</code></pre>
+<p><code>g(3)</code> computes:</p>
+<ul>
+<li>g(3) = 3 + g(2)</li>
+<li>g(2) = 2 + g(1)</li>
+<li>g(1) = 1 + g(0)</li>
+<li>g(0) = 0</li>
+</ul>
+<p>So total = 3 + 2 + 1 + 0 = <strong>6</strong>.</p>
+<hr />
+<h1 id="next-stack-overflow-recursion-depth-interview">🔥 Next: Stack Overflow + Recursion Depth (Interview)</h1>
+<p>If interviewer asks:</p>
+<p><strong>“Why does recursion cause StackOverflowError?”</strong></p>
+<p>You answer:</p>
+<blockquote>
+<p>Each recursive call creates a new stack frame. If recursion is too deep (or has no base case), the call stack grows until it exceeds the stack memory limit, causing <code>StackOverflowError</code>.</p>
+</blockquote>
+<hr />
+<h1 id="final-method-stack-frame-trap-super-common">Final Method + Stack Frame Trap (Super Common)</h1>
+<p>Predict output:</p>
+<pre><code class="language-java">static void h(int n) {
+    if (n == 0) return;
+    h(n - 1);
+    System.out.print(n + &quot; &quot;);
+}
+
+public static void main(String[] args) {
+    h(3);
+}
+</code></pre>
+<p>✅ Correct Output:</p>
+<pre><code class="language-text">1 2 3
+</code></pre>
+<p>Reason (quick, interview-style):</p>
+<ul>
+<li><code>h(3)</code> calls <code>h(2)</code> calls <code>h(1)</code> calls <code>h(0)</code> return</li>
+<li>Printing happens <strong>after</strong> the recursive call returns, so it prints in reverse order while the stack unwinds: <code>1 2 3</code></li>
+</ul>
+<hr />
+<h1 id="methods-stack-frames-notes-completed-core">✅ Methods &amp; Stack Frames Notes — Completed Core</h1>
+<p>You now fully understand:</p>
+<ul>
+<li>Stack vs stack frame</li>
+<li>Method call frame creation &amp; pop</li>
+<li>Pass-by-value (primitive + reference)</li>
+<li>Recursion call stack (forward + backward phase)</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
