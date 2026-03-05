@@ -38,6 +38,10 @@ nav:
       - Collections Framework Part 1: java/TOP-14 COLLECTIONS_FRAMEWORK_1.md
       - Collections Framework Part 2: java/TOP-15 COLLECTIONS_FRAMEWORK_2.md
 
+      - Multithreading (Part-1): java/TOP-16 Multithreading (Part-1).md
+      - Multithreading (Part-2): java/TOP-17 Multithreading (Part-2).md
+      - Multithreading (Part-3): java/TOP-18 Multithreading (Part-3).md
+
   - DSA:
       - Overview: dsa/index.md
 
