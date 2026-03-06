@@ -1,4 +1,4 @@
-# 📘 Operators in Java
+# 📚 Operators In Java
 
 We will cover:
 

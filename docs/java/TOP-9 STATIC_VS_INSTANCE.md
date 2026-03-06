@@ -1,8 +1,6 @@
-# 📘 Static vs Instance in Java
+# 📚 Static vs Instance in Java
 
----
-
-# 1️⃣ What is an Instance Member?
+## 1️⃣ What is an Instance Member?
 
 Instance members:
 

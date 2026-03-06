@@ -1,6 +1,4 @@
-# 📘 Method Overloading vs Method Overriding
-
----
+# 📚 Method Overloading vs Method Overriding
 
 # 1️⃣ Method Overloading
 

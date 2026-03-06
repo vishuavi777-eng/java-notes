@@ -1,4 +1,4 @@
-# 📚 COLLECTIONS FRAMEWORK – MASTER PLAN
+# 📚 COLLECTIONS FRAMEWORK – Part-1
 
 We will cover in this order:
 

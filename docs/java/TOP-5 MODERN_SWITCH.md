@@ -1,4 +1,4 @@
-# 📘 MODERN SWITCH
+# 📚 Modern Switch
 
 Now we move to **Switch Advanced + Modern Switch (Java 14+)**
 

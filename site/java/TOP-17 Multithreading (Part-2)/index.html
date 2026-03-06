@@ -1,0 +1,2532 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Knowledge Base for Java, DSA, Spring Boot, and System Design">
+      
+      
+        <meta name="author" content="Vishwambhar Patil">
+      
+      
+      
+        <link rel="prev" href="../TOP-16%20Multithreading%20%28Part-1%29/">
+      
+      
+        <link rel="next" href="../TOP-18%20Multithreading%20%28Part-3%29/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Multithreading (Part-2) - Vishwambhar Patil Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#thread-pools-executors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vishwambhar Patil Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multithreading (Part-2)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vishwambhar Patil Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-1%20VAR_DATA_TYPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-2%20TYPE_CONVERSION_AND_CASTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-3%20OPERATORS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-4%20CONTROL_FLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-5%20MODERN_SWITCH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-6%20METHODS_STACK_FRAMES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Stack Frames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-7%20METHOD_OVERLOADING_OVERRIDING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method Overloading & Overriding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-8%20CONSTRUCTOR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-9%20STATIC_VS_INSTANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static vs Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-10%20FINAL_KEYWORD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-11%20ACCESS_MODIFIERS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-12%20ABSTRACT_CLASS_VS_INTERFACE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Class vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-13%20STRING_STRING_BUILDER_AND_BUFFER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-14%20COLLECTIONS_FRAMEWORK_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-15%20COLLECTIONS_FRAMEWORK_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-16%20Multithreading%20%28Part-1%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading (Part-1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading (Part-2)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading (Part-2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answer:
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TOP-18%20Multithreading%20%28Part-3%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading (Part-3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring Boot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answer:
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="thread-pools-executors">Thread Pools &amp; Executors</h1>
+<p>We should now move to <strong>Thread Pools &amp; Executors</strong>.</p>
+<p>Because in real backend systems:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Threads are rarely created manually.
+</span></code></pre></div>
+<p>They are managed by:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ExecutorService
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ThreadPoolExecutor
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ForkJoinPool
+</span></code></pre></div>
+<p>Before we start that, one quick check:</p>
+<h3 id="question">Question</h3>
+<p>Why is creating too many threads dangerous?</p>
+<p>Give <strong>two reasons</strong>.</p>
+<h3 id="answer">Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Creating too many threads increases memory usage, context switching overhead, and scheduler pressure, which can severely degrade performance.
+</span></code></pre></div>
+<hr />
+<h1 id="why-creating-too-many-threads-is-dangerous">Why Creating Too Many Threads is Dangerous</h1>
+<h3 id="1-memory-consumption-very-important">1️⃣ Memory Consumption (Very Important)</h3>
+<p>Each thread has its <strong>own stack memory</strong>.</p>
+<p>Typical stack size:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>512 KB – 1 MB per thread
+</span></code></pre></div>
+<p>If you create:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>10,000 threads
+</span></code></pre></div>
+<p>Memory usage:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>~10 GB stack memory
+</span></code></pre></div>
+<p>Your JVM can crash with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>OutOfMemoryError: unable to create new native thread
+</span></code></pre></div>
+<hr />
+<h3 id="2-context-switching-overhead">2️⃣ Context Switching Overhead</h3>
+<p>CPU can run only <strong>a few threads at a time</strong>.</p>
+<p>If you create too many threads:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>CPU keeps switching between threads
+</span></code></pre></div>
+<p>This is called:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Context Switching
+</span></code></pre></div>
+<p>Switching threads costs CPU time.</p>
+<p>So performance actually <strong>becomes worse</strong>, not better.</p>
+<hr />
+<h3 id="3-thread-scheduling-overhead">3️⃣ Thread Scheduling Overhead</h3>
+<p>The OS scheduler must manage all threads:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ready queue
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>priority
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>scheduling
+</span></code></pre></div>
+<p>More threads → more overhead.</p>
+<hr />
+<h3 id="4-resource-contention">4️⃣ Resource Contention</h3>
+<p>Threads compete for:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>CPU
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>memory
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>locks
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>I/O
+</span></code></pre></div>
+<p>Too many threads increases <strong>lock contention</strong> and reduces throughput.</p>
+<hr />
+<h1 id="real-solution-thread-pools">Real Solution: Thread Pools</h1>
+<p>Instead of creating many threads:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Create limited threads
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Reuse them
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Now only <strong>10 threads</strong> execute tasks.</p>
+<hr />
+<h1 id="interview-one-liner">Interview One-Liner</h1>
+<blockquote>
+<p>Creating too many threads increases memory usage, context switching overhead, and scheduler pressure, which can severely degrade performance.</p>
+</blockquote>
+<hr />
+<h1 id="now-we-enter-a-very-important-topic">Now We Enter a Very Important Topic</h1>
+<h1 id="thread-pool-executor-framework">Thread Pool &amp; Executor Framework</h1>
+<p>Before I explain the internals, answer this:</p>
+<h3 id="question_1">Question</h3>
+<p>What is the difference between:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>execute()
+</span></code></pre></div>
+<p>and</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>submit()
+</span></code></pre></div>
+<p>in <code>ExecutorService</code>?</p>
+<h3 id="answer_1">Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>execute() runs a task without returning a result, while submit() returns a Future that allows retrieving results and exceptions.
+</span></code></pre></div>
+<p>Let’s build it step by step.</p>
+<hr />
+<h1 id="1-what-is-executorservice">1️⃣ What is ExecutorService?</h1>
+<p>Instead of creating threads like this:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">).</span><span class="na">start</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Java recommends using a <strong>thread pool</strong>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Now:</p>
+<ul>
+<li>Only <strong>5 threads</strong> exist</li>
+<li>Tasks are queued</li>
+<li>Threads <strong>reuse themselves</strong></li>
+</ul>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">execute</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">});</span>
+</span></code></pre></div>
+<hr />
+<h1 id="2-execute-vs-submit">2️⃣ <code>execute()</code> vs <code>submit()</code></h1>
+<p>Both are used to <strong>send tasks to a thread pool</strong>, but they behave differently.</p>
+<hr />
+<h1 id="execute"><code>execute()</code></h1>
+<p>Method signature:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="n">Runnable</span><span class="w"> </span><span class="n">command</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">execute</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Task running&quot;</span><span class="p">);</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>Characteristics:</p>
+<ul>
+<li>Takes <strong>Runnable only</strong></li>
+<li><strong>No return value</strong></li>
+<li>Cannot capture result</li>
+<li>Cannot track completion easily</li>
+</ul>
+<hr />
+<h1 id="submit"><code>submit()</code></h1>
+<p>Method signature:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">Future</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="nf">submit</span><span class="p">(</span><span class="n">Runnable</span><span class="w"> </span><span class="n">task</span><span class="p">)</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">submit</span><span class="p">(</span><span class="n">Callable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>Get result:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">get</span><span class="p">());</span>
+</span></code></pre></div>
+<p>Output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>30
+</span></code></pre></div>
+<hr />
+<h1 id="key-difference-table">Key Difference Table</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>execute()</th>
+<th>submit()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return value</td>
+<td>❌ None</td>
+<td>✅ Future</td>
+</tr>
+<tr>
+<td>Accepts Callable</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Get result</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Exception handling</td>
+<td>Goes to thread's handler</td>
+<td>Stored in Future</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="important-interview-insight">Important Interview Insight</h1>
+<p>If a task throws exception:</p>
+<h3 id="execute_1">execute()</h3>
+<p>Exception goes to <strong>thread's uncaught exception handler</strong>.</p>
+<h3 id="submit_1">submit()</h3>
+<p>Exception is <strong>stored inside Future</strong>.</p>
+<p>You see it only when calling:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</span></code></pre></div>
+<hr />
+<h1 id="interview-one-liner_1">Interview One-Liner</h1>
+<blockquote>
+<p><code>execute()</code> runs a task without returning a result, while <code>submit()</code> returns a <code>Future</code> that allows retrieving results and exceptions.</p>
+</blockquote>
+<hr />
+<h1 id="3-what-is-future">3️⃣ What is <code>Future</code>?</h1>
+<p><code>Future</code> represents <strong>result of asynchronous computation</strong>.</p>
+<p>Methods:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">future</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w">       </span><span class="c1">// wait for result</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">future</span><span class="p">.</span><span class="na">isDone</span><span class="p">()</span><span class="w">    </span><span class="c1">// task finished?</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">future</span><span class="p">.</span><span class="na">cancel</span><span class="p">()</span><span class="w">    </span><span class="c1">// cancel task</span>
+</span></code></pre></div>
+<hr />
+<h1 id="4-runnable-vs-callable">4️⃣ Runnable vs Callable</h1>
+<p>Runnable:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Callable:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">T</span><span class="w"> </span><span class="nf">call</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Callable can:</p>
+<p>✔ return result
+✔ throw checked exceptions</p>
+<hr />
+<h1 id="quick-check-question">Quick Check Question</h1>
+<p>What will happen here?</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="p">});</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Done&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Question:</p>
+<p>Will the program crash immediately or continue printing <code>"Done"</code>?</p>
+<p>Then what happens when we call:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">f</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Answer:</p>
+<ul>
+<li>“after f.get() it will get divide by zero exception” → <strong>“when <code>f.get()</code> is called, it will throw the exception.”</strong></li>
+</ul>
+<p>Now let’s explain what exactly happens internally (important for interviews).</p>
+<hr />
+<h1 id="code">Code</h1>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="p">});</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Done&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h1 id="step-by-step-execution">Step-by-Step Execution</h1>
+<h3 id="1-task-submitted-to-thread-pool">1️⃣ Task submitted to thread pool</h3>
+<p><code>submit()</code> does <strong>not execute immediately in the main thread</strong>.</p>
+<p>Instead:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Main thread → submit task → task goes to queue
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Thread pool worker → executes task
+</span></code></pre></div>
+<hr />
+<h3 id="2-main-thread-continues">2️⃣ Main thread continues</h3>
+<p>Main thread prints:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Done
+</span></code></pre></div>
+<p>because the task runs <strong>asynchronously</strong>.</p>
+<p>So program <strong>does not crash here</strong>.</p>
+<hr />
+<h3 id="3-worker-thread-executes-task">3️⃣ Worker thread executes task</h3>
+<p>Inside thread pool worker:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Exception occurs:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>ArithmeticException: / by zero
+</span></code></pre></div>
+<p>But because task was submitted using <code>submit()</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Exception is captured inside Future
+</span></code></pre></div>
+<p>It is <strong>not thrown immediately</strong>.</p>
+<hr />
+<h3 id="4-when-fget-is-called">4️⃣ When <code>f.get()</code> is called</h3>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="n">f</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Now Java unwraps the stored exception and throws:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>ExecutionException
+</span></code></pre></div>
+<p>Inside it:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>ArithmeticException: / by zero
+</span></code></pre></div>
+<hr />
+<h1 id="important-interview-detail">Important Interview Detail</h1>
+<p><code>submit()</code> wraps exceptions in:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>java.util.concurrent.ExecutionException
+</span></code></pre></div>
+<p>So actual exception is inside:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">e</span><span class="p">.</span><span class="na">getCause</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ExecutionException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getCause</span><span class="p">());</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h1 id="key-difference-with-execute">Key Difference With <code>execute()</code></h1>
+<p>If we used:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">execute</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>Then:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>ArithmeticException
+</span></code></pre></div>
+<p>would go to <strong>UncaughtExceptionHandler</strong> immediately.</p>
+<hr />
+<h1 id="interview-one-liner_2">Interview One-Liner</h1>
+<blockquote>
+<p>When using <code>submit()</code>, exceptions are captured inside the <code>Future</code> and thrown as <code>ExecutionException</code> when <code>Future.get()</code> is called.</p>
+</blockquote>
+<hr />
+<h1 id="next-important-multithreading-concept">Next Important Multithreading Concept</h1>
+<p>Now we move to <strong>ThreadPoolExecutor Internals</strong> — this is where <strong>senior interview questions</strong> come from.</p>
+<p>First question:</p>
+<h3 id="why-does-a-threadpool-need-a-task-queue">Why does a ThreadPool need a <strong>task queue</strong>?</h3>
+<p>What problem does the queue solve?</p>
+<h3 id="answer_2">Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>Thread pools reuse a limited number of threads to execute many tasks efficiently while controlling resource usage.
+</span></code></pre></div>
+<p>Perfect — this is the right time to understand <strong>ThreadPoolExecutor deeply</strong>, because many backend interviews ask <strong>internals and tuning questions</strong>.</p>
+<p>We will go step-by-step.</p>
+<hr />
+<h1 id="1-why-thread-pools-exist">1️⃣ Why Thread Pools Exist</h1>
+<p>If you create threads manually:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">task</span><span class="p">).</span><span class="na">start</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Problems:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Too many threads
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>Memory consumption
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>Context switching overhead
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>Thread creation cost
+</span></code></pre></div>
+<p>Solution:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Create a limited number of threads
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>Reuse them for multiple tasks
+</span></code></pre></div>
+<p>That is <strong>Thread Pool</strong>.</p>
+<hr />
+<h1 id="2-threadpool-basic-idea">2️⃣ ThreadPool Basic Idea</h1>
+<p>Instead of:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>1 thread per task
+</span></code></pre></div>
+<p>We do:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>Few threads
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>Many tasks
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>Tasks wait in queue
+</span></code></pre></div>
+<p>Architecture:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>        Tasks
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>          |
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>          v
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>      Task Queue
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>          |
+</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>          v
+</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>   ThreadPool Workers
+</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>   [T1] [T2] [T3]
+</span></code></pre></div>
+<p>Threads pick tasks from the queue.</p>
+<hr />
+<h1 id="3-why-the-task-queue-is-needed">3️⃣ Why the Task Queue Is Needed</h1>
+<p>Imagine <strong>100 tasks arrive instantly</strong> but pool size is <strong>5 threads</strong>.</p>
+<p>Without queue:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>95 tasks would be lost
+</span></code></pre></div>
+<p>Queue allows:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>Tasks wait until a thread is free
+</span></code></pre></div>
+<p>So queue solves:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>Load buffering
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>Thread reuse
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>Task management
+</span></code></pre></div>
+<hr />
+<h1 id="4-threadpoolexecutor-internal-components">4️⃣ ThreadPoolExecutor Internal Components</h1>
+<p>ThreadPoolExecutor has <strong>4 main parts</strong>.</p>
+<h3 id="1-core-pool-size">1️⃣ Core Pool Size</h3>
+<p>Minimum number of threads always kept alive.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>corePoolSize = 4
+</span></code></pre></div>
+<p>Pool always keeps <strong>4 threads ready</strong>.</p>
+<hr />
+<h3 id="2-maximum-pool-size">2️⃣ Maximum Pool Size</h3>
+<p>Maximum threads allowed.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>maxPoolSize = 10
+</span></code></pre></div>
+<p>Pool may grow to <strong>10 threads during heavy load</strong>.</p>
+<hr />
+<h3 id="3-task-queue">3️⃣ Task Queue</h3>
+<p>Where tasks wait.</p>
+<p>Common types:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>LinkedBlockingQueue
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>ArrayBlockingQueue
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>SynchronousQueue
+</span></code></pre></div>
+<hr />
+<h3 id="4-keepalive-time">4️⃣ KeepAlive Time</h3>
+<p>Extra threads (above core size) are destroyed after inactivity.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>keepAlive = 60 seconds
+</span></code></pre></div>
+<hr />
+<h1 id="5-threadpool-execution-algorithm-very-important">5️⃣ ThreadPool Execution Algorithm (Very Important)</h1>
+<p>When a task arrives:</p>
+<h3 id="step-1">Step 1</h3>
+<p>If active threads &lt; corePoolSize</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>Create new thread
+</span></code></pre></div>
+<hr />
+<h3 id="step-2">Step 2</h3>
+<p>Else if queue not full</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>Add task to queue
+</span></code></pre></div>
+<hr />
+<h3 id="step-3">Step 3</h3>
+<p>Else if threads &lt; maxPoolSize</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>Create extra thread
+</span></code></pre></div>
+<hr />
+<h3 id="step-4">Step 4</h3>
+<p>Else</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>Reject task
+</span></code></pre></div>
+<hr />
+<h1 id="visual-flow">Visual Flow</h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>Task arrives
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>     |
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>     v
+</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>Threads &lt; corePool ? → create thread
+</span><span id="__span-63-5"><a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>     |
+</span><span id="__span-63-6"><a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>     v
+</span><span id="__span-63-7"><a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>Queue full ? → add to queue
+</span><span id="__span-63-8"><a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>     |
+</span><span id="__span-63-9"><a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>     v
+</span><span id="__span-63-10"><a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a>Threads &lt; maxPool ? → create thread
+</span><span id="__span-63-11"><a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a>     |
+</span><span id="__span-63-12"><a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a>     v
+</span><span id="__span-63-13"><a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a>Reject task
+</span></code></pre></div>
+<hr />
+<h1 id="6-task-rejection-policies">6️⃣ Task Rejection Policies</h1>
+<p>If pool is full and queue is full:</p>
+<p>Java applies <strong>RejectionPolicy</strong>.</p>
+<p>Common ones:</p>
+<h3 id="abortpolicy-default">AbortPolicy (default)</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>throws RejectedExecutionException
+</span></code></pre></div>
+<hr />
+<h3 id="callerrunspolicy">CallerRunsPolicy</h3>
+<p>Caller thread executes the task.</p>
+<hr />
+<h3 id="discardpolicy">DiscardPolicy</h3>
+<p>Task silently discarded.</p>
+<hr />
+<h3 id="discardoldestpolicy">DiscardOldestPolicy</h3>
+<p>Oldest queued task removed.</p>
+<hr />
+<h1 id="7-example-threadpoolexecutor">7️⃣ Example ThreadPoolExecutor</h1>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadPoolExecutor</span><span class="p">(</span>
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="w">        </span><span class="mi">2</span><span class="p">,</span><span class="w">              </span><span class="c1">// corePoolSize</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="w">        </span><span class="mi">4</span><span class="p">,</span><span class="w">              </span><span class="c1">// maximumPoolSize</span>
+</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="w">        </span><span class="mi">60</span><span class="p">,</span><span class="w">             </span><span class="c1">// keepAliveTime</span>
+</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a><span class="w">        </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">,</span>
+</span><span id="__span-65-6"><a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedBlockingQueue</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-65-7"><a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>Meaning:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>2 core threads
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>up to 4 threads under load
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a>10 tasks in queue
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a>extra threads die after 60 sec
+</span></code></pre></div>
+<hr />
+<h1 id="8-executors-utility-methods">8️⃣ Executors Utility Methods</h1>
+<p>Java provides shortcuts:</p>
+<h3 id="fixed-thread-pool">Fixed Thread Pool</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Fixed number of threads.</p>
+<hr />
+<h3 id="cached-thread-pool">Cached Thread Pool</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="n">Executors</span><span class="p">.</span><span class="na">newCachedThreadPool</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Creates threads dynamically.</p>
+<hr />
+<h3 id="single-thread-executor">Single Thread Executor</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="n">Executors</span><span class="p">.</span><span class="na">newSingleThreadExecutor</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Only one worker thread.</p>
+<hr />
+<h1 id="important-interview-warning">Important Interview Warning</h1>
+<p>In <strong>production systems</strong>, many engineers avoid <code>Executors.newFixedThreadPool()</code> because:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>Queue is unbounded
+</span><span id="__span-70-2"><a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a>Memory can explode
+</span></code></pre></div>
+<p>Instead they prefer <strong>ThreadPoolExecutor directly</strong>.</p>
+<hr />
+<h1 id="interview-one-liner_3">Interview One-Liner</h1>
+<blockquote>
+<p>Thread pools reuse a limited number of threads to execute many tasks efficiently while controlling resource usage.</p>
+</blockquote>
+<hr />
+<h1 id="now-a-very-important-interview-question">Now a Very Important Interview Question</h1>
+<p>Consider this pool:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>corePoolSize = 2
+</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>maxPoolSize = 4
+</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>queue capacity = 2
+</span></code></pre></div>
+<p>If <strong>7 tasks arrive at the same time</strong>, how many:</p>
+<p>1️⃣ Threads will be created
+2️⃣ Tasks will wait in queue
+3️⃣ Tasks will be rejected</p>
+<p>Given:</p>
+<ul>
+<li><strong>core = 2</strong></li>
+<li><strong>max = 4</strong></li>
+<li><strong>queue capacity = 2</strong></li>
+<li><strong>7 tasks arrive</strong></li>
+</ul>
+<p>Let’s do the exact step-by-step using the real ThreadPoolExecutor algorithm.</p>
+<hr />
+<h1 id="step-by-step-allocation">Step-by-step allocation</h1>
+<h3 id="task-1">Task 1</h3>
+<p>Active threads = 0 &lt; core(2)
+✅ Create thread #1 → runs Task1</p>
+<h3 id="task-2">Task 2</h3>
+<p>Active threads = 1 &lt; core(2)
+✅ Create thread #2 → runs Task2</p>
+<p>Now active threads = 2 (core reached)</p>
+<hr />
+<h3 id="task-3">Task 3</h3>
+<p>Core full → try queue
+✅ Queue Task3 (queue size 1/2)</p>
+<h3 id="task-4">Task 4</h3>
+<p>✅ Queue Task4 (queue size 2/2 full)</p>
+<hr />
+<h3 id="task-5">Task 5</h3>
+<p>Core full and queue full → try to expand threads up to max(4)
+✅ Create thread #3 → runs Task5</p>
+<h3 id="task-6">Task 6</h3>
+<p>✅ Create thread #4 → runs Task6</p>
+<p>Now active threads = 4 (max reached)</p>
+<hr />
+<h3 id="task-7">Task 7</h3>
+<p>Core full + queue full + max threads reached
+❌ Reject Task7</p>
+<hr />
+<h1 id="final-correct-answers">✅ Final Correct Answers</h1>
+<p>1️⃣ <strong>Threads created = 4 total</strong>
+(2 core threads + 2 extra threads)</p>
+<p>2️⃣ <strong>Tasks waiting in queue = 2</strong>
+(Task3 and Task4)</p>
+<p>3️⃣ <strong>Tasks rejected = 1</strong>
+(Task7)</p>
+<hr />
+<h1 id="interview-one-liner_4">🔥 Interview one-liner</h1>
+<blockquote>
+<p>ThreadPoolExecutor first fills core threads, then queue, then grows up to max threads, then rejects.</p>
+</blockquote>
+<hr />
+<h2 id="next-tricky-question-very-common">Next Tricky Question (very common)</h2>
+<p>If we change the queue to <code>SynchronousQueue</code> (capacity = 0), with same core=2, max=4, and 7 tasks arrive:</p>
+<p>How many tasks will be rejected?</p>
+<hr />
+<h1 id="what-is-synchronousqueue">What is <code>SynchronousQueue</code>?</h1>
+<p>It has <strong>zero capacity</strong>.</p>
+<p>That means:</p>
+<ul>
+<li>It <strong>cannot store</strong> tasks.</li>
+<li>A task can be handed off only if a worker thread is ready to take it <strong>immediately</strong>.</li>
+</ul>
+<p>So it’s like a direct hand-to-hand transfer.</p>
+<hr />
+<h1 id="threadpoolexecutor-behavior-with-synchronousqueue">ThreadPoolExecutor behavior with SynchronousQueue</h1>
+<p>Given:</p>
+<ul>
+<li>core = 2</li>
+<li>max = 4</li>
+<li>queue = SynchronousQueue (capacity 0)</li>
+<li>7 tasks arrive</li>
+</ul>
+<p>Algorithm:</p>
+<ol>
+<li>Fill core threads</li>
+<li>Try to queue (but queue can’t hold anything)</li>
+<li>Create extra threads up to max</li>
+<li>Then reject</li>
+</ol>
+<hr />
+<h1 id="step-by-step">Step-by-step</h1>
+<h3 id="task-1-create-thread-1-core">Task 1 → create thread #1 (core)</h3>
+<h3 id="task-2-create-thread-2-core">Task 2 → create thread #2 (core)</h3>
+<p>Now core is full (2 threads busy)</p>
+<h3 id="task-3-try-queue-cannot-capacity-0">Task 3 → try queue → <strong>cannot</strong> (capacity 0)</h3>
+<p>So create thread #3 (extra)</p>
+<h3 id="task-4-create-thread-4-extra">Task 4 → create thread #4 (extra)</h3>
+<p>Now we reached max threads = 4</p>
+<h3 id="task-5-cannot-queue-cannot-create-more-reject">Task 5 → cannot queue + cannot create more → reject</h3>
+<h3 id="task-6-reject">Task 6 → reject</h3>
+<h3 id="task-7-reject">Task 7 → reject</h3>
+<hr />
+<h1 id="final-answer">✅ Final Answer</h1>
+<ul>
+<li>Threads created: <strong>4</strong></li>
+<li>Queue waiting: <strong>0</strong></li>
+<li>Tasks rejected: <strong>3</strong> (tasks 5, 6, 7)</li>
+</ul>
+<hr />
+<h1 id="why-this-matters-interview">Why this matters (interview)</h1>
+<ul>
+<li><code>newCachedThreadPool()</code> uses <code>SynchronousQueue</code></li>
+<li>It creates threads aggressively under load</li>
+<li>If max is very high, it may create too many threads</li>
+</ul>
+<hr />
+<h1 id="quick-check-1-line">Quick check (1 line)</h1>
+<p>Which queue is safer to prevent creating too many threads?</p>
+<p>A) SynchronousQueue
+B) Bounded LinkedBlockingQueue(100)</p>
+<p>Answer A or B.</p>
+<p>No worries — I’ll explain quickly and then you’ll be able to answer confidently.</p>
+<hr />
+<h1 id="linkedblockingqueue-vs-synchronousqueue-simple">LinkedBlockingQueue vs SynchronousQueue (Simple)</h1>
+<h2 id="linkedblockingqueue100-bounded">✅ <code>LinkedBlockingQueue(100)</code> (bounded)</h2>
+<ul>
+<li>It can <strong>store up to 100 tasks</strong></li>
+<li>If all threads are busy, tasks <strong>wait in queue</strong></li>
+<li>Prevents creating too many threads quickly</li>
+<li>Helps control CPU + memory</li>
+</ul>
+<h2 id="synchronousqueue-0-capacity">⚡ <code>SynchronousQueue</code> (0 capacity)</h2>
+<ul>
+<li>It <strong>stores nothing</strong></li>
+<li>
+<p>If a thread isn’t immediately free:</p>
+</li>
+<li>
+<p>ThreadPool tries to create a new thread (up to max)</p>
+</li>
+<li>Can grow threads rapidly under load</li>
+</ul>
+<hr />
+<h1 id="which-is-safer-to-prevent-creating-too-many-threads">Which is safer to prevent creating too many threads?</h1>
+<p>✅ <strong>B) Bounded LinkedBlockingQueue(100)</strong></p>
+<p>Because tasks wait in queue instead of forcing new thread creation.</p>
+<hr />
+<h1 id="interview-one-liner_5">Interview one-liner</h1>
+<blockquote>
+<p>A bounded queue limits memory and controls thread growth; SynchronousQueue pushes the pool to create threads aggressively.</p>
+</blockquote>
+<hr />
+<h1 id="next-deep-topic-shutdown-vs-shutdownnow-super-common">Next Deep Topic: <code>shutdown()</code> vs <code>shutdownNow()</code> (super common)</h1>
+<p>Explain what happens in each:</p>
+<ol>
+<li><code>shutdown()</code></li>
+<li><code>shutdownNow()</code></li>
+</ol>
+<p>Let's go step-by-step.</p>
+<hr />
+<h1 id="1-why-threadpool-shutdown-is-needed">1️⃣ Why ThreadPool Shutdown Is Needed</h1>
+<p>If you create a thread pool:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</span></code></pre></div>
+<p>and <strong>never stop it</strong>, the JVM will not exit because:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>ThreadPool threads are non-daemon threads
+</span></code></pre></div>
+<p>So we must shutdown the pool.</p>
+<p>Java provides two methods:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>shutdown()
+</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>shutdownNow()
+</span></code></pre></div>
+<hr />
+<h1 id="2-shutdown">2️⃣ <code>shutdown()</code></h1>
+<p>Graceful shutdown.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+</span></code></pre></div>
+<p>What happens:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>✔ Stop accepting new tasks
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>✔ Already submitted tasks will execute
+</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>✔ Running tasks continue
+</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>✔ Queue tasks will execute
+</span></code></pre></div>
+<p>Example timeline:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>Task1 running
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>Task2 running
+</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>Task3 in queue
+</span><span id="__span-77-4"><a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>shutdown() called
+</span></code></pre></div>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>Task1 finishes
+</span><span id="__span-78-2"><a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a>Task2 finishes
+</span><span id="__span-78-3"><a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a>Task3 executes
+</span><span id="__span-78-4"><a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>Pool terminates
+</span></code></pre></div>
+<p>So <strong>everything completes normally</strong>.</p>
+<hr />
+<h1 id="3-shutdownnow">3️⃣ <code>shutdownNow()</code></h1>
+<p>Force shutdown.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdownNow</span><span class="p">();</span>
+</span></code></pre></div>
+<p>What happens:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>❌ Stop accepting new tasks
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a>❌ Cancel queued tasks
+</span><span id="__span-80-3"><a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a>⚠ Interrupt running tasks
+</span></code></pre></div>
+<p>Meaning:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>Running threads receive interrupt signal
+</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>Queue tasks removed
+</span></code></pre></div>
+<p>But interruption only works if the task <strong>handles interrupts</strong>.</p>
+<hr />
+<h1 id="4-example">4️⃣ Example</h1>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a>
+</span><span id="__span-82-3"><a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-82-4"><a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-82-5"><a id="__codelineno-82-5" name="__codelineno-82-5" href="#__codelineno-82-5"></a><span class="w">        </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+</span><span id="__span-82-6"><a id="__codelineno-82-6" name="__codelineno-82-6" href="#__codelineno-82-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-82-7"><a id="__codelineno-82-7" name="__codelineno-82-7" href="#__codelineno-82-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Interrupted!&quot;</span><span class="p">);</span>
+</span><span id="__span-82-8"><a id="__codelineno-82-8" name="__codelineno-82-8" href="#__codelineno-82-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-82-9"><a id="__codelineno-82-9" name="__codelineno-82-9" href="#__codelineno-82-9"></a><span class="p">});</span>
+</span><span id="__span-82-10"><a id="__codelineno-82-10" name="__codelineno-82-10" href="#__codelineno-82-10"></a>
+</span><span id="__span-82-11"><a id="__codelineno-82-11" name="__codelineno-82-11" href="#__codelineno-82-11"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdownNow</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Output may be:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>Interrupted!
+</span></code></pre></div>
+<p>Because thread receives interrupt.</p>
+<hr />
+<h1 id="5-key-difference">5️⃣ Key Difference</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>shutdown()</th>
+<th>shutdownNow()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept new tasks</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Running tasks</td>
+<td>Continue</td>
+<td>Interrupted</td>
+</tr>
+<tr>
+<td>Queued tasks</td>
+<td>Execute</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>Shutdown style</td>
+<td>Graceful</td>
+<td>Force</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="6-checking-pool-state">6️⃣ Checking Pool State</h1>
+<p>Useful methods:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">isShutdown</span><span class="p">()</span>
+</span><span id="__span-84-2"><a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a><span class="n">pool</span><span class="p">.</span><span class="na">isTerminated</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h1 id="7-waiting-for-completion">7️⃣ Waiting for Completion</h1>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+</span><span id="__span-85-2"><a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a><span class="n">pool</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Meaning:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>Wait 10 seconds for tasks to finish
+</span></code></pre></div>
+<hr />
+<h1 id="interview-one-liner_6">Interview One-Liner</h1>
+<blockquote>
+<p><code>shutdown()</code> performs a graceful shutdown allowing existing tasks to finish, while <code>shutdownNow()</code> attempts to stop all running tasks immediately and clears the queue.</p>
+</blockquote>
+<hr />
+<h1 id="quick-interview-trap">Quick Interview Trap</h1>
+<p>Predict behavior:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">pool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newSingleThreadExecutor</span><span class="p">();</span>
+</span><span id="__span-87-2"><a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>
+</span><span id="__span-87-3"><a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-87-4"><a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-87-5"><a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-87-6"><a id="__codelineno-87-6" name="__codelineno-87-6" href="#__codelineno-87-6"></a><span class="p">});</span>
+</span><span id="__span-87-7"><a id="__codelineno-87-7" name="__codelineno-87-7" href="#__codelineno-87-7"></a>
+</span><span id="__span-87-8"><a id="__codelineno-87-8" name="__codelineno-87-8" href="#__codelineno-87-8"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdownNow</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Question:</p>
+<p>Will the thread stop or keep running forever? Why?</p>
+<p><strong>the correct answer is:</strong></p>
+<p>❌ <strong>The thread will likely keep running forever.</strong></p>
+<p>Let’s understand why — this is a <strong>very important interview trap</strong>.</p>
+<hr />
+<h1 id="what-shutdownnow-actually-does">What <code>shutdownNow()</code> Actually Does</h1>
+<p>When we call:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">shutdownNow</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Java does <strong>NOT forcibly kill the thread</strong>.</p>
+<p>Instead it does:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>Thread.interrupt()
+</span></code></pre></div>
+<p>It only sends an <strong>interrupt signal</strong>.</p>
+<hr />
+<h1 id="your-code">Your Code</h1>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a><span class="n">pool</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-90-2"><a id="__codelineno-90-2" name="__codelineno-90-2" href="#__codelineno-90-2"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-90-3"><a id="__codelineno-90-3" name="__codelineno-90-3" href="#__codelineno-90-3"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-90-4"><a id="__codelineno-90-4" name="__codelineno-90-4" href="#__codelineno-90-4"></a><span class="p">});</span>
+</span></code></pre></div>
+<p>This loop:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>while(true)
+</span></code></pre></div>
+<ul>
+<li>never checks interrupt status</li>
+<li>never blocks</li>
+<li>never throws InterruptedException</li>
+</ul>
+<p>So the thread <strong>ignores the interrupt</strong>.</p>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>Thread continues running forever
+</span></code></pre></div>
+<hr />
+<h1 id="when-interrupt-actually-works">When Interrupt Actually Works</h1>
+<p>Interrupt works when thread is doing something like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-93-1"><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>Thread.sleep()
+</span><span id="__span-93-2"><a id="__codelineno-93-2" name="__codelineno-93-2" href="#__codelineno-93-2"></a>wait()
+</span><span id="__span-93-3"><a id="__codelineno-93-3" name="__codelineno-93-3" href="#__codelineno-93-3"></a>join()
+</span><span id="__span-93-4"><a id="__codelineno-93-4" name="__codelineno-93-4" href="#__codelineno-93-4"></a>BlockingQueue.take()
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-94-1"><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-94-2"><a id="__codelineno-94-2" name="__codelineno-94-2" href="#__codelineno-94-2"></a><span class="w">    </span><span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-94-3"><a id="__codelineno-94-3" name="__codelineno-94-3" href="#__codelineno-94-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Now <code>shutdownNow()</code> → interrupt → <code>InterruptedException</code>.</p>
+<p>Thread stops.</p>
+<hr />
+<h1 id="correct-way-to-write-interruptible-code">Correct Way to Write Interruptible Code</h1>
+<p>Good thread code checks interrupt status.</p>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-95-1"><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Thread</span><span class="p">.</span><span class="na">currentThread</span><span class="p">().</span><span class="na">isInterrupted</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-95-2"><a id="__codelineno-95-2" name="__codelineno-95-2" href="#__codelineno-95-2"></a><span class="w">    </span><span class="c1">// do work</span>
+</span><span id="__span-95-3"><a id="__codelineno-95-3" name="__codelineno-95-3" href="#__codelineno-95-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>or</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-96-1"><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-96-2"><a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Thread</span><span class="p">.</span><span class="na">interrupted</span><span class="p">())</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-96-3"><a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h1 id="interview-one-liner_7">Interview One-Liner</h1>
+<blockquote>
+<p><code>shutdownNow()</code> does not forcibly kill threads; it only interrupts them, and threads must cooperatively handle the interrupt.</p>
+</blockquote>
+<hr />
+<h1 id="very-important-interview-question">Very Important Interview Question</h1>
+<h3 id="why-does-java-not-allow-killing-threads-forcefully">Why does Java <strong>not allow killing threads forcefully</strong>?</h3>
+<p>(Hint: It existed before — <code>Thread.stop()</code> — but was removed.)</p>
+<h3 id="answer_3">Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-97-1"><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a>Java avoids forcefully killing threads because it can leave shared data and locks in inconsistent states; instead it uses cooperative cancellation via interrupts.
+</span></code></pre></div>
+<p>Good — this is actually a <strong>very important historical design decision in Java</strong>, and interviewers sometimes ask it.</p>
+<hr />
+<h1 id="why-java-does-not-allow-forcefully-killing-threads">Why Java Does NOT Allow Forcefully Killing Threads</h1>
+<p>Earlier Java had a method:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-98-1"><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a><span class="n">Thread</span><span class="p">.</span><span class="na">stop</span><span class="p">()</span>
+</span></code></pre></div>
+<p>It could <strong>forcefully terminate a thread</strong>.</p>
+<p>But it was <strong>deprecated</strong> and removed from safe usage.</p>
+<hr />
+<h1 id="the-main-problem-inconsistent-state">The Main Problem: Inconsistent State</h1>
+<p>Imagine a thread is modifying shared data.</p>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-99-1"><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a><span class="kd">class</span> <span class="nc">BankAccount</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-99-2"><a id="__codelineno-99-2" name="__codelineno-99-2" href="#__codelineno-99-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+</span><span id="__span-99-3"><a id="__codelineno-99-3" name="__codelineno-99-3" href="#__codelineno-99-3"></a>
+</span><span id="__span-99-4"><a id="__codelineno-99-4" name="__codelineno-99-4" href="#__codelineno-99-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">transfer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-99-5"><a id="__codelineno-99-5" name="__codelineno-99-5" href="#__codelineno-99-5"></a><span class="w">        </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w">   </span><span class="c1">// step 1</span>
+</span><span id="__span-99-6"><a id="__codelineno-99-6" name="__codelineno-99-6" href="#__codelineno-99-6"></a><span class="w">        </span><span class="c1">// thread killed here</span>
+</span><span id="__span-99-7"><a id="__codelineno-99-7" name="__codelineno-99-7" href="#__codelineno-99-7"></a><span class="w">        </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w">   </span><span class="c1">// step 2</span>
+</span><span id="__span-99-8"><a id="__codelineno-99-8" name="__codelineno-99-8" href="#__codelineno-99-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-99-9"><a id="__codelineno-99-9" name="__codelineno-99-9" href="#__codelineno-99-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>If the thread is killed between step 1 and step 2:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-100-1"><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a>balance = 500
+</span></code></pre></div>
+<p>System becomes <strong>corrupted</strong>.</p>
+<hr />
+<h1 id="another-dangerous-case-locks">Another Dangerous Case: Locks</h1>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-101-1"><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a><span class="kd">synchronized</span><span class="p">(</span><span class="n">account</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-101-2"><a id="__codelineno-101-2" name="__codelineno-101-2" href="#__codelineno-101-2"></a><span class="w">    </span><span class="n">updateBalance</span><span class="p">();</span>
+</span><span id="__span-101-3"><a id="__codelineno-101-3" name="__codelineno-101-3" href="#__codelineno-101-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>If the thread is killed while holding the lock:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>Lock is never released
+</span></code></pre></div>
+<p>Now:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-103-1"><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>Other threads block forever
+</span></code></pre></div>
+<p>Deadlock-like situation.</p>
+<hr />
+<h1 id="memory-consistency-problems">Memory Consistency Problems</h1>
+<p>Forcefully killing threads may leave:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-104-1"><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>partially updated objects
+</span><span id="__span-104-2"><a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a>inconsistent shared data
+</span><span id="__span-104-3"><a id="__codelineno-104-3" name="__codelineno-104-3" href="#__codelineno-104-3"></a>broken invariants
+</span></code></pre></div>
+<hr />
+<h1 id="therefore-java-uses">Therefore Java Uses</h1>
+<h3 id="cooperative-cancellation">Cooperative cancellation</h3>
+<p>Threads must <strong>stop themselves</strong>.</p>
+<p>Using:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>interrupt()
+</span><span id="__span-105-2"><a id="__codelineno-105-2" name="__codelineno-105-2" href="#__codelineno-105-2"></a>volatile flags
+</span><span id="__span-105-3"><a id="__codelineno-105-3" name="__codelineno-105-3" href="#__codelineno-105-3"></a>future.cancel()
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-106-1"><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-106-2"><a id="__codelineno-106-2" name="__codelineno-106-2" href="#__codelineno-106-2"></a>
+</span><span id="__span-106-3"><a id="__codelineno-106-3" name="__codelineno-106-3" href="#__codelineno-106-3"></a><span class="k">while</span><span class="p">(</span><span class="n">running</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-106-4"><a id="__codelineno-106-4" name="__codelineno-106-4" href="#__codelineno-106-4"></a><span class="w">    </span><span class="n">work</span><span class="p">();</span>
+</span><span id="__span-106-5"><a id="__codelineno-106-5" name="__codelineno-106-5" href="#__codelineno-106-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Another thread:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-107-1"><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a><span class="n">running</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Thread exits safely.</p>
+<hr />
+<h1 id="interview-one-liner_8">Interview One-Liner</h1>
+<blockquote>
+<p>Java avoids forcefully killing threads because it can leave shared data and locks in inconsistent states; instead it uses cooperative cancellation via interrupts.</p>
+</blockquote>
+<hr />
+<h1 id="where-we-are-now-in-multithreading">Where We Are Now in Multithreading</h1>
+<p>You now know:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-108-1"><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>Threads
+</span><span id="__span-108-2"><a id="__codelineno-108-2" name="__codelineno-108-2" href="#__codelineno-108-2"></a>Race conditions
+</span><span id="__span-108-3"><a id="__codelineno-108-3" name="__codelineno-108-3" href="#__codelineno-108-3"></a>synchronized
+</span><span id="__span-108-4"><a id="__codelineno-108-4" name="__codelineno-108-4" href="#__codelineno-108-4"></a>Locks
+</span><span id="__span-108-5"><a id="__codelineno-108-5" name="__codelineno-108-5" href="#__codelineno-108-5"></a>Deadlock
+</span><span id="__span-108-6"><a id="__codelineno-108-6" name="__codelineno-108-6" href="#__codelineno-108-6"></a>volatile
+</span><span id="__span-108-7"><a id="__codelineno-108-7" name="__codelineno-108-7" href="#__codelineno-108-7"></a>CAS
+</span><span id="__span-108-8"><a id="__codelineno-108-8" name="__codelineno-108-8" href="#__codelineno-108-8"></a>Atomic classes
+</span><span id="__span-108-9"><a id="__codelineno-108-9" name="__codelineno-108-9" href="#__codelineno-108-9"></a>Thread pools
+</span><span id="__span-108-10"><a id="__codelineno-108-10" name="__codelineno-108-10" href="#__codelineno-108-10"></a>ExecutorService
+</span><span id="__span-108-11"><a id="__codelineno-108-11" name="__codelineno-108-11" href="#__codelineno-108-11"></a>shutdown vs shutdownNow
+</span><span id="__span-108-12"><a id="__codelineno-108-12" name="__codelineno-108-12" href="#__codelineno-108-12"></a>Interrupts
+</span></code></pre></div>
+<p>You are now <strong>entering senior-level territory</strong>.</p>
+<hr />
+<h1 id="next-major-topic-very-important">Next Major Topic (Very Important)</h1>
+<p>Now we should cover:</p>
+<h1 id="concurrent-collections"><strong>Concurrent Collections</strong></h1>
+<p>Because normal collections are <strong>not thread-safe</strong>.</p>
+<p>Examples:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-109-1"><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a>ConcurrentHashMap
+</span><span id="__span-109-2"><a id="__codelineno-109-2" name="__codelineno-109-2" href="#__codelineno-109-2"></a>CopyOnWriteArrayList
+</span><span id="__span-109-3"><a id="__codelineno-109-3" name="__codelineno-109-3" href="#__codelineno-109-3"></a>BlockingQueue
+</span></code></pre></div>
+<p>These are heavily used in <strong>backend systems and interviews</strong>.</p>
+<hr />
+<p>Before we start:</p>
+<h3 id="quick-question">Quick question</h3>
+<p>Is this thread-safe?</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-110-1"><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Multiple threads doing:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-111-1"><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">()</span>
+</span><span id="__span-111-2"><a id="__codelineno-111-2" name="__codelineno-111-2" href="#__codelineno-111-2"></a><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Yes or No? And why?</p>
+<h3 id="answer_4">Answer:</h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-112-1"><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a>HashMap is not thread-safe because concurrent modifications can cause race conditions, visibility issues, and even internal structure corruption during resize.
+</span></code></pre></div>
+Let's understand step by step</p>
+<hr />
+<h1 id="correct-answer">Correct Answer</h1>
+<p>❌ <strong>No, HashMap is not thread-safe.</strong></p>
+<p>If multiple threads perform:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-113-1"><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">()</span>
+</span><span id="__span-113-2"><a id="__codelineno-113-2" name="__codelineno-113-2" href="#__codelineno-113-2"></a><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">()</span>
+</span></code></pre></div>
+<p>without synchronization, several problems may occur.</p>
+<hr />
+<h1 id="1-race-condition">1️⃣ Race Condition</h1>
+<p>Two threads modifying the same bucket can overwrite each other's updates.</p>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-114-1"><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a>Thread 1 → put(A,1)
+</span><span id="__span-114-2"><a id="__codelineno-114-2" name="__codelineno-114-2" href="#__codelineno-114-2"></a>Thread 2 → put(A,2)
+</span></code></pre></div>
+<p>Final value may be unpredictable.</p>
+<hr />
+<h1 id="2-internal-structure-corruption-very-important">2️⃣ Internal Structure Corruption (Very Important)</h1>
+<p><code>HashMap</code> internally uses:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-115-1"><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a>Array → bucket → linked list / tree
+</span></code></pre></div>
+<p>During <strong>resize (rehashing)</strong>, if two threads modify it simultaneously, the internal linked list may become corrupted.</p>
+<p>This could lead to:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-116-1"><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a>Infinite loop during traversal
+</span></code></pre></div>
+<p>This was a <strong>real issue in Java 7 HashMap</strong>.</p>
+<p>Example symptom:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-117-1"><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a>CPU 100%
+</span><span id="__span-117-2"><a id="__codelineno-117-2" name="__codelineno-117-2" href="#__codelineno-117-2"></a>Thread stuck in HashMap.get()
+</span></code></pre></div>
+<hr />
+<h1 id="3-visibility-problems">3️⃣ Visibility Problems</h1>
+<p>Without synchronization, one thread’s updates may <strong>not be visible</strong> to others due to CPU caching.</p>
+<hr />
+<h1 id="4-rehashing-is-dangerous-in-multithreading">4️⃣ Rehashing is Dangerous in Multithreading</h1>
+<p>During resize:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-118-1"><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a>Old bucket → new bucket redistribution
+</span></code></pre></div>
+<p>Two threads doing this simultaneously can create <strong>cyclic linked lists</strong>.</p>
+<hr />
+<h1 id="interview-one-liner_9">Interview One-Liner</h1>
+<blockquote>
+<p>HashMap is not thread-safe because concurrent modifications can cause race conditions, visibility issues, and even internal structure corruption during resize.</p>
+</blockquote>
+<hr />
+<h1 id="correct-solutions">Correct Solutions</h1>
+<p>Instead of <code>HashMap</code>, use:</p>
+<h3 id="1-concurrenthashmap-best">1️⃣ <code>ConcurrentHashMap</code> (Best)</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-119-1"><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Highly scalable.</p>
+<hr />
+<h3 id="2-collectionssynchronizedmap">2️⃣ <code>Collections.synchronizedMap</code></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-120-1"><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-120-2"><a id="__codelineno-120-2" name="__codelineno-120-2" href="#__codelineno-120-2"></a><span class="w">    </span><span class="n">Collections</span><span class="p">.</span><span class="na">synchronizedMap</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+</span></code></pre></div>
+<p>Uses a <strong>single lock</strong>.</p>
+<hr />
+<h1 id="difference">Difference</h1>
+<table>
+<thead>
+<tr>
+<th>Map</th>
+<th>Thread Safety</th>
+<th>Performance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashMap</td>
+<td>❌ No</td>
+<td>Fast but unsafe</td>
+</tr>
+<tr>
+<td>synchronizedMap</td>
+<td>✔ Yes</td>
+<td>Slower (global lock)</td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td>✔ Yes</td>
+<td>High concurrency</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="next-big-interview-topic">Next Big Interview Topic</h1>
+<h3 id="how-concurrenthashmap-works-internally">How <code>ConcurrentHashMap</code> Works Internally</h3>
+<p>This is <strong>very commonly asked in senior interviews</strong>.</p>
+<p>It involves:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-121-1"><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a>Segment locking (Java 7)
+</span><span id="__span-121-2"><a id="__codelineno-121-2" name="__codelineno-121-2" href="#__codelineno-121-2"></a>CAS + bucket locking (Java 8)
+</span><span id="__span-121-3"><a id="__codelineno-121-3" name="__codelineno-121-3" href="#__codelineno-121-3"></a>Tree bins
+</span><span id="__span-121-4"><a id="__codelineno-121-4" name="__codelineno-121-4" href="#__codelineno-121-4"></a>Lock striping
+</span></code></pre></div>
+<hr />
+<p>Before I explain internals, try answering:</p>
+<h3 id="question_2">Question</h3>
+<p>Why is <code>ConcurrentHashMap</code> faster than <code>Hashtable</code>?</p>
+<h3 id="answer_5">Answer:</h3>
+<p><strong>“locks only the affected bucket and uses CAS operations.”</strong>
+<strong>“multiple threads can operate on different buckets concurrently.”</strong></p>
+<p>Now let’s refine this answer to <strong>interview-quality depth</strong>.</p>
+<hr />
+<h1 id="why-concurrenthashmap-is-faster-than-hashtable">Why <code>ConcurrentHashMap</code> Is Faster Than <code>Hashtable</code></h1>
+<h2 id="1-hashtable-uses-global-lock">1️⃣ Hashtable Uses Global Lock</h2>
+<p><code>Hashtable</code> methods are synchronized:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-122-1"><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">K</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Meaning:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-123-1"><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a>One thread at a time
+</span><span id="__span-123-2"><a id="__codelineno-123-2" name="__codelineno-123-2" href="#__codelineno-123-2"></a>Entire map locked
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-124-1"><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a>Thread1 → put()
+</span><span id="__span-124-2"><a id="__codelineno-124-2" name="__codelineno-124-2" href="#__codelineno-124-2"></a>Thread2 → get()
+</span><span id="__span-124-3"><a id="__codelineno-124-3" name="__codelineno-124-3" href="#__codelineno-124-3"></a>Thread3 → put()
+</span></code></pre></div>
+<p>All must wait for the <strong>same lock</strong>.</p>
+<p>Result:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-125-1"><a id="__codelineno-125-1" name="__codelineno-125-1" href="#__codelineno-125-1"></a>Low concurrency
+</span><span id="__span-125-2"><a id="__codelineno-125-2" name="__codelineno-125-2" href="#__codelineno-125-2"></a>Poor scalability
+</span></code></pre></div>
+<hr />
+<h1 id="2-concurrenthashmap-uses-fine-grained-locking">2️⃣ ConcurrentHashMap Uses Fine-Grained Locking</h1>
+<p>Instead of locking the entire map, it locks <strong>only the bucket (or node)</strong>.</p>
+<p>So:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-126-1"><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a>Thread1 → bucket 3
+</span><span id="__span-126-2"><a id="__codelineno-126-2" name="__codelineno-126-2" href="#__codelineno-126-2"></a>Thread2 → bucket 10
+</span><span id="__span-126-3"><a id="__codelineno-126-3" name="__codelineno-126-3" href="#__codelineno-126-3"></a>Thread3 → bucket 15
+</span></code></pre></div>
+<p>All can run <strong>simultaneously</strong>.</p>
+<hr />
+<h1 id="3-cas-compare-and-swap">3️⃣ CAS (Compare-And-Swap)</h1>
+<p>For some operations, <code>ConcurrentHashMap</code> avoids locking entirely and uses <strong>CAS</strong>.</p>
+<p>Example operations:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-127-1"><a id="__codelineno-127-1" name="__codelineno-127-1" href="#__codelineno-127-1"></a>putIfAbsent
+</span><span id="__span-127-2"><a id="__codelineno-127-2" name="__codelineno-127-2" href="#__codelineno-127-2"></a>computeIfAbsent
+</span><span id="__span-127-3"><a id="__codelineno-127-3" name="__codelineno-127-3" href="#__codelineno-127-3"></a>replace
+</span></code></pre></div>
+<p>CAS is a <strong>CPU atomic instruction</strong>, so it is <strong>lock-free</strong>.</p>
+<hr />
+<h1 id="4-reads-are-lock-free">4️⃣ Reads Are Lock-Free</h1>
+<p>One of the most powerful features:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-128-1"><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span></code></pre></div>
+<p>is <strong>non-blocking</strong>.</p>
+<p>Reads do not require locks in most cases.</p>
+<p>So many threads can read simultaneously.</p>
+<hr />
+<h1 id="5-internal-structure-java-8">5️⃣ Internal Structure (Java 8+)</h1>
+<p><code>ConcurrentHashMap</code> uses:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-129-1"><a id="__codelineno-129-1" name="__codelineno-129-1" href="#__codelineno-129-1"></a>Node[]
+</span><span id="__span-129-2"><a id="__codelineno-129-2" name="__codelineno-129-2" href="#__codelineno-129-2"></a> ↓
+</span><span id="__span-129-3"><a id="__codelineno-129-3" name="__codelineno-129-3" href="#__codelineno-129-3"></a>bucket
+</span><span id="__span-129-4"><a id="__codelineno-129-4" name="__codelineno-129-4" href="#__codelineno-129-4"></a> ↓
+</span><span id="__span-129-5"><a id="__codelineno-129-5" name="__codelineno-129-5" href="#__codelineno-129-5"></a>LinkedList
+</span><span id="__span-129-6"><a id="__codelineno-129-6" name="__codelineno-129-6" href="#__codelineno-129-6"></a> ↓
+</span><span id="__span-129-7"><a id="__codelineno-129-7" name="__codelineno-129-7" href="#__codelineno-129-7"></a>Tree (if collision &gt; 8)
+</span></code></pre></div>
+<p>Same concept as HashMap but with <strong>thread-safe mechanisms</strong>.</p>
+<hr />
+<h1 id="comparison-table">Comparison Table</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Hashtable</th>
+<th>ConcurrentHashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Locking</td>
+<td>Whole map</td>
+<td>Bucket-level</td>
+</tr>
+<tr>
+<td>Read operations</td>
+<td>Locked</td>
+<td>Mostly lock-free</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Slow under load</td>
+<td>Scales well</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="interview-one-liner_10">Interview One-Liner</h1>
+<blockquote>
+<p><code>ConcurrentHashMap</code> improves concurrency by using fine-grained locking and CAS operations instead of locking the entire map like <code>Hashtable</code>.</p>
+</blockquote>
+<hr />
+<h1 id="very-important-interview-trap">Very Important Interview Trap</h1>
+<p>Can <code>ConcurrentHashMap</code> store:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-130-1"><a id="__codelineno-130-1" name="__codelineno-130-1" href="#__codelineno-130-1"></a>null key
+</span><span id="__span-130-2"><a id="__codelineno-130-2" name="__codelineno-130-2" href="#__codelineno-130-2"></a>null value
+</span></code></pre></div>
+<p>Yes or No — and why?</p>
+<p>(This question appears surprisingly often in interviews.)</p>
+<h3 id="answer_6">Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-131-1"><a id="__codelineno-131-1" name="__codelineno-131-1" href="#__codelineno-131-1"></a>ConcurrentHashMap does not allow null keys or values to avoid ambiguity between a missing key and a null value in concurrent environments.
+</span></code></pre></div>
+<p>Let's understand it to the <strong>real interview explanation</strong>.</p>
+<hr />
+<h1 id="can-concurrenthashmap-store-null-key-or-value">Can <code>ConcurrentHashMap</code> Store <code>null</code> Key or Value?</h1>
+<p>❌ <strong>No — it does NOT allow <code>null</code> key or <code>null</code> value.</strong></p>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-132-1"><a id="__codelineno-132-1" name="__codelineno-132-1" href="#__codelineno-132-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-132-2"><a id="__codelineno-132-2" name="__codelineno-132-2" href="#__codelineno-132-2"></a>
+</span><span id="__span-132-3"><a id="__codelineno-132-3" name="__codelineno-132-3" href="#__codelineno-132-3"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">     </span><span class="c1">// ❌ NullPointerException</span>
+</span><span id="__span-132-4"><a id="__codelineno-132-4" name="__codelineno-132-4" href="#__codelineno-132-4"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span><span class="w">   </span><span class="c1">// ❌ NullPointerException</span>
+</span></code></pre></div>
+<hr />
+<h1 id="why-null-is-not-allowed">Why <code>null</code> Is Not Allowed</h1>
+<p>The main reason is <strong>ambiguity in concurrent reads</strong>.</p>
+<p>Consider this call:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-133-1"><a id="__codelineno-133-1" name="__codelineno-133-1" href="#__codelineno-133-1"></a><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Possible return values:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-134-1"><a id="__codelineno-134-1" name="__codelineno-134-1" href="#__codelineno-134-1"></a>null
+</span></code></pre></div>
+<p>But what does that mean?</p>
+<p>Two possibilities:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-135-1"><a id="__codelineno-135-1" name="__codelineno-135-1" href="#__codelineno-135-1"></a>1️⃣ Key does not exist
+</span><span id="__span-135-2"><a id="__codelineno-135-2" name="__codelineno-135-2" href="#__codelineno-135-2"></a>2️⃣ Key exists but value is null
+</span></code></pre></div>
+<p>In <strong>single-threaded maps like HashMap</strong>, this ambiguity is manageable.</p>
+<p>But in <strong>ConcurrentHashMap</strong>, multiple threads may be modifying the map simultaneously.</p>
+<p>Example scenario:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-136-1"><a id="__codelineno-136-1" name="__codelineno-136-1" href="#__codelineno-136-1"></a>Thread1 → removing key &quot;A&quot;
+</span><span id="__span-136-2"><a id="__codelineno-136-2" name="__codelineno-136-2" href="#__codelineno-136-2"></a>Thread2 → calling get(&quot;A&quot;)
+</span></code></pre></div>
+<p>If <code>null</code> values were allowed, the map <strong>cannot safely determine</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-137-1"><a id="__codelineno-137-1" name="__codelineno-137-1" href="#__codelineno-137-1"></a>Was the key absent?
+</span><span id="__span-137-2"><a id="__codelineno-137-2" name="__codelineno-137-2" href="#__codelineno-137-2"></a>Was the value null?
+</span><span id="__span-137-3"><a id="__codelineno-137-3" name="__codelineno-137-3" href="#__codelineno-137-3"></a>Was another thread removing it?
+</span></code></pre></div>
+<p>So Java designers <strong>forbid nulls completely</strong>.</p>
+<hr />
+<h1 id="hashmap-vs-concurrenthashmap">HashMap vs ConcurrentHashMap</h1>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>HashMap</th>
+<th>ConcurrentHashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null key</td>
+<td>✔ Allowed (1)</td>
+<td>❌ Not allowed</td>
+</tr>
+<tr>
+<td>Null value</td>
+<td>✔ Allowed</td>
+<td>❌ Not allowed</td>
+</tr>
+<tr>
+<td>Thread-safe</td>
+<td>❌ No</td>
+<td>✔ Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="interview-one-liner_11">Interview One-Liner</h1>
+<blockquote>
+<p><code>ConcurrentHashMap</code> does not allow null keys or values to avoid ambiguity between a missing key and a null value in concurrent environments.</p>
+</blockquote>
+<hr />
+<h1 id="very-important-concurrenthashmap-topic">Very Important ConcurrentHashMap Topic</h1>
+<p>Another interview question:</p>
+<h3 id="what-happens-when-many-keys-collide-into-the-same-bucket">What happens when many keys collide into the same bucket?</h3>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-138-1"><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a>hash collisions
+</span></code></pre></div>
+<p>What does Java 8 do when the linked list inside a bucket becomes too long?</p>
+<p>Hint: This is called <strong>Treeification</strong>.</p>
+<h3 id="answer_7">Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-139-1"><a id="__codelineno-139-1" name="__codelineno-139-1" href="#__codelineno-139-1"></a>In Java 8+, when bucket collisions exceed 8 and table size is at least 64, the linked list is converted into a Red-Black tree to improve lookup from O(n) to O(log n).
+</span></code></pre></div>
+<p>Excellent ✅ — your answer is <strong>correct</strong>.</p>
+<p>Small English correction:</p>
+<ul>
+<li>“if bucket size is going above 8” → <strong>“if the bucket size exceeds 8”</strong></li>
+</ul>
+<p>Now let’s explain the <strong>complete concept</strong>, because interviewers often ask <strong>follow-up traps</strong> here.</p>
+<hr />
+<h1 id="treeification-in-hashmap-concurrenthashmap">Treeification in HashMap / ConcurrentHashMap</h1>
+<p>When many keys collide into the same bucket:</p>
+<p>Initially structure is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-140-1"><a id="__codelineno-140-1" name="__codelineno-140-1" href="#__codelineno-140-1"></a>Array
+</span><span id="__span-140-2"><a id="__codelineno-140-2" name="__codelineno-140-2" href="#__codelineno-140-2"></a>  ↓
+</span><span id="__span-140-3"><a id="__codelineno-140-3" name="__codelineno-140-3" href="#__codelineno-140-3"></a>Bucket
+</span><span id="__span-140-4"><a id="__codelineno-140-4" name="__codelineno-140-4" href="#__codelineno-140-4"></a>  ↓
+</span><span id="__span-140-5"><a id="__codelineno-140-5" name="__codelineno-140-5" href="#__codelineno-140-5"></a>Linked List
+</span></code></pre></div>
+<p>Example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-141-1"><a id="__codelineno-141-1" name="__codelineno-141-1" href="#__codelineno-141-1"></a>bucket[5]
+</span><span id="__span-141-2"><a id="__codelineno-141-2" name="__codelineno-141-2" href="#__codelineno-141-2"></a>   ↓
+</span><span id="__span-141-3"><a id="__codelineno-141-3" name="__codelineno-141-3" href="#__codelineno-141-3"></a>[K1] → [K2] → [K3] → [K4] → [K5] → [K6] → [K7] → [K8]
+</span></code></pre></div>
+<p>If collisions keep increasing, searching becomes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-142-1"><a id="__codelineno-142-1" name="__codelineno-142-1" href="#__codelineno-142-1"></a>O(n)
+</span></code></pre></div>
+<p>Which is slow.</p>
+<hr />
+<h1 id="java-8-improvement">Java 8 Improvement</h1>
+<p>If bucket size becomes <strong>greater than 8</strong>, Java converts the list to a <strong>Red-Black Tree</strong>.</p>
+<p>This process is called:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-143-1"><a id="__codelineno-143-1" name="__codelineno-143-1" href="#__codelineno-143-1"></a>Treeification
+</span></code></pre></div>
+<p>Structure becomes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-144-1"><a id="__codelineno-144-1" name="__codelineno-144-1" href="#__codelineno-144-1"></a>Array
+</span><span id="__span-144-2"><a id="__codelineno-144-2" name="__codelineno-144-2" href="#__codelineno-144-2"></a> ↓
+</span><span id="__span-144-3"><a id="__codelineno-144-3" name="__codelineno-144-3" href="#__codelineno-144-3"></a>Bucket
+</span><span id="__span-144-4"><a id="__codelineno-144-4" name="__codelineno-144-4" href="#__codelineno-144-4"></a> ↓
+</span><span id="__span-144-5"><a id="__codelineno-144-5" name="__codelineno-144-5" href="#__codelineno-144-5"></a>Red-Black Tree
+</span></code></pre></div>
+<p>Search complexity becomes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-145-1"><a id="__codelineno-145-1" name="__codelineno-145-1" href="#__codelineno-145-1"></a>O(log n)
+</span></code></pre></div>
+<p>Instead of:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-146-1"><a id="__codelineno-146-1" name="__codelineno-146-1" href="#__codelineno-146-1"></a>O(n)
+</span></code></pre></div>
+<hr />
+<h1 id="treeification-threshold">Treeification Threshold</h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-147-1"><a id="__codelineno-147-1" name="__codelineno-147-1" href="#__codelineno-147-1"></a>TREEIFY_THRESHOLD = 8
+</span></code></pre></div>
+<p>Meaning:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-148-1"><a id="__codelineno-148-1" name="__codelineno-148-1" href="#__codelineno-148-1"></a>LinkedList → Tree
+</span><span id="__span-148-2"><a id="__codelineno-148-2" name="__codelineno-148-2" href="#__codelineno-148-2"></a>when nodes &gt; 8
+</span></code></pre></div>
+<hr />
+<h1 id="but-there-is-another-important-condition">But There Is Another Important Condition ⚠</h1>
+<p>Treeification happens <strong>only if the table size ≥ 64</strong>.</p>
+<p>Constant:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-149-1"><a id="__codelineno-149-1" name="__codelineno-149-1" href="#__codelineno-149-1"></a>MIN_TREEIFY_CAPACITY = 64
+</span></code></pre></div>
+<p>If the table is smaller than 64:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-150-1"><a id="__codelineno-150-1" name="__codelineno-150-1" href="#__codelineno-150-1"></a>Java prefers resizing instead of treeifying
+</span></code></pre></div>
+<hr />
+<h1 id="why-java-does-this">Why Java Does This</h1>
+<p>Because collisions often happen due to <strong>small table size</strong>, not bad hashing.</p>
+<p>So Java first tries:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-151-1"><a id="__codelineno-151-1" name="__codelineno-151-1" href="#__codelineno-151-1"></a>resize table
+</span></code></pre></div>
+<p>instead of converting to tree.</p>
+<hr />
+<h1 id="reverse-operation-very-important">Reverse Operation (Very Important)</h1>
+<p>If elements decrease:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-152-1"><a id="__codelineno-152-1" name="__codelineno-152-1" href="#__codelineno-152-1"></a>UNTREEIFY_THRESHOLD = 6
+</span></code></pre></div>
+<p>Then:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-153-1"><a id="__codelineno-153-1" name="__codelineno-153-1" href="#__codelineno-153-1"></a>Tree → Linked List
+</span></code></pre></div>
+<hr />
+<h1 id="summary-table">Summary Table</h1>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bucket size &gt; 8</td>
+<td>convert to tree</td>
+</tr>
+<tr>
+<td>table size &lt; 64</td>
+<td>resize instead</td>
+</tr>
+<tr>
+<td>bucket size &lt; 6</td>
+<td>convert back to list</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="interview-one-liner_12">Interview One-Liner</h1>
+<blockquote>
+<p>In Java 8+, when bucket collisions exceed 8 and table size is at least 64, the linked list is converted into a Red-Black tree to improve lookup from O(n) to O(log n).</p>
+</blockquote>
+<hr />
+<h1 id="quick-interview-trap_1">Quick Interview Trap</h1>
+<p>Which map maintains <strong>insertion order</strong>?</p>
+<p>A) HashMap
+B) LinkedHashMap
+C) TreeMap</p>
+<p>And which map maintains <strong>sorted order</strong>?</p>
+<h3 id="answer_8">Answer:</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-154-1"><a id="__codelineno-154-1" name="__codelineno-154-1" href="#__codelineno-154-1"></a>LinkedHashMap
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,6 +1,6 @@
-# Multithreading
+# 📚 Multithreading – Part-3
 
-Let’s return to multithreading and go deeper in this order:
+Let’s go deeper in this order:
 
 ```
 1️⃣ wait() / notify() / notifyAll()

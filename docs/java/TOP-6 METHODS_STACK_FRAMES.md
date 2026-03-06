@@ -1,4 +1,4 @@
-# 📘 METHODS & STACK FRAMES
+# 📚 Methods & Stack Frames
 
 We will cover:
 

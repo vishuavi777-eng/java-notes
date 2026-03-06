@@ -1,8 +1,4 @@
----
-
-# 📘 Variables & Data Types in Java
-
----
+# 📚 Variables & Data Types In Java
 
 ## 1️⃣ Basic Definition (Interview Style – 2 Lines)
 
