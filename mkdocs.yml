@@ -41,6 +41,7 @@ nav:
       - Multithreading (Part-1): java/TOP-16 Multithreading (Part-1).md
       - Multithreading (Part-2): java/TOP-17 Multithreading (Part-2).md
       - Multithreading (Part-3): java/TOP-18 Multithreading (Part-3).md
+      - Exception Handling (Part-3): java/TOP-19 Exception Handling
 
   - DSA:
       - Overview: dsa/index.md
