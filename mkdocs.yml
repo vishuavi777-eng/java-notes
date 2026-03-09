@@ -22,6 +22,7 @@ nav:
   - Home: index.md
 
   - Java:
+      - JVM Internals: java/TOP-0 JVM Internals.md
       - Variable & Data Type: java/TOP-1 VAR_DATA_TYPE.md
       - Type Conversion & Casting: java/TOP-2 TYPE_CONVERSION_AND_CASTING.md
       - Operators: java/TOP-3 OPERATORS.md
