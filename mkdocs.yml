@@ -43,7 +43,25 @@ nav:
       - Multithreading (Part-2): java/TOP-17 Multithreading (Part-2).md
       - Multithreading (Part-3): java/TOP-18 Multithreading (Part-3).md
       - Exception Handling (Part-3): java/TOP-19 Exception Handling
+      
+      - OOP (Part-1): java/TOP-20 OOP (Part-1)
 
+  - Design Patterns:
+      - Overview: design-patterns/00-design-patterns-roadmap.md
+      - Singleton Pattern: design-patterns/01-singleton-pattern.md
+      - Factory Method Pattern: design-patterns/02-factory-method-pattern.md
+      - Builder Pattern: design-patterns/03-builder-pattern.md
+      - Strategy Pattern: design-patterns/04-strategy-pattern.md
+      - Observer Pattern: design-patterns/05-observer-pattern.md
+      - Decorator Pattern: design-patterns/06-decorator-pattern.md
+      - Adapter Pattern: design-patterns/07-adapter-pattern.md
+      - Facade Pattern: design-patterns/08-facade-pattern.md
+      - Proxy Pattern: design-patterns/09-proxy-pattern.md
+      - Template Method Pattern: design-patterns/10-template-method-pattern.md
+      - Chain of Responsibility Pattern: design-patterns/11-chain-of-responsibility-pattern.md
+      - Command Pattern: design-patterns/12-command-pattern.md
+      - State Pattern: design-patterns/13-state-pattern.md
+  
   - DSA:
       - Overview: dsa/index.md
 
