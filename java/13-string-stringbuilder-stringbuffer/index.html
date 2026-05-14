@@ -1,0 +1,7087 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Knowledge Base for Java, DSA, Spring Boot, and System Design">
+      
+      
+        <meta name="author" content="Vishwambhar Patil">
+      
+      
+      
+        <link rel="prev" href="../12-abstract-class-vs-interface/">
+      
+      
+        <link rel="next" href="../collections-framework/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>String / Builder / Buffer - Vishwambhar Patil Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#string-stringbuilder-and-stringbuffer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vishwambhar Patil Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              String / Builder / Buffer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vishwambhar Patil Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JVM Internals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JVM Internals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jvm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and Runtime Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jvm/memory-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jvm/string-pool-and-object-creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String Pool and Object Creation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jvm/classloader-and-class-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ClassLoader and Class Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jvm/garbage-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Garbage Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jvm/execution-engine-and-jit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Execution Engine and JIT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jvm/escape-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escape Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-variables-and-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-type-conversion-and-casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-control-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-modern-switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-methods-and-stack-frames/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Stack Frames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-method-overloading-and-overriding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method Overloading & Overriding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-constructors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-static-vs-instance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static vs Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-final-keyword/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-access-modifiers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-abstract-class-vs-interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Class vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-traps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Traps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interview-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Answer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Revision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Dive
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Dive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-in-java-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String in Java (Deep)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String in Java (Deep)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is String?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) What is String?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#most-important-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most important property
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-string-is-immutable-interview-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Why String is immutable (interview depth)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-string-pool-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) String Pool (very important)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) String Pool (very important)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-goes-into-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What goes into pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-not-automatically-go-to-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does NOT automatically go to pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vs-equals-must-be-perfect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) == vs .equals() (must be perfect)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-what-happens-in-concatenation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) What happens in concatenation (+)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5) What happens in concatenation (+)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-compile-time-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case A: compile-time concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-b-runtime-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case B: runtime concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-intern-pool-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) intern() (pool control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuilder-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuilder (Deep)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StringBuilder (Deep)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is StringBuilder?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-its-faster-than-string-in-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Why it’s faster than String in loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-capacity-growth-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Capacity growth (interview)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuffer-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuffer (Deep)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StringBuffer (Deep)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is StringBuffer?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-comparison-table-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Comparison Table (Interview)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-interview-traps-string-sb-sbuf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Interview Traps (String / SB / SBuf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Top Interview Traps (String / SB / SBuf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trap-1-string-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 1: String + loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-2-works-sometimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 2: == works sometimes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-3-new-stringx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 3: new String("X")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-4-final-stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 4: final StringBuilder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-answer-in-interview-ready-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Answer in Interview (ready answer)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-depth-test-to-confirm-nothing-missed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick depth test (to confirm nothing missed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-each-answer-is-correct-jvm-level-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔎 Why Each Answer Is Correct (JVM-Level Thinking)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔎 Why Each Answer Is Correct (JVM-Level Thinking)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-even-deeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Now We Go EVEN Deeper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Now We Go EVEN Deeper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-where-exactly-does-string-store-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Question: Where exactly does String store characters?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-immutability-deep-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 String Immutability Deep Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep Understanding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-one-liner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview One-Liner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-you-change-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 If You Change This
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-going-deeper-stringbuilder-internal-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now Going Deeper: StringBuilder Internal Behavior
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Now Going Deeper: StringBuilder Internal Behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-capacity-vs-length-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Capacity vs Length (Very Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resizing-formula-interview-favorite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Resizing Formula (Interview Favorite)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-comparison-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Performance Comparison (Very Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-advanced-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Advanced Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-understanding_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep Understanding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-slightly-tricky-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Slightly Tricky Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sb1-sb2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ sb1 == sb2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sb1equalssb2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ sb1.equals(sb2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#very-important-interview-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Very Important Interview Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-if-you-do-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now If You Do This
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-one-liner_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview One-Liner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-even-deeper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now We Go Even Deeper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Now We Go Even Deeper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Question:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-but-crisp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why (deep but crisp)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-deeper-stringbuilder-vs-stringbuffer-thread-safety-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Now we go deeper: StringBuilder vs StringBuffer (Thread safety + performance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Now we go deeper: StringBuilder vs StringBuffer (Thread safety + performance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stringbuilder-vs-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) StringBuilder vs StringBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#very-important-stringbuilder-method-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Very important: StringBuilder method chaining
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-interview-trap-stringbuilder-reverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Next Interview Trap: StringBuilder reverse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-understanding_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep Understanding)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why? (Deep Understanding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#final-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#very-important-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Very Important Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-rule_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-next-deep-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now Next Deep Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-each-line-prints-that" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔎 Why Each Line Prints That
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-one-liner_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview One-Liner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-even-deeper-compile-time-constant-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now We Go Even Deeper (Compile-Time Constant Trap)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why true?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-change-slightly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Change Slightly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-notes-summary-for-string-stringbuilder-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Deep Notes Summary for String / StringBuilder / StringBuffer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Deep Notes Summary for String / StringBuilder / StringBuffer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuilder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-high-value-interview-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final high-value interview question
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfect-interview-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Perfect Interview Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-lets-go-even-deeper-senior-level-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Let’s Go EVEN Deeper (Senior-Level Depth)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔥 Now Let’s Go EVEN Deeper (Senior-Level Depth)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-string-as-hashmap-key-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ String as HashMap Key (VERY IMPORTANT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-hashcode-caching-deep-jvm-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ HashCode Caching (Deep JVM Insight)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security-reason-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ Security Reason (Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-performance-misconception-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ Performance Misconception (Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-final-advanced-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Final Advanced Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-jvm-level-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep JVM-Level Explanation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultra-deep-insight-senior-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Ultra Deep Insight (Senior Level)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔥 Ultra Deep Insight (Senior Level)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-behavior-difference-java-6-vs-java-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important behavior difference (Java 6 vs Java 7+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-one-slightly-tricky-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Now One Slightly Tricky Variant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Now One Slightly Tricky Variant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-short-but-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why (short but deep)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weve-finished-string-stringbuilder-stringbuffer-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ We’ve Finished String / StringBuilder / StringBuffer in Depth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ We’ve Finished String / StringBuilder / StringBuffer in Depth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuilder_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuilder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuffer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Collections Framework Part 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections-framework/arraylist-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArrayList Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections-framework/linkedlist-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinkedList Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections-framework/hashset-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HashSet Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections-framework/hashmap-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HashMap Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections-framework/fail-fast-treemap-comparable-comparator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fail-Fast, TreeMap, Comparable, Comparator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-collections-framework-part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stream API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stream API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-api/intermediate-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intermediate Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-api/terminal-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-api/collectors-and-grouping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collectors and Grouping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-api/optional-and-null-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional and Null Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-api/parallel-streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parallel Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stream-api/interview-traps-and-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Traps and Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multithreading
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals and Thread Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/race-condition-sleep-wait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Race Conditions, sleep, and wait
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/synchronized-locks-and-deadlock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    synchronized, Locks, and Deadlock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/volatile-atomic-and-happens-before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    volatile, Atomic, and Happens-Before
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/executorservice-future-callable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExecutorService, Future, and Callable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/threadpoolexecutor-and-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThreadPoolExecutor and Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/shutdown-interrupts-and-thread-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shutdown, Interrupts, and Thread Safety
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/concurrent-collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrent Collections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/wait-notify-producer-consumer-blockingqueue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wait/notify, Producer-Consumer, and BlockingQueue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/reentrantlock-and-readwritelock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ReentrantLock and ReadWriteLock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/countdownlatch-cyclicbarrier-semaphore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CountDownLatch, CyclicBarrier, and Semaphore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/async-completablefuture-forkjoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async, CompletableFuture, and ForkJoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_19" id="__nav_3_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exception Handling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview, Hierarchy, Checked vs Unchecked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception-handling/throw-throws-and-propagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    throw, throws, and Propagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception-handling/catch-finally-and-interview-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    catch, finally, and Interview Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception-handling/try-with-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    try-with-resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception-handling/custom-exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_20" id="__nav_3_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OOP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pillars and Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/overriding-dispatch-super-and-constructors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overriding, Dispatch, super, and Constructors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/initialization-and-constructor-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Initialization and Constructor Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/equals-hashcode-and-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    equals, hashCode, and Identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/object-methods-tostring-getclass-clone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Methods, toString, getClass, clone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design Patterns
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/01-singleton-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Singleton Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/02-factory-method-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Factory Method Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/03-builder-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Builder Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/04-strategy-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strategy Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/05-observer-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observer Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/06-decorator-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decorator Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/07-adapter-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/08-facade-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Facade Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/09-proxy-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/10-template-method-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template Method Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/11-chain-of-responsibility-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chain of Responsibility Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/12-command-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-patterns/13-state-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOLID Principles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SOLID Principles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solid-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solid-principles/02-single-responsibility-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single Responsibility Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solid-principles/03-open-closed-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Closed Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solid-principles/04-liskov-substitution-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liskov Substitution Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solid-principles/05-interface-segregation-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interface Segregation Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solid-principles/06-dependency-inversion-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Inversion Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/01-complexity-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complexity Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/02-arrays-and-strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays and Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/03-linked-lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linked Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/04-stacks-and-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stacks and Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/05-hashing-and-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hashing and Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/06-trees-and-bst/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees and BST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/07-heaps-and-priority-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Heaps and Priority Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/08-graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/09-recursion-and-backtracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursion and Backtracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/10-dynamic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/11-sorting-and-searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sorting and Searching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dsa/12-interview-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring Boot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/01-core-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 - Core Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/02-rest-api-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 - REST API Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/03-validation-and-exception-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 - Validation and Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/04-data-access-jpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 - Data Access with JPA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/05-security-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5 - Security Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/06-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6 - Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/07-production-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7 - Production Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spring/08-interview-and-system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8 - Interview and System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-traps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Traps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interview-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Answer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Revision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Dive
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Dive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-in-java-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String in Java (Deep)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String in Java (Deep)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is String?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) What is String?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#most-important-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most important property
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-string-is-immutable-interview-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Why String is immutable (interview depth)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-string-pool-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) String Pool (very important)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) String Pool (very important)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where it is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-goes-into-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What goes into pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-not-automatically-go-to-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does NOT automatically go to pool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-vs-equals-must-be-perfect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) == vs .equals() (must be perfect)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-what-happens-in-concatenation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) What happens in concatenation (+)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5) What happens in concatenation (+)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-a-compile-time-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case A: compile-time concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-b-runtime-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case B: runtime concat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-intern-pool-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) intern() (pool control)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuilder-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuilder (Deep)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StringBuilder (Deep)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is StringBuilder?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-why-its-faster-than-string-in-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Why it’s faster than String in loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-capacity-growth-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Capacity growth (interview)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuffer-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuffer (Deep)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="StringBuffer (Deep)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-is-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) What is StringBuffer?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-core-comparison-table-interview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Core Comparison Table (Interview)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-interview-traps-string-sb-sbuf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top Interview Traps (String / SB / SBuf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Top Interview Traps (String / SB / SBuf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trap-1-string-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 1: String + loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-2-works-sometimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 2: == works sometimes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-3-new-stringx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 3: new String("X")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trap-4-final-stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trap 4: final StringBuilder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-answer-in-interview-ready-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Answer in Interview (ready answer)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-depth-test-to-confirm-nothing-missed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick depth test (to confirm nothing missed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-each-answer-is-correct-jvm-level-thinking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔎 Why Each Answer Is Correct (JVM-Level Thinking)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔎 Why Each Answer Is Correct (JVM-Level Thinking)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-even-deeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Now We Go EVEN Deeper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Now We Go EVEN Deeper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-where-exactly-does-string-store-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Question: Where exactly does String store characters?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-immutability-deep-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 String Immutability Deep Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep Understanding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-one-liner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview One-Liner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-you-change-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 If You Change This
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-going-deeper-stringbuilder-internal-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now Going Deeper: StringBuilder Internal Behavior
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Now Going Deeper: StringBuilder Internal Behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-capacity-vs-length-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Capacity vs Length (Very Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resizing-formula-interview-favorite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Resizing Formula (Interview Favorite)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-comparison-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Performance Comparison (Very Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-advanced-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Advanced Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-understanding_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep Understanding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-slightly-tricky-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Slightly Tricky Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sb1-sb2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ sb1 == sb2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sb1equalssb2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ sb1.equals(sb2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#very-important-interview-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Very Important Interview Insight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-if-you-do-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now If You Do This
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-one-liner_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview One-Liner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-even-deeper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now We Go Even Deeper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Now We Go Even Deeper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question:
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Question:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-but-crisp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why (deep but crisp)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-deeper-stringbuilder-vs-stringbuffer-thread-safety-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Now we go deeper: StringBuilder vs StringBuffer (Thread safety + performance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Now we go deeper: StringBuilder vs StringBuffer (Thread safety + performance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stringbuilder-vs-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) StringBuilder vs StringBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#very-important-stringbuilder-method-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Very important: StringBuilder method chaining
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-interview-trap-stringbuilder-reverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Next Interview Trap: StringBuilder reverse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-understanding_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep Understanding)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why? (Deep Understanding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#final-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#very-important-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Very Important Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-rule_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-next-deep-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now Next Deep Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-each-line-prints-that" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔎 Why Each Line Prints That
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-one-liner_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Interview One-Liner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-we-go-even-deeper-compile-time-constant-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Now We Go Even Deeper (Compile-Time Constant Trap)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why true?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-change-slightly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Change Slightly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-notes-summary-for-string-stringbuilder-stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Deep Notes Summary for String / StringBuilder / StringBuffer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ Deep Notes Summary for String / StringBuilder / StringBuffer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuilder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuilder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-high-value-interview-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final high-value interview question
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfect-interview-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Perfect Interview Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-lets-go-even-deeper-senior-level-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Let’s Go EVEN Deeper (Senior-Level Depth)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔥 Now Let’s Go EVEN Deeper (Senior-Level Depth)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-string-as-hashmap-key-very-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ String as HashMap Key (VERY IMPORTANT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-hashcode-caching-deep-jvm-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ HashCode Caching (Deep JVM Insight)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security-reason-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ Security Reason (Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-performance-misconception-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ Performance Misconception (Important)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-final-advanced-trap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Now Final Advanced Trap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-deep-jvm-level-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why? (Deep JVM-Level Explanation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ultra-deep-insight-senior-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 Ultra Deep Insight (Senior Level)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔥 Ultra Deep Insight (Senior Level)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-behavior-difference-java-6-vs-java-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important behavior difference (Java 6 vs Java 7+)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#now-one-slightly-tricky-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Now One Slightly Tricky Variant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Now One Slightly Tricky Variant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-short-but-deep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why (short but deep)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weve-finished-string-stringbuilder-stringbuffer-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ We’ve Finished String / StringBuilder / StringBuffer in Depth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="✅ We’ve Finished String / StringBuilder / StringBuffer in Depth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        String
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuilder_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuilder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbuffer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StringBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="string-stringbuilder-and-stringbuffer">String, StringBuilder, and StringBuffer</h1>
+<h2 id="definition">Definition</h2>
+<p>String is immutable. StringBuilder is mutable and not synchronized. StringBuffer is mutable and synchronized.</p>
+<h2 id="why-it-matters">Why It Matters</h2>
+<p>This topic explains string pool behavior, performance, immutability, and thread-safety trade-offs.</p>
+<h2 id="core-example">Core Example</h2>
+<p>Use StringBuilder when building a string inside a loop in single-threaded code.</p>
+<h2 id="common-traps">Common Traps</h2>
+<ul>
+<li>String concatenation can create many objects.</li>
+<li>String is immutable.</li>
+<li>StringBuilder is not thread-safe.</li>
+<li>StringBuffer is synchronized but usually slower.</li>
+<li><code>==</code> compares references, not string content.</li>
+</ul>
+<h2 id="interview-answer">Interview Answer</h2>
+<p>String represents immutable text, so every modification creates a new string. StringBuilder is mutable and efficient for repeated modifications in single-threaded code. StringBuffer is also mutable, but its methods are synchronized, so it is safer for shared multi-threaded use but usually slower.</p>
+<h2 id="quick-revision">Quick Revision</h2>
+<ul>
+<li>String is immutable.</li>
+<li>String literals use string pool.</li>
+<li>StringBuilder is mutable.</li>
+<li>StringBuilder is not synchronized.</li>
+<li>StringBuffer is synchronized.</li>
+<li>Use equals for content comparison.</li>
+</ul>
+<h2 id="deep-dive">Deep Dive</h2>
+<h3 id="string-in-java-deep">String in Java (Deep)</h3>
+<h4 id="1-what-is-string">1) What is String?</h4>
+<p><code>String</code> is a <strong>reference type (class)</strong> that represents immutable text.</p>
+<h5 id="most-important-property">Most important property</h5>
+<p>✅ <strong>Immutability</strong>: once created, the characters inside a String never change.</p>
+<p>When you “modify” a String, Java creates a <strong>new String object</strong>.</p>
+<hr />
+<h4 id="2-why-string-is-immutable-interview-depth">2) Why String is immutable (interview depth)</h4>
+<p>Main reasons:</p>
+<ol>
+<li><strong>Security</strong>: Strings are used in class loading, file paths, DB URLs, tokens, etc. If mutable, a reference shared somewhere could be altered.</li>
+<li><strong>String Pool optimization</strong>: immutability makes pooling safe.</li>
+<li><strong>Hashing</strong>: Strings are keys in HashMap/HashSet. If content changed after hashing, map breaks.</li>
+<li><strong>Thread safety</strong>: immutable objects are inherently thread-safe.</li>
+</ol>
+<p>Interview one-liner:</p>
+<blockquote>
+<p>String is immutable for security, pooling, caching of hashcode, and safe use as map keys.</p>
+</blockquote>
+<hr />
+<h4 id="3-string-pool-very-important">3) String Pool (very important)</h4>
+<h5 id="where-it-is">Where it is</h5>
+<p>✅ String Pool is in the <strong>heap</strong> (Java 7+). (In older Java it was in PermGen.)</p>
+<h5 id="what-goes-into-pool">What goes into pool</h5>
+<ul>
+<li><strong>String literals</strong>: <code>"Vishu"</code></li>
+<li><strong>Compile-time constant concatenations</strong>: <code>"Hel" + "lo"</code></li>
+<li>Strings added by calling <code>.intern()</code></li>
+</ul>
+<h5 id="what-does-not-automatically-go-to-pool">What does NOT automatically go to pool</h5>
+<ul>
+<li><code>new String("X")</code> (creates a new heap object)</li>
+<li>runtime concatenation like <code>a + "World"</code> (usually creates a new heap string)</li>
+</ul>
+<hr />
+<h4 id="4-vs-equals-must-be-perfect">4) <code>==</code> vs <code>.equals()</code> (must be perfect)</h4>
+<ul>
+<li><code>==</code> compares <strong>references</strong> (same object?)</li>
+<li><code>.equals()</code> compares <strong>content</strong> (same characters?)</li>
+</ul>
+<p>Examples:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">      </span><span class="c1">// true (same pooled literal)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span><span class="w"> </span><span class="c1">// true</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">String</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c</span><span class="p">);</span><span class="w">      </span><span class="c1">// false (different object)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">c</span><span class="p">));</span><span class="w"> </span><span class="c1">// true</span>
+</span></code></pre></div>
+<hr />
+<h4 id="5-what-happens-in-concatenation">5) What happens in concatenation (<code>+</code>)</h4>
+<p>This is a huge interview area.</p>
+<h5 id="case-a-compile-time-concat">Case A: compile-time concat</h5>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>✅ compiler folds it into <code>"Hello"</code> → pooled.</p>
+<h5 id="case-b-runtime-concat">Case B: runtime concat</h5>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>✅ happens at runtime → typically uses <strong>StringBuilder</strong> under the hood → result is a new String (not pooled unless interned).</p>
+<p>In modern Java, concatenation may use <code>invokedynamic</code>, but conceptually:</p>
+<blockquote>
+<p>runtime concatenation creates new objects.</p>
+</blockquote>
+<hr />
+<h4 id="6-intern-pool-control">6) <code>intern()</code> (pool control)</h4>
+<p><code>intern()</code> returns pooled reference:</p>
+<ul>
+<li>if exists, returns existing pooled one</li>
+<li>else adds to pool and returns it</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">String</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;ABC&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// heap</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">String</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span><span class="w">         </span><span class="c1">// pool ref</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">    </span><span class="c1">// false</span>
+</span></code></pre></div>
+<hr />
+<h3 id="stringbuilder-deep">StringBuilder (Deep)</h3>
+<h4 id="1-what-is-stringbuilder">1) What is StringBuilder?</h4>
+<p>A <strong>mutable</strong> sequence of characters. Used to build strings efficiently.</p>
+<p>Key properties:</p>
+<ul>
+<li>mutable</li>
+<li><strong>not thread-safe</strong></li>
+<li>faster than StringBuffer in single-thread</li>
+</ul>
+<p>Example:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; Vishu&quot;</span><span class="p">);</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+</span></code></pre></div>
+<h4 id="2-why-its-faster-than-string-in-loops">2) Why it’s faster than String in loops</h4>
+<p>String is immutable → every <code>+</code> can create new objects.</p>
+<p>Bad:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// creates many objects</span>
+</span></code></pre></div>
+<p>Good:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
+<h4 id="3-capacity-growth-interview">3) Capacity growth (interview)</h4>
+<p>StringBuilder has:</p>
+<ul>
+<li><strong>length</strong> = number of characters currently stored</li>
+<li><strong>capacity</strong> = internal allocated buffer size</li>
+</ul>
+<p>Default capacity is typically <strong>16</strong> (empty builder), and growth often follows:</p>
+<blockquote>
+<p>newCapacity = oldCapacity * 2 + 2</p>
+</blockquote>
+<p>You can set initial capacity to avoid resizing:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="stringbuffer-deep">StringBuffer (Deep)</h3>
+<h4 id="1-what-is-stringbuffer">1) What is StringBuffer?</h4>
+<p>Same concept as StringBuilder but:
+✅ <strong>thread-safe</strong> (methods are synchronized)
+❌ slower than StringBuilder in single-thread</p>
+<p>When to say in interview:</p>
+<ul>
+<li>Single-thread code → prefer <strong>StringBuilder</strong></li>
+<li>Multi-thread shared mutable text → <strong>StringBuffer</strong> (or better: avoid sharing mutable state)</li>
+</ul>
+<hr />
+<h3 id="the-core-comparison-table-interview">The Core Comparison Table (Interview)</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>String</th>
+<th>StringBuilder</th>
+<th>StringBuffer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutability</td>
+<td>Immutable</td>
+<td>Mutable</td>
+<td>Mutable</td>
+</tr>
+<tr>
+<td>Thread-safe</td>
+<td>Yes (immutable)</td>
+<td>No</td>
+<td>Yes (synchronized)</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Slow in heavy concat</td>
+<td>Fastest</td>
+<td>Slower than SB</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>constants, keys, text values</td>
+<td>loops, building output</td>
+<td>shared mutable text (rare)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="top-interview-traps-string-sb-sbuf">Top Interview Traps (String / SB / SBuf)</h3>
+<h4 id="trap-1-string-loop">Trap 1: <code>String</code> + loop</h4>
+<p><code>O(n²)</code> style behavior due to repeated allocations.</p>
+<h4 id="trap-2-works-sometimes">Trap 2: <code>==</code> works sometimes</h4>
+<p>Because of pooling, <code>==</code> may return true for literals, but it’s not content comparison.</p>
+<h4 id="trap-3-new-stringx">Trap 3: <code>new String("X")</code></h4>
+<p>Creates a new object even though <code>"X"</code> already exists in pool.</p>
+<h4 id="trap-4-final-stringbuilder">Trap 4: <code>final StringBuilder</code></h4>
+<p><code>final</code> stops reassignment, but you can still append (object is mutable).</p>
+<hr />
+<h3 id="how-to-answer-in-interview-ready-answer">How to Answer in Interview (ready answer)</h3>
+<p>If interviewer asks: <strong>“String vs StringBuilder vs StringBuffer?”</strong></p>
+<p>You answer:</p>
+<blockquote>
+<p>String is immutable and safe for constants and keys. For frequent modifications or concatenation, use StringBuilder because it’s mutable and fast but not thread-safe. StringBuffer is also mutable but synchronized, so it’s thread-safe but slower.</p>
+</blockquote>
+<hr />
+<h3 id="quick-depth-test-to-confirm-nothing-missed">Quick depth test (to confirm nothing missed)</h3>
+<p>Answer these (just outputs):</p>
+<p>1.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</span></code></pre></div>
+<p>2.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>3.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">String</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">intern</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ Output(ordered):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1. true
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>2. false
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>3.
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>false
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>true
+</span></code></pre></div>
+<h3 id="why-each-answer-is-correct-jvm-level-thinking">🔎 Why Each Answer Is Correct (JVM-Level Thinking)</h3>
+<hr />
+<h4 id="1">1️⃣</h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</span></code></pre></div>
+<h5 id="what-happens">What happens?</h5>
+<p><code>"Hel" + "lo"</code> is <strong>compile-time constant expression</strong>.</p>
+<p>Compiler converts it to:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>So both <code>a</code> and <code>b</code> point to same pooled object.</p>
+<p>✔ Output: <code>true</code></p>
+<hr />
+<h4 id="2">2️⃣</h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hel&quot;</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;lo&quot;</span><span class="p">;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Now this is <strong>runtime concatenation</strong>.</p>
+<p>Because <code>a</code> is a variable.</p>
+<p>Internally something like:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">().</span><span class="na">append</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;lo&quot;</span><span class="p">).</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
+<p>So:</p>
+<ul>
+<li><code>"Hello"</code> literal → pool</li>
+<li><code>b</code> → new heap object</li>
+</ul>
+<p>References different → <code>false</code></p>
+<p>✔ Output: <code>false</code></p>
+<hr />
+<h4 id="3">3️⃣</h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">String</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="na">intern</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Step-by-step:</p>
+<ul>
+<li><code>"Hi"</code> literal → pool</li>
+<li><code>new String("Hi")</code> → new heap object</li>
+</ul>
+<p>So:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>x == &quot;Hi&quot; → false
+</span></code></pre></div>
+<p>Then:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>x.intern() → returns pooled reference
+</span></code></pre></div>
+<p>So:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>x.intern() == &quot;Hi&quot; → true
+</span></code></pre></div>
+<p>✔ Output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>false
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>true
+</span></code></pre></div>
+<hr />
+<h3 id="now-we-go-even-deeper">🧠 Now We Go EVEN Deeper</h3>
+<h4 id="question-where-exactly-does-string-store-characters">🔥 Question: Where exactly does String store characters?</h4>
+<p>Before Java 9:</p>
+<ul>
+<li>internally stored in <code>char[]</code></li>
+</ul>
+<p>After Java 9:</p>
+<ul>
+<li>uses <code>byte[]</code></li>
+<li>plus a <code>coder</code> flag (LATIN1 or UTF16)</li>
+</ul>
+<p>This reduces memory usage for ASCII strings.</p>
+<p>Interview bonus answer:</p>
+<blockquote>
+<p>Since Java 9, String uses a byte array with a coder flag to optimize memory.</p>
+</blockquote>
+<hr />
+<h3 id="string-immutability-deep-trap">🔥 String Immutability Deep Trap</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<p>✅ Ouput:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Java
+</span></code></pre></div>
+<hr />
+<h3 id="why-deep-understanding">Why? (Deep Understanding)</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Important:</p>
+<ul>
+<li><code>String</code> is immutable.</li>
+<li><code>concat()</code> does <strong>not modify</strong> the existing object.</li>
+<li>It returns a <strong>new String</strong>.</li>
+</ul>
+<p>So internally:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">String</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// creates &quot;Java8&quot;</span>
+</span></code></pre></div>
+<p>But you ignored the returned value.</p>
+<p>So <code>s</code> still points to:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>&quot;Java&quot;
+</span></code></pre></div>
+<hr />
+<h3 id="interview-one-liner">🧠 Interview One-Liner</h3>
+<blockquote>
+<p>String methods like <code>concat()</code>, <code>replace()</code>, <code>substring()</code> return a new object. They do not modify the original string.</p>
+</blockquote>
+<hr />
+<h3 id="if-you-change-this">🔥 If You Change This</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="s">&quot;8&quot;</span><span class="p">);</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Now output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Java8
+</span></code></pre></div>
+<p>Because now <code>s</code> points to new object.</p>
+<hr />
+<h3 id="now-going-deeper-stringbuilder-internal-behavior">🚀 Now Going Deeper: StringBuilder Internal Behavior</h3>
+<h4 id="1-capacity-vs-length-very-important">1️⃣ Capacity vs Length (Very Important)</h4>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Default:</p>
+<ul>
+<li>capacity = 16</li>
+<li>length = 0</li>
+</ul>
+<p>If you do:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<ul>
+<li>length = 5</li>
+<li>capacity still 16</li>
+</ul>
+<p>If you exceed capacity, it resizes.</p>
+<hr />
+<h4 id="resizing-formula-interview-favorite">🔥 Resizing Formula (Interview Favorite)</h4>
+<p>When capacity exceeded:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>newCapacity = (oldCapacity * 2) + 2
+</span></code></pre></div>
+<p>Example:</p>
+<ul>
+<li>16 → 34</li>
+<li>34 → 70</li>
+</ul>
+<p>You can avoid resizing by:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h3 id="performance-comparison-very-important">🔥 Performance Comparison (Very Important)</h3>
+<p>In loops:</p>
+<p>❌ Bad:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Creates thousands of objects.</p>
+<p>✔ Good:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">    </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h3 id="now-advanced-trap">🔥 Now Advanced Trap</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb1</span><span class="p">;</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="n">sb1</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; World&quot;</span><span class="p">);</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb2</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ Ouput:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Hello World
+</span></code></pre></div>
+<hr />
+<h3 id="why-deep-understanding_1">Why? (Deep Understanding)</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb1</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Important:</p>
+<ul>
+<li><code>sb1</code> and <code>sb2</code> point to the <strong>same object</strong></li>
+<li>No new object created in second line</li>
+</ul>
+<p>Memory:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Heap:
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>[StringBuilder object: &quot;Hello&quot;]
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>Stack:
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>sb1 → (ref)
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>sb2 → (same ref)
+</span></code></pre></div>
+<p>Then:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">sb1</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot; World&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Since <code>StringBuilder</code> is <strong>mutable</strong>, the same object is modified.</p>
+<p>So printing <code>sb2</code> shows:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Hello World
+</span></code></pre></div>
+<hr />
+<h3 id="interview-rule">🧠 Interview Rule</h3>
+<blockquote>
+<p>StringBuilder is mutable. If two references point to the same object, changes through one reference are visible through the other.</p>
+</blockquote>
+<hr />
+<h3 id="now-slightly-tricky-comparison">🔥 Now Slightly Tricky Comparison</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sb2</span><span class="p">);</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">sb2</span><span class="p">));</span>
+</span></code></pre></div>
+<p>✅ Ouput:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>false
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>false
+</span></code></pre></div>
+<hr />
+<h3 id="why">Why?</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>These are <strong>two different objects</strong> in heap.</p>
+<hr />
+<h4 id="1-sb1-sb2">1️⃣ <code>sb1 == sb2</code></h4>
+<p><code>==</code> compares references.</p>
+<p>Different objects → different references →
+✔ <code>false</code></p>
+<hr />
+<h4 id="2-sb1equalssb2">2️⃣ <code>sb1.equals(sb2)</code></h4>
+<p>Here is the important part:</p>
+<p><code>StringBuilder</code> does <strong>NOT override equals()</strong>.</p>
+<p>So it inherits <code>Object.equals()</code> which is basically:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
+</span></code></pre></div>
+<p>So it again compares references.</p>
+<p>Therefore:</p>
+<p>✔ <code>false</code></p>
+<hr />
+<h3 id="very-important-interview-insight">🔥 Very Important Interview Insight</h3>
+<p><code>String</code> overrides <code>equals()</code> → compares content
+<code>StringBuilder</code> does NOT override <code>equals()</code> → compares reference</p>
+<hr />
+<h3 id="now-if-you-do-this">🔥 Now If You Do This</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb1</span><span class="p">.</span><span class="na">toString</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">sb2</span><span class="p">.</span><span class="na">toString</span><span class="p">()));</span>
+</span></code></pre></div>
+<p>Now output would be:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>true
+</span></code></pre></div>
+<p>Because now you are comparing two String objects with content comparison.</p>
+<hr />
+<h3 id="interview-one-liner_1">🧠 Interview One-Liner</h3>
+<blockquote>
+<p>StringBuilder does not override equals(), so equals() behaves like == (reference comparison).</p>
+</blockquote>
+<hr />
+<h3 id="now-we-go-even-deeper_1">🚀 Now We Go Even Deeper</h3>
+<h4 id="question">Question:</h4>
+<p>What is the output?</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;z&#39;</span><span class="p">);</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ Output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>abc
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>zbc
+</span></code></pre></div>
+<h5 id="why-deep-but-crisp">Why (deep but crisp)</h5>
+<ul>
+<li><code>String</code> is immutable</li>
+<li><code>replace()</code> returns a <strong>new String</strong></li>
+<li><code>s1</code> still points to <code>"abc"</code></li>
+<li><code>s2</code> points to <code>"zbc"</code></li>
+</ul>
+<hr />
+<h3 id="now-we-go-deeper-stringbuilder-vs-stringbuffer-thread-safety-performance">Now we go deeper: StringBuilder vs StringBuffer (Thread safety + performance)</h3>
+<h4 id="1-stringbuilder-vs-stringbuffer">1) StringBuilder vs StringBuffer</h4>
+<p>Both are mutable, but:</p>
+<ul>
+<li><strong>StringBuilder</strong>: not synchronized → faster → use in single-thread</li>
+<li><strong>StringBuffer</strong>: synchronized → thread-safe → slower</li>
+</ul>
+<p>Interview one-liner:</p>
+<blockquote>
+<p>Use StringBuilder in single-threaded code; use StringBuffer only when multiple threads mutate the same instance.</p>
+</blockquote>
+<hr />
+<h3 id="very-important-stringbuilder-method-chaining">Very important: <code>StringBuilder</code> method chaining</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span><span class="w"> </span><span class="c1">// AB10</span>
+</span></code></pre></div>
+<p>Because append returns <code>this</code>.</p>
+<hr />
+<h3 id="next-interview-trap-stringbuilder-reverse">🔥 Next Interview Trap: <code>StringBuilder</code> reverse</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">reverse</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">sb</span><span class="p">);</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>cba
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>cba
+</span></code></pre></div>
+<hr />
+<h3 id="why-deep-understanding_2">Why? (Deep Understanding)</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">reverse</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Important:</p>
+<ul>
+<li><code>reverse()</code> modifies the <strong>same StringBuilder object</strong></li>
+<li>It does NOT create a new one</li>
+<li>It returns <code>this</code></li>
+</ul>
+<p>So after:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="n">sb</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span>
+</span></code></pre></div>
+<p>The internal buffer becomes:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>&quot;cba&quot;
+</span></code></pre></div>
+<p>Then:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+</span></code></pre></div>
+<p>Now <code>s</code> is a new <strong>String object</strong> containing <code>"cba"</code>.</p>
+<hr />
+<h4 id="final-state">Final State</h4>
+<ul>
+<li><code>sb</code> → mutable object → <code>"cba"</code></li>
+<li><code>s</code> → immutable String → <code>"cba"</code></li>
+</ul>
+<p>So both print:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>cba
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>cba
+</span></code></pre></div>
+<hr />
+<h3 id="very-important-difference">🔥 Very Important Difference</h3>
+<p>If this was String:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="n">s</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span><span class="w">  </span><span class="c1">// ❌ no such method</span>
+</span></code></pre></div>
+<p>Because String is immutable and does not provide reverse.</p>
+<hr />
+<h3 id="interview-rule_1">🧠 Interview Rule</h3>
+<blockquote>
+<p>StringBuilder methods like <code>append()</code>, <code>insert()</code>, <code>reverse()</code> modify the same object and return <code>this</code>.</p>
+</blockquote>
+<hr />
+<h3 id="now-next-deep-trap">🚀 Now Next Deep Trap</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">s3</span><span class="p">));</span>
+</span></code></pre></div>
+<p>✅ Output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>true
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>false
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>true
+</span></code></pre></div>
+<p>Now let’s lock this deeply in your brain (interview depth).</p>
+<hr />
+<h3 id="why-each-line-prints-that">🔎 Why Each Line Prints That</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Both are <strong>string literals</strong>.</p>
+<ul>
+<li>JVM checks String Pool</li>
+<li><code>"Java"</code> already exists</li>
+<li><code>s1</code> and <code>s2</code> point to same pooled object</li>
+</ul>
+<p>So:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
+<hr />
+<div class="language-java highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>This creates:</p>
+<ol>
+<li><code>"Java"</code> in pool (if not already there)</li>
+<li>A <strong>new object in heap</strong></li>
+</ol>
+<p>So:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="kc">false</span>
+</span></code></pre></div>
+<p>Different objects.</p>
+<hr />
+<div class="language-java highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="n">s1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
+<p>Because <code>.equals()</code> compares content, not reference.</p>
+<hr />
+<h3 id="interview-one-liner_2">🧠 Interview One-Liner</h3>
+<blockquote>
+<p><code>==</code> checks reference. <code>.equals()</code> checks content. String literals are pooled, but <code>new String()</code> always creates a new object.</p>
+</blockquote>
+<hr />
+<h3 id="now-we-go-even-deeper-compile-time-constant-trap">🚀 Now We Go Even Deeper (Compile-Time Constant Trap)</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-64-4"><a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span><span id="__span-64-5"><a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>
+</span><span id="__span-64-6"><a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s4</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>true
+</span></code></pre></div>
+<p>Now let’s understand <strong>why</strong> (this is important interview depth).</p>
+<hr />
+<h3 id="why-true">Why <code>true</code>?</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Because <code>s1</code> is:</p>
+<ul>
+<li><code>final</code></li>
+<li>initialized with a <strong>compile-time constant</strong></li>
+</ul>
+<p>The compiler treats <code>s1</code> as a constant.</p>
+<p>So this:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span>
+</span></code></pre></div>
+<p>Is converted at compile time into:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="s">&quot;HelloWorld&quot;</span>
+</span></code></pre></div>
+<p>So effectively:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Now:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Both <code>s3</code> and <code>s4</code> refer to the same pooled literal.</p>
+<p>So:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="n">s3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
+<hr />
+<h3 id="now-change-slightly">🔥 Now Change Slightly</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// not final</span>
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s4</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ Output is <strong>false</strong>.</p>
+<hr />
+<h3 id="why_1">Why?</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// not final</span>
+</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Because <code>s1</code> is <strong>not final</strong>, the compiler cannot treat <code>s1</code> as a compile-time constant.</p>
+<p>So <code>s1 + "World"</code> becomes <strong>runtime concatenation</strong>, producing a <strong>new String object</strong> (on heap).</p>
+<p>Meanwhile:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HelloWorld&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>is a pooled literal.</p>
+<p>So references are different:</p>
+<ul>
+<li><code>s3</code> → heap string <code>"HelloWorld"</code> (created at runtime)</li>
+<li><code>s4</code> → pooled <code>"HelloWorld"</code></li>
+</ul>
+<p>Therefore:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>false
+</span></code></pre></div>
+<hr />
+<h3 id="deep-notes-summary-for-string-stringbuilder-stringbuffer">✅ Deep Notes Summary for String / StringBuilder / StringBuffer</h3>
+<h5 id="string">String</h5>
+<ul>
+<li>Immutable</li>
+<li>Pooling of literals</li>
+<li><code>==</code> vs <code>.equals()</code></li>
+<li><code>intern()</code> returns pooled reference</li>
+<li>Runtime concat creates new objects</li>
+</ul>
+<h5 id="stringbuilder">StringBuilder</h5>
+<ul>
+<li>Mutable</li>
+<li>Not thread-safe</li>
+<li>Best for loops / heavy concatenation</li>
+<li><code>equals()</code> is reference-based (not content)</li>
+</ul>
+<h5 id="stringbuffer">StringBuffer</h5>
+<ul>
+<li>Mutable + synchronized (thread-safe)</li>
+<li>Slower than StringBuilder</li>
+<li>Rarely needed unless shared across threads</li>
+</ul>
+<hr />
+<h4 id="final-high-value-interview-question">Final high-value interview question</h4>
+<p>Why is <code>String</code> immutable but <code>StringBuilder</code> mutable?
+Answer in 3–4 lines (interview style).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>because in java string is frequently used in map, json, constants. so making it immutable give best performance to handle it inside string pool. String builder is mutable because it separate class than string. it specially designed to handle heavy concat nations during runtime. it avoid rapidly instant creations when heavily concat nation happen.
+</span></code></pre></div>
+<hr />
+<h3 id="perfect-interview-answer">✅ Perfect Interview Answer</h3>
+<blockquote>
+<p>String is immutable to ensure security, enable safe string pooling, allow caching of hash codes, and make it thread-safe. Since Strings are widely used as keys in HashMap, file paths, class names, and constants, immutability prevents unexpected modification.</p>
+<p>StringBuilder, on the other hand, is mutable and designed for efficient string manipulation during runtime, especially for heavy concatenation, to avoid frequent object creation and improve performance.</p>
+</blockquote>
+<hr />
+<h3 id="now-lets-go-even-deeper-senior-level-depth">🔥 Now Let’s Go EVEN Deeper (Senior-Level Depth)</h3>
+<h4 id="1-string-as-hashmap-key-very-important">1️⃣ String as HashMap Key (VERY IMPORTANT)</h4>
+<p>Because String is immutable:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<p>When String is used as key:</p>
+<ul>
+<li>hashCode is computed once</li>
+<li>It can be cached</li>
+<li>Since content never changes → hashCode stays stable</li>
+</ul>
+<p>If String were mutable:</p>
+<ul>
+<li>Changing content after putting into map</li>
+<li>hashCode changes</li>
+<li>Map breaks</li>
+</ul>
+<p>This is a huge reason for immutability.</p>
+<hr />
+<h4 id="2-hashcode-caching-deep-jvm-insight">2️⃣ HashCode Caching (Deep JVM Insight)</h4>
+<p>Inside String class:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span>
+</span></code></pre></div>
+<p>When hashCode() is first called:</p>
+<ul>
+<li>It computes and stores in <code>hash</code></li>
+<li>Next time it returns cached value</li>
+</ul>
+<p>This is possible only because String is immutable.</p>
+<hr />
+<h4 id="3-security-reason-important">3️⃣ Security Reason (Important)</h4>
+<p>Imagine:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/secure/path&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<p>If String was mutable:</p>
+<ul>
+<li>Another thread could modify path</li>
+<li>Security hole</li>
+</ul>
+<p>Immutability prevents that.</p>
+<hr />
+<h4 id="4-performance-misconception-important">4️⃣ Performance Misconception (Important)</h4>
+<p>Many think:</p>
+<blockquote>
+<p>String is immutable for performance.</p>
+</blockquote>
+<p>Actually:</p>
+<ul>
+<li>String immutability enables pooling</li>
+<li>Pooling improves memory usage</li>
+<li>But heavy concatenation with String is slow</li>
+</ul>
+<p>So for performance:</p>
+<ul>
+<li>Use StringBuilder for runtime modification</li>
+<li>Use String for constant values</li>
+</ul>
+<hr />
+<h3 id="now-final-advanced-trap">🔥 Now Final Advanced Trap</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-80-3"><a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+</span><span id="__span-80-4"><a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a>
+</span><span id="__span-80-5"><a id="__codelineno-80-5" name="__codelineno-80-5" href="#__codelineno-80-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ Output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>true
+</span></code></pre></div>
+<hr />
+<h3 id="why-deep-jvm-level-explanation">Why? (Deep JVM-Level Explanation)</h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span></code></pre></div>
+<ul>
+<li><code>"abc"</code> literal goes into the <strong>String Pool</strong>.</li>
+<li><code>s1</code> points to pooled object.</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span></code></pre></div>
+<ul>
+<li><code>"abc"</code> literal already exists in pool.</li>
+<li><code>new String("abc")</code> creates a <strong>new heap object</strong>.</li>
+<li><code>s2</code> points to heap object.</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+</span></code></pre></div>
+<p>What <code>intern()</code> does:</p>
+<ul>
+<li>If the string already exists in pool → return pooled reference.</li>
+<li>If not → add to pool and return it.</li>
+</ul>
+<p>Since <code>"abc"</code> already exists in pool:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="n">s3</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">pooled</span><span class="w"> </span><span class="s">&quot;abc&quot;</span>
+</span></code></pre></div>
+<p>So:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
+<hr />
+<h3 id="ultra-deep-insight-senior-level">🔥 Ultra Deep Insight (Senior Level)</h3>
+<h5 id="important-behavior-difference-java-6-vs-java-7">Important behavior difference (Java 6 vs Java 7+)</h5>
+<p>Before Java 7:</p>
+<ul>
+<li>Pool was in PermGen.</li>
+<li><code>intern()</code> sometimes copied strings into pool.</li>
+</ul>
+<p>After Java 7:</p>
+<ul>
+<li>Pool is in heap.</li>
+<li><code>intern()</code> may reuse existing object instead of copying.</li>
+</ul>
+<p>You don’t need extreme JVM internals for interviews, but knowing this gives extra confidence.</p>
+<hr />
+<h3 id="now-one-slightly-tricky-variant">🧠 Now One Slightly Tricky Variant</h3>
+<p>Predict output:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">);</span>
+</span><span id="__span-87-2"><a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
+</span><span id="__span-87-3"><a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="p">;</span>
+</span><span id="__span-87-4"><a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>
+</span><span id="__span-87-5"><a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
+</span></code></pre></div>
+<p>✅ Output — it prints <strong>true</strong>.</p>
+<h5 id="why-short-but-deep">Why (short but deep)</h5>
+<ul>
+<li><code>s1</code> is a new heap String.</li>
+<li><code>s2 = s1.intern()</code> returns the <strong>pooled</strong> <code>"abc"</code> reference.</li>
+<li><code>s3 = "abc"</code> is also the <strong>pooled</strong> <code>"abc"</code> reference.
+  So <code>s2</code> and <code>s3</code> point to the same pooled object → <code>true</code>.</li>
+</ul>
+<hr />
+<h3 id="weve-finished-string-stringbuilder-stringbuffer-in-depth">✅ We’ve Finished String / StringBuilder / StringBuffer in Depth</h3>
+<p>To make sure <strong>no point is missed</strong>, here is the complete checklist we covered (and you can use this as notes):</p>
+<h4 id="string_1">String</h4>
+<ul>
+<li>Immutable and reasons (security, pooling, hash caching, thread safety)</li>
+<li>String pool behavior (literals, compile-time constants, intern)</li>
+<li><code>==</code> vs <code>.equals()</code></li>
+<li>runtime concat vs compile-time concat</li>
+<li><code>new String("x")</code> behavior</li>
+<li>Java 9+ compact strings concept (byte[] + coder)</li>
+</ul>
+<h4 id="stringbuilder_1">StringBuilder</h4>
+<ul>
+<li>Mutable, append/insert/reverse modify same object</li>
+<li>Capacity vs length + resizing idea</li>
+<li>Why faster in loops</li>
+<li><code>equals()</code> not overridden (reference comparison)</li>
+</ul>
+<h4 id="stringbuffer_1">StringBuffer</h4>
+<ul>
+<li>Thread-safe via synchronization</li>
+<li>Slower than StringBuilder</li>
+<li>When to use (rare)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

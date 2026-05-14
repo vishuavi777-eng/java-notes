@@ -1,0 +1,5046 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Personal Knowledge Base for Java, DSA, Spring Boot, and System Design">
+      
+      
+        <meta name="author" content="Vishwambhar Patil">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../java/jvm/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Interview Preparation - Vishwambhar Patil Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interview-preparation-answers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vishwambhar Patil Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interview Preparation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vishwambhar Patil Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tell-me-about-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tell me about yourself
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tell me about yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-your-current-previous-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain your current / previous project
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explain your current / previous project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Tips
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-your-roles-and-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are your roles and responsibilities?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What are your roles and responsibilities?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsibilities Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-why-are-you-looking-for-a-job-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Why are you looking for a job change?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Why are you looking for a job change?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-explain-your-spring-boot-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Explain your Spring Boot project.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Explain your Spring Boot project.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-what-is-your-strongest-technical-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. What is your strongest technical skill?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. What is your strongest technical skill?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-challenges-did-you-face-in-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What challenges did you face in your project?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What challenges did you face in your project?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-vs-solution-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge vs Solution Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-why-should-we-hire-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Why should we hire you?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Why should we hire you?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JVM Internals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JVM Internals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/jvm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and Runtime Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/jvm/memory-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Memory Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/jvm/string-pool-and-object-creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String Pool and Object Creation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/jvm/classloader-and-class-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ClassLoader and Class Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/jvm/garbage-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Garbage Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/jvm/execution-engine-and-jit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Execution Engine and JIT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/jvm/escape-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Escape Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/01-variables-and-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variable & Data Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/02-type-conversion-and-casting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion & Casting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/03-operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/04-control-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/05-modern-switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modern Switch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/06-methods-and-stack-frames/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods & Stack Frames
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/07-method-overloading-and-overriding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Method Overloading & Overriding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/08-constructors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/09-static-vs-instance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static vs Instance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/10-final-keyword/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Keyword
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/11-access-modifiers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Modifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/12-abstract-class-vs-interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract Class vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/13-string-stringbuilder-stringbuffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String / Builder / Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Collections Framework Part 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/collections-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview and Interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/collections-framework/arraylist-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArrayList Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/collections-framework/linkedlist-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinkedList Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/collections-framework/hashset-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HashSet Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/collections-framework/hashmap-internals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HashMap Internals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/collections-framework/fail-fast-treemap-comparable-comparator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fail-Fast, TreeMap, Comparable, Comparator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/15-collections-framework-part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collections Framework Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stream API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stream API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/stream-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/stream-api/intermediate-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intermediate Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/stream-api/terminal-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/stream-api/collectors-and-grouping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collectors and Grouping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/stream-api/optional-and-null-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optional and Null Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/stream-api/parallel-streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parallel Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/stream-api/interview-traps-and-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Traps and Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multithreading
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_18">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multithreading
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals and Thread Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/race-condition-sleep-wait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Race Conditions, sleep, and wait
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/synchronized-locks-and-deadlock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    synchronized, Locks, and Deadlock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/volatile-atomic-and-happens-before/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    volatile, Atomic, and Happens-Before
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/executorservice-future-callable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ExecutorService, Future, and Callable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/threadpoolexecutor-and-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThreadPoolExecutor and Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/shutdown-interrupts-and-thread-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shutdown, Interrupts, and Thread Safety
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/concurrent-collections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrent Collections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/wait-notify-producer-consumer-blockingqueue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wait/notify, Producer-Consumer, and BlockingQueue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/reentrantlock-and-readwritelock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ReentrantLock and ReadWriteLock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/countdownlatch-cyclicbarrier-semaphore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CountDownLatch, CyclicBarrier, and Semaphore
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/multithreading/async-completablefuture-forkjoin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async, CompletableFuture, and ForkJoin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_19" id="__nav_3_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_19">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exception Handling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/exception-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview, Hierarchy, Checked vs Unchecked
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/exception-handling/throw-throws-and-propagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    throw, throws, and Propagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/exception-handling/catch-finally-and-interview-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    catch, finally, and Interview Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/exception-handling/try-with-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    try-with-resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/exception-handling/custom-exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_20" id="__nav_3_20_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_20">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OOP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pillars and Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/oop/overriding-dispatch-super-and-constructors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overriding, Dispatch, super, and Constructors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/oop/initialization-and-constructor-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Initialization and Constructor Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/oop/equals-hashcode-and-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    equals, hashCode, and Identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/oop/object-methods-tostring-getclass-clone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object Methods, toString, getClass, clone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design Patterns
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/01-singleton-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Singleton Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/02-factory-method-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Factory Method Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/03-builder-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Builder Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/04-strategy-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strategy Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/05-observer-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observer Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/06-decorator-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decorator Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/07-adapter-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adapter Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/08-facade-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Facade Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/09-proxy-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/10-template-method-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Template Method Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/11-chain-of-responsibility-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chain of Responsibility Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/12-command-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/13-state-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOLID Principles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SOLID Principles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solid-principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solid-principles/02-single-responsibility-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single Responsibility Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solid-principles/03-open-closed-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Closed Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solid-principles/04-liskov-substitution-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liskov Substitution Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solid-principles/05-interface-segregation-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interface Segregation Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solid-principles/06-dependency-inversion-principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dependency Inversion Principle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/01-complexity-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complexity Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/02-arrays-and-strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays and Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/03-linked-lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linked Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/04-stacks-and-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stacks and Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/05-hashing-and-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hashing and Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/06-trees-and-bst/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees and BST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/07-heaps-and-priority-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Heaps and Priority Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/08-graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/09-recursion-and-backtracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursion and Backtracking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/10-dynamic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/11-sorting-and-searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sorting and Searching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/12-interview-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Spring Boot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/01-core-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1 - Core Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/02-rest-api-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2 - REST API Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/03-validation-and-exception-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3 - Validation and Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/04-data-access-jpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4 - Data Access with JPA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/05-security-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 5 - Security Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/06-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 6 - Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/07-production-readiness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 7 - Production Readiness
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spring/08-interview-and-system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 8 - Interview and System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../help/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tell-me-about-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tell me about yourself
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tell me about yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explain-your-current-previous-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explain your current / previous project
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explain your current / previous project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interview-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Tips
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-your-roles-and-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What are your roles and responsibilities?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What are your roles and responsibilities?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsibilities Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-why-are-you-looking-for-a-job-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Why are you looking for a job change?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Why are you looking for a job change?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-explain-your-spring-boot-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Explain your Spring Boot project.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Explain your Spring Boot project.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-what-is-your-strongest-technical-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. What is your strongest technical skill?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. What is your strongest technical skill?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-challenges-did-you-face-in-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What challenges did you face in your project?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What challenges did you face in your project?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-answer_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-vs-solution-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge vs Solution Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short-version_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Short Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-why-should-we-hire-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Why should we hire you?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Why should we hire you?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interview-question_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-answer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-points-to-remember_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Points to Remember
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-improved-answer_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Improved Answer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="interview-preparation-answers">Interview Preparation Answers</h1>
+<p>This document is for interview speaking practice. The answers use simple English and are based on my real experience.</p>
+<h2 id="tell-me-about-yourself">Tell me about yourself</h2>
+<h3 id="question">Question</h3>
+<p>Tell me about yourself.</p>
+<h3 id="answer">Answer</h3>
+<p>Hi, my name is Vishwambhar Patil. I have around 9 years of experience as a Software Developer. Most of my work has been in nutrition, fitness, healthcare, and automation-related systems.</p>
+<p>I have worked on Android apps, iOS apps, backend APIs, web admin panels, databases, and internal automation tools. In my previous work, I developed features related to meal planning, diet systems, fitness tracking, customer support call automation, user management, and admin dashboard workflows. I have also worked on mobile apps that were published on the Google Play Store and Apple App Store.</p>
+<p>My main technologies are Java, PHP, CodeIgniter, MySQL, Android Java, Swift, JavaScript, HTML, and CSS. Because I have worked across mobile, backend, database, and admin systems, I understand how different parts of an application connect with each other.</p>
+<p>Recently, I have been focusing more on Java backend development. I am improving my skills in Spring Boot, REST APIs, DSA, and backend architecture. I also built a Spring Boot project called Employee Task / Call Allocation System, where I practiced APIs, service-layer logic, database operations, and task allocation workflows.</p>
+<p>I enjoy solving practical problems, building automation systems, and learning new technologies. Now I am looking for an opportunity where I can use my development experience and continue growing as a Java Full Stack or Backend Developer.</p>
+<h3 id="key-points-to-remember">Key Points to Remember</h3>
+<ul>
+<li>Name: Vishwambhar Patil.</li>
+<li>Around 9 years of software development experience.</li>
+<li>Main domains: nutrition, fitness, healthcare, automation systems.</li>
+<li>Worked on Android apps, iOS apps, backend APIs, admin panels, databases, and automation tools.</li>
+<li>Technologies: Java, PHP, CodeIgniter, MySQL, Android Java, Swift, JavaScript, HTML, CSS.</li>
+<li>Built and published mobile apps on Play Store and App Store.</li>
+<li>Currently improving Java, Spring Boot, REST APIs, DSA, and backend architecture.</li>
+<li>Built Spring Boot project: Employee Task / Call Allocation System.</li>
+<li>Career goal: Java Full Stack / Spring Boot / Backend Developer role.</li>
+</ul>
+<h3 id="short-version">Short Version</h3>
+<p>Hi, my name is Vishwambhar Patil. I have around 9 years of experience as a Software Developer, mainly in nutrition, fitness, healthcare, and automation systems. I have worked on Android and iOS apps, backend APIs, admin panels, databases, and automation tools.</p>
+<p>My main technologies are Java, PHP, CodeIgniter, MySQL, Android Java, Swift, and JavaScript. Recently, I have been focusing more on Java backend development and improving my skills in Spring Boot, REST APIs, DSA, and backend architecture. I also built a Spring Boot project called Employee Task / Call Allocation System. Now I am looking for an opportunity to contribute and grow as a Java Full Stack or Backend Developer.</p>
+<h2 id="explain-your-current-previous-project">Explain your current / previous project</h2>
+<h3 id="question_1">Question</h3>
+<p>Explain your current / previous project.</p>
+<h3 id="main-answer">Main Answer</h3>
+<p>Currently, my main experience is in nutrition, fitness, healthcare, and automation-related software systems. One of the main projects I worked on was a Diet Engine / Diet Automation System.</p>
+<p>The purpose of this system was to automatically generate personalized diet plans and meal plans for users based on their health goals, food preferences, food restrictions, eating patterns, and diet history. The main users were customers using the mobile app, dietitians, customer support teams, and admins who managed meals, plans, recipes, users, and challenges from the admin dashboard.</p>
+<p>The platform included Android and iOS mobile apps, backend APIs, a MySQL database, and a web admin panel. Users could view their meal plans, recipes, allowed food quantities, fitness tracking details, live activity tracking, and other health-related information through the mobile app.</p>
+<p>One important part of the system was the diet automation logic. The system handled rules like carb cycling, food restrictions, allowed food quantity management, recipe mapping, meal replacements, and dynamic meal changes based on user history and eating pattern. This helped reduce manual work for dietitians and made diet planning more consistent.</p>
+<p>I also worked on customer support automation tools. Earlier, many customer service calls were managed manually. I created automation logic that automatically scheduled and allocated different types of calls to employees, such as weight check calls, birthday calls, motivation calls, pre/post diet calls, and feedback calls. This improved team productivity and reduced manual effort.</p>
+<p>My responsibilities included backend API development, business logic implementation, database design, admin panel development, mobile app feature development, automation logic creation, bug fixing, maintenance, feature enhancement, and API integration.</p>
+<p>The main technologies I used were PHP, CodeIgniter, MySQL, Java, Android Java, Swift, JavaScript, HTML, and CSS.</p>
+<p>Recently, I started focusing more on Java backend development and Spring Boot. To improve my backend skills, I created a Spring Boot project called Employee Task / Call Allocation System, where admins can manage employees, assign tasks, allocate calls, and track task progress using REST APIs and layered architecture.</p>
+<p>Overall, this project experience helped me understand backend logic, database flow, automation, mobile app integration, and real business problem solving.</p>
+<h3 id="project-flow">Project Flow</h3>
+<ul>
+<li>User enters profile details, health goals, food preferences, food restrictions, and diet history.</li>
+<li>Backend APIs receive user data from the mobile app or admin panel.</li>
+<li>Business logic processes diet rules like carb cycling, allowed food quantity, meal timing, food restrictions, and eating pattern.</li>
+<li>Diet Engine generates personalized diet plans and meal plans.</li>
+<li>Generated plans, recipes, food quantities, user history, and tracking data are stored in MySQL.</li>
+<li>Admin dashboard allows teams to manage users, meals, recipes, plans, FAQs, challenges, and tracking data.</li>
+<li>Android and iOS apps display diet plans, recipes, fitness tracking, and live activity tracking to users.</li>
+<li>Customer support automation schedules and allocates calls to employees.</li>
+<li>Employees handle calls like weight check, motivation, birthday, feedback, and pre/post diet calls.</li>
+</ul>
+<h3 id="key-points-to-remember_1">Key Points to Remember</h3>
+<ul>
+<li>Main project: Diet Engine / Diet Automation System.</li>
+<li>Domain: nutrition, fitness, healthcare, automation.</li>
+<li>Main users: customers, admins, dietitians, customer support team.</li>
+<li>Features: personalized diet plans, meal plans, recipes, food quantity, FAQs, carb cycling, restrictions, dynamic meal changes.</li>
+<li>Platforms: Android app, iOS app, backend APIs, admin dashboard, MySQL database.</li>
+<li>Automation: customer support call scheduling and allocation.</li>
+<li>Responsibilities: backend APIs, business logic, database design, admin panel, mobile app features, bug fixing, enhancements.</li>
+<li>Technologies: PHP, CodeIgniter, MySQL, Java, Android Java, Swift, JavaScript, HTML, CSS.</li>
+<li>Current focus: Java, Spring Boot, REST APIs, DSA, backend architecture.</li>
+</ul>
+<h3 id="short-version_1">Short Version</h3>
+<p>I worked mainly on a Diet Engine / Diet Automation System in the healthcare and nutrition domain. The system generated personalized diet plans and meal plans automatically based on user goals, food preferences, food restrictions, and diet history.</p>
+<p>I worked on backend APIs, business logic, database design, automation systems, admin panels, and mobile app features. I also created customer support call automation tools that scheduled and allocated calls like weight check calls, motivation calls, birthday calls, and feedback calls. This reduced manual work and improved team productivity.</p>
+<p>The main technologies I used were PHP, CodeIgniter, MySQL, Java, Android Java, Swift, and JavaScript. Recently, I started focusing more on Java backend development, Spring Boot, REST APIs, and DSA.</p>
+<h3 id="interview-tips">Interview Tips</h3>
+<ul>
+<li>Highlight the Diet Engine first because it is your strongest domain project.</li>
+<li>Speak confidently about backend logic, database flow, automation, and API integration.</li>
+<li>Mention mobile apps and admin dashboard to show full application understanding.</li>
+<li>Keep the Spring Boot project as your current learning and backend practice project.</li>
+<li>Interviewer may ask next about database tables, API flow, diet plan generation logic, automation scheduling logic, REST APIs, Spring Boot layers, or how you handled bugs and changes.</li>
+</ul>
+<h2 id="what-are-your-roles-and-responsibilities">What are your roles and responsibilities?</h2>
+<h3 id="question_2">Question</h3>
+<p>What are your roles and responsibilities?</p>
+<h3 id="main-answer_1">Main Answer</h3>
+<p>In my previous projects, my main responsibilities included backend development, business logic implementation, database handling, and automation system development.</p>
+<p>I worked closely with business teams and dietitians to understand requirements and convert them into technical solutions. One of my main areas was the Diet Engine system, where I implemented logic for personalized meal plans, food rules, quantity management, and dynamic diet generation.</p>
+<p>I also developed backend APIs and handled database design using MySQL. I worked on data flow between mobile apps, backend systems, and admin dashboards.</p>
+<p>Apart from backend work, I also worked on Android and iOS application features, API integration, bug fixing, and performance improvements.</p>
+<p>Another important responsibility was automation development. I created customer support call automation systems that automatically scheduled and assigned calls like weight check calls, motivation calls, and follow-up calls. This reduced manual work and improved team productivity.</p>
+<p>I was also responsible for maintaining existing modules, enhancing features, solving production issues, and improving system stability.</p>
+<p>Recently, I started focusing more on Java backend development and Spring Boot. To improve my backend architecture understanding, I created a Spring Boot project using controller, service, and repository layers along with REST APIs and DTOs.</p>
+<h3 id="responsibilities-summary">Responsibilities Summary</h3>
+<ul>
+<li>Requirement understanding.</li>
+<li>Backend API development.</li>
+<li>Business logic implementation.</li>
+<li>Database design and queries.</li>
+<li>Automation system development.</li>
+<li>Mobile app feature development.</li>
+<li>API integration.</li>
+<li>Bug fixing and maintenance.</li>
+<li>Production issue support.</li>
+<li>Feature enhancement.</li>
+<li>Admin dashboard development.</li>
+</ul>
+<h3 id="short-version_2">Short Version</h3>
+<p>My main responsibilities included backend API development, business logic implementation, database management, automation system development, and mobile app feature integration.</p>
+<p>I worked mainly on a Diet Automation System where I handled personalized diet logic, admin modules, and API flow. I also created customer support call automation tools that improved productivity and reduced manual work.</p>
+<p>Recently, I started focusing more on Java backend and Spring Boot development.</p>
+<h2 id="4-why-are-you-looking-for-a-job-change">4. Why are you looking for a job change?</h2>
+<h3 id="interview-question">Interview Question</h3>
+<p>Why are you looking for a job change?</p>
+<h3 id="simple-answer">Simple Answer</h3>
+<p>I am looking for a job change because I want to grow further as a Java and backend developer. I have good experience in application development, mobile apps, backend APIs, databases, and automation tools.</p>
+<p>Now I want to work more deeply on Java, Spring Boot, REST APIs, scalable backend systems, and better engineering practices. I am looking for a role where I can use my existing experience and also grow in modern backend development.</p>
+<h3 id="key-points-to-remember_2">Key Points to Remember</h3>
+<ul>
+<li>Keep it positive.</li>
+<li>Focus on growth.</li>
+<li>Mention Java and backend direction.</li>
+<li>Do not criticize previous company.</li>
+<li>Connect past experience with future role.</li>
+</ul>
+<h3 id="optional-improved-answer">Optional Improved Answer</h3>
+<p>I am looking for a job change mainly for growth and better alignment with my current career direction. I have worked across mobile apps, backend APIs, databases, admin panels, and automation tools. Now I want to focus more deeply on Java, Spring Boot, REST APIs, and backend development.</p>
+<p>I believe my previous full-stack and domain experience will help me contribute well, and I am looking for a role where I can continue growing as a Java / Spring Boot backend developer.</p>
+<h2 id="5-explain-your-spring-boot-project">5. Explain your Spring Boot project.</h2>
+<h3 id="interview-question_1">Interview Question</h3>
+<p>Explain your Spring Boot project.</p>
+<h3 id="simple-answer_1">Simple Answer</h3>
+<p>I built a Spring Boot project called Employee Task / Call Allocation System. The main purpose of this project is to allocate customer calls or tasks to employees and help manage work distribution.</p>
+<p>The project includes backend APIs, database operations, service-layer logic, and role-based workflows. It helped me practice Spring Boot concepts like REST APIs, controllers, services, repositories, DTOs, validation, exception handling, and database integration.</p>
+<h3 id="key-points-to-remember_3">Key Points to Remember</h3>
+<ul>
+<li>Project name: Employee Task / Call Allocation System.</li>
+<li>Purpose: allocate tasks or calls to employees.</li>
+<li>Backend project using Spring Boot.</li>
+<li>Practiced REST APIs, service layer, repository layer, database handling.</li>
+<li>Good project to explain Java backend learning.</li>
+</ul>
+<h3 id="optional-improved-answer_1">Optional Improved Answer</h3>
+<p>I built a Spring Boot project named Employee Task / Call Allocation System. The idea is to manage employee tasks and customer call allocation in an organized way.</p>
+<p>In this project, I created REST APIs and used a layered structure with controller, service, and repository layers. I worked with DTOs, validation, exception handling, and database operations. This project helped me connect my previous automation experience with Spring Boot backend development.</p>
+<h2 id="6-what-is-your-strongest-technical-skill">6. What is your strongest technical skill?</h2>
+<h3 id="interview-question_2">Interview Question</h3>
+<p>What is your strongest technical skill?</p>
+<h3 id="simple-answer_2">Simple Answer</h3>
+<p>My strongest skill is practical application development. I have worked on mobile apps, backend APIs, databases, admin panels, and automation tools, so I understand how different parts of a system connect.</p>
+<p>Technically, I am strong in Java, Android Java, PHP, CodeIgniter, MySQL, and debugging real project issues. Currently, I am improving my Java backend skills with Spring Boot, REST APIs, and DSA.</p>
+<h3 id="key-points-to-remember_4">Key Points to Remember</h3>
+<ul>
+<li>Practical development experience.</li>
+<li>Strong debugging and problem solving.</li>
+<li>Java, PHP, MySQL, mobile app experience.</li>
+<li>Full flow understanding: app, API, database, admin panel.</li>
+<li>Currently improving Spring Boot backend skills.</li>
+</ul>
+<h3 id="optional-improved-answer_2">Optional Improved Answer</h3>
+<p>My strongest technical skill is building practical business applications end to end. I have worked on mobile apps, backend APIs, databases, admin panels, and automation tools, so I understand both user-facing and internal system workflows.</p>
+<p>I am comfortable with Java, Android Java, PHP, CodeIgniter, MySQL, and debugging production-style issues. Currently, I am strengthening my Spring Boot, REST API, DSA, and backend development skills.</p>
+<h2 id="what-challenges-did-you-face-in-your-project">What challenges did you face in your project?</h2>
+<h3 id="question_3">Question</h3>
+<p>What challenges did you face in your project?</p>
+<h3 id="main-answer_2">Main Answer</h3>
+<p>One of the main challenges in my project was handling complex diet business logic in the Diet Engine system.</p>
+<p>Different users had different health goals, food preferences, allergies, and diet restrictions. Some users required carb cycling, some needed meal replacements, and some required dynamic changes in meal plans based on their progress. Creating reusable and flexible logic for all these conditions was challenging.</p>
+<p>To solve this, I designed modular business logic and database structures so rules could be managed more easily and updated without affecting the full system.</p>
+<p>Another challenge was customer support call automation. Earlier, calls were managed manually. While developing the automation system, we had to avoid duplicate call assignments, manage priorities, and schedule calls correctly based on different conditions.</p>
+<p>Performance was also an important challenge because the system handled large amounts of user and diet data. Some APIs and database queries became slow as data increased. I optimized database queries, improved API flow, and reduced unnecessary processing to improve performance.</p>
+<p>We also faced challenges with changing business requirements. In the healthcare and nutrition domain, diet rules and workflows changed frequently. Because of this, I tried to create reusable and configurable logic instead of hardcoded solutions.</p>
+<p>Another challenge was maintaining proper synchronization between mobile apps, backend APIs, and admin panels. We had to ensure that users always received updated meal plans and correct data.</p>
+<p>I also handled production issues and debugging when real users faced problems. This helped me improve my debugging and problem-solving skills.</p>
+<h3 id="challenge-vs-solution-table">Challenge vs Solution Table</h3>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complex diet rules</td>
+<td>Created modular and reusable business logic</td>
+</tr>
+<tr>
+<td>Dynamic meal plan changes</td>
+<td>Designed flexible database structure</td>
+</tr>
+<tr>
+<td>Duplicate call allocation</td>
+<td>Added scheduling and validation logic</td>
+</tr>
+<tr>
+<td>Slow APIs and queries</td>
+<td>Optimized database queries and API flow</td>
+</tr>
+<tr>
+<td>Frequent requirement changes</td>
+<td>Used configurable logic instead of hardcoding</td>
+</tr>
+<tr>
+<td>Mobile app sync issues</td>
+<td>Improved API response handling and data flow</td>
+</tr>
+<tr>
+<td>Production bugs</td>
+<td>Used debugging, logging, and quick issue fixing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="short-version_3">Short Version</h3>
+<p>One major challenge was handling complex diet business logic because different users had different food rules, goals, and diet plans. I solved this by creating reusable and flexible backend logic.</p>
+<p>Another challenge was automating customer support call allocation without duplicate scheduling. I implemented validation and scheduling logic for that.</p>
+<p>We also faced API performance and data synchronization challenges, which I improved through query optimization and better backend flow.</p>
+<h3 id="key-points-to-remember_5">Key Points to Remember</h3>
+<ul>
+<li>Focus on real business challenges.</li>
+<li>Explain both challenge and solution.</li>
+<li>Mention scalability and reusable logic.</li>
+<li>Mention debugging and production support.</li>
+<li>Speak confidently about automation problems.</li>
+<li>Avoid saying everything was easy.</li>
+</ul>
+<h2 id="8-why-should-we-hire-you">8. Why should we hire you?</h2>
+<h3 id="interview-question_3">Interview Question</h3>
+<p>Why should we hire you?</p>
+<h3 id="simple-answer_3">Simple Answer</h3>
+<p>You should hire me because I have strong practical experience in software development and I understand real business applications. I have worked on mobile apps, backend APIs, databases, admin dashboards, and automation tools.</p>
+<p>I may be currently strengthening my Spring Boot backend skills, but I already have good experience in building and maintaining real systems. I am serious about learning, improving, and contributing as a Java / Spring Boot or Full Stack Developer.</p>
+<h3 id="key-points-to-remember_6">Key Points to Remember</h3>
+<ul>
+<li>Around 9 years of practical experience.</li>
+<li>Full-stack and mobile background.</li>
+<li>Real domain experience.</li>
+<li>Good debugging and ownership.</li>
+<li>Currently focused on Java and Spring Boot.</li>
+<li>Honest and growth-oriented answer.</li>
+</ul>
+<h3 id="optional-improved-answer_3">Optional Improved Answer</h3>
+<p>You should hire me because I bring practical development experience from real products. I have worked on mobile apps, backend APIs, databases, admin panels, automation tools, and customer-facing systems in the nutrition, fitness, diet, and healthcare domain.</p>
+<p>I understand how applications are built, used, debugged, and improved over time. Currently, I am focused on Java, Spring Boot, REST APIs, DSA, and backend development. I can contribute with my existing experience and continue growing in a Java / Spring Boot or Full Stack Developer role.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
