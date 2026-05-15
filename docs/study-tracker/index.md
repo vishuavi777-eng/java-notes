@@ -2,14 +2,23 @@
 
 Use this section to track your interview preparation progress.
 
-Markdown checkboxes are simple and practical. Update them as you study.
+Your progress is saved in this browser using local storage. It is useful for daily study tracking on the same device and browser.
 
 ## How to Use
 
-- Mark a topic complete after you can explain it without looking.
-- Use the detailed notes when a topic feels weak.
-- Revisit unchecked topics before interview.
+- Open any topic page and click **Mark page complete** after you can explain it without reading.
+- Open a progress page when you want to review one full section, like Java or Spring Boot.
+- Checked topics on progress pages and completed topic pages stay synced.
+- Use the dashboard cards to quickly find weak sections before interview.
 - Keep this tracker honest. Do not mark a topic complete only because you read it once.
+
+## Best Study Flow
+
+1. Read one topic page.
+2. Explain it in your own words.
+3. Try one example or interview answer.
+4. Mark the page complete.
+5. Revisit unchecked topics every few days.
 
 ## Progress Pages
 
