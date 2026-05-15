@@ -1,5 +1,42 @@
 # State Pattern
 
+## Definition
+
+State lets an object change behavior when its internal state changes.
+
+## Why It Matters
+
+It replaces complex state-based if-else logic with separate state classes.
+
+## Core Example
+
+An order can behave differently in Created, Paid, Shipped, and Cancelled states.
+
+## Common Traps
+
+- State is about object behavior changing by state.
+- Do not use it for a small simple enum switch.
+- State transitions should be controlled.
+- Too many states can add complexity.
+- State and Strategy look similar but have different intent.
+
+## Interview Answer
+
+State pattern represents each state as a separate class. The context delegates behavior to the current state object. When state changes, the object behavior changes without large conditional blocks.
+
+## Quick Revision
+
+- Behavior depends on state.
+- Each state is a class.
+- Context delegates to current state.
+- Reduces if-else chains.
+- Useful for workflows.
+- Different intent from Strategy.
+
+## Deep Dive
+
+### State Pattern
+
 Used when an object's behavior changes based on its state.
 
 Examples:
@@ -16,7 +53,7 @@ Very common in backend systems.
 
 ---
 
-# Quick thinking question before State Pattern
+### Quick thinking question before State Pattern
 
 Imagine an **Order system**:
 
@@ -38,7 +75,7 @@ if (state == SHIPPED)
 
 or is there a better design approach? Explain why.
 
-# Why `if-else` is bad for order states
+### Why `if-else` is bad for order states
 
 Suppose you write:
 
@@ -79,7 +116,7 @@ Now every action needs state checks.
 
 ---
 
-# Solution → State Pattern
+### Solution → State Pattern
 
 State Pattern is used when:
 
@@ -91,7 +128,7 @@ Instead of checking state with `if-else`, we move behavior into **separate state
 
 ---
 
-# State Pattern Definition
+### State Pattern Definition
 
 ```text
 State Pattern allows an object to alter its behavior when its internal state changes. The object appears to change its class.
@@ -105,7 +142,7 @@ Different state = different behavior
 
 ---
 
-# Real-life analogy
+### Real-life analogy
 
 Think of a **traffic signal**.
 
@@ -128,7 +165,7 @@ Better to model each state separately.
 
 ---
 
-# Order Example
+### Order Example
 
 States:
 
@@ -147,7 +184,7 @@ Each state decides:
 
 ---
 
-# Structure of State Pattern
+### Structure of State Pattern
 
 Usually there are 3 parts:
 
@@ -159,9 +196,9 @@ Context object
 
 ---
 
-# Example Implementation
+### Example Implementation
 
-## State interface
+#### State interface
 
 ```java
 interface OrderState {
@@ -173,7 +210,7 @@ interface OrderState {
 
 ---
 
-## Created state
+#### Created state
 
 ```java
 class CreatedState implements OrderState {
@@ -196,7 +233,7 @@ class CreatedState implements OrderState {
 
 ---
 
-## Paid state
+#### Paid state
 
 ```java
 class PaidState implements OrderState {
@@ -219,7 +256,7 @@ class PaidState implements OrderState {
 
 ---
 
-## Shipped state
+#### Shipped state
 
 ```java
 class ShippedState implements OrderState {
@@ -241,7 +278,7 @@ class ShippedState implements OrderState {
 
 ---
 
-## Delivered state
+#### Delivered state
 
 ```java
 class DeliveredState implements OrderState {
@@ -262,7 +299,7 @@ class DeliveredState implements OrderState {
 
 ---
 
-## Cancelled state
+#### Cancelled state
 
 ```java
 class CancelledState implements OrderState {
@@ -283,7 +320,7 @@ class CancelledState implements OrderState {
 
 ---
 
-## Context
+#### Context
 
 ```java
 class OrderContext {
@@ -314,7 +351,7 @@ class OrderContext {
 
 ---
 
-## Usage
+#### Usage
 
 ```java
 public class Test {
@@ -340,7 +377,7 @@ public class Test {
 
 ---
 
-# What happens here
+### What happens here
 
 Flow:
 
@@ -356,13 +393,13 @@ Behavior changes automatically based on current state.
 
 ---
 
-# Why this is better than `if-else`
+### Why this is better than `if-else`
 
-### 1. Cleaner code
+##### 1. Cleaner code
 
 State-specific behavior lives in state classes.
 
-### 2. Easy to add new state
+##### 2. Easy to add new state
 
 Add new class like:
 
@@ -371,17 +408,17 @@ ReturnedState
 RefundedState
 ```
 
-### 3. Better maintainability
+##### 3. Better maintainability
 
 No giant condition blocks.
 
-### 4. Clear transition rules
+##### 4. Clear transition rules
 
 Each state controls valid next transitions.
 
 ---
 
-# State vs Strategy
+### State vs Strategy
 
 This is the important part.
 
@@ -391,7 +428,7 @@ They look similar because both use **composition + interface**.
 
 But the intention is different.
 
-## Strategy Pattern
+#### Strategy Pattern
 
 Used when:
 
@@ -409,7 +446,7 @@ Client usually chooses strategy.
 
 ---
 
-## State Pattern
+#### State Pattern
 
 Used when:
 
@@ -427,7 +464,7 @@ The object itself moves from one state to another.
 
 ---
 
-# Easy rule to remember
+### Easy rule to remember
 
 ```text
 Strategy → choose behavior
@@ -436,11 +473,11 @@ State → behavior changes because state changes
 
 ---
 
-# Real examples from your projects
+### Real examples from your projects
 
 This pattern fits your work very well.
 
-### Example 1 — Task lifecycle
+##### Example 1 — Task lifecycle
 
 A task may be:
 
@@ -456,7 +493,7 @@ Each state allows different actions.
 
 ---
 
-### Example 2 — Import job flow
+##### Example 2 — Import job flow
 
 A job may be:
 
@@ -472,7 +509,7 @@ Very good State Pattern use case.
 
 ---
 
-### Example 3 — Candidate / campaign workflow
+##### Example 3 — Candidate / campaign workflow
 
 A record may be:
 
@@ -488,7 +525,7 @@ Again, behavior depends on state.
 
 ---
 
-# Interview-ready answer
+### Interview-ready answer
 
 If interviewer asks:
 
@@ -502,7 +539,7 @@ State Pattern is a behavioral design pattern used when an object's behavior chan
 
 ---
 
-# Short notes for your separate notes
+### Short notes for your separate notes
 
 ```text
 State Pattern
@@ -531,7 +568,7 @@ State = behavior changes automatically due to current state
 
 ---
 
-# Small thinking question
+### Small thinking question
 
 Imagine your automation task can be:
 
@@ -548,7 +585,7 @@ Would **State Pattern** be a good choice here?
 Answer **yes or no** and explain why.
 
 
-### Explanation (Interview-Ready Version)
+##### Explanation (Interview-Ready Version)
 
 This is how you could answer in an interview:
 
@@ -584,9 +621,9 @@ This is exactly how **workflow engines work internally**.
 
 ---
 
-# Example Implementation
+### Example Implementation
 
-### State Interface
+##### State Interface
 
 ```java
 interface TaskState {
@@ -598,7 +635,7 @@ interface TaskState {
 
 ---
 
-### Pending State
+##### Pending State
 
 ```java
 class PendingState implements TaskState {
@@ -621,7 +658,7 @@ class PendingState implements TaskState {
 
 ---
 
-### Assigned State
+##### Assigned State
 
 ```java
 class AssignedState implements TaskState {
@@ -644,7 +681,7 @@ class AssignedState implements TaskState {
 
 ---
 
-### In Progress State
+##### In Progress State
 
 ```java
 class InProgressState implements TaskState {
@@ -667,7 +704,7 @@ class InProgressState implements TaskState {
 
 ---
 
-### Context Class
+##### Context Class
 
 ```java
 class TaskContext {
@@ -698,7 +735,7 @@ class TaskContext {
 
 ---
 
-### Usage
+##### Usage
 
 ```java
 public class Test {
@@ -723,7 +760,7 @@ public class Test {
 
 ---
 
-# Output
+### Output
 
 ```
 Current state: PENDING
@@ -737,7 +774,7 @@ Current state: COMPLETED
 
 ---
 
-# Why This Pattern Is Powerful
+### Why This Pattern Is Powerful
 
 Without State Pattern:
 
@@ -759,11 +796,11 @@ Much cleaner architecture.
 
 ---
 
-# Real Systems Using State Pattern
+### Real Systems Using State Pattern
 
 Very important for interviews.
 
-### Order systems
+##### Order systems
 
 ```
 CREATED
@@ -775,7 +812,7 @@ REFUNDED
 
 ---
 
-### Job processing systems
+##### Job processing systems
 
 ```
 PENDING
@@ -787,7 +824,7 @@ RETRY
 
 ---
 
-### Campaign workflow (similar to your project)
+##### Campaign workflow (similar to your project)
 
 ```
 NEW
@@ -799,7 +836,7 @@ DROPPED
 
 ---
 
-# Your Design Pattern Progress
+### Your Design Pattern Progress
 
 You now understand **13 important patterns**:
 

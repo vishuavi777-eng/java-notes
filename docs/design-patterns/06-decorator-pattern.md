@@ -1,5 +1,42 @@
 # Decorator Pattern
 
+## Definition
+
+Decorator adds behavior to an object dynamically by wrapping it with another object that has the same interface.
+
+## Why It Matters
+
+It avoids subclass explosion when behavior combinations vary.
+
+## Core Example
+
+A notification service can be wrapped with logging, retry, and encryption decorators.
+
+## Common Traps
+
+- Decorator and inheritance are different approaches.
+- Too many wrappers can make debugging harder.
+- Decorator should keep the same interface.
+- Order of decorators can matter.
+- Do not use it when one simple class is enough.
+
+## Interview Answer
+
+Decorator adds responsibilities without changing the original class. It wraps an object with another object implementing the same interface, then delegates calls while adding behavior before or after delegation.
+
+## Quick Revision
+
+- Wraps an object.
+- Same interface as wrapped object.
+- Adds behavior dynamically.
+- Avoids many subclasses.
+- Java IO uses decorators.
+- Wrapper order can matter.
+
+## Deep Dive
+
+### Decorator Pattern
+
 It is used for:
 
 ```
@@ -22,7 +59,7 @@ BufferedReader
 
 ---
 
-# Small thinking question before Decorator
+### Small thinking question before Decorator
 
 Imagine a **NotificationService**.
 
@@ -50,9 +87,9 @@ RetryNotificationService
 EncryptedLoggingRetryNotificationService
 ```
 
-### What problem appears here?
+##### What problem appears here?
 
-### Answer:
+##### Answer:
 
 > No, because this approach would create **too many classes and become difficult to maintain**.
 
@@ -60,7 +97,7 @@ Let's understand it step by step:
 
 ---
 
-# Problem With That Approach
+### Problem With That Approach
 
 If we create classes like:
 
@@ -97,7 +134,7 @@ So classes become impossible to manage.
 
 ---
 
-# This Problem Is Called
+### This Problem Is Called
 
 ```
 Class Explosion Problem
@@ -111,7 +148,7 @@ Feature Combination Explosion
 
 ---
 
-# Solution → Decorator Pattern
+### Solution → Decorator Pattern
 
 Decorator Pattern allows us to:
 
@@ -124,7 +161,7 @@ Instead of creating many subclasses.
 
 ---
 
-# Decorator Pattern Definition
+### Decorator Pattern Definition
 
 ```
 Decorator Pattern attaches additional responsibilities
@@ -139,7 +176,7 @@ Wrap object with extra behavior
 
 ---
 
-# Real Life Analogy
+### Real Life Analogy
 
 Think of **coffee shop orders** ☕
 
@@ -177,7 +214,7 @@ Coffee → Milk → Sugar → Chocolate
 
 ---
 
-# Structure of Decorator Pattern
+### Structure of Decorator Pattern
 
 There are **4 parts**:
 
@@ -190,9 +227,9 @@ Concrete Decorators
 
 ---
 
-# Example: Notification Service
+### Example: Notification Service
 
-### Component Interface
+##### Component Interface
 
 ```java
 interface NotificationService {
@@ -202,7 +239,7 @@ interface NotificationService {
 
 ---
 
-# Concrete Component
+### Concrete Component
 
 ```java
 class BasicNotification implements NotificationService {
@@ -215,7 +252,7 @@ class BasicNotification implements NotificationService {
 
 ---
 
-# Decorator Base Class
+### Decorator Base Class
 
 ```java
 abstract class NotificationDecorator implements NotificationService {
@@ -230,7 +267,7 @@ abstract class NotificationDecorator implements NotificationService {
 
 ---
 
-# Logging Decorator
+### Logging Decorator
 
 ```java
 class LoggingDecorator extends NotificationDecorator {
@@ -248,7 +285,7 @@ class LoggingDecorator extends NotificationDecorator {
 
 ---
 
-# Encryption Decorator
+### Encryption Decorator
 
 ```java
 class EncryptionDecorator extends NotificationDecorator {
@@ -266,7 +303,7 @@ class EncryptionDecorator extends NotificationDecorator {
 
 ---
 
-# Retry Decorator
+### Retry Decorator
 
 ```java
 class RetryDecorator extends NotificationDecorator {
@@ -284,7 +321,7 @@ class RetryDecorator extends NotificationDecorator {
 
 ---
 
-# Usage
+### Usage
 
 ```java
 public class Test {
@@ -307,7 +344,7 @@ public class Test {
 
 ---
 
-# Execution Flow
+### Execution Flow
 
 ```
 RetryDecorator
@@ -329,7 +366,7 @@ Sending message: [encrypted]Diet reminder
 
 ---
 
-# Why This Is Powerful
+### Why This Is Powerful
 
 You can dynamically combine behaviors:
 
@@ -343,7 +380,7 @@ Without creating new classes.
 
 ---
 
-# Real Java Example
+### Real Java Example
 
 Java IO streams use Decorator Pattern.
 
@@ -372,7 +409,7 @@ are **decorators wrapping each other**.
 
 ---
 
-# Real Example From Your Projects
+### Real Example From Your Projects
 
 Imagine your automation tool sending notifications.
 
@@ -404,7 +441,7 @@ Clean architecture.
 
 ---
 
-# Advantages
+### Advantages
 
 ```
 Avoid class explosion
@@ -415,7 +452,7 @@ More flexible than inheritance
 
 ---
 
-# Disadvantages
+### Disadvantages
 
 ```
 More small classes
@@ -424,7 +461,7 @@ Debugging chain may be harder
 
 ---
 
-# Interview Answer
+### Interview Answer
 
 If interviewer asks:
 
@@ -438,7 +475,7 @@ Decorator Pattern is a structural design pattern that allows behavior to be adde
 
 ---
 
-# Short Notes for Your Pattern Notes
+### Short Notes for Your Pattern Notes
 
 ```
 Decorator Pattern
@@ -464,7 +501,7 @@ Retry wrappers
 
 ---
 
-# Your Progress (Very Good)
+### Your Progress (Very Good)
 
 You now understand:
 

@@ -1,5 +1,42 @@
 # Strategy Pattern
 
+## Definition
+
+Strategy defines a family of algorithms and lets the application choose one at runtime.
+
+## Why It Matters
+
+It removes large if-else chains and makes behavior easy to extend.
+
+## Core Example
+
+Payment can use UpiPayment, CardPayment, or WalletPayment through one PaymentStrategy interface.
+
+## Common Traps
+
+- Strategy should change behavior, not just rename methods.
+- Too many tiny strategies can be overengineering.
+- Context should depend on abstraction.
+- Strategy does not decide object creation by itself.
+- Use clear names for strategies.
+
+## Interview Answer
+
+Strategy is used when an algorithm or behavior varies. We define a common interface, create multiple implementations, and let the context use one implementation through abstraction. This follows Open/Closed Principle.
+
+## Quick Revision
+
+- Encapsulates algorithms.
+- Switch behavior at runtime.
+- Removes condition-heavy code.
+- Depends on interface.
+- Good with dependency injection.
+- Supports Open/Closed Principle.
+
+## Deep Dive
+
+### Strategy Pattern
+
 This one is extremely useful in systems where **behavior can change dynamically**.
 
 Examples from your project style:
@@ -23,7 +60,7 @@ Rules engines
 
 ---
 
-# Quick Thinking Question Before We Start Strategy Pattern
+### Quick Thinking Question Before We Start Strategy Pattern
 
 Imagine your nutrition system calculates diet plan using **different algorithms**:
 
@@ -34,16 +71,16 @@ Diabetes diet algorithm
 Ketogenic diet algorithm
 ```
 
-### Would using **if-else conditions** for selecting algorithm be a good design?
+##### Would using **if-else conditions** for selecting algorithm be a good design?
 
 Explain **why or why not**.
 
-### Answer:
+##### Answer:
 > If a new strategy is added, **maintainability decreases because the existing code must be modified**.
 
 ---
 
-# Why `if-else` Is a Bad Design Here
+### Why `if-else` Is a Bad Design Here
 
 Example:
 
@@ -61,7 +98,7 @@ else if(type.equals("KETO")) {
 
 Problems:
 
-### 1️⃣ Violates Open/Closed Principle
+##### 1️⃣ Violates Open/Closed Principle
 
 When new algorithm comes:
 
@@ -75,7 +112,7 @@ You must **modify the same code again**.
 
 ---
 
-### 2️⃣ Large Conditional Blocks
+##### 2️⃣ Large Conditional Blocks
 
 Over time this becomes:
 
@@ -91,7 +128,7 @@ This becomes messy and error-prone.
 
 ---
 
-### 3️⃣ Hard to Extend
+##### 3️⃣ Hard to Extend
 
 Different algorithms may require different:
 
@@ -106,7 +143,7 @@ Putting everything in one class becomes complex.
 
 ---
 
-# Solution → Strategy Pattern
+### Solution → Strategy Pattern
 
 Strategy Pattern allows:
 
@@ -119,7 +156,7 @@ Instead of `if-else`, we **plug different strategies**.
 
 ---
 
-# Strategy Pattern Definition
+### Strategy Pattern Definition
 
 ```text
 Strategy Pattern defines a family of algorithms,
@@ -134,7 +171,7 @@ Different behaviors → separate classes
 
 ---
 
-# Real-Life Analogy
+### Real-Life Analogy
 
 Think of **Google Maps**.
 
@@ -153,7 +190,7 @@ That is Strategy Pattern.
 
 ---
 
-# Structure of Strategy Pattern
+### Structure of Strategy Pattern
 
 3 parts:
 
@@ -165,9 +202,9 @@ Context Class
 
 ---
 
-# Example: Diet Calculation Strategy
+### Example: Diet Calculation Strategy
 
-### Strategy Interface
+##### Strategy Interface
 
 ```java
 interface DietStrategy {
@@ -177,7 +214,7 @@ interface DietStrategy {
 
 ---
 
-### Strategy 1
+##### Strategy 1
 
 ```java
 class WeightLossStrategy implements DietStrategy {
@@ -190,7 +227,7 @@ class WeightLossStrategy implements DietStrategy {
 
 ---
 
-### Strategy 2
+##### Strategy 2
 
 ```java
 class MuscleGainStrategy implements DietStrategy {
@@ -203,7 +240,7 @@ class MuscleGainStrategy implements DietStrategy {
 
 ---
 
-### Strategy 3
+##### Strategy 3
 
 ```java
 class KetoStrategy implements DietStrategy {
@@ -216,7 +253,7 @@ class KetoStrategy implements DietStrategy {
 
 ---
 
-# Context Class
+### Context Class
 
 ```java
 class DietPlanner {
@@ -235,7 +272,7 @@ class DietPlanner {
 
 ---
 
-# Usage
+### Usage
 
 ```java
 public class Test {
@@ -262,7 +299,7 @@ Calculating keto diet
 
 ---
 
-# Key Idea
+### Key Idea
 
 Instead of:
 
@@ -280,7 +317,7 @@ plug different strategy objects
 
 ---
 
-# Real Example From Your Projects
+### Real Example From Your Projects
 
 Imagine your **notification system**.
 
@@ -311,9 +348,9 @@ strategy = new WhatsappStrategy();
 
 ---
 
-# Java Example
+### Java Example
 
-### Sorting Strategy
+##### Sorting Strategy
 
 Java Collections uses strategy pattern.
 
@@ -329,7 +366,7 @@ Different comparators = different sorting behavior.
 
 ---
 
-# Advantages
+### Advantages
 
 ```text
 Removes large conditional statements
@@ -340,7 +377,7 @@ Algorithms become reusable
 
 ---
 
-# Disadvantages
+### Disadvantages
 
 ```text
 More classes
@@ -349,7 +386,7 @@ Client must understand strategies
 
 ---
 
-# Interview Answer
+### Interview Answer
 
 If interviewer asks:
 
@@ -363,7 +400,7 @@ Strategy Pattern is a behavioral design pattern that allows selecting an algorit
 
 ---
 
-# Short Notes for Your Pattern Notes
+### Short Notes for Your Pattern Notes
 
 ```text
 Strategy Pattern
@@ -390,7 +427,7 @@ Diet calculation strategies
 
 ---
 
-# Small Thinking Question (Important)
+### Small Thinking Question (Important)
 
 Imagine a **payment system**:
 
@@ -401,11 +438,11 @@ Net Banking
 Wallet
 ```
 
-### Would **Strategy Pattern** or **Factory Pattern** be better here?
+##### Would **Strategy Pattern** or **Factory Pattern** be better here?
 
 And **why?**
 
-### Answer About Strategy Pattern:
+##### Answer About Strategy Pattern:
 
 ```text
 Removes large if-else conditions
@@ -417,7 +454,7 @@ That is exactly what Strategy Pattern does.
 
 ---
 
-# Doubt: Is Strategy Pattern Tightly Coupled?
+### Doubt: Is Strategy Pattern Tightly Coupled?
 
 Short answer:
 
@@ -429,7 +466,7 @@ But there is an important nuance.
 
 ---
 
-# Without Strategy Pattern (Bad Coupling)
+### Without Strategy Pattern (Bad Coupling)
 
 Example:
 
@@ -462,7 +499,7 @@ So coupling is **high**.
 
 ---
 
-# With Strategy Pattern (Loose Coupling)
+### With Strategy Pattern (Loose Coupling)
 
 ```java
 class PaymentService {
@@ -497,7 +534,7 @@ Which is a key OOP principle.
 
 ---
 
-# Where Your Doubt Comes From
+### Where Your Doubt Comes From
 
 You are correct that **the client must choose the strategy**.
 
@@ -520,7 +557,7 @@ Configuration
 
 ---
 
-# Best Design in Real Systems
+### Best Design in Real Systems
 
 Most real systems combine:
 
@@ -539,7 +576,7 @@ Strategy → executes algorithm
 
 ---
 
-# Example
+### Example
 
 ```java
 PaymentStrategy strategy =
@@ -561,7 +598,7 @@ This is very common architecture.
 
 ---
 
-# Real Example From Your Project Context
+### Real Example From Your Project Context
 
 Imagine your **notification system**.
 
@@ -592,7 +629,7 @@ Clean separation.
 
 ---
 
-# Visual Architecture
+### Visual Architecture
 
 ```
 Client
@@ -606,7 +643,7 @@ Concrete Strategy
 
 ---
 
-# Important Interview Insight
+### Important Interview Insight
 
 Interviewers sometimes ask:
 
@@ -628,7 +665,7 @@ Strategy → execute payment
 
 ---
 
-# Your Current Pattern Progress
+### Your Current Pattern Progress
 
 You now understand:
 

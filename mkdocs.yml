@@ -1,53 +1,175 @@
 site_name: Vishwambhar Patil Notes
 site_description: Personal Knowledge Base for Java, DSA, Spring Boot, and System Design
 site_author: Vishwambhar Patil
+copyright: Copyright &copy; 2026 Vishwambhar Patil
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
-# Optional: adds a "copy" button on code blocks (Material feature)
+plugins:
+  - search:
+      lang: en
+
 theme:
   name: material
+  language: en
+  icon:
+    logo: material/school-outline
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   features:
     - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
 
 nav:
   - Home: index.md
+  - Interview Preparation:
+      - Overview: interview-preparation/index.md
+      - Tell Me About Yourself: interview-preparation/tell-me-about-yourself.md
+      - Current / Previous Project: interview-preparation/explain-current-previous-project.md
+      - Roles and Responsibilities: interview-preparation/roles-and-responsibilities.md
+      - Job Change: interview-preparation/job-change.md
+      - Spring Boot Project: interview-preparation/spring-boot-project.md
+      - Strongest Technical Skill: interview-preparation/strongest-technical-skill.md
+      - Project Challenges: interview-preparation/project-challenges.md
+      - Why Should We Hire You: interview-preparation/why-should-we-hire-you.md
+
+  - Behavioral Interview:
+      - Overview: behavioral-interview/index.md
+      - Strengths and Weaknesses: behavioral-interview/strengths-and-weaknesses.md
+      - Conflict with Team: behavioral-interview/conflict-with-team.md
+      - Handled Production Issue: behavioral-interview/handled-production-issue.md
+      - Tight Deadline: behavioral-interview/tight-deadline.md
+      - Learning New Technology: behavioral-interview/learning-new-technology.md
+      - Mistake and Learning: behavioral-interview/mistake-and-learning.md
+      - Leadership and Ownership: behavioral-interview/leadership-and-ownership.md
+      - Salary Expectation: behavioral-interview/salary-expectation.md
+      - Notice Period: behavioral-interview/notice-period.md
+
+  - Quick Revision:
+      - Overview: quick-revision/index.md
+      - Interview Preparation: quick-revision/interview-preparation.md
+      - Behavioral Interview: quick-revision/behavioral-interview.md
+      - Java Core: quick-revision/java-core.md
+      - Spring Boot: quick-revision/spring-boot.md
+      - REST API: quick-revision/rest-api.md
+      - SQL / MySQL: quick-revision/sql-mysql.md
+      - DSA: quick-revision/dsa.md
+      - Java Coding Problems: quick-revision/java-coding-problems.md
+      - Backend System Design: quick-revision/backend-system-design.md
+      - Design Patterns and SOLID: quick-revision/design-patterns-solid.md
 
   - Java:
-      - JVM Internals: java/TOP-0 JVM Internals.md
-      - Variable & Data Type: java/TOP-1 VAR_DATA_TYPE.md
-      - Type Conversion & Casting: java/TOP-2 TYPE_CONVERSION_AND_CASTING.md
-      - Operators: java/TOP-3 OPERATORS.md
-      - Control Flow: java/TOP-4 CONTROL_FLOW.md
-      - Modern Switch: java/TOP-5 MODERN_SWITCH.md
-      - Methods & Stack Frames: java/TOP-6 METHODS_STACK_FRAMES.md
-      - Method Overloading & Overriding: java/TOP-7 METHOD_OVERLOADING_OVERRIDING.md
-      - Constructor: java/TOP-8 CONSTRUCTOR.md
-      - Static vs Instance: java/TOP-9 STATIC_VS_INSTANCE.md
-      - Final Keyword: java/TOP-10 FINAL_KEYWORD.md
-      - Access Modifiers: java/TOP-11 ACCESS_MODIFIERS.md
-      - Abstract Class vs Interface: java/TOP-12 ABSTRACT_CLASS_VS_INTERFACE.md
-      - String / Builder / Buffer: java/TOP-13 STRING_STRING_BUILDER_AND_BUFFER.md
-      - Collections Framework Part 1: java/TOP-14 COLLECTIONS_FRAMEWORK_1.md
-      - Collections Framework Part 2: java/TOP-15 COLLECTIONS_FRAMEWORK_2.md
-
-      - Multithreading (Part-1): java/TOP-16 Multithreading (Part-1).md
-      - Multithreading (Part-2): java/TOP-17 Multithreading (Part-2).md
-      - Multithreading (Part-3): java/TOP-18 Multithreading (Part-3).md
-      - Exception Handling (Part-3): java/TOP-19 Exception Handling
+      - JVM Internals:
+          - Overview and Runtime Flow: java/jvm/index.md
+          - Memory Structure: java/jvm/memory-structure.md
+          - String Pool and Object Creation: java/jvm/string-pool-and-object-creation.md
+          - ClassLoader and Class Lifecycle: java/jvm/classloader-and-class-lifecycle.md
+          - Garbage Collection: java/jvm/garbage-collection.md
+          - Execution Engine and JIT: java/jvm/execution-engine-and-jit.md
+          - Escape Analysis: java/jvm/escape-analysis.md
+      - Variable & Data Type: java/01-variables-and-data-types.md
+      - Type Conversion & Casting: java/02-type-conversion-and-casting.md
+      - Operators: java/03-operators.md
+      - Control Flow: java/04-control-flow.md
+      - Modern Switch: java/05-modern-switch.md
+      - Methods & Stack Frames: java/06-methods-and-stack-frames.md
+      - Method Overloading & Overriding: java/07-method-overloading-and-overriding.md
+      - Constructor: java/08-constructors.md
+      - Static vs Instance: java/09-static-vs-instance.md
+      - Final Keyword: java/10-final-keyword.md
+      - Access Modifiers: java/11-access-modifiers.md
+      - Abstract Class vs Interface: java/12-abstract-class-vs-interface.md
+      - String / Builder / Buffer: java/13-string-stringbuilder-stringbuffer.md
+      - Collections Framework Part 1:
+          - Overview and Interfaces: java/collections-framework/index.md
+          - ArrayList Internals: java/collections-framework/arraylist-internals.md
+          - LinkedList Internals: java/collections-framework/linkedlist-internals.md
+          - HashSet Internals: java/collections-framework/hashset-internals.md
+          - HashMap Internals: java/collections-framework/hashmap-internals.md
+          - Fail-Fast, TreeMap, Comparable, Comparator: java/collections-framework/fail-fast-treemap-comparable-comparator.md
+      - Collections Framework Part 2: java/15-collections-framework-part-2.md
+      - Stream API:
+          - Overview: java/stream-api/index.md
+          - Intermediate Operations: java/stream-api/intermediate-operations.md
+          - Terminal Operations: java/stream-api/terminal-operations.md
+          - Collectors and Grouping: java/stream-api/collectors-and-grouping.md
+          - Optional and Null Handling: java/stream-api/optional-and-null-handling.md
+          - Parallel Streams: java/stream-api/parallel-streams.md
+          - Interview Traps and Best Practices: java/stream-api/interview-traps-and-best-practices.md
+      - Multithreading:
+          - Fundamentals and Thread Lifecycle: java/multithreading/index.md
+          - Race Conditions, sleep, and wait: java/multithreading/race-condition-sleep-wait.md
+          - synchronized, Locks, and Deadlock: java/multithreading/synchronized-locks-and-deadlock.md
+          - volatile, Atomic, and Happens-Before: java/multithreading/volatile-atomic-and-happens-before.md
+          - ExecutorService, Future, and Callable: java/multithreading/executorservice-future-callable.md
+          - ThreadPoolExecutor and Queues: java/multithreading/threadpoolexecutor-and-queues.md
+          - Shutdown, Interrupts, and Thread Safety: java/multithreading/shutdown-interrupts-and-thread-safety.md
+          - Concurrent Collections: java/multithreading/concurrent-collections.md
+          - wait/notify, Producer-Consumer, and BlockingQueue: java/multithreading/wait-notify-producer-consumer-blockingqueue.md
+          - ReentrantLock and ReadWriteLock: java/multithreading/reentrantlock-and-readwritelock.md
+          - CountDownLatch, CyclicBarrier, and Semaphore: java/multithreading/countdownlatch-cyclicbarrier-semaphore.md
+          - Async, CompletableFuture, and ForkJoin: java/multithreading/async-completablefuture-forkjoin.md
+      - Exception Handling:
+          - Overview, Hierarchy, Checked vs Unchecked: java/exception-handling/index.md
+          - throw, throws, and Propagation: java/exception-handling/throw-throws-and-propagation.md
+          - catch, finally, and Interview Traps: java/exception-handling/catch-finally-and-interview-traps.md
+          - try-with-resources: java/exception-handling/try-with-resources.md
+          - Custom Exceptions: java/exception-handling/custom-exceptions.md
       
-      - OOP (Part-1): java/TOP-20 OOP (Part-1)
+      - OOP:
+          - Pillars and Summary: java/oop/index.md
+          - Overriding, Dispatch, super, and Constructors: java/oop/overriding-dispatch-super-and-constructors.md
+          - Initialization and Constructor Traps: java/oop/initialization-and-constructor-traps.md
+          - equals, hashCode, and Identity: java/oop/equals-hashcode-and-identity.md
+          - Object Methods, toString, getClass, clone: java/oop/object-methods-tostring-getclass-clone.md
 
   - Design Patterns:
-      - Overview: design-patterns/00-design-patterns-roadmap.md
+      - Overview: design-patterns/index.md
       - Singleton Pattern: design-patterns/01-singleton-pattern.md
       - Factory Method Pattern: design-patterns/02-factory-method-pattern.md
       - Builder Pattern: design-patterns/03-builder-pattern.md
@@ -61,9 +183,154 @@ nav:
       - Chain of Responsibility Pattern: design-patterns/11-chain-of-responsibility-pattern.md
       - Command Pattern: design-patterns/12-command-pattern.md
       - State Pattern: design-patterns/13-state-pattern.md
+  - SOLID Principles:
+      - Overview: solid-principles/index.md
+      - Single Responsibility Principle: solid-principles/02-single-responsibility-principle.md
+      - Open Closed Principle: solid-principles/03-open-closed-principle.md
+      - Liskov Substitution Principle: solid-principles/04-liskov-substitution-principle.md
+      - Interface Segregation Principle: solid-principles/05-interface-segregation-principle.md
+      - Dependency Inversion Principle: solid-principles/06-dependency-inversion-principle.md
   
   - DSA:
       - Overview: dsa/index.md
+      - Complexity Analysis: dsa/01-complexity-analysis.md
+      - Arrays and Strings: dsa/02-arrays-and-strings.md
+      - Linked Lists: dsa/03-linked-lists.md
+      - Stacks and Queues: dsa/04-stacks-and-queues.md
+      - Hashing and Sets: dsa/05-hashing-and-sets.md
+      - Trees and BST: dsa/06-trees-and-bst.md
+      - Heaps and Priority Queues: dsa/07-heaps-and-priority-queues.md
+      - Graphs: dsa/08-graphs.md
+      - Recursion and Backtracking: dsa/09-recursion-and-backtracking.md
+      - Dynamic Programming: dsa/10-dynamic-programming.md
+      - Sorting and Searching: dsa/11-sorting-and-searching.md
+      - Interview Patterns: dsa/12-interview-patterns.md
+
+  - Java Coding Problems:
+      - Overview: java-coding-problems/index.md
+      - Two Sum: java-coding-problems/two-sum.md
+      - Maximum Subarray: java-coding-problems/maximum-subarray.md
+      - Move Zeroes: java-coding-problems/move-zeroes.md
+      - Reverse String: java-coding-problems/reverse-string.md
+      - Palindrome String: java-coding-problems/palindrome-string.md
+      - Valid Anagram: java-coding-problems/valid-anagram.md
+      - First Non-Repeating Character: java-coding-problems/first-non-repeating-character.md
+      - Valid Parentheses: java-coding-problems/valid-parentheses.md
+      - Binary Search: java-coding-problems/binary-search.md
+      - Reverse Linked List: java-coding-problems/reverse-linked-list.md
+      - Rotate Array: java-coding-problems/rotate-array.md
+      - Frequency Count: java-coding-problems/frequency-count.md
+      - Duplicate Elements: java-coding-problems/duplicate-elements.md
+      - Group Anagrams: java-coding-problems/group-anagrams.md
+      - Middle of Linked List: java-coding-problems/middle-of-linked-list.md
+      - Detect Cycle in Linked List: java-coding-problems/detect-cycle.md
+      - Next Greater Element: java-coding-problems/next-greater-element.md
+      - Tree Traversals: java-coding-problems/tree-traversals.md
+      - Maximum Depth of Binary Tree: java-coding-problems/maximum-depth.md
+      - Lowest Common Ancestor: java-coding-problems/lowest-common-ancestor.md
+      - Two Pointers Pattern: java-coding-problems/two-pointers.md
+      - Sliding Window Pattern: java-coding-problems/sliding-window.md
+      - Recursion and Backtracking Pattern: java-coding-problems/recursion-backtracking.md
+
+  - REST API:
+      - Overview: rest-api/index.md
+      - REST Fundamentals: rest-api/rest-fundamentals.md
+      - HTTP Methods: rest-api/http-methods.md
+      - HTTP Status Codes: rest-api/status-codes.md
+      - Idempotency: rest-api/idempotency.md
+      - Pagination, Sorting, and Filtering: rest-api/pagination-sorting-filtering.md
+      - Request and Response Design: rest-api/request-response-design.md
+      - Error Response Design: rest-api/error-response-design.md
+      - Authentication: rest-api/authentication.md
+      - API Versioning: rest-api/api-versioning.md
+      - REST vs SOAP vs GraphQL: rest-api/rest-vs-soap-vs-graphql.md
+      - Employee Task API Design: rest-api/employee-task-api-design.md
+
+  - SQL / MySQL:
+      - Overview: sql-mysql/index.md
+      - SQL Basics: sql-mysql/sql-basics.md
+      - Primary Key and Foreign Key: sql-mysql/primary-key-foreign-key.md
+      - Joins: sql-mysql/joins.md
+      - Group By and Having: sql-mysql/group-by-having.md
+      - Indexes: sql-mysql/indexes.md
+      - Transactions and ACID: sql-mysql/transactions-acid.md
+      - Isolation Levels: sql-mysql/isolation-levels.md
+      - Normalization: sql-mysql/normalization.md
+      - Query Optimization: sql-mysql/query-optimization.md
+      - Pagination Queries: sql-mysql/pagination-queries.md
+      - Employee Task Database Design: sql-mysql/employee-task-database-design.md
+
+  - Backend System Design:
+      - Overview: backend-system-design/index.md
+      - Client-Server Architecture: backend-system-design/client-server-architecture.md
+      - Monolith vs Microservices: backend-system-design/monolith-vs-microservices.md
+      - Scalability Basics: backend-system-design/scalability-basics.md
+      - Load Balancing: backend-system-design/load-balancing.md
+      - Caching: backend-system-design/caching.md
+      - Database Scaling: backend-system-design/database-scaling.md
+      - Async Processing and Queues: backend-system-design/async-processing-queues.md
+      - Rate Limiting: backend-system-design/rate-limiting.md
+      - File Upload Design: backend-system-design/file-upload-design.md
+      - Notification System Design: backend-system-design/notification-system-design.md
+      - Employee Task System Design: backend-system-design/employee-task-system-design.md
 
   - Spring Boot:
       - Overview: spring/index.md
+      - Core Fundamentals:
+          - Overview: spring/core/index.md
+          - SpringBootApplication: spring/core/springbootapplication.md
+          - Beans and ApplicationContext: spring/core/beans-and-application-context.md
+          - Dependency Injection: spring/core/dependency-injection.md
+          - Configuration Properties and Profiles: spring/core/configuration-properties.md
+      - REST API Development:
+          - Overview: spring/rest-api/index.md
+          - Controller and RestController: spring/rest-api/controller-restcontroller.md
+          - Request Mapping and HTTP Methods: spring/rest-api/request-mapping.md
+          - Request Body, ResponseEntity, and DTO: spring/rest-api/request-response-dto.md
+          - Layered Architecture: spring/rest-api/layered-architecture.md
+      - Validation and Exception Handling:
+          - Overview: spring/validation-exception/index.md
+          - Validation DTO: spring/validation-exception/validation-dto.md
+          - Global Exception Handler: spring/validation-exception/global-exception-handler.md
+          - Custom Error Response: spring/validation-exception/custom-error-response.md
+          - HTTP Status Codes: spring/validation-exception/http-status-codes.md
+          - Common Traps: spring/validation-exception/common-traps.md
+      - Data Access with JPA:
+          - Overview: spring/data-jpa/index.md
+          - Entity and Repository: spring/data-jpa/entity-and-repository.md
+          - CrudRepository vs JpaRepository: spring/data-jpa/crudrepository-vs-jparepository.md
+          - Transactional: spring/data-jpa/transactional.md
+          - Lazy vs Eager Loading: spring/data-jpa/lazy-vs-eager-loading.md
+          - N+1 Query Problem: spring/data-jpa/n-plus-one-problem.md
+      - Security:
+          - Overview: spring/security/index.md
+          - Authentication vs Authorization: spring/security/authentication-vs-authorization.md
+          - Security Filter Chain: spring/security/security-filter-chain.md
+          - JWT Flow: spring/security/jwt-flow.md
+          - Password Hashing: spring/security/password-hashing.md
+          - Role-Based Access: spring/security/role-based-access.md
+          - Common Security Traps: spring/security/common-security-traps.md
+      - Testing:
+          - Overview: spring/testing/index.md
+          - Service Unit Test: spring/testing/service-unit-test.md
+          - MockMvc Controller Test: spring/testing/mockmvc-controller-test.md
+          - Repository Test: spring/testing/repository-test.md
+          - Integration Test: spring/testing/integration-test.md
+          - Common Testing Traps: spring/testing/common-testing-traps.md
+      - Production Readiness:
+          - Overview: spring/production/index.md
+          - Profiles: spring/production/profiles.md
+          - Actuator: spring/production/actuator.md
+          - Logging: spring/production/logging.md
+          - External Configuration and Secrets: spring/production/external-configuration.md
+          - External Calls and Timeouts: spring/production/external-calls-timeouts.md
+          - Common Production Traps: spring/production/common-production-traps.md
+      - Interview and System Design:
+          - Overview: spring/interview-system-design/index.md
+          - Request Flow: spring/interview-system-design/request-flow.md
+          - Layered Architecture Review: spring/interview-system-design/layered-architecture-review.md
+          - Design Principles in Spring Boot: spring/interview-system-design/design-principles-in-spring.md
+          - Common Spring Boot Interview Questions: spring/interview-system-design/common-spring-boot-interview-questions.md
+          - Employee Task Project Explanation: spring/interview-system-design/employee-task-project-explanation.md
+
+  - Help: help.md

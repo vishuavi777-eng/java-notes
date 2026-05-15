@@ -1,5 +1,42 @@
 # Adapter Pattern
 
+## Definition
+
+Adapter converts one interface into another interface that client code expects.
+
+## Why It Matters
+
+It helps integrate third-party APIs or legacy code without changing client code.
+
+## Core Example
+
+An SMS adapter can wrap a third-party SMS provider and expose your application’s NotificationSender interface.
+
+## Common Traps
+
+- Adapter does not add new business behavior.
+- It translates interfaces.
+- Do not leak third-party API details into client code.
+- Too many adapters can signal poor boundaries.
+- Adapter is different from Facade.
+
+## Interview Answer
+
+Adapter sits between client code and an incompatible class. The client uses the expected interface, while the adapter translates calls to the adaptee. This keeps integration logic isolated.
+
+## Quick Revision
+
+- Converts interface.
+- Useful for third-party APIs.
+- Keeps client code stable.
+- Wraps incompatible class.
+- Adapter translates calls.
+- Different from Facade.
+
+## Deep Dive
+
+### Adapter Pattern
+
 It is used when:
 
 ```
@@ -34,7 +71,7 @@ What design problem appears if your business logic directly calls those APIs eve
 
 > It becomes **hard to maintain and replace an existing API provider**.
 
-# Correct Reason
+### Correct Reason
 
 If business logic directly calls APIs like:
 
@@ -48,7 +85,7 @@ then these problems appear.
 
 ---
 
-# 1️⃣ Tight Coupling
+### 1️⃣ Tight Coupling
 
 Your system becomes tightly coupled with specific providers:
 
@@ -68,7 +105,7 @@ you must modify many places in the code.
 
 ---
 
-# 2️⃣ Hard to Replace Providers
+### 2️⃣ Hard to Replace Providers
 
 Example:
 
@@ -86,7 +123,7 @@ Your business logic must change everywhere.
 
 ---
 
-# 3️⃣ Scattered Integration Logic
+### 3️⃣ Scattered Integration Logic
 
 Provider-specific logic spreads across:
 
@@ -101,13 +138,13 @@ Maintenance becomes difficult.
 
 ---
 
-# 4️⃣ Hard to Test
+### 4️⃣ Hard to Test
 
 Testing becomes difficult because code depends on **external APIs directly**.
 
 ---
 
-# Solution → Adapter Pattern
+### Solution → Adapter Pattern
 
 Adapter Pattern allows us to:
 
@@ -127,7 +164,7 @@ Third-party API
 
 ---
 
-# Adapter Pattern Definition
+### Adapter Pattern Definition
 
 ```
 Adapter Pattern converts the interface of a class into another interface
@@ -142,7 +179,7 @@ Make incompatible interfaces work together
 
 ---
 
-# Real Life Analogy
+### Real Life Analogy
 
 Think of a **power adapter** 🔌
 
@@ -168,9 +205,9 @@ Same idea in software.
 
 ---
 
-# Example: SMS Adapter
+### Example: SMS Adapter
 
-### Target Interface (Your System)
+##### Target Interface (Your System)
 
 ```java
 interface SmsService {
@@ -182,7 +219,7 @@ Your business logic uses this interface only.
 
 ---
 
-# Third-Party API (Different Interface)
+### Third-Party API (Different Interface)
 
 Example Twilio:
 
@@ -197,7 +234,7 @@ class TwilioApi {
 
 ---
 
-# Adapter
+### Adapter
 
 ```java
 class TwilioAdapter implements SmsService {
@@ -218,7 +255,7 @@ Adapter converts your system call into Twilio API call.
 
 ---
 
-# Usage
+### Usage
 
 ```java
 public class Test {
@@ -243,7 +280,7 @@ Not Twilio.
 
 ---
 
-# Switching Provider Is Easy
+### Switching Provider Is Easy
 
 Now if you use MSG91:
 
@@ -283,7 +320,7 @@ No business logic changes.
 
 ---
 
-# Real Example From Your Projects
+### Real Example From Your Projects
 
 This pattern fits perfectly in your systems:
 
@@ -299,11 +336,11 @@ Instead of writing provider logic everywhere, create **adapters**.
 
 ---
 
-# Java Example
+### Java Example
 
 Java uses Adapter Pattern here:
 
-### `Arrays.asList()`
+##### `Arrays.asList()`
 
 ```java
 List<String> list = Arrays.asList(array);
@@ -319,7 +356,7 @@ That is Adapter Pattern.
 
 ---
 
-# Advantages
+### Advantages
 
 ```
 Loose coupling
@@ -330,7 +367,7 @@ Better maintainability
 
 ---
 
-# Disadvantages
+### Disadvantages
 
 ```
 More classes
@@ -339,7 +376,7 @@ Extra abstraction layer
 
 ---
 
-# Interview Answer
+### Interview Answer
 
 If interviewer asks:
 
@@ -353,7 +390,7 @@ Adapter Pattern is a structural design pattern that allows two incompatible inte
 
 ---
 
-# Short Notes for Your Notes
+### Short Notes for Your Notes
 
 ```
 Adapter Pattern
@@ -380,7 +417,7 @@ Arrays.asList()
 
 ---
 
-# Your Progress Is Excellent
+### Your Progress Is Excellent
 
 You now understand:
 

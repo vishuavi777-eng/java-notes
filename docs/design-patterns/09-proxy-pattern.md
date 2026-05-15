@@ -1,5 +1,42 @@
 # Proxy Pattern
 
+## Definition
+
+Proxy controls access to another object by standing in front of it with the same interface.
+
+## Why It Matters
+
+It is important for Spring AOP, lazy loading, security checks, caching, and remote calls.
+
+## Core Example
+
+A service proxy can check permissions before calling the real service.
+
+## Common Traps
+
+- Proxy and Decorator look similar but intent is different.
+- Proxy controls access; Decorator adds behavior.
+- Spring often creates proxies around beans.
+- Self-invocation can bypass Spring proxy behavior.
+- Proxy should preserve expected behavior.
+
+## Interview Answer
+
+Proxy represents another object and controls access to it. It can add checks like security, caching, logging, lazy initialization, or remote communication before delegating to the real object.
+
+## Quick Revision
+
+- Same interface as real object.
+- Controls access.
+- Used in Spring AOP.
+- Can support lazy loading.
+- Can add security/caching.
+- Intent differs from Decorator.
+
+## Deep Dive
+
+### Proxy Pattern
+
 It is used for:
 
 ```
@@ -31,7 +68,7 @@ log access
 then download file
 ```
 
-### Should these checks be inside `FileDownloadService` itself, or handled separately?
+##### Should these checks be inside `FileDownloadService` itself, or handled separately?
 
 Explain **why**.
 
@@ -39,7 +76,7 @@ Explain **why**.
 
 ---
 
-# Why it should be handled separately
+### Why it should be handled separately
 
 If `FileDownloadService` itself does:
 
@@ -50,7 +87,7 @@ If `FileDownloadService` itself does:
 
 then these problems appear:
 
-### 1. Single Responsibility Principle breaks
+##### 1. Single Responsibility Principle breaks
 
 `FileDownloadService` should mainly handle:
 
@@ -70,7 +107,7 @@ So one class gets too many responsibilities.
 
 ---
 
-### 2. Tight coupling increases
+##### 2. Tight coupling increases
 
 `FileDownloadService` will depend on:
 
@@ -82,7 +119,7 @@ That makes the core service harder to maintain.
 
 ---
 
-### 3. Reusability decreases
+##### 3. Reusability decreases
 
 Suppose later you need same checks for:
 
@@ -94,7 +131,7 @@ If checks are embedded in each service, code gets duplicated.
 
 ---
 
-# This leads to Proxy Pattern
+### This leads to Proxy Pattern
 
 Proxy Pattern is useful when you want:
 
@@ -113,7 +150,7 @@ So client calls proxy, and proxy decides:
 
 ---
 
-# Proxy Pattern Definition
+### Proxy Pattern Definition
 
 ```text
 Proxy Pattern provides a placeholder or surrogate for another object
@@ -128,7 +165,7 @@ middle layer before actual object
 
 ---
 
-# Real-Life Analogy
+### Real-Life Analogy
 
 Think of a **VIP office receptionist**.
 
@@ -149,9 +186,9 @@ Here:
 
 ---
 
-# Example: File Download Proxy
+### Example: File Download Proxy
 
-## Subject interface
+#### Subject interface
 
 ```java
 interface FileService {
@@ -161,7 +198,7 @@ interface FileService {
 
 ---
 
-## Real service
+#### Real service
 
 ```java
 class FileDownloadService implements FileService {
@@ -174,7 +211,7 @@ class FileDownloadService implements FileService {
 
 ---
 
-## Proxy
+#### Proxy
 
 ```java
 class FileDownloadProxy implements FileService {
@@ -194,7 +231,7 @@ class FileDownloadProxy implements FileService {
 
 ---
 
-## Usage
+#### Usage
 
 ```java
 public class Test {
@@ -206,7 +243,7 @@ public class Test {
 }
 ```
 
-### Output
+##### Output
 
 ```text
 Checking authentication
@@ -217,7 +254,7 @@ Downloading file: report.pdf
 
 ---
 
-# Why Proxy is useful
+### Why Proxy is useful
 
 The client sees only:
 
@@ -235,11 +272,11 @@ But proxy adds extra control before delegating to real object.
 
 ---
 
-# Types of Proxy Pattern
+### Types of Proxy Pattern
 
 Very important for interviews.
 
-## 1. Protection Proxy
+#### 1. Protection Proxy
 
 Controls access based on authorization.
 
@@ -252,7 +289,7 @@ normal user cannot access
 
 ---
 
-## 2. Virtual Proxy
+#### 2. Virtual Proxy
 
 Creates heavy object only when needed.
 
@@ -264,7 +301,7 @@ lazy loading image/file
 
 ---
 
-## 3. Remote Proxy
+#### 3. Remote Proxy
 
 Represents remote object.
 
@@ -276,7 +313,7 @@ RPC / network service / remote API
 
 ---
 
-## 4. Caching Proxy
+#### 4. Caching Proxy
 
 Stores results and avoids repeated expensive calls.
 
@@ -289,9 +326,9 @@ API response cache
 
 ---
 
-# Real Java / Framework Examples
+### Real Java / Framework Examples
 
-### 1. Spring AOP Proxies
+##### 1. Spring AOP Proxies
 
 Spring often creates proxies for:
 
@@ -302,7 +339,7 @@ Spring often creates proxies for:
 
 ---
 
-### 2. Hibernate Lazy Loading
+##### 2. Hibernate Lazy Loading
 
 Hibernate uses proxies for lazy-loaded entities.
 
@@ -311,17 +348,17 @@ actual object loads only when needed.
 
 ---
 
-### 3. Java Dynamic Proxy
+##### 3. Java Dynamic Proxy
 
 Java provides proxy support through reflection APIs.
 
 ---
 
-# Real Example From Your Project Context
+### Real Example From Your Project Context
 
 This pattern fits your projects well.
 
-## Example 1: Role-based dashboard access
+#### Example 1: Role-based dashboard access
 
 Before opening candidate or admin dashboard:
 
@@ -333,7 +370,7 @@ Then call real dashboard service.
 
 ---
 
-## Example 2: API wrapper
+#### Example 2: API wrapper
 
 Before calling sensitive API:
 
@@ -344,7 +381,7 @@ Before calling sensitive API:
 
 ---
 
-## Example 3: File/report download
+#### Example 3: File/report download
 
 Before exporting reports:
 
@@ -357,13 +394,13 @@ This is a perfect proxy use case.
 
 ---
 
-# Proxy vs Decorator
+### Proxy vs Decorator
 
 Very common interview question.
 
 They look similar because both wrap an object.
 
-### Decorator
+##### Decorator
 
 Adds behavior dynamically.
 
@@ -373,7 +410,7 @@ Example:
 notification + logging + retry + encryption
 ```
 
-### Proxy
+##### Proxy
 
 Controls access to the real object.
 
@@ -392,7 +429,7 @@ Proxy → control access
 
 ---
 
-# Advantages
+### Advantages
 
 ```text
 Access control
@@ -403,7 +440,7 @@ Better separation of concerns
 
 ---
 
-# Disadvantages
+### Disadvantages
 
 ```text
 Adds extra layer
@@ -413,7 +450,7 @@ Too many proxies may make flow harder to trace
 
 ---
 
-# Interview-ready answer
+### Interview-ready answer
 
 If interviewer asks:
 
@@ -427,7 +464,7 @@ Proxy Pattern is a structural design pattern in which a proxy object controls ac
 
 ---
 
-# Short notes for your separate notes
+### Short notes for your separate notes
 
 ```text
 Proxy Pattern
@@ -462,18 +499,18 @@ Proxy controls access
 
 ---
 
-# Small thinking question
+### Small thinking question
 
 Imagine an image gallery app.
 
 Loading every full-size image immediately is expensive.
 
-### Would **Virtual Proxy** be useful here?
+##### Would **Virtual Proxy** be useful here?
 
 Answer **yes or no** and explain why.
 
 
-### Answer:
+##### Answer:
 
 ```text
 Yes, Virtual Proxy helps here.. Because it would provide lazy loading of images, It can create thumbnails and delay loading the full-size image until needed. Do some kind of sorting etc.
@@ -481,7 +518,7 @@ Yes, Virtual Proxy helps here.. Because it would provide lazy loading of images,
 
 ---
 
-# Why Virtual Proxy is Useful Here
+### Why Virtual Proxy is Useful Here
 
 Your reasoning is correct.
 
@@ -506,7 +543,7 @@ Instead of loading everything immediately.
 
 ---
 
-# Problem Without Proxy
+### Problem Without Proxy
 
 Imagine a gallery with **1000 images**.
 
@@ -526,7 +563,7 @@ Poor performance
 
 ---
 
-# Solution With Virtual Proxy
+### Solution With Virtual Proxy
 
 Instead of loading real images immediately:
 
@@ -550,9 +587,9 @@ This is **lazy loading**.
 
 ---
 
-# Example Code
+### Example Code
 
-### Subject interface
+##### Subject interface
 
 ```java
 interface Image {
@@ -562,7 +599,7 @@ interface Image {
 
 ---
 
-### Real object (heavy)
+##### Real object (heavy)
 
 ```java
 class RealImage implements Image {
@@ -586,7 +623,7 @@ class RealImage implements Image {
 
 ---
 
-### Proxy
+##### Proxy
 
 ```java
 class ImageProxy implements Image {
@@ -611,7 +648,7 @@ class ImageProxy implements Image {
 
 ---
 
-# Usage
+### Usage
 
 ```java
 public class Test {
@@ -629,7 +666,7 @@ public class Test {
 
 ---
 
-# Execution Flow
+### Execution Flow
 
 ```
 Gallery opened
@@ -647,7 +684,7 @@ Image loaded
 
 ---
 
-# Output Example
+### Output Example
 
 ```
 Gallery opened
@@ -657,9 +694,9 @@ Displaying image: photo.jpg
 
 ---
 
-# Real Examples of Virtual Proxy
+### Real Examples of Virtual Proxy
 
-### 1️⃣ Hibernate Lazy Loading
+##### 1️⃣ Hibernate Lazy Loading
 
 Example:
 
@@ -675,7 +712,7 @@ Proxy object represents database entity.
 
 ---
 
-### 2️⃣ Image viewers
+##### 2️⃣ Image viewers
 
 Used in:
 
@@ -687,13 +724,13 @@ document viewer
 
 ---
 
-### 3️⃣ Remote service calls
+##### 3️⃣ Remote service calls
 
 Proxy delays actual network call until needed.
 
 ---
 
-# Real Example Related to Your Work
+### Real Example Related to Your Work
 
 In systems like your automation or dashboard apps.
 
@@ -717,7 +754,7 @@ Same idea.
 
 ---
 
-# Interview Answer
+### Interview Answer
 
 If interviewer asks:
 
@@ -731,7 +768,7 @@ Virtual Proxy is useful when an object is expensive to create or load. The proxy
 
 ---
 
-# Short Notes for Your Pattern Notes
+### Short Notes for Your Pattern Notes
 
 ```
 Virtual Proxy
@@ -757,7 +794,7 @@ Large file viewers
 
 ---
 
-# Your Progress (Very Strong)
+### Your Progress (Very Strong)
 
 You now understand **9 important patterns**:
 

@@ -1,66 +1,45 @@
-# Vishwambhar Patil Knowledge Base
+# Java Interview Notes Roadmap
 
-Welcome to my technical knowledge base.
+Use this site as a structured revision path for Java interviews. Start with core Java, then move into JVM internals, collections, concurrency, OOP, design principles, and framework-level thinking.
 
-This site contains my notes on:
+## Recommended Study Path
 
-- Java
-- Data Structures & Algorithms
-- Spring Boot
-- System Design
-- AI
+1. **Core Java fundamentals**  
+   Begin with [variables and data types](java/01-variables-and-data-types.md), [type conversion](java/02-type-conversion-and-casting.md), [operators](java/03-operators.md), [control flow](java/04-control-flow.md), and [modern switch](java/05-modern-switch.md).
 
----
+2. **Methods, objects, and language rules**  
+   Continue with [methods and stack frames](java/06-methods-and-stack-frames.md), [overloading and overriding](java/07-method-overloading-and-overriding.md), [constructors](java/08-constructors.md), [static vs instance](java/09-static-vs-instance.md), [final](java/10-final-keyword.md), and [access modifiers](java/11-access-modifiers.md).
 
-## Topics
+3. **OOP and abstraction**  
+   Review [abstract class vs interface](java/12-abstract-class-vs-interface.md), [OOP concepts](java/oop/index.md), and the [SOLID principles](solid-principles/index.md).
 
-- [Home](index.md)
+4. **JVM and memory model**  
+   Study [JVM internals](java/jvm/index.md), with special focus on class loading, memory areas, string pool behavior, garbage collection, execution engine, and JIT.
 
-  - Java:
-      - [JVM Internals](java/TOP-0 JVM Internals.md)
-      - [Variable & Data Type](java/TOP-1 VAR_DATA_TYPE.md)
-      - [Type Conversion & Casting](java/TOP-2 TYPE_CONVERSION_AND_CASTING.md)
-      - [Operators](java/TOP-3 OPERATORS.md)
-      - [Control Flow](java/TOP-4 CONTROL_FLOW.md)
-      - [Modern Switch](java/TOP-5 MODERN_SWITCH.md)
-      - [Methods & Stack Frames](java/TOP-6 METHODS_STACK_FRAMES.md)
-      - [Method Overloading & Overriding](java/TOP-7 METHOD_OVERLOADING_OVERRIDING.md)
-      - [Constructor](java/TOP-8 CONSTRUCTOR.md)
-      - [Static vs Instance](java/TOP-9 STATIC_VS_INSTANCE.md)
-      - [Final Keyword](java/TOP-10 FINAL_KEYWORD.md)
-      - [Access Modifiers](java/TOP-11 ACCESS_MODIFIERS.md)
-      - [Abstract Class vs Interface](java/TOP-12 ABSTRACT_CLASS_VS_INTERFACE.md)
-      - [String / Builder / Buffer](java/TOP-13 STRING_STRING_BUILDER_AND_BUFFER.md)
-      - [Collections Framework Part 1](java/TOP-14 COLLECTIONS_FRAMEWORK_1.md)
-      - [Collections Framework Part 2](java/TOP-15 COLLECTIONS_FRAMEWORK_2.md)
+5. **Strings, collections, and exceptions**  
+   Cover [String, StringBuilder, and StringBuffer](java/13-string-stringbuilder-stringbuffer.md), [Collections Framework Part 1](java/collections-framework/index.md), [Collections Framework Part 2](java/15-collections-framework-part-2.md), and [exception handling](java/exception-handling/index.md).
 
-      - [Multithreading (Part-1)](java/TOP-16 Multithreading (Part-1).md)
-      - [Multithreading (Part-2)](java/TOP-17 Multithreading (Part-2).md)
-      - [Multithreading (Part-3)](java/TOP-18 Multithreading (Part-3).md)
-      
-      - [Exception Handling](java/TOP-19 Exception Handling.md)
-      - [OOP (Part-1)](java/TOP-20 OOP (Part-1).md)
+6. **Concurrency**  
+   Work through [Multithreading fundamentals](java/multithreading/index.md), [thread pools](java/multithreading/threadpoolexecutor-and-queues.md), and [advanced concurrency tools](java/multithreading/countdownlatch-cyclicbarrier-semaphore.md). Focus on explaining trade-offs, not just APIs.
 
-  - Design Patterns:
-      - [Overview](design-patterns/00-design-patterns-roadmap.md)
-      - [Singleton Pattern](design-patterns/01-singleton-pattern.md)
-      - [Factory Method Pattern](design-patterns/02-factory-method-pattern.md)
-      - [Builder Pattern](design-patterns/03-builder-pattern.md)
-      - [Strategy Pattern](design-patterns/04-strategy-pattern.md)
-      - [Observer Pattern](design-patterns/05-observer-pattern.md)
-      - [Decorator Pattern](design-patterns/06-decorator-pattern.md)
-      - [Adapter Pattern](design-patterns/07-adapter-pattern.md)
-      - [Facade Pattern](design-patterns/08-facade-pattern.md)
-      - [Proxy Pattern](design-patterns/09-proxy-pattern.md)
-      - [Template Method Pattern](design-patterns/10-template-method-pattern.md)
-      - [Chain of Responsibility Pattern](design-patterns/11-chain-of-responsibility-pattern.md)
-      - [Command Pattern](design-patterns/12-command-pattern.md)
-      - [State Pattern](design-patterns/13-state-pattern.md)
+7. **Design patterns**  
+   Use the [Design Patterns roadmap](design-patterns/index.md) after core Java and OOP. Prioritize Singleton, Factory Method, Builder, Strategy, Observer, Decorator, Adapter, Facade, Proxy, Template Method, Chain of Responsibility, Command, and State.
 
-  - DSA:
-      - Overview: dsa/index.md
+8. **Framework preparation**  
+   Use [Spring Boot notes](spring/index.md) to connect Java fundamentals with real backend development.
 
-  - Spring Boot:
-      - Overview: spring/index.md
+## Interview Revision Checklist
 
-- [Help](help.md)
+- Can you explain the concept in two minutes?
+- Can you show a small Java example without looking it up?
+- Can you name one common interview trap?
+- Can you connect the concept to a backend project or Spring usage?
+- Can you explain the trade-off instead of only giving a definition?
+
+## Quick Sections
+
+- [Java](java/jvm/index.md)
+- [Design Patterns](design-patterns/index.md)
+- [SOLID Principles](solid-principles/index.md)
+- [DSA](dsa/index.md)
+- [Spring Boot](spring/index.md)

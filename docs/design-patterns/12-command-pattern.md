@@ -1,5 +1,42 @@
 # Command Pattern
 
+## Definition
+
+Command wraps a request or action as an object.
+
+## Why It Matters
+
+It is useful for queues, scheduling, undo/redo, logging actions, and decoupling callers from execution logic.
+
+## Core Example
+
+A scheduler can store EmailCommand, ReportCommand, and ApiCallCommand and execute them later.
+
+## Common Traps
+
+- Command is about representing an action.
+- It is different from Strategy, which represents interchangeable algorithms.
+- Commands can need context data.
+- Too many command classes can be heavy.
+- Undo needs extra state.
+
+## Interview Answer
+
+Command turns an operation into an object with an execute method. The caller does not need to know how the operation works. This allows actions to be queued, logged, retried, scheduled, or undone.
+
+## Quick Revision
+
+- Action as object.
+- Usually has execute method.
+- Decouples caller and receiver.
+- Useful for queues and scheduling.
+- Supports undo/redo.
+- Runnable is command-like.
+
+## Deep Dive
+
+### Command Pattern
+
 Used for:
 
 ```
@@ -23,7 +60,7 @@ And it actually **fits extremely well with your automation project** where tasks
 
 ---
 
-# Quick thinking question before Command Pattern
+### Quick thinking question before Command Pattern
 
 Imagine an automation system where you can schedule actions like:
 
@@ -34,14 +71,14 @@ Generate report
 Trigger webhook
 ```
 
-### Should the scheduler directly call these services, or should we encapsulate each action as an **object**? Explain why.
+##### Should the scheduler directly call these services, or should we encapsulate each action as an **object**? Explain why.
 
-### Answer:
+##### Answer:
 ```text
 Encapsulate each action as an object. If the scheduler directly calls these services, the scheduler becomes overloaded with many responsibilities. Complex execution logic becomes mixed with scheduling logic. So it will decrease the maintainability
 ```
 
-# Why Encapsulate Actions as Objects
+### Why Encapsulate Actions as Objects
 
 If scheduler directly calls services like:
 
@@ -54,7 +91,7 @@ scheduler.triggerWebhook();
 
 then problems appear:
 
-### 1. Scheduler becomes too complex
+##### 1. Scheduler becomes too complex
 
 Scheduler must know:
 
@@ -67,7 +104,7 @@ That violates **Single Responsibility Principle**.
 
 ---
 
-### 2. Tight coupling
+##### 2. Tight coupling
 
 Scheduler depends on many services:
 
@@ -82,7 +119,7 @@ Harder to extend.
 
 ---
 
-### 3. Hard to add new actions
+##### 3. Hard to add new actions
 
 If new action appears:
 
@@ -96,7 +133,7 @@ Scheduler code must change again.
 
 ---
 
-# Solution → Command Pattern
+### Solution → Command Pattern
 
 Command Pattern converts **a request into an object**.
 
@@ -115,7 +152,7 @@ command → performs action
 
 ---
 
-# Command Pattern Definition
+### Command Pattern Definition
 
 ```text
 Command Pattern encapsulates a request as an object, allowing you to parameterize clients with different requests and support operations like queuing, logging, and undo.
@@ -129,7 +166,7 @@ Turn actions into objects
 
 ---
 
-# Real-life analogy
+### Real-life analogy
 
 Think of a **restaurant order**.
 
@@ -159,7 +196,7 @@ Chef = receiver
 
 ---
 
-# Structure
+### Structure
 
 Command pattern usually has:
 
@@ -173,9 +210,9 @@ Client
 
 ---
 
-# Example: Automation System
+### Example: Automation System
 
-### Command interface
+##### Command interface
 
 ```java
 interface Command {
@@ -185,7 +222,7 @@ interface Command {
 
 ---
 
-# Receiver Classes
+### Receiver Classes
 
 ```java
 class EmailService {
@@ -205,7 +242,7 @@ class SmsService {
 
 ---
 
-# Concrete Command
+### Concrete Command
 
 ```java
 class SendEmailCommand implements Command {
@@ -241,7 +278,7 @@ class SendSmsCommand implements Command {
 
 ---
 
-# Invoker (Scheduler)
+### Invoker (Scheduler)
 
 ```java
 class TaskScheduler {
@@ -254,7 +291,7 @@ class TaskScheduler {
 
 ---
 
-# Client
+### Client
 
 ```java
 public class Test {
@@ -277,7 +314,7 @@ public class Test {
 
 ---
 
-# Output
+### Output
 
 ```
 Sending Email
@@ -286,7 +323,7 @@ Sending SMS
 
 ---
 
-# Key idea
+### Key idea
 
 Scheduler only knows:
 
@@ -306,7 +343,7 @@ This reduces coupling.
 
 ---
 
-# Why this pattern is powerful
+### Why this pattern is powerful
 
 Command pattern allows:
 
@@ -322,7 +359,7 @@ Very useful for automation systems.
 
 ---
 
-# Real examples related to your projects
+### Real examples related to your projects
 
 Your automation tool scheduling tasks:
 
@@ -346,9 +383,9 @@ Perfect Command Pattern scenario.
 
 ---
 
-# Java / framework examples
+### Java / framework examples
 
-### Runnable in Java
+##### Runnable in Java
 
 ```java
 new Thread(new Runnable() {
@@ -362,13 +399,13 @@ Runnable acts like a **command object**.
 
 ---
 
-### Task queues / executors
+##### Task queues / executors
 
 Java ExecutorService runs commands/tasks.
 
 ---
 
-# Advantages
+### Advantages
 
 ```
 Loose coupling
@@ -379,7 +416,7 @@ Allows logging / undo
 
 ---
 
-# Disadvantages
+### Disadvantages
 
 ```
 More classes
@@ -388,7 +425,7 @@ Extra abstraction
 
 ---
 
-# Interview-ready answer
+### Interview-ready answer
 
 If interviewer asks:
 
@@ -402,7 +439,7 @@ Command Pattern encapsulates a request as an object so that it can be executed, 
 
 ---
 
-# Short notes for your notes
+### Short notes for your notes
 
 ```
 Command Pattern
@@ -431,7 +468,7 @@ Thread Runnable tasks
 
 ---
 
-# Your Design Pattern Progress
+### Your Design Pattern Progress
 
 You now understand **12 major patterns**:
 

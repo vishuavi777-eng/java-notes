@@ -1,5 +1,42 @@
 # Template Method Pattern
 
+## Definition
+
+Template Method defines the skeleton of an algorithm in a base class and lets subclasses customize specific steps.
+
+## Why It Matters
+
+It removes duplicate workflow code while allowing controlled variation.
+
+## Core Example
+
+A payment workflow can validate, process, and send receipt, while subclasses implement the processing step differently.
+
+## Common Traps
+
+- Base class controls the algorithm order.
+- Subclasses should customize steps, not rewrite the whole flow.
+- Too much inheritance can make design rigid.
+- Hooks should be clear.
+- Use Strategy if behavior should change through composition.
+
+## Interview Answer
+
+Template Method keeps the common algorithm in a parent class and delegates selected steps to subclasses. It is useful when many workflows have the same order but different implementation details.
+
+## Quick Revision
+
+- Base class defines algorithm skeleton.
+- Subclasses implement steps.
+- Reduces workflow duplication.
+- Uses inheritance.
+- Good for fixed process order.
+- Compare with Strategy.
+
+## Deep Dive
+
+### Template Method Pattern
+
 This pattern is used when:
 
 ```
@@ -20,7 +57,7 @@ Frameworks use this pattern heavily.
 
 ---
 
-# Quick thinking question before Template Method
+### Quick thinking question before Template Method
 
 Imagine a **payment processing workflow**:
 
@@ -41,16 +78,16 @@ Net Banking
 
 Some steps are same, some steps differ.
 
-### Should we duplicate the whole workflow for each payment type? Why or why not?
+##### Should we duplicate the whole workflow for each payment type? Why or why not?
 
 
-### Answer:
+##### Answer:
 > No, we should not duplicate the workflow because it **repeats business logic**. If a new payment type is added, we would need to create another similar workflow again.
 
 Let's understand problem:
 ---
 
-# Why duplication is a problem
+### Why duplication is a problem
 
 If each payment type has its own full workflow:
 
@@ -66,21 +103,21 @@ and each one repeats:
 
 then these problems appear:
 
-### 1. Code duplication
+##### 1. Code duplication
 
 Common steps are repeated in many classes.
 
-### 2. Hard maintenance
+##### 2. Hard maintenance
 
 If one common step changes, you must update all workflows.
 
-### 3. Inconsistent behavior
+##### 3. Inconsistent behavior
 
 One workflow may miss a step or implement it differently by mistake.
 
 ---
 
-# Solution → Template Method Pattern
+### Solution → Template Method Pattern
 
 Template Method Pattern is useful when:
 
@@ -96,7 +133,7 @@ So we define:
 
 ---
 
-# Template Method Pattern Definition
+### Template Method Pattern Definition
 
 ```text
 Template Method Pattern defines the skeleton of an algorithm in a base class and allows subclasses to override specific steps without changing the overall algorithm structure.
@@ -110,7 +147,7 @@ same flow, different step implementations
 
 ---
 
-# Real-Life Analogy
+### Real-Life Analogy
 
 Think of making tea and coffee.
 
@@ -131,9 +168,9 @@ So the **template is same**, but some steps vary.
 
 ---
 
-# Payment Workflow Example
+### Payment Workflow Example
 
-## Abstract base class
+#### Abstract base class
 
 ```java
 abstract class PaymentProcessor {
@@ -161,7 +198,7 @@ abstract class PaymentProcessor {
 
 ---
 
-## UPI payment
+#### UPI payment
 
 ```java
 class UpiPaymentProcessor extends PaymentProcessor {
@@ -178,7 +215,7 @@ class UpiPaymentProcessor extends PaymentProcessor {
 
 ---
 
-## Card payment
+#### Card payment
 
 ```java
 class CardPaymentProcessor extends PaymentProcessor {
@@ -195,7 +232,7 @@ class CardPaymentProcessor extends PaymentProcessor {
 
 ---
 
-# Usage
+### Usage
 
 ```java
 public class Test {
@@ -213,7 +250,7 @@ public class Test {
 
 ---
 
-# Output
+### Output
 
 ```text
 Validating payment request
@@ -229,7 +266,7 @@ Sending payment receipt
 
 ---
 
-# Key idea
+### Key idea
 
 This method is the template:
 
@@ -248,7 +285,7 @@ doPayment()
 
 ---
 
-# Why `final` is important
+### Why `final` is important
 
 Interview trap.
 
@@ -266,11 +303,11 @@ They can customize steps, but not break the flow.
 
 ---
 
-# Real project example for you
+### Real project example for you
 
 This pattern fits your project style very well.
 
-## Example 1: Report generation workflow
+#### Example 1: Report generation workflow
 
 Common steps:
 
@@ -290,7 +327,7 @@ Overall flow same, formatting/fetching may differ.
 
 ---
 
-## Example 2: Diet generation workflow
+#### Example 2: Diet generation workflow
 
 Common steps:
 
@@ -312,15 +349,15 @@ This is a very good example from your nutrition project context.
 
 ---
 
-# Java/framework examples
+### Java/framework examples
 
 Template Method is used in many frameworks.
 
-### Example idea in Java
+##### Example idea in Java
 
 Abstract classes often define workflow methods and leave some steps abstract.
 
-### Spring / framework style
+##### Spring / framework style
 
 Framework defines lifecycle flow, and you override selected hooks.
 
@@ -328,7 +365,7 @@ This is a template-method style idea.
 
 ---
 
-# Advantages
+### Advantages
 
 ```text
 Removes duplication
@@ -339,7 +376,7 @@ Good for reusable process skeletons
 
 ---
 
-# Disadvantages
+### Disadvantages
 
 ```text
 Inheritance-based
@@ -349,17 +386,17 @@ Less flexible than composition in some cases
 
 ---
 
-# Strategy vs Template Method
+### Strategy vs Template Method
 
 Very common interview question.
 
-### Strategy
+##### Strategy
 
 * changes behavior using composition
 * algorithm selected at runtime
 * object holds strategy reference
 
-### Template Method
+##### Template Method
 
 * changes steps using inheritance
 * workflow fixed in parent class
@@ -374,7 +411,7 @@ Template Method → keep workflow same, vary some steps
 
 ---
 
-# Interview-ready answer
+### Interview-ready answer
 
 If interviewer asks:
 
@@ -388,7 +425,7 @@ Template Method Pattern is a behavioral design pattern that defines the skeleton
 
 ---
 
-# Short notes for your separate notes
+### Short notes for your separate notes
 
 ```text
 Template Method Pattern
@@ -416,7 +453,7 @@ Framework lifecycle hooks
 
 ---
 
-# Small thinking question
+### Small thinking question
 
 Imagine a **report export flow**:
 
@@ -427,9 +464,9 @@ Imagine a **report export flow**:
 
 CSV and PDF reports follow the same flow, but formatting differs.
 
-### Would **Template Method** be a good choice here? Answer **yes or no** and explain why.
+##### Would **Template Method** be a good choice here? Answer **yes or no** and explain why.
 
-### Answer
+##### Answer
 
 ```text
 Yes, Template Method Pattern is a good choice here because the overall workflow of exporting reports is the same: validate input, fetch data, format the output, and save the file. Only some steps, such as formatting and saving, differ between CSV and PDF formats. We can define the common workflow in an abstract parent class and declare the varying steps as abstract methods. Then subclasses like CSVReportExporter and PDFReportExporter implement those steps with their specific logic.
@@ -439,9 +476,9 @@ That is a **very strong design explanation**.
 
 ---
 
-# Example Implementation
+### Example Implementation
 
-## Abstract Template Class
+#### Abstract Template Class
 
 ```java
 abstract class ReportExporter {
@@ -469,7 +506,7 @@ abstract class ReportExporter {
 
 ---
 
-## CSV Implementation
+#### CSV Implementation
 
 ```java
 class CsvReportExporter extends ReportExporter {
@@ -486,7 +523,7 @@ class CsvReportExporter extends ReportExporter {
 
 ---
 
-## PDF Implementation
+#### PDF Implementation
 
 ```java
 class PdfReportExporter extends ReportExporter {
@@ -503,7 +540,7 @@ class PdfReportExporter extends ReportExporter {
 
 ---
 
-## Usage
+#### Usage
 
 ```java
 public class Test {
@@ -523,7 +560,7 @@ public class Test {
 
 ---
 
-# Output
+### Output
 
 ```
 Validating input
@@ -539,11 +576,11 @@ Saving PDF file
 
 ---
 
-# Real Examples From Your Project Context
+### Real Examples From Your Project Context
 
 Template Method fits **many flows in your systems**.
 
-### Example 1 — Diet generation workflow
+##### Example 1 — Diet generation workflow
 
 ```
 validate user profile
@@ -565,7 +602,7 @@ Flow same → calculations differ.
 
 ---
 
-### Example 2 — Task workflow in automation system
+##### Example 2 — Task workflow in automation system
 
 ```
 validate task
@@ -578,9 +615,9 @@ Different task types may override certain steps.
 
 ---
 
-# Important Interview Trap
+### Important Interview Trap
 
-### Why template method often marked `final`?
+##### Why template method often marked `final`?
 
 ```java
 public final void processPayment()
@@ -596,7 +633,7 @@ Subclasses should only override **specific steps**, not the workflow.
 
 ---
 
-# Your Design Pattern Progress
+### Your Design Pattern Progress
 
 You now understand **10 important patterns**:
 
