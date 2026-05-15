@@ -185,3 +185,229 @@
   color: var(--md-default-fg-color--light);
   font-size: 0.85rem;
 }
+
+.practice-app {
+  margin: 1.25rem 0 2rem;
+}
+
+.practice-toolbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.practice-toolbar label {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.practice-toolbar span {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
+
+.practice-toolbar select {
+  width: 100%;
+  min-height: 2rem;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.25rem;
+  color: var(--md-typeset-color);
+  background: var(--md-default-bg-color);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.practice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.practice-actions button,
+.practice-confidence-actions button {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.25rem;
+  color: var(--md-typeset-color);
+  background: var(--md-default-bg-color);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.practice-actions button:hover,
+.practice-confidence-actions button:hover {
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+.practice-actions .practice-primary {
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+.practice-stats,
+.practice-card {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  background: var(--md-code-bg-color);
+}
+
+.practice-summary {
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+}
+
+.practice-summary strong {
+  font-size: 1.6rem;
+}
+
+.practice-meter {
+  margin: 0.75rem 0;
+}
+
+.practice-meter > span,
+.practice-muted {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+}
+
+.practice-meter__bar {
+  height: 0.45rem;
+  margin-top: 0.35rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--md-default-fg-color--lightest);
+}
+
+.practice-meter__bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00897b, #43a047);
+}
+
+.practice-stat-grid,
+.practice-card__meta,
+.practice-confidence-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.practice-pill,
+.practice-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 999px;
+  color: var(--md-default-fg-color--light);
+  background: var(--md-default-bg-color);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.practice-pill--green,
+.practice-confidence--green {
+  border-color: rgba(46, 125, 50, 0.4) !important;
+  color: #2e7d32 !important;
+}
+
+.practice-pill--yellow,
+.practice-confidence--yellow {
+  border-color: rgba(245, 124, 0, 0.45) !important;
+  color: #ef6c00 !important;
+}
+
+.practice-pill--red,
+.practice-confidence--red {
+  border-color: rgba(198, 40, 40, 0.45) !important;
+  color: #c62828 !important;
+}
+
+.practice-confidence--unanswered {
+  color: var(--md-default-fg-color--light) !important;
+}
+
+.practice-card h2 {
+  margin: 0.75rem 0 0.8rem;
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
+.practice-answer {
+  display: none;
+  margin: 1rem 0;
+  padding: 0.85rem;
+  border-left: 0.2rem solid var(--md-accent-fg-color);
+  background: var(--md-default-bg-color);
+}
+
+.practice-answer.is-visible {
+  display: block;
+}
+
+.practice-answer h3 {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+.practice-answer h3:first-child {
+  margin-top: 0;
+}
+
+.practice-source-link {
+  display: inline-flex;
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+
+.practice-confidence-actions button[data-confidence="red"].is-active {
+  border-color: #c62828;
+  color: #c62828;
+  background: rgba(198, 40, 40, 0.08);
+}
+
+.practice-confidence-actions button[data-confidence="yellow"].is-active {
+  border-color: #ef6c00;
+  color: #ef6c00;
+  background: rgba(245, 124, 0, 0.1);
+}
+
+.practice-confidence-actions button[data-confidence="green"].is-active {
+  border-color: #2e7d32;
+  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.08);
+}
+
+.practice-empty p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .practice-actions,
+  .practice-confidence-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .practice-actions button,
+  .practice-confidence-actions button {
+    width: 100%;
+  }
+
+  .practice-card h2 {
+    font-size: 1.15rem;
+  }
+}
