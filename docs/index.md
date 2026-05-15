@@ -1,5 +1,7 @@
 # Vishwambhar Patil Interview Notes
 
+<span data-hide-page-complete="true"></span>
+
 This site is a structured interview preparation guide for Java, Spring Boot, REST APIs, SQL/MySQL, DSA, backend system design, and project-based interview answers.
 
 It is written in simple English so the notes can be revised quickly and spoken naturally in interviews.

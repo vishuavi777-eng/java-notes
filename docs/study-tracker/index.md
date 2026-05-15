@@ -1,5 +1,7 @@
 # Study Tracker
 
+<span data-hide-page-complete="true"></span>
+
 Use this section to track your interview preparation progress.
 
 Your progress is saved in this browser using local storage. It is useful for daily study tracking on the same device and browser.
