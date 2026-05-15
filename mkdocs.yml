@@ -28,6 +28,12 @@ plugins:
   - search:
       lang: en
 
+extra_javascript:
+  - assets/javascripts/study-progress.js?v=20260515-2
+
+extra_css:
+  - assets/stylesheets/study-progress.css?v=20260515-2
+
 theme:
   name: material
   language: en
@@ -102,6 +108,17 @@ nav:
       - Java Coding Problems: quick-revision/java-coding-problems.md
       - Backend System Design: quick-revision/backend-system-design.md
       - Design Patterns and SOLID: quick-revision/design-patterns-solid.md
+
+  - Study Tracker:
+      - Overview: study-tracker/index.md
+      - Java Progress: study-tracker/java-progress.md
+      - Spring Boot Progress: study-tracker/spring-boot-progress.md
+      - REST API Progress: study-tracker/rest-api-progress.md
+      - SQL / MySQL Progress: study-tracker/sql-mysql-progress.md
+      - DSA Progress: study-tracker/dsa-progress.md
+      - Java Coding Problems Progress: study-tracker/java-coding-problems-progress.md
+      - Backend System Design Progress: study-tracker/backend-system-design-progress.md
+      - Interview Answers Progress: study-tracker/interview-answers-progress.md
 
   - Java:
       - JVM Internals:
