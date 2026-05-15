@@ -30,6 +30,8 @@ plugins:
 
 extra_javascript:
   - assets/javascripts/study-progress.js?v=20260515-2
+  - assets/javascripts/interview-question-bank.js?v=20260515-1
+  - assets/javascripts/interview-practice.js?v=20260515-1
 
 extra_css:
   - assets/stylesheets/study-progress.css?v=20260515-2
@@ -108,6 +110,9 @@ nav:
       - Java Coding Problems: quick-revision/java-coding-problems.md
       - Backend System Design: quick-revision/backend-system-design.md
       - Design Patterns and SOLID: quick-revision/design-patterns-solid.md
+
+  - Interview Practice:
+      - Practice Mode: interview-practice/index.md
 
   - Study Tracker:
       - Overview: study-tracker/index.md
