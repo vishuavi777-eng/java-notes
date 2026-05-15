@@ -226,7 +226,13 @@
   function upsertPageCompleteButton() {
     const article = document.querySelector(".md-content__inner");
     const firstHeading = article?.querySelector("h1");
-    if (!article || !firstHeading) {
+    const shouldHide =
+      document.body.dataset.mdPageComplete === "false" ||
+      document.body.dataset.hidePageComplete === "true" ||
+      document.querySelector("[data-hide-page-complete='true']") ||
+      currentPath().includes("/study-tracker/");
+    if (!article || !firstHeading || shouldHide) {
+      article?.querySelector(".study-page-complete-panel")?.remove();
       return;
     }
 
