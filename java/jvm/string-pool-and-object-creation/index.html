@@ -33,6 +33,9 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -59,7 +62,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -80,14 +90,12 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="Vishwambhar Patil Notes" class="md-header__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9zm6.82 6L12 12.72 5.18 9 12 5.28zM17 16l-5 2.72L7 16v-3.73L12 15l5-2.73z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -110,6 +118,32 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -135,11 +169,18 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -166,6 +207,287 @@
       
         
           
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../interview-preparation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interview Preparation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Java
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../design-patterns/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Design Patterns
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../solid-principles/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SOLID Principles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dsa/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  DSA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../java-coding-problems/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Java Coding Problems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../rest-api/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  REST API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sql-mysql/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SQL / MySQL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../backend-system-design/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Backend System Design
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../spring/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Spring Boot
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../help/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Help
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -179,13 +501,15 @@
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="Vishwambhar Patil Notes" class="md-nav__button md-logo" aria-label="Vishwambhar Patil Notes" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9zm6.82 6L12 12.72 5.18 9 12 5.28zM17 16l-5 2.72L7 16v-3.73L12 15l5-2.73z"/></svg>
 
     </a>
     Vishwambhar Patil Notes
@@ -226,9 +550,48 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../interview-preparation/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../interview-preparation/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -242,7 +605,255 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview Preparation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/tell-me-about-yourself/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tell Me About Yourself
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/explain-current-previous-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Current / Previous Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/roles-and-responsibilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roles and Responsibilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/job-change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Job Change
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/spring-boot-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spring Boot Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/strongest-technical-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strongest Technical Skill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/project-challenges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Challenges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../interview-preparation/why-should-we-hire-you/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Should We Hire You
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -257,17 +868,67 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -306,18 +967,45 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -331,8 +1019,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
@@ -345,32 +1039,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview and Runtime Flow
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -2324,18 +2992,43 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
         
           
-          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../collections-framework/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2349,8 +3042,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_15" id="__nav_3_15_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_15">
@@ -2363,32 +3062,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../collections-framework/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview and Interfaces
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -2575,18 +3248,45 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
         
           
-          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../stream-api/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2600,8 +3300,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_17" id="__nav_3_17_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_17">
@@ -2614,32 +3320,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../stream-api/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -2826,18 +3506,55 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_18" >
         
           
-          <label class="md-nav__link" for="__nav_3_18" id="__nav_3_18_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../multithreading/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -2851,8 +3568,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_18" id="__nav_3_18_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_18_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_18">
@@ -2865,32 +3588,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../multithreading/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Fundamentals and Thread Lifecycle
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -3217,18 +3914,41 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_19" >
         
           
-          <label class="md-nav__link" for="__nav_3_19" id="__nav_3_19_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../exception-handling/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -3242,8 +3962,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_19" id="__nav_3_19_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_19_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_19">
@@ -3256,32 +3982,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../exception-handling/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview, Hierarchy, Checked vs Unchecked
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -3412,18 +4112,41 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_20" >
         
           
-          <label class="md-nav__link" for="__nav_3_20" id="__nav_3_20_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../oop/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -3437,8 +4160,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_20" id="__nav_3_20_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_20_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_20">
@@ -3451,32 +4180,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../oop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Pillars and Summary
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -3614,7 +4317,44 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
+    
+    
+      
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -3624,8 +4364,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../design-patterns/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -3639,8 +4380,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
@@ -3653,32 +4400,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../design-patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -4060,7 +4781,28 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
+    
+    
+      
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -4070,8 +4812,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../solid-principles/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -4085,8 +4828,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
@@ -4099,32 +4848,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../solid-principles/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -4282,7 +5005,42 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
+    
+    
+      
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -4292,8 +5050,9 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../dsa/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -4307,8 +5066,14 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
@@ -4321,32 +5086,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../dsa/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -4700,7 +5439,64 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
+    
+    
+      
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -4710,8 +5506,1955 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../java-coding-problems/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java Coding Problems
+  
+
+    
+  </span>
+  
+  
+
+            </a>
             
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Java Coding Problems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/two-sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Two Sum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/maximum-subarray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maximum Subarray
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/move-zeroes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Move Zeroes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/reverse-string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/palindrome-string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Palindrome String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/valid-anagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Valid Anagram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/first-non-repeating-character/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Non-Repeating Character
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/valid-parentheses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Valid Parentheses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/binary-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/reverse-linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse Linked List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/rotate-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rotate Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/frequency-count/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequency Count
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/duplicate-elements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Duplicate Elements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/group-anagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group Anagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/middle-of-linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Middle of Linked List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/detect-cycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detect Cycle in Linked List
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/next-greater-element/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Greater Element
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/tree-traversals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tree Traversals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/maximum-depth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maximum Depth of Binary Tree
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/lowest-common-ancestor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lowest Common Ancestor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/two-pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Two Pointers Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/sliding-window/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sliding Window Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../java-coding-problems/recursion-backtracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursion and Backtracking Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../rest-api/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REST API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/rest-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/http-methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/status-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Status Codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/idempotency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Idempotency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/pagination-sorting-filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pagination, Sorting, and Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/request-response-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Request and Response Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/error-response-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Response Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/api-versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Versioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/rest-vs-soap-vs-graphql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST vs SOAP vs GraphQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/employee-task-api-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Employee Task API Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../sql-mysql/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL / MySQL
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SQL / MySQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/sql-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/primary-key-foreign-key/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primary Key and Foreign Key
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/joins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Joins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/group-by-having/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group By and Having
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/indexes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/transactions-acid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transactions and ACID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/isolation-levels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Isolation Levels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/normalization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/query-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Query Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/pagination-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pagination Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sql-mysql/employee-task-database-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Employee Task Database Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../backend-system-design/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend System Design
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend System Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/client-server-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Client-Server Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/monolith-vs-microservices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monolith vs Microservices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/scalability-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scalability Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/load-balancing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Load Balancing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/caching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/database-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/async-processing-queues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Async Processing and Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/rate-limiting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rate Limiting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/file-upload-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Upload Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/notification-system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notification System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend-system-design/employee-task-system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Employee Task System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -4725,11 +7468,17 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4740,20 +7489,97 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/core/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_2" id="__nav_11_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
                 
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/" class="md-nav__link">
+      <a href="../../../spring/core/springbootapplication/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    SpringBootApplication
   
 
     
@@ -4774,14 +7600,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/01-core-fundamentals/" class="md-nav__link">
+      <a href="../../../spring/core/beans-and-application-context/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 1 - Core Fundamentals
+    Beans and ApplicationContext
   
 
     
@@ -4802,14 +7628,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/02-rest-api-development/" class="md-nav__link">
+      <a href="../../../spring/core/dependency-injection/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 2 - REST API Development
+    Dependency Injection
   
 
     
@@ -4830,14 +7656,125 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/03-validation-and-exception-handling/" class="md-nav__link">
+      <a href="../../../spring/core/configuration-properties/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 3 - Validation and Exception Handling
+    Configuration Properties and Profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/rest-api/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API Development
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_3" id="__nav_11_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REST API Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/rest-api/controller-restcontroller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller and RestController
   
 
     
@@ -4858,14 +7795,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/04-data-access-jpa/" class="md-nav__link">
+      <a href="../../../spring/rest-api/request-mapping/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 4 - Data Access with JPA
+    Request Mapping and HTTP Methods
   
 
     
@@ -4886,14 +7823,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/05-security-fundamentals/" class="md-nav__link">
+      <a href="../../../spring/rest-api/request-response-dto/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 5 - Security Fundamentals
+    Request Body, ResponseEntity, and DTO
   
 
     
@@ -4914,14 +7851,127 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/06-testing/" class="md-nav__link">
+      <a href="../../../spring/rest-api/layered-architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 6 - Testing
+    Layered Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/validation-exception/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation and Exception Handling
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_4" id="__nav_11_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Validation and Exception Handling
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/validation-exception/validation-dto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation DTO
   
 
     
@@ -4942,14 +7992,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/07-production-readiness/" class="md-nav__link">
+      <a href="../../../spring/validation-exception/global-exception-handler/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 7 - Production Readiness
+    Global Exception Handler
   
 
     
@@ -4970,14 +8020,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../spring/08-interview-and-system-design/" class="md-nav__link">
+      <a href="../../../spring/validation-exception/custom-error-response/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Phase 8 - Interview and System Design
+    Custom Error Response
   
 
     
@@ -4986,6 +8036,1255 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/validation-exception/http-status-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP Status Codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/validation-exception/common-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/data-jpa/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Access with JPA
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_5" id="__nav_11_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Access with JPA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/data-jpa/entity-and-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entity and Repository
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/data-jpa/crudrepository-vs-jparepository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CrudRepository vs JpaRepository
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/data-jpa/transactional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transactional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/data-jpa/lazy-vs-eager-loading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lazy vs Eager Loading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/data-jpa/n-plus-one-problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    N+1 Query Problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/security/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_6" id="__nav_11_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/security/authentication-vs-authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication vs Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/security/security-filter-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Filter Chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/security/jwt-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JWT Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/security/password-hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Password Hashing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/security/role-based-access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Role-Based Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/security/common-security-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Security Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/testing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_7" id="__nav_11_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/testing/service-unit-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Unit Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/testing/mockmvc-controller-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MockMvc Controller Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/testing/repository-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repository Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/testing/integration-test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/testing/common-testing-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Testing Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/production/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Readiness
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_8" id="__nav_11_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Production Readiness
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/production/profiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/production/actuator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actuator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/production/logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/production/external-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Configuration and Secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/production/external-calls-timeouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Calls and Timeouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/production/common-production-traps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Production Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spring/interview-system-design/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview and System Design
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11_9" id="__nav_11_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interview and System Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/interview-system-design/request-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Request Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/interview-system-design/layered-architecture-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layered Architecture Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/interview-system-design/design-principles-in-spring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Principles in Spring Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/interview-system-design/common-spring-boot-interview-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Spring Boot Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spring/interview-system-design/employee-task-project-explanation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Employee Task Project Explanation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -6418,20 +10717,94 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Java
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    JVM Internals
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
 
-<h1 id="next-very-important-for-interviews">Next (Very Important for Interviews)</h1>
-<h2 id="definition">Definition</h2>
+<h1 id="next-very-important-for-interviews">Next (Very Important for Interviews)<a class="headerlink" href="#next-very-important-for-interviews" title="Permanent link">&para;</a></h1>
+<h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
 <p>The string pool is a JVM memory area that stores string literals for reuse. Object creation is the internal JVM process that allocates memory, initializes fields, calls constructors, and assigns references.</p>
-<h2 id="why-it-matters">Why It Matters</h2>
+<h2 id="why-it-matters">Why It Matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
 <p>String pool and object creation questions are common because they test whether you understand heap memory, references, literals, constructors, and <code>==</code> vs <code>equals()</code>.</p>
-<h2 id="core-example">Core Example</h2>
+<h2 id="core-example">Core Example<a class="headerlink" href="#core-example" title="Permanent link">&para;</a></h2>
 <p><code>String s1 = "Java";</code> reuses a pooled literal. <code>String s3 = new String("Java");</code> creates a new object, so <code>s1 == s3</code> is usually <code>false</code>.</p>
-<h2 id="common-traps">Common Traps</h2>
+<h2 id="common-traps">Common Traps<a class="headerlink" href="#common-traps" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>==</code> compares references, not string content.</li>
 <li>String literals can be reused from the pool.</li>
@@ -6439,9 +10812,9 @@
 <li>A constructor initializes an object; it does not allocate memory by itself.</li>
 <li>Runtime string concatenation behaves differently from compile-time constants.</li>
 </ul>
-<h2 id="interview-answer">Interview Answer</h2>
+<h2 id="interview-answer">Interview Answer<a class="headerlink" href="#interview-answer" title="Permanent link">&para;</a></h2>
 <p>String literals are stored in the string pool so the JVM can reuse them. When we use <code>new String(...)</code>, Java creates a new object instead of reusing only the pooled literal. During object creation, the JVM loads the class if needed, allocates memory, gives default values, runs initialization logic, calls the constructor, and stores the reference.</p>
-<h2 id="quick-revision">Quick Revision</h2>
+<h2 id="quick-revision">Quick Revision<a class="headerlink" href="#quick-revision" title="Permanent link">&para;</a></h2>
 <ul>
 <li>String literals are pooled.</li>
 <li><code>new String()</code> creates a new object.</li>
@@ -6450,7 +10823,7 @@
 <li>Object creation includes allocation and initialization.</li>
 <li>Constructors do not create memory; they initialize the object.</li>
 </ul>
-<h2 id="deep-dive">Deep Dive</h2>
+<h2 id="deep-dive">Deep Dive<a class="headerlink" href="#deep-dive" title="Permanent link">&para;</a></h2>
 <p>Next we will cover <strong>OBJECT CREATION INSIDE JVM</strong>.</p>
 <p>When JVM executes:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">();</span>
@@ -6474,13 +10847,13 @@
 </span></code></pre></div>
 <p>What will be the output?</p>
 <p>Explain <strong>why</strong>. This will lead us to the <strong>String Pool deep concept</strong>, which is one of the <strong>most asked JVM interview topics</strong>.</p>
-<h3 id="output">Output</h3>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>true
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>false
 </span></code></pre></div>
 <hr />
-<h3 id="step-by-step-jvm-explanation">Step-by-Step JVM Explanation</h3>
-<h4 id="step-1-java-literal">Step 1 — <code>"Java"</code> literal</h4>
+<h3 id="step-by-step-jvm-explanation">Step-by-Step JVM Explanation<a class="headerlink" href="#step-by-step-jvm-explanation" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-java-literal">Step 1 — <code>"Java"</code> literal<a class="headerlink" href="#step-1-java-literal" title="Permanent link">&para;</a></h4>
 <p>When JVM sees:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
 </span></code></pre></div>
@@ -6497,7 +10870,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>s1 → &quot;Java&quot;
 </span></code></pre></div>
 <hr />
-<h4 id="step-2-second-literal">Step 2 — second literal</h4>
+<h4 id="step-2-second-literal">Step 2 — second literal<a class="headerlink" href="#step-2-second-literal" title="Permanent link">&para;</a></h4>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
 </span></code></pre></div>
 <p>JVM again checks <strong>String Pool</strong>.</p>
@@ -6521,11 +10894,11 @@
 </span></code></pre></div>
 <p>Because <code>==</code> compares <strong>reference address</strong>.</p>
 <hr />
-<h4 id="step-3-new-stringjava">Step 3 — <code>new String("Java")</code></h4>
+<h4 id="step-3-new-stringjava">Step 3 — <code>new String("Java")</code><a class="headerlink" href="#step-3-new-stringjava" title="Permanent link">&para;</a></h4>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
 </span></code></pre></div>
 <p>Two things happen here.</p>
-<h5 id="1-jvm-checks-string-pool">1️⃣ JVM checks String Pool</h5>
+<h5 id="1-jvm-checks-string-pool">1️⃣ JVM checks String Pool<a class="headerlink" href="#1-jvm-checks-string-pool" title="Permanent link">&para;</a></h5>
 <p>If <code>"Java"</code> exists → reuse it.</p>
 <p>So pool remains:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>String Pool
@@ -6533,7 +10906,7 @@
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>&quot;Java&quot;
 </span></code></pre></div>
 <hr />
-<h5 id="2-jvm-creates-a-new-object-in-heap">2️⃣ JVM creates a new object in Heap</h5>
+<h5 id="2-jvm-creates-a-new-object-in-heap">2️⃣ JVM creates a new object in Heap<a class="headerlink" href="#2-jvm-creates-a-new-object-in-heap" title="Permanent link">&para;</a></h5>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Heap
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>----
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>String object
@@ -6557,7 +10930,7 @@
 </span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>&quot;Java&quot;
 </span></code></pre></div>
 <hr />
-<h3 id="why-s1-s3-is-false">Why <code>s1 == s3</code> is false</h3>
+<h3 id="why-s1-s3-is-false">Why <code>s1 == s3</code> is false<a class="headerlink" href="#why-s1-s3-is-false" title="Permanent link">&para;</a></h3>
 <p>Because</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>s1 → pool object
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>s3 → heap object
@@ -6567,8 +10940,8 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>s1 == s3 → false
 </span></code></pre></div>
 <hr />
-<h3 id="important-interview-trap">Important Interview Trap</h3>
-<h5 id="question">Question</h5>
+<h3 id="important-interview-trap">Important Interview Trap<a class="headerlink" href="#important-interview-trap" title="Permanent link">&para;</a></h3>
+<h5 id="question">Question<a class="headerlink" href="#question" title="Permanent link">&para;</a></h5>
 <p>How many objects are created?</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
 </span></code></pre></div>
@@ -6582,7 +10955,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Only 1 new object created
 </span></code></pre></div>
 <hr />
-<h3 id="another-interview-trap">Another Interview Trap</h3>
+<h3 id="another-interview-trap">Another Interview Trap<a class="headerlink" href="#another-interview-trap" title="Permanent link">&para;</a></h3>
 <p>What about this?</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
@@ -6597,7 +10970,7 @@
 </span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>== compares reference
 </span></code></pre></div>
 <hr />
-<h3 id="very-important-jvm-feature-intern">Very Important JVM Feature — <code>intern()</code></h3>
+<h3 id="very-important-jvm-feature-intern">Very Important JVM Feature — <code>intern()</code><a class="headerlink" href="#very-important-jvm-feature-intern" title="Permanent link">&para;</a></h3>
 <p>Example:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span>
@@ -6623,7 +10996,7 @@
 </span></code></pre></div>
 <p>Because both refer to <strong>pool object</strong>.</p>
 <hr />
-<h3 id="interview-level-string-pool-question">Interview Level String Pool Question</h3>
+<h3 id="interview-level-string-pool-question">Interview Level String Pool Question<a class="headerlink" href="#interview-level-string-pool-question" title="Permanent link">&para;</a></h3>
 <p>Predict output:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Ja&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;va&quot;</span><span class="p">;</span>
 </span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
@@ -6640,7 +11013,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>&quot;Ja&quot; + &quot;va&quot; → &quot;Java&quot;
 </span></code></pre></div>
 <hr />
-<h3 id="but-this-changes-everything">But This Changes Everything</h3>
+<h3 id="but-this-changes-everything">But This Changes Everything<a class="headerlink" href="#but-this-changes-everything" title="Permanent link">&para;</a></h3>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Ja&quot;</span><span class="p">;</span>
 </span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;va&quot;</span><span class="p">;</span>
 </span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
@@ -6655,9 +11028,9 @@
 </span></code></pre></div>
 <p>JVM creates new object.</p>
 <hr />
-<h3 id="this-topic-leads-to-another-deep-jvm-concept">This Topic Leads to Another Deep JVM Concept</h3>
+<h3 id="this-topic-leads-to-another-deep-jvm-concept">This Topic Leads to Another Deep JVM Concept<a class="headerlink" href="#this-topic-leads-to-another-deep-jvm-concept" title="Permanent link">&para;</a></h3>
 <p>Next we should study:</p>
-<h3 id="object-creation-inside-jvm"><strong>OBJECT CREATION INSIDE JVM</strong></h3>
+<h3 id="object-creation-inside-jvm"><strong>OBJECT CREATION INSIDE JVM</strong><a class="headerlink" href="#object-creation-inside-jvm" title="Permanent link">&para;</a></h3>
 <p>When JVM executes:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">();</span>
 </span></code></pre></div>
@@ -6677,7 +11050,7 @@
 </span></code></pre></div>
 <hr />
 <p>Before we go there, answer this <strong>interview puzzle</strong>:</p>
-<h5 id="what-will-be-the-output">What will be the output?</h5>
+<h5 id="what-will-be-the-output">What will be the output?<a class="headerlink" href="#what-will-be-the-output" title="Permanent link">&para;</a></h5>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
 </span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">).</span><span class="na">intern</span><span class="p">();</span>
 </span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
@@ -6688,12 +11061,12 @@
 <p>Because both <strong>point to the same "Java" object in the String Pool</strong>.
 <code>intern()</code> checks whether <code>"Java"</code> exists in the String Pool. If it exists, it returns that reference; otherwise it creates it in the pool and returns it.</p>
 </blockquote>
-<h5 id="output_1">Output:</h5>
+<h5 id="output_1">Output:<a class="headerlink" href="#output_1" title="Permanent link">&para;</a></h5>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>true
 </span></code></pre></div>
 <hr />
-<h3 id="step-by-step-jvm-execution">Step-by-Step JVM Execution</h3>
-<h4 id="step-1-java-literal_1">Step 1 — <code>"Java"</code> literal</h4>
+<h3 id="step-by-step-jvm-execution">Step-by-Step JVM Execution<a class="headerlink" href="#step-by-step-jvm-execution" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-java-literal_1">Step 1 — <code>"Java"</code> literal<a class="headerlink" href="#step-1-java-literal_1" title="Permanent link">&para;</a></h4>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
 </span></code></pre></div>
 <p>JVM checks the <strong>String Pool</strong>.</p>
@@ -6707,14 +11080,14 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>s1 → &quot;Java&quot; (pool object)
 </span></code></pre></div>
 <hr />
-<h3 id="step-2-new-stringjava">Step 2 — <code>new String("Java")</code></h3>
+<h3 id="step-2-new-stringjava">Step 2 — <code>new String("Java")</code><a class="headerlink" href="#step-2-new-stringjava" title="Permanent link">&para;</a></h3>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Two things happen:</p>
-<h5 id="1-jvm-checks-the-pool">1️⃣ JVM checks the pool</h5>
+<h5 id="1-jvm-checks-the-pool">1️⃣ JVM checks the pool<a class="headerlink" href="#1-jvm-checks-the-pool" title="Permanent link">&para;</a></h5>
 <p><code>"Java"</code> already exists.</p>
 <p>So it reuses the pool literal.</p>
-<h5 id="2-jvm-creates-a-new-string-object-in-heap">2️⃣ JVM creates a new String object in heap</h5>
+<h5 id="2-jvm-creates-a-new-string-object-in-heap">2️⃣ JVM creates a new String object in heap<a class="headerlink" href="#2-jvm-creates-a-new-string-object-in-heap" title="Permanent link">&para;</a></h5>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Heap
 </span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>-----
 </span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>String object
@@ -6724,7 +11097,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Heap object ≠ Pool object
 </span></code></pre></div>
 <hr />
-<h3 id="step-3-intern">Step 3 — <code>.intern()</code></h3>
+<h3 id="step-3-intern">Step 3 — <code>.intern()</code><a class="headerlink" href="#step-3-intern" title="Permanent link">&para;</a></h3>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="p">.</span><span class="na">intern</span><span class="p">()</span>
 </span></code></pre></div>
 <p><code>intern()</code> returns the <strong>reference from the String Pool</strong>.</p>
@@ -6735,7 +11108,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>s2 → &quot;Java&quot; (pool object)
 </span></code></pre></div>
 <hr />
-<h3 id="final-memory">Final Memory</h3>
+<h3 id="final-memory">Final Memory<a class="headerlink" href="#final-memory" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>Stack
 </span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>-----
 </span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>s1 → &quot;Java&quot;
@@ -6750,16 +11123,16 @@
 </span><span id="__span-52-12"><a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a>&quot;Java&quot;
 </span></code></pre></div>
 <hr />
-<h3 id="final-comparison">Final Comparison</h3>
+<h3 id="final-comparison">Final Comparison<a class="headerlink" href="#final-comparison" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>s1 == s2
 </span></code></pre></div>
 <p>Both point to the <strong>same pool object</strong>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>true
 </span></code></pre></div>
 <hr />
-<h3 id="important-interview-trap_1">Important Interview Trap</h3>
+<h3 id="important-interview-trap_1">Important Interview Trap<a class="headerlink" href="#important-interview-trap_1" title="Permanent link">&para;</a></h3>
 <p>This question often comes next.</p>
-<h5 id="what-is-the-difference">What is the difference?</h5>
+<h5 id="what-is-the-difference">What is the difference?<a class="headerlink" href="#what-is-the-difference" title="Permanent link">&para;</a></h5>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>new String(&quot;Java&quot;)
 </span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>vs
 </span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>&quot;Java&quot;
@@ -6783,7 +11156,7 @@
 </tbody>
 </table>
 <hr />
-<h3 id="very-famous-interview-puzzle">Very Famous Interview Puzzle</h3>
+<h3 id="very-famous-interview-puzzle">Very Famous Interview Puzzle<a class="headerlink" href="#very-famous-interview-puzzle" title="Permanent link">&para;</a></h3>
 <p>Predict output:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
 </span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">);</span>
@@ -6797,7 +11170,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>Two different heap objects
 </span></code></pre></div>
 <hr />
-<h3 id="senior-interview-level-question">Senior Interview Level Question</h3>
+<h3 id="senior-interview-level-question">Senior Interview Level Question<a class="headerlink" href="#senior-interview-level-question" title="Permanent link">&para;</a></h3>
 <p>What about this?</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">).</span><span class="na">intern</span><span class="p">();</span>
 </span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;Java&quot;</span><span class="p">).</span><span class="na">intern</span><span class="p">();</span>
@@ -6809,9 +11182,9 @@
 </span></code></pre></div>
 <p>Because both refer to <strong>same pool object</strong>.</p>
 <hr />
-<h3 id="now-we-move-to-a-very-important-jvm-topic">Now we move to a <strong>very important JVM topic</strong></h3>
+<h3 id="now-we-move-to-a-very-important-jvm-topic">Now we move to a <strong>very important JVM topic</strong><a class="headerlink" href="#now-we-move-to-a-very-important-jvm-topic" title="Permanent link">&para;</a></h3>
 <p>This is <strong>asked in Amazon / Flipkart / backend interviews</strong>.</p>
-<h3 id="object-creation-inside-jvm_1">Object Creation Inside JVM</h3>
+<h3 id="object-creation-inside-jvm_1">Object Creation Inside JVM<a class="headerlink" href="#object-creation-inside-jvm_1" title="Permanent link">&para;</a></h3>
 <p>When JVM executes:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">();</span>
 </span></code></pre></div>
@@ -6833,7 +11206,7 @@
 </span></code></pre></div>
 <hr />
 <p>Before I explain those <strong>internal 8 JVM steps</strong>, answer this <strong>interview trap</strong>:</p>
-<h5 id="what-will-be-the-output_1">What will be the output?</h5>
+<h5 id="what-will-be-the-output_1">What will be the output?<a class="headerlink" href="#what-will-be-the-output_1" title="Permanent link">&para;</a></h5>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
 </span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Ja&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;va&quot;</span><span class="p">);</span>
 </span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>
@@ -6843,12 +11216,12 @@
 <blockquote>
 <p>This <strong>is not a compile-time constant</strong>.</p>
 </blockquote>
-<h5 id="output_2">Output:</h5>
+<h5 id="output_2">Output:<a class="headerlink" href="#output_2" title="Permanent link">&para;</a></h5>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>false
 </span></code></pre></div>
 <hr />
-<h3 id="step-by-step-jvm-execution_1">Step-by-Step JVM Execution</h3>
-<h4 id="step-1-java">Step 1 — <code>"Java"</code></h4>
+<h3 id="step-by-step-jvm-execution_1">Step-by-Step JVM Execution<a class="headerlink" href="#step-by-step-jvm-execution_1" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-java">Step 1 — <code>"Java"</code><a class="headerlink" href="#step-1-java" title="Permanent link">&para;</a></h4>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">;</span>
 </span></code></pre></div>
 <p>JVM checks the <strong>String Pool</strong>.</p>
@@ -6862,7 +11235,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>s1 → &quot;Java&quot;
 </span></code></pre></div>
 <hr />
-<h3 id="step-2-ja">Step 2 — <code>"Ja"</code></h3>
+<h3 id="step-2-ja">Step 2 — <code>"Ja"</code><a class="headerlink" href="#step-2-ja" title="Permanent link">&para;</a></h3>
 <p>Inside</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="s">&quot;Ja&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;va&quot;</span><span class="p">)</span>
 </span></code></pre></div>
@@ -6873,13 +11246,13 @@
 </span><span id="__span-70-4"><a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a>&quot;Ja&quot;
 </span></code></pre></div>
 <hr />
-<h3 id="step-3-new-stringva">Step 3 — <code>new String("va")</code></h3>
+<h3 id="step-3-new-stringva">Step 3 — <code>new String("va")</code><a class="headerlink" href="#step-3-new-stringva" title="Permanent link">&para;</a></h3>
 <p>Two things happen.</p>
-<h5 id="pool-check">Pool check</h5>
+<h5 id="pool-check">Pool check<a class="headerlink" href="#pool-check" title="Permanent link">&para;</a></h5>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>&quot;va&quot;
 </span></code></pre></div>
 <p>If not present → add to pool.</p>
-<h5 id="heap-object-creation">Heap object creation</h5>
+<h5 id="heap-object-creation">Heap object creation<a class="headerlink" href="#heap-object-creation" title="Permanent link">&para;</a></h5>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>Heap
 </span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>----
 </span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>String object (&quot;va&quot;)
@@ -6900,7 +11273,7 @@
 </span><span id="__span-75-5"><a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>&quot;va&quot;
 </span></code></pre></div>
 <hr />
-<h3 id="step-4-string-concatenation">Step 4 — String Concatenation</h3>
+<h3 id="step-4-string-concatenation">Step 4 — String Concatenation<a class="headerlink" href="#step-4-string-concatenation" title="Permanent link">&para;</a></h3>
 <p>This part is important:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>&quot;Ja&quot; + new String(&quot;va&quot;)
 </span></code></pre></div>
@@ -6929,7 +11302,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>s2 → Heap &quot;Java&quot;
 </span></code></pre></div>
 <hr />
-<h3 id="final-memory_1">Final Memory</h3>
+<h3 id="final-memory_1">Final Memory<a class="headerlink" href="#final-memory_1" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>Stack
 </span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a>-----
 </span><span id="__span-82-3"><a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a>s1 → Pool &quot;Java&quot;
@@ -6948,7 +11321,7 @@
 </span><span id="__span-84-5"><a id="__codelineno-84-5" name="__codelineno-84-5" href="#__codelineno-84-5"></a>String(&quot;Java&quot;)
 </span></code></pre></div>
 <hr />
-<h3 id="final-comparison_1">Final Comparison</h3>
+<h3 id="final-comparison_1">Final Comparison<a class="headerlink" href="#final-comparison_1" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>s1 == s2
 </span></code></pre></div>
 <p>This compares <strong>references</strong>.</p>
@@ -6958,7 +11331,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>false
 </span></code></pre></div>
 <hr />
-<h3 id="important-interview-rule">Important Interview Rule</h3>
+<h3 id="important-interview-rule">Important Interview Rule<a class="headerlink" href="#important-interview-rule" title="Permanent link">&para;</a></h3>
 <p>If <strong>all parts are literals</strong>:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="s">&quot;Ja&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;va&quot;</span>
 </span></code></pre></div>
@@ -6973,7 +11346,7 @@
 </span><span id="__span-90-4"><a id="__codelineno-90-4" name="__codelineno-90-4" href="#__codelineno-90-4"></a>s1 == s2 → true
 </span></code></pre></div>
 <hr />
-<h3 id="but-if-any-part-is-runtime">But if any part is runtime</h3>
+<h3 id="but-if-any-part-is-runtime">But if any part is runtime<a class="headerlink" href="#but-if-any-part-is-runtime" title="Permanent link">&para;</a></h3>
 <p>Example:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Ja&quot;</span><span class="p">;</span>
 </span><span id="__span-91-2"><a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;va&quot;</span><span class="p">;</span>
@@ -6986,7 +11359,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-93-1"><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>s1 == s2 → false
 </span></code></pre></div>
 <hr />
-<h3 id="quick-interview-summary">Quick Interview Summary</h3>
+<h3 id="quick-interview-summary">Quick Interview Summary<a class="headerlink" href="#quick-interview-summary" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -7014,7 +11387,7 @@
 </tbody>
 </table>
 <hr />
-<h3 id="next-topic-object-creation-inside-jvm">Next Topic: Object Creation Inside JVM</h3>
+<h3 id="next-topic-object-creation-inside-jvm">Next Topic: Object Creation Inside JVM<a class="headerlink" href="#next-topic-object-creation-inside-jvm" title="Permanent link">&para;</a></h3>
 <p>When JVM executes:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-94-1"><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Vishu&quot;</span><span class="p">);</span>
 </span></code></pre></div>
@@ -7025,12 +11398,12 @@
 </ul>
 <p>That is correct, but <strong>interviewers want deeper internal steps</strong>.</p>
 <hr />
-<h3 id="internal-steps-of-object-creation-in-jvm">Internal Steps of Object Creation in JVM</h3>
-<h4 id="code">Code</h4>
+<h3 id="internal-steps-of-object-creation-in-jvm">Internal Steps of Object Creation in JVM<a class="headerlink" href="#internal-steps-of-object-creation-in-jvm" title="Permanent link">&para;</a></h3>
+<h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-95-1"><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Vishu&quot;</span><span class="p">);</span>
 </span></code></pre></div>
 <p>JVM internally does roughly this sequence:</p>
-<h5 id="1-class-is-loaded">1. Class is loaded</h5>
+<h5 id="1-class-is-loaded">1. Class is loaded<a class="headerlink" href="#1-class-is-loaded" title="Permanent link">&para;</a></h5>
 <p>If <code>Person.class</code> is not loaded yet, JVM loads it through the <strong>ClassLoader subsystem</strong>.</p>
 <p>It loads:</p>
 <ul>
@@ -7041,9 +11414,9 @@
 <li>constant pool references</li>
 </ul>
 <hr />
-<h5 id="2-class-linking-happens">2. Class linking happens</h5>
+<h5 id="2-class-linking-happens">2. Class linking happens<a class="headerlink" href="#2-class-linking-happens" title="Permanent link">&para;</a></h5>
 <p>Linking has 3 parts:</p>
-<h6 id="a-verification">a) Verification</h6>
+<h6 id="a-verification">a) Verification<a class="headerlink" href="#a-verification" title="Permanent link">&para;</a></h6>
 <p>JVM checks bytecode is valid or not.</p>
 <p>Examples:</p>
 <ul>
@@ -7051,7 +11424,7 @@
 <li>stack usage valid?</li>
 <li>type safety correct?</li>
 </ul>
-<h6 id="b-preparation">b) Preparation</h6>
+<h6 id="b-preparation">b) Preparation<a class="headerlink" href="#b-preparation" title="Permanent link">&para;</a></h6>
 <p>Memory is allocated for <strong>static variables</strong> and they get default values.</p>
 <p>Example:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-96-1"><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
@@ -7062,12 +11435,12 @@
 <li>first default value becomes <code>0</code></li>
 </ul>
 <p>Actual <code>10</code> comes later in initialization.</p>
-<h6 id="c-resolution">c) Resolution</h6>
+<h6 id="c-resolution">c) Resolution<a class="headerlink" href="#c-resolution" title="Permanent link">&para;</a></h6>
 <p>Symbolic references are converted to direct references.</p>
 <p>Example:
 class/method/field names are resolved internally.</p>
 <hr />
-<h5 id="3-class-initialization-happens">3. Class initialization happens</h5>
+<h5 id="3-class-initialization-happens">3. Class initialization happens<a class="headerlink" href="#3-class-initialization-happens" title="Permanent link">&para;</a></h5>
 <p>Static initializers and static variables get actual values.</p>
 <p>Example:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-97-1"><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
@@ -7077,14 +11450,14 @@ class/method/field names are resolved internally.</p>
 </span></code></pre></div>
 <p>Now static block runs and <code>x</code> becomes <code>10</code>.</p>
 <hr />
-<h5 id="4-jvm-checks-memory-in-heap">4. JVM checks memory in heap</h5>
+<h5 id="4-jvm-checks-memory-in-heap">4. JVM checks memory in heap<a class="headerlink" href="#4-jvm-checks-memory-in-heap" title="Permanent link">&para;</a></h5>
 <p>JVM now checks whether enough heap space is available for the new object.</p>
 <p>If not, it may try GC.</p>
 <p>If still not enough:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-98-1"><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a><span class="n">OutOfMemoryError</span>
 </span></code></pre></div>
 <hr />
-<h5 id="5-memory-is-allocated-for-object">5. Memory is allocated for object</h5>
+<h5 id="5-memory-is-allocated-for-object">5. Memory is allocated for object<a class="headerlink" href="#5-memory-is-allocated-for-object" title="Permanent link">&para;</a></h5>
 <p>Memory is allocated in <strong>heap</strong>, usually in <strong>Eden space</strong>.</p>
 <p>This memory includes:</p>
 <ul>
@@ -7093,9 +11466,9 @@ class/method/field names are resolved internally.</p>
 <li>padding if required</li>
 </ul>
 <hr />
-<h3 id="object-memory-layout">Object Memory Layout</h3>
+<h3 id="object-memory-layout">Object Memory Layout<a class="headerlink" href="#object-memory-layout" title="Permanent link">&para;</a></h3>
 <p>A Java object generally contains:</p>
-<h4 id="1-object-header">1) Object Header</h4>
+<h4 id="1-object-header">1) Object Header<a class="headerlink" href="#1-object-header" title="Permanent link">&para;</a></h4>
 <p>Contains JVM internal information such as:</p>
 <ul>
 <li>class metadata pointer</li>
@@ -7103,7 +11476,7 @@ class/method/field names are resolved internally.</p>
 <li>GC age</li>
 <li>lock status</li>
 </ul>
-<h4 id="2-instance-data">2) Instance Data</h4>
+<h4 id="2-instance-data">2) Instance Data<a class="headerlink" href="#2-instance-data" title="Permanent link">&para;</a></h4>
 <p>Actual fields of object.</p>
 <p>Example:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-99-1"><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
@@ -7116,10 +11489,10 @@ class/method/field names are resolved internally.</p>
 <li><code>age</code></li>
 <li>reference to <code>name</code></li>
 </ul>
-<h4 id="3-padding">3) Padding</h4>
+<h4 id="3-padding">3) Padding<a class="headerlink" href="#3-padding" title="Permanent link">&para;</a></h4>
 <p>Extra bytes may be added for memory alignment.</p>
 <hr />
-<h5 id="6-default-initialization-of-instance-fields">6. Default initialization of instance fields</h5>
+<h5 id="6-default-initialization-of-instance-fields">6. Default initialization of instance fields<a class="headerlink" href="#6-default-initialization-of-instance-fields" title="Permanent link">&para;</a></h5>
 <p>Before constructor runs, fields get default values.</p>
 <p>Example:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-100-1"><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
@@ -7134,7 +11507,7 @@ class/method/field names are resolved internally.</p>
 <p>This is very important.</p>
 <p>So before constructor code runs, object is already created with default values.</p>
 <hr />
-<h5 id="7-constructor-executes">7. Constructor executes</h5>
+<h5 id="7-constructor-executes">7. Constructor executes<a class="headerlink" href="#7-constructor-executes" title="Permanent link">&para;</a></h5>
 <p>Now constructor runs.</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a><span class="n">Person</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-102-2"><a id="__codelineno-102-2" name="__codelineno-102-2" href="#__codelineno-102-2"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
@@ -7145,7 +11518,7 @@ class/method/field names are resolved internally.</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-103-1"><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Vishu&quot;</span>
 </span></code></pre></div>
 <hr />
-<h5 id="8-reference-is-assigned-to-variable">8. Reference is assigned to variable</h5>
+<h5 id="8-reference-is-assigned-to-variable">8. Reference is assigned to variable<a class="headerlink" href="#8-reference-is-assigned-to-variable" title="Permanent link">&para;</a></h5>
 <p>Now the object reference is stored in local variable <code>p</code> inside the current stack frame.</p>
 <p>So final result:</p>
 <ul>
@@ -7153,12 +11526,12 @@ class/method/field names are resolved internally.</p>
 <li><code>p</code> reference → stack frame of current method</li>
 </ul>
 <hr />
-<h3 id="full-flow-in-one-line">Full Flow in One Line</h3>
+<h3 id="full-flow-in-one-line">Full Flow in One Line<a class="headerlink" href="#full-flow-in-one-line" title="Permanent link">&para;</a></h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-104-1"><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>Class Load → Link → Initialize → Allocate Heap Memory → Default Values → Constructor Runs → Reference Assigned
 </span></code></pre></div>
 <hr />
-<h3 id="important-interview-trap_2">Important Interview Trap</h3>
-<h4 id="does-constructor-create-the-object">Does constructor create the object?</h4>
+<h3 id="important-interview-trap_2">Important Interview Trap<a class="headerlink" href="#important-interview-trap_2" title="Permanent link">&para;</a></h3>
+<h4 id="does-constructor-create-the-object">Does constructor create the object?<a class="headerlink" href="#does-constructor-create-the-object" title="Permanent link">&para;</a></h4>
 <p><strong>No.</strong></p>
 <p>This is a very common trap.</p>
 <p>Correct answer:</p>
@@ -7169,7 +11542,7 @@ class/method/field names are resolved internally.</p>
 <p>So constructor does <strong>not create</strong>
 the object; it <strong>initializes</strong> the already created object.</p>
 <hr />
-<h3 id="example">Example</h3>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a><span class="kd">class</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-105-2"><a id="__codelineno-105-2" name="__codelineno-105-2" href="#__codelineno-105-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 </span><span id="__span-105-3"><a id="__codelineno-105-3" name="__codelineno-105-3" href="#__codelineno-105-3"></a>
@@ -7187,20 +11560,20 @@ the object; it <strong>initializes</strong> the already created object.</p>
 <li>then sets <code>x = 10</code></li>
 </ul>
 <hr />
-<h3 id="interview-question">Interview Question</h3>
-<h4 id="why-can-constructor-use-this">Why can constructor use <code>this</code>?</h4>
+<h3 id="interview-question">Interview Question<a class="headerlink" href="#interview-question" title="Permanent link">&para;</a></h3>
+<h4 id="why-can-constructor-use-this">Why can constructor use <code>this</code>?<a class="headerlink" href="#why-can-constructor-use-this" title="Permanent link">&para;</a></h4>
 <p>Because the object is already allocated before constructor body executes.</p>
 <p>That is why <code>this</code> is available inside constructor.</p>
 <hr />
-<h3 id="another-important-trap">Another Important Trap</h3>
-<h4 id="where-does-constructor-code-live">Where does constructor code live?</h4>
+<h3 id="another-important-trap">Another Important Trap<a class="headerlink" href="#another-important-trap" title="Permanent link">&para;</a></h3>
+<h4 id="where-does-constructor-code-live">Where does constructor code live?<a class="headerlink" href="#where-does-constructor-code-live" title="Permanent link">&para;</a></h4>
 <p>Constructor code is part of the <strong>class metadata / bytecode</strong>, not inside heap object.</p>
 <ul>
 <li>constructor definition → class area / metaspace side</li>
 <li>object data → heap</li>
 </ul>
 <hr />
-<h3 id="visual-memory-view">Visual Memory View</h3>
+<h3 id="visual-memory-view">Visual Memory View<a class="headerlink" href="#visual-memory-view" title="Permanent link">&para;</a></h3>
 <p>For this code:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-106-1"><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Vishu&quot;</span><span class="p">);</span>
 </span></code></pre></div>
@@ -7226,17 +11599,17 @@ the object; it <strong>initializes</strong> the already created object.</p>
 </span><span id="__span-107-19"><a id="__codelineno-107-19" name="__codelineno-107-19" href="#__codelineno-107-19"></a>field metadata
 </span></code></pre></div>
 <hr />
-<h3 id="interview-questions-from-this-topic">Interview Questions from This Topic</h3>
-<h4 id="1-what-happens-first-constructor-call-or-memory-allocation">1. What happens first: constructor call or memory allocation?</h4>
+<h3 id="interview-questions-from-this-topic">Interview Questions from This Topic<a class="headerlink" href="#interview-questions-from-this-topic" title="Permanent link">&para;</a></h3>
+<h4 id="1-what-happens-first-constructor-call-or-memory-allocation">1. What happens first: constructor call or memory allocation?<a class="headerlink" href="#1-what-happens-first-constructor-call-or-memory-allocation" title="Permanent link">&para;</a></h4>
 <p><strong>Memory allocation happens first.</strong></p>
-<h4 id="2-are-fields-initialized-before-constructor">2. Are fields initialized before constructor?</h4>
+<h4 id="2-are-fields-initialized-before-constructor">2. Are fields initialized before constructor?<a class="headerlink" href="#2-are-fields-initialized-before-constructor" title="Permanent link">&para;</a></h4>
 <p><strong>Yes.</strong> Default values first, then constructor values.</p>
-<h4 id="3-does-new-only-call-constructor">3. Does <code>new</code> only call constructor?</h4>
+<h4 id="3-does-new-only-call-constructor">3. Does <code>new</code> only call constructor?<a class="headerlink" href="#3-does-new-only-call-constructor" title="Permanent link">&para;</a></h4>
 <p><strong>No.</strong> It also triggers object memory allocation and initialization steps.</p>
-<h4 id="4-where-is-object-header-stored">4. Where is object header stored?</h4>
+<h4 id="4-where-is-object-header-stored">4. Where is object header stored?<a class="headerlink" href="#4-where-is-object-header-stored" title="Permanent link">&para;</a></h4>
 <p><strong>Inside the object in heap memory.</strong></p>
 <hr />
-<h3 id="dry-run-example">Dry Run Example</h3>
+<h3 id="dry-run-example">Dry Run Example<a class="headerlink" href="#dry-run-example" title="Permanent link">&para;</a></h3>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-108-1"><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a><span class="kd">class</span> <span class="nc">Person</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-108-2"><a id="__codelineno-108-2" name="__codelineno-108-2" href="#__codelineno-108-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
 </span><span id="__span-108-3"><a id="__codelineno-108-3" name="__codelineno-108-3" href="#__codelineno-108-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
@@ -7249,47 +11622,47 @@ the object; it <strong>initializes</strong> the already created object.</p>
 </span></code></pre></div>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-109-1"><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Person</span><span class="p">(</span><span class="s">&quot;Vishu&quot;</span><span class="p">);</span>
 </span></code></pre></div>
-<h5 id="step-by-step">Step by step:</h5>
-<h6 id="step-1">Step 1</h6>
+<h5 id="step-by-step">Step by step:<a class="headerlink" href="#step-by-step" title="Permanent link">&para;</a></h5>
+<h6 id="step-1">Step 1<a class="headerlink" href="#step-1" title="Permanent link">&para;</a></h6>
 <p><code>Person.class</code> loaded if not already loaded.</p>
-<h6 id="step-2">Step 2</h6>
+<h6 id="step-2">Step 2<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h6>
 <p>Heap memory allocated for <code>Person</code> object.</p>
-<h6 id="step-3">Step 3</h6>
+<h6 id="step-3">Step 3<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h6>
 <p>Default values assigned:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-110-1"><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </span><span id="__span-110-2"><a id="__codelineno-110-2" name="__codelineno-110-2" href="#__codelineno-110-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
 </span></code></pre></div>
-<h6 id="step-4">Step 4</h6>
+<h6 id="step-4">Step 4<a class="headerlink" href="#step-4" title="Permanent link">&para;</a></h6>
 <p>Constructor runs:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-111-1"><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Vishu&quot;</span>
 </span><span id="__span-111-2"><a id="__codelineno-111-2" name="__codelineno-111-2" href="#__codelineno-111-2"></a><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span>
 </span></code></pre></div>
-<h6 id="step-5">Step 5</h6>
+<h6 id="step-5">Step 5<a class="headerlink" href="#step-5" title="Permanent link">&para;</a></h6>
 <p>Reference stored in <code>p</code>.</p>
 <p>Final object:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-112-1"><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span>
 </span><span id="__span-112-2"><a id="__codelineno-112-2" name="__codelineno-112-2" href="#__codelineno-112-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Vishu&quot;</span>
 </span></code></pre></div>
 <hr />
-<h3 id="common-interview-traps">Common Interview Traps</h3>
-<h4 id="trap-1">Trap 1</h4>
+<h3 id="common-interview-traps">Common Interview Traps<a class="headerlink" href="#common-interview-traps" title="Permanent link">&para;</a></h3>
+<h4 id="trap-1">Trap 1<a class="headerlink" href="#trap-1" title="Permanent link">&para;</a></h4>
 <p><strong>Object is created in stack.</strong>
 ❌ Wrong</p>
 <p>Object is created in <strong>heap</strong>.</p>
-<h4 id="trap-2">Trap 2</h4>
+<h4 id="trap-2">Trap 2<a class="headerlink" href="#trap-2" title="Permanent link">&para;</a></h4>
 <p><strong>Constructor creates object.</strong>
 ❌ Wrong</p>
 <p>Constructor only initializes object.</p>
-<h4 id="trap-3">Trap 3</h4>
+<h4 id="trap-3">Trap 3<a class="headerlink" href="#trap-3" title="Permanent link">&para;</a></h4>
 <p><strong>Fields directly get assigned constructor values first.</strong>
 ❌ Wrong</p>
 <p>Default initialization happens first.</p>
-<h4 id="trap-4">Trap 4</h4>
+<h4 id="trap-4">Trap 4<a class="headerlink" href="#trap-4" title="Permanent link">&para;</a></h4>
 <p><strong>Reference variable stores full object.</strong>
 ❌ Wrong</p>
 <p>Reference variable stores only address/reference.</p>
 <hr />
-<h3 id="mini-interview-quiz">Mini Interview Quiz</h3>
+<h3 id="mini-interview-quiz">Mini Interview Quiz<a class="headerlink" href="#mini-interview-quiz" title="Permanent link">&para;</a></h3>
 <p>Answer these:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-113-1"><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a><span class="kd">class</span> <span class="nc">Demo</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-113-2"><a id="__codelineno-113-2" name="__codelineno-113-2" href="#__codelineno-113-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
@@ -7302,15 +11675,15 @@ the object; it <strong>initializes</strong> the already created object.</p>
 </span></code></pre></div>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-114-1"><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a><span class="n">Demo</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Demo</span><span class="p">();</span>
 </span></code></pre></div>
-<h5 id="tell-me">Tell me:</h5>
+<h5 id="tell-me">Tell me:<a class="headerlink" href="#tell-me" title="Permanent link">&para;</a></h5>
 <ol>
 <li>Where is <code>x</code> stored?</li>
 <li>Where is <code>y</code> stored?</li>
 <li>What value is printed, and why?</li>
 <li>Does constructor create the object or initialize it?</li>
 </ol>
-<h3 id="1-where-is-x-stored">1️⃣ Where is <code>x</code> stored?</h3>
-<h5 id="answer">Answer:</h5>
+<h3 id="1-where-is-x-stored">1️⃣ Where is <code>x</code> stored?<a class="headerlink" href="#1-where-is-x-stored" title="Permanent link">&para;</a></h3>
+<h5 id="answer">Answer:<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>x is stored inside object which is stored in heap memory</p>
 </blockquote>
@@ -7323,8 +11696,8 @@ the object; it <strong>initializes</strong> the already created object.</p>
 </span></code></pre></div>
 <p>Instance variables always live <strong>inside the object</strong>.</p>
 <hr />
-<h3 id="2-where-is-y-stored">2️⃣ Where is <code>y</code> stored?</h3>
-<h5 id="answer_1">Answer:</h5>
+<h3 id="2-where-is-y-stored">2️⃣ Where is <code>y</code> stored?<a class="headerlink" href="#2-where-is-y-stored" title="Permanent link">&para;</a></h3>
+<h5 id="answer_1">Answer:<a class="headerlink" href="#answer_1" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>y is stored in class metadata</p>
 </blockquote>
@@ -7340,8 +11713,8 @@ the object; it <strong>initializes</strong> the already created object.</p>
 </span><span id="__span-117-4"><a id="__codelineno-117-4" name="__codelineno-117-4" href="#__codelineno-117-4"></a>   static int y
 </span></code></pre></div>
 <hr />
-<h3 id="3-what-value-prints">3️⃣ What value prints?</h3>
-<h5 id="answer_2">Answer:</h5>
+<h3 id="3-what-value-prints">3️⃣ What value prints?<a class="headerlink" href="#3-what-value-prints" title="Permanent link">&para;</a></h3>
+<h5 id="answer_2">Answer:<a class="headerlink" href="#answer_2" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>0 because default initialised before constructor call</p>
 </blockquote>
@@ -7358,8 +11731,8 @@ the object; it <strong>initializes</strong> the already created object.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-120-1"><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a>0
 </span></code></pre></div>
 <hr />
-<h3 id="4-does-constructor-create-object">4️⃣ Does constructor create object?</h3>
-<h5 id="answer_3">Answer:</h5>
+<h3 id="4-does-constructor-create-object">4️⃣ Does constructor create object?<a class="headerlink" href="#4-does-constructor-create-object" title="Permanent link">&para;</a></h3>
+<h5 id="answer_3">Answer:<a class="headerlink" href="#answer_3" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>Constructor initialize the object, does not create it</p>
 </blockquote>
@@ -7369,7 +11742,7 @@ the object; it <strong>initializes</strong> the already created object.</p>
 </span><span id="__span-121-2"><a id="__codelineno-121-2" name="__codelineno-121-2" href="#__codelineno-121-2"></a>Constructor = object initialization
 </span></code></pre></div>
 <hr />
-<h3 id="excellent-progress">Excellent Progress 👍</h3>
+<h3 id="excellent-progress">Excellent Progress 👍<a class="headerlink" href="#excellent-progress" title="Permanent link">&para;</a></h3>
 <p>You are now covering <strong>real JVM interview topics</strong>, not just syntax.</p>
 <p>Now we move to the <strong>next big JVM subsystem</strong>.</p>
 <hr />
@@ -7390,16 +11763,68 @@ the object; it <strong>initializes</strong> the already created object.</p>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
         
       </main>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../memory-structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Memory Structure">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Memory Structure
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../classloader-and-class-lifecycle/" class="md-footer__link md-footer__link--next" aria-label="Next: ClassLoader and Class Lifecycle">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ClassLoader and Class Lifecycle
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Vishwambhar Patil
+    </div>
   
   
     Made with
@@ -7422,7 +11847,7 @@ the object; it <strong>initializes</strong> the already created object.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.top", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
