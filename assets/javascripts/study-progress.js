@@ -1,6 +1,14 @@
 (function () {
   const STORAGE_PREFIX = "study-progress:";
   const PAGE_COMPLETE_PREFIX = "study-page-complete:";
+  const PRACTICE_CONFIDENCE_PREFIX = "interview-practice-confidence:";
+  const PRACTICE_LAST_QUESTION_KEY = "interview-practice:last-question";
+  const BACKUP_PREFIXES = [
+    STORAGE_PREFIX,
+    PAGE_COMPLETE_PREFIX,
+    PRACTICE_CONFIDENCE_PREFIX,
+  ];
+  const BACKUP_KEYS = [PRACTICE_LAST_QUESTION_KEY];
   const CONTENT_ROOTS = [
     "/java/",
     "/spring/",
@@ -424,6 +432,133 @@
     return /\/study-tracker\/(?:index\.html)?$/.test(window.location.pathname);
   }
 
+  function isBackupKey(key) {
+    return BACKUP_KEYS.includes(key) || BACKUP_PREFIXES.some((prefix) => key.startsWith(prefix));
+  }
+
+  function collectProgressBackup() {
+    const items = {};
+    for (let index = 0; index < window.localStorage.length; index += 1) {
+      const key = window.localStorage.key(index);
+      if (key && isBackupKey(key)) {
+        items[key] = window.localStorage.getItem(key);
+      }
+    }
+
+    return {
+      app: "vishwambhar-java-notes",
+      type: "study-progress-backup",
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      itemCount: Object.keys(items).length,
+      items,
+    };
+  }
+
+  function backupFileName() {
+    const date = new Date().toISOString().slice(0, 10);
+    return `java-notes-progress-${date}.json`;
+  }
+
+  function downloadProgressBackup() {
+    const backup = collectProgressBackup();
+    const blob = new Blob([JSON.stringify(backup, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = backupFileName();
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    return backup.itemCount;
+  }
+
+  function validBackupItems(data) {
+    if (!data || typeof data !== "object" || !data.items || typeof data.items !== "object") {
+      throw new Error("Invalid backup file.");
+    }
+
+    return Object.entries(data.items).filter(([key, value]) => {
+      return typeof key === "string" && isBackupKey(key) && typeof value === "string";
+    });
+  }
+
+  function restoreProgressBackup(data) {
+    const items = validBackupItems(data);
+    items.forEach(([key, value]) => {
+      window.localStorage.setItem(key, value);
+    });
+    return items.length;
+  }
+
+  function setBackupMessage(panel, message, tone) {
+    const output = panel.querySelector(".study-backup-panel__message");
+    output.textContent = message;
+    output.className = `study-backup-panel__message ${tone ? `is-${tone}` : ""}`;
+  }
+
+  function renderBackupPanel() {
+    if (!isTrackerOverview()) {
+      return;
+    }
+
+    const article = document.querySelector(".md-content__inner");
+    const firstHeading = article?.querySelector("h1");
+    if (!article || !firstHeading) {
+      return;
+    }
+
+    let panel = article.querySelector(".study-backup-panel");
+    if (!panel) {
+      panel = document.createElement("section");
+      panel.className = "study-backup-panel";
+      firstHeading.insertAdjacentElement("afterend", panel);
+    }
+
+    panel.innerHTML = `
+      <div>
+        <strong>Progress Backup</strong>
+        <p>Export your study tracker and interview practice progress, or import it on another browser.</p>
+      </div>
+      <div class="study-backup-panel__actions">
+        <button type="button" data-backup-action="export">Export Progress</button>
+        <label>
+          Import Progress
+          <input type="file" accept="application/json,.json" data-backup-action="import" />
+        </label>
+      </div>
+      <p class="study-backup-panel__message" aria-live="polite"></p>
+    `;
+
+    panel.querySelector("[data-backup-action='export']").addEventListener("click", () => {
+      const count = downloadProgressBackup();
+      setBackupMessage(panel, `Exported ${count} progress items.`, "success");
+    });
+
+    panel.querySelector("[data-backup-action='import']").addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) {
+        return;
+      }
+
+      try {
+        const text = await file.text();
+        const data = JSON.parse(text);
+        const count = restoreProgressBackup(data);
+        setBackupMessage(panel, `Imported ${count} progress items. Refreshing view...`, "success");
+        enableCheckboxes();
+        renderTrackerDashboard();
+      } catch (error) {
+        setBackupMessage(panel, "Import failed. Please select a valid progress backup JSON file.", "error");
+      } finally {
+        event.target.value = "";
+      }
+    });
+  }
+
   async function renderTrackerDashboard() {
     if (!isTrackerOverview()) {
       return;
@@ -489,6 +624,7 @@
     enableCheckboxes();
     upsertPageCompleteButton();
     updateNavigationPageStatus();
+    renderBackupPanel();
     renderTrackerDashboard();
   }
 
