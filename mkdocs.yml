@@ -72,6 +72,7 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
+    - toc.integrate
 
 nav:
   - Home: index.md
@@ -85,6 +86,7 @@ nav:
       - Strongest Technical Skill: interview-preparation/strongest-technical-skill.md
       - Project Challenges: interview-preparation/project-challenges.md
       - Why Should We Hire You: interview-preparation/why-should-we-hire-you.md
+      - Deloitte Interview Questions: interview-preparation/deloitte-interview-questions.md
 
   - Behavioral Interview:
       - Overview: behavioral-interview/index.md

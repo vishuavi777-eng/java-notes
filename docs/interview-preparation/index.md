@@ -19,6 +19,7 @@ This section is for interview speaking practice. The answers use simple English 
 6. [What is your strongest technical skill?](strongest-technical-skill.md)
 7. [What challenges did you face in your project?](project-challenges.md)
 8. [Why should we hire you?](why-should-we-hire-you.md)
+9. [Deloitte interview questions and answers](deloitte-interview-questions.md)
 
 ## Candidate Summary
 
